@@ -1,0 +1,17 @@
+import sys
+from PySide2 import QtWidgets, QtCore, QtGui
+from PySide2.QtWidgets import *
+from controllers.mainwindow import MainWindow
+
+# print(sys.path)
+if __name__ == "__main__":
+    app = QtWidgets.QApplication.instance()
+    if not app:
+        app = QApplication(sys.argv)
+    QtGui.QFontDatabase.addApplicationFont('fonts/segoeui.ttf')
+    QtGui.QFontDatabase.addApplicationFont('fonts/segoeuib.ttf')
+    window = MainWindow()
+    window.show()
+    window.activateWindow()
+    window.raise_()
+    sys.exit(app.exec_())
