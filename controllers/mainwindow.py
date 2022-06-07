@@ -224,7 +224,7 @@ class MainWindow(QMainWindow):
         if status == 0:
             self.showMaximized()
             GLOBAL_STATE = 1
-            self.ui.horizontalLayout.setContentsMargins(0, 0, 0, 0)
+            self.ui.central_widget_layout.setContentsMargins(0, 0, 0, 0)
             self.ui.btn_maximize_restore.setToolTip("Restore")
             self.ui.btn_maximize_restore.setIcon(QtGui.QIcon(u":/16x16/icons/16x16/cil-window-restore.png"))
             self.ui.frame_top_btns.setStyleSheet("background-color: rgb(27, 29, 35)")
@@ -233,7 +233,7 @@ class MainWindow(QMainWindow):
             GLOBAL_STATE = 0
             self.showNormal()
             self.resize(self.width()+1, self.height()+1)
-            self.ui.horizontalLayout.setContentsMargins(10, 10, 10, 10)
+            self.ui.central_widget_layout.setContentsMargins(10, 10, 10, 10)
             self.ui.btn_maximize_restore.setToolTip("Maximize")
             self.ui.btn_maximize_restore.setIcon(QtGui.QIcon(u":/16x16/icons/16x16/cil-window-maximize.png"))
             self.ui.frame_top_btns.setStyleSheet("background-color: rgba(27, 29, 35, 200)")
@@ -384,7 +384,7 @@ class MainWindow(QMainWindow):
             self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
             self.ui.frame_label_top_btns.mouseDoubleClickEvent = dobleClickMaximizeRestore
         else:
-            self.ui.horizontalLayout.setContentsMargins(0, 0, 0, 0)
+            self.ui.central_widget_layout.setContentsMargins(0, 0, 0, 0)
             self.ui.frame_label_top_btns.setContentsMargins(8, 0, 0, 5)
             self.ui.frame_label_top_btns.setMinimumHeight(42)
             self.ui.frame_icon_top_bar.hide()

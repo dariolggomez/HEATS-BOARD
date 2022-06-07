@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUI_BASEFhqEtA.ui'
+## Form generated from reading UI file 'GUI_BASERPxqVa.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -18,7 +18,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(750, 550)
+        MainWindow.resize(750, 551)
         MainWindow.setMinimumSize(QSize(750, 550))
         palette = QPalette()
         brush = QBrush(QColor(255, 255, 255, 255))
@@ -130,10 +130,10 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName(u"centralwidget")
         self.centralwidget.setStyleSheet(u"background: transparent;\n"
 "color: rgb(210, 210, 210);")
-        self.verticalLayout_13 = QVBoxLayout(self.centralwidget)
-        self.verticalLayout_13.setSpacing(0)
-        self.verticalLayout_13.setObjectName(u"verticalLayout_13")
-        self.verticalLayout_13.setContentsMargins(10, 10, 10, 10)
+        self.central_widget_layout = QVBoxLayout(self.centralwidget)
+        self.central_widget_layout.setSpacing(0)
+        self.central_widget_layout.setObjectName(u"central_widget_layout")
+        self.central_widget_layout.setContentsMargins(10, 10, 10, 10)
         self.frame_main = QFrame(self.centralwidget)
         self.frame_main.setObjectName(u"frame_main")
         self.frame_main.setStyleSheet(u"/* LINE EDIT */\n"
@@ -690,58 +690,6 @@ class Ui_MainWindow(object):
         self.stackedWidget.setStyleSheet(u"background: transparent;\n"
 "/*background-color: rgb(255, 255, 255);*/\n"
 "color: rgb(85, 170, 255);")
-        self.page_users = QWidget()
-        self.page_users.setObjectName(u"page_users")
-        self.verticalLayout_16 = QVBoxLayout(self.page_users)
-        self.verticalLayout_16.setObjectName(u"verticalLayout_16")
-        self.content = QFrame(self.page_users)
-        self.content.setObjectName(u"content")
-        self.content.setFrameShape(QFrame.StyledPanel)
-        self.content.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_12 = QVBoxLayout(self.content)
-        self.verticalLayout_12.setObjectName(u"verticalLayout_12")
-        self.frame_9 = QFrame(self.content)
-        self.frame_9.setObjectName(u"frame_9")
-        self.frame_9.setFrameShape(QFrame.StyledPanel)
-        self.frame_9.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_14 = QVBoxLayout(self.frame_9)
-        self.verticalLayout_14.setObjectName(u"verticalLayout_14")
-        self.tableView = QTableView(self.frame_9)
-        self.tableView.setObjectName(u"tableView")
-
-        self.verticalLayout_14.addWidget(self.tableView)
-
-
-        self.verticalLayout_12.addWidget(self.frame_9)
-
-        self.frame_10 = QFrame(self.content)
-        self.frame_10.setObjectName(u"frame_10")
-        self.frame_10.setFrameShape(QFrame.StyledPanel)
-        self.frame_10.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout = QHBoxLayout(self.frame_10)
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.pushButton_4 = QPushButton(self.frame_10)
-        self.pushButton_4.setObjectName(u"pushButton_4")
-
-        self.horizontalLayout.addWidget(self.pushButton_4)
-
-        self.pushButton_2 = QPushButton(self.frame_10)
-        self.pushButton_2.setObjectName(u"pushButton_2")
-
-        self.horizontalLayout.addWidget(self.pushButton_2)
-
-        self.pushButton_3 = QPushButton(self.frame_10)
-        self.pushButton_3.setObjectName(u"pushButton_3")
-
-        self.horizontalLayout.addWidget(self.pushButton_3)
-
-
-        self.verticalLayout_12.addWidget(self.frame_10)
-
-
-        self.verticalLayout_16.addWidget(self.content)
-
-        self.stackedWidget.addWidget(self.page_users)
         self.page_home = QWidget()
         self.page_home.setObjectName(u"page_home")
         self.verticalLayout_10 = QVBoxLayout(self.page_home)
@@ -824,6 +772,58 @@ class Ui_MainWindow(object):
         self.verticalLayout_10.addWidget(self.frame_4)
 
         self.stackedWidget.addWidget(self.page_home)
+        self.page_users = QWidget()
+        self.page_users.setObjectName(u"page_users")
+        self.verticalLayout_16 = QVBoxLayout(self.page_users)
+        self.verticalLayout_16.setObjectName(u"verticalLayout_16")
+        self.content = QFrame(self.page_users)
+        self.content.setObjectName(u"content")
+        self.content.setFrameShape(QFrame.StyledPanel)
+        self.content.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_12 = QVBoxLayout(self.content)
+        self.verticalLayout_12.setObjectName(u"verticalLayout_12")
+        self.frame_9 = QFrame(self.content)
+        self.frame_9.setObjectName(u"frame_9")
+        self.frame_9.setFrameShape(QFrame.StyledPanel)
+        self.frame_9.setFrameShadow(QFrame.Raised)
+        self.content_user_layout = QVBoxLayout(self.frame_9)
+        self.content_user_layout.setObjectName(u"content_user_layout")
+        self.tableView = QTableView(self.frame_9)
+        self.tableView.setObjectName(u"tableView")
+
+        self.content_user_layout.addWidget(self.tableView)
+
+
+        self.verticalLayout_12.addWidget(self.frame_9)
+
+        self.frame_10 = QFrame(self.content)
+        self.frame_10.setObjectName(u"frame_10")
+        self.frame_10.setFrameShape(QFrame.StyledPanel)
+        self.frame_10.setFrameShadow(QFrame.Raised)
+        self.bottom_users_Layout = QHBoxLayout(self.frame_10)
+        self.bottom_users_Layout.setObjectName(u"bottom_users_Layout")
+        self.pushButton_4 = QPushButton(self.frame_10)
+        self.pushButton_4.setObjectName(u"pushButton_4")
+
+        self.bottom_users_Layout.addWidget(self.pushButton_4)
+
+        self.pushButton_2 = QPushButton(self.frame_10)
+        self.pushButton_2.setObjectName(u"pushButton_2")
+
+        self.bottom_users_Layout.addWidget(self.pushButton_2)
+
+        self.pushButton_3 = QPushButton(self.frame_10)
+        self.pushButton_3.setObjectName(u"pushButton_3")
+
+        self.bottom_users_Layout.addWidget(self.pushButton_3)
+
+
+        self.verticalLayout_12.addWidget(self.frame_10)
+
+
+        self.verticalLayout_16.addWidget(self.content)
+
+        self.stackedWidget.addWidget(self.page_users)
         self.page_widgets = QWidget()
         self.page_widgets.setObjectName(u"page_widgets")
         self.verticalLayout_6 = QVBoxLayout(self.page_widgets)
@@ -1367,7 +1367,7 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.frame_center)
 
 
-        self.verticalLayout_13.addWidget(self.frame_main)
+        self.central_widget_layout.addWidget(self.frame_main)
 
         MainWindow.setCentralWidget(self.centralwidget)
         QWidget.setTabOrder(self.btn_minimize, self.btn_maximize_restore)
