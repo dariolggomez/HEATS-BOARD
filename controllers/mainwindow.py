@@ -189,11 +189,11 @@ class MainWindow(QMainWindow):
             self.labelPage("Home")
             btnWidget.setStyleSheet(self.selectMenu(btnWidget.styleSheet()))
 
-        # PAGE NEW USER
+        # PAGE USER
         if btnWidget.objectName() == "btn_new_user":
-            self.ui.stackedWidget.setCurrentWidget(self.ui.page_home)
+            self.ui.stackedWidget.setCurrentWidget(self.ui.page_users)
             self.resetStyle("btn_new_user")
-            self.labelPage("New User")
+            self.labelPage("Users")
             btnWidget.setStyleSheet(self.selectMenu(btnWidget.styleSheet()))
 
         # PAGE SETTINGS
