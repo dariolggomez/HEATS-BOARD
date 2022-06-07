@@ -1567,6 +1567,18 @@ color: rgb(85, 170, 255);</string>
                   </property>
                   <widget class="QWidget" name="page_home">
                    <layout class="QVBoxLayout" name="verticalLayout_10">
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
                     <item>
                      <widget class="QFrame" name="frame_4">
                       <property name="frameShape">
@@ -1663,6 +1675,18 @@ border-radius: 5px 5px</string>
                   </widget>
                   <widget class="QWidget" name="page_users">
                    <layout class="QVBoxLayout" name="verticalLayout_16">
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
                     <item>
                      <widget class="QFrame" name="content">
                       <property name="styleSheet">
@@ -2168,7 +2192,7 @@ border-radius: 5px;</string>
                             </property>
                             <property name="sizeHint" stdset="0">
                              <size>
-                              <width>333</width>
+                              <width>351</width>
                               <height>20</height>
                              </size>
                             </property>

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUI_BASEsltCCM.ui'
+## Form generated from reading UI file 'GUI_BASEjlQvyC.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -694,6 +694,7 @@ class Ui_MainWindow(object):
         self.page_home.setObjectName(u"page_home")
         self.verticalLayout_10 = QVBoxLayout(self.page_home)
         self.verticalLayout_10.setObjectName(u"verticalLayout_10")
+        self.verticalLayout_10.setContentsMargins(0, 0, 0, 0)
         self.frame_4 = QFrame(self.page_home)
         self.frame_4.setObjectName(u"frame_4")
         self.frame_4.setFrameShape(QFrame.StyledPanel)
@@ -776,6 +777,7 @@ class Ui_MainWindow(object):
         self.page_users.setObjectName(u"page_users")
         self.verticalLayout_16 = QVBoxLayout(self.page_users)
         self.verticalLayout_16.setObjectName(u"verticalLayout_16")
+        self.verticalLayout_16.setContentsMargins(0, 0, 0, 0)
         self.content = QFrame(self.page_users)
         self.content.setObjectName(u"content")
         self.content.setStyleSheet(u"")
@@ -977,7 +979,7 @@ class Ui_MainWindow(object):
         self.frame_10.setFrameShadow(QFrame.Raised)
         self.horizontalLayout = QHBoxLayout(self.frame_10)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.horizontalSpacer = QSpacerItem(333, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer = QSpacerItem(351, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.horizontalLayout.addItem(self.horizontalSpacer)
 
