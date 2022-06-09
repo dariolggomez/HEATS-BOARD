@@ -10,5 +10,9 @@ class User(Base):
     email = Column(String(80), unique = True, nullable = False)
     date_created = Column(DateTime(),default = datetime.now)
 
+    def __init__(self, username, email):
+        self.username = username
+        self.email = email
+
     def __repr__(self) -> str:
         return f"<User username = {self.username}, email = {self.email}>"

@@ -7,7 +7,7 @@ local_session = Session(bind = engine)
 
 class User_Service():
     def create_user(self, name_p, email_p):
-        local_session.add(User(username = name_p, email = email_p))
+        local_session.add(User(name_p, email_p))
         local_session.commit()
 
     def read_all(self):
@@ -28,7 +28,8 @@ class User_Service():
         local_session.delete(user)
         local_session.commit()
 
-# User_Service.create_user("New User3", "newuser3@mail.com")
+# if __name__ == "__main__":
+#     User_Service.create_user("New UserTest", "newusertest3@mail.com")
 
 # users = User_Service.read_all()
 

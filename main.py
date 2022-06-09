@@ -2,6 +2,7 @@ import sys
 from PySide2 import QtWidgets, QtCore, QtGui
 from PySide2.QtWidgets import *
 from controllers.mainwindow import MainWindow
+from services.user_service import User_Service
 
 # print(sys.path)
 if __name__ == "__main__":
@@ -11,6 +12,7 @@ if __name__ == "__main__":
     QtGui.QFontDatabase.addApplicationFont('fonts/segoeui.ttf')
     QtGui.QFontDatabase.addApplicationFont('fonts/segoeuib.ttf')
     window = MainWindow()
+    User_Service.create_user("New UserTest", "newusertest3@mail.com")
     window.show()
     window.activateWindow()
     window.raise_()
