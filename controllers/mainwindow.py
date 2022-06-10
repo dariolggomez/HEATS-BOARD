@@ -11,6 +11,8 @@ from matplotlib.backends.backend_qtagg import (
     FigureCanvas, NavigationToolbar2QT as NavigationToolbar)
 from matplotlib.figure import Figure
 import matplotlib.pyplot as plt
+from sqlalchemy import true
+import services.user_service as user_service
 
 # GUI FILE
 from visuals.ui_main import Ui_MainWindow
@@ -64,10 +66,12 @@ class MainWindow(QMainWindow):
         ## ==> END ##
 
         
-
+        
         ## USER ICON ==> SHOW HIDE
         self.userIcon("AL", "", True)
         ## ==> END ##
+
+        # self.loadUserTable()
 
 
         ## ==> MOVE WINDOW / MAXIMIZE / RESTORE
@@ -98,6 +102,12 @@ class MainWindow(QMainWindow):
         ## ==> END ##
 
 
+        #####
+        ## CONNECTIONS
+        #####
+
+        self.ui.eliminateBtn.clicked.connect(lambda: self.eliminateCurrentRow())
+        self.ui.userTableWidget.itemSelectionChanged.connect(self.enableEliminateBtn)
 
         ########################################################################
         #                                                                      #
@@ -106,6 +116,10 @@ class MainWindow(QMainWindow):
         ############################## ---/--/--- ##############################
         
         
+
+
+
+
         # Static Chart
         # layout = QtWidgets.QGridLayout(self.ui.page_home)
         static_canvas = FigureCanvas(Figure(figsize=(5, 3)))
@@ -169,6 +183,10 @@ class MainWindow(QMainWindow):
         static_canvas_lines.figure.tight_layout()
         self.lines_ax.plot()
 
+        ## ==> START PAGE
+        self.ui.stackedWidget.setCurrentWidget(self.ui.page_home)
+        ## ==> END ##
+
         ## SHOW ==> MAIN WINDOW
         ########################################################################
         # self.show()
@@ -192,6 +210,7 @@ class MainWindow(QMainWindow):
         # PAGE USER
         if btnWidget.objectName() == "btn_new_user":
             self.ui.stackedWidget.setCurrentWidget(self.ui.page_users)
+            self.loadUserTable()
             self.resetStyle("btn_new_user")
             self.labelPage("Users")
             btnWidget.setStyleSheet(self.selectMenu(btnWidget.styleSheet()))
@@ -211,10 +230,34 @@ class MainWindow(QMainWindow):
         self._line.set_data(t, np.sin(t + time.time()))
         self._line.figure.canvas.draw()
 
-        ## ==> START PAGE
-        # self.ui.stackedWidget.setCurrentWidget(self.ui.page_home)
-        ## ==> END ##
+    def eliminateCurrentRow(self):
+        item = self.ui.userTableWidget.currentItem()
+        user = item.data(Qt.UserRole+1)
+        user_service.delete_user(user)
+        self.loadUserTable()
+        self.ui.eliminateBtn.setEnabled(False)
+
+    def enableEliminateBtn(self):
+        self.ui.eliminateBtn.setEnabled(True)
+
+    def loadUserTable(self):
+        # self.ui.userTableWidget.resizeRowsToContents()
+        rows = []
+        for user in user_service.read_all():
+            rows.append((user.id, user.username, user.email, user.date_created.date()))
+        self.ui.userTableWidget.setColumnCount(4)
+        self.ui.userTableWidget.setHorizontalHeaderLabels(("ID", "Username", "Email", "Date Created"))
+        self.ui.userTableWidget.horizontalHeader().setVisible(True)
+        self.ui.userTableWidget.setRowCount(len(rows))
+        for row, cols in enumerate(rows):
+            for col, text in enumerate(cols):
+                table_item = QTableWidgetItem(str(text))
+                table_item.setData(QtCore.Qt.UserRole+1, user_service.read_byID(rows[row][0]))
+                self.ui.userTableWidget.setItem(row, col, table_item)
         
+        
+
+
     def mousePressEvent(self, event):
         self.dragPos = event.globalPos()
 
@@ -364,7 +407,6 @@ class MainWindow(QMainWindow):
     ########################################################################
     ## END - GUI FUNCTIONS
     ########################################################################
-
 
     ########################################################################
     ## START - GUI DEFINITIONS
