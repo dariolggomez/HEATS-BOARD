@@ -1,19 +1,34 @@
 import email
+from unittest import result
+from urllib import request
 from PySide2.QtWidgets import QDialog
-from visuals.ui_formUser import Ui_Form
+from visuals.ui_formUser import Ui_Dialog
 import services.user_service as user_service
-
+from validator import validate
 
 class FormUser(QDialog):
     def __init__(self):
         super().__init__()
-        self.ui = Ui_Form()
+        self.ui = Ui_Dialog()
         self.ui.setupUi(self)
-        self.ui.acceptBtn.clicked.connect(self.createUser())
-        self.ui.cancelBtn.clicked.connect(self.close())
+        self.setModal(True)
+        self.ui.acceptBtn.clicked.connect(self.createUser)
+        self.ui.cancelBtn.clicked.connect(lambda: self.close())
 
     def createUser(self):
         username = self.ui.usernameLineEdit.text()
         email = self.ui.emailLineEdit.text()
-        user_service.create_user(username, email)
 
+        request = {"username": username,
+                   "email": email}
+
+        rules = {"username": "required|min:3",
+                "email": "required|mail"}
+
+        result, _, errors  = validate(request, rules, return_info=True)
+        if(result and not user_service.checkUsernameExist(username) and not user_service.checkEmailExist(email)):
+            user_service.create_user(username, email)
+            self.close()
+        else:
+            print(str(errors))
+        

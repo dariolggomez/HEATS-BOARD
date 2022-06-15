@@ -7,8 +7,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>750</width>
-    <height>551</height>
+    <width>933</width>
+    <height>679</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -1711,9 +1711,15 @@ border-radius: 5px;</string>
                          <property name="frameShadow">
                           <enum>QFrame::Raised</enum>
                          </property>
-                         <layout class="QVBoxLayout" name="verticalLayout_13">
+                         <layout class="QVBoxLayout" name="verticalLayout_13" stretch="5,0">
                           <item>
                            <widget class="QLabel" name="labelHeaderUser">
+                            <property name="maximumSize">
+                             <size>
+                              <width>16777215</width>
+                              <height>25</height>
+                             </size>
+                            </property>
                             <property name="font">
                              <font>
                               <family>Segoe UI</family>
@@ -1744,7 +1750,7 @@ border-radius: 5px;</string>
                             <property name="maximumSize">
                              <size>
                               <width>99999</width>
-                              <height>200</height>
+                              <height>1000</height>
                              </size>
                             </property>
                             <property name="palette">
@@ -2081,22 +2087,6 @@ QHeaderView::section:vertical
                              <bool>false</bool>
                             </attribute>
                            </widget>
-                          </item>
-                          <item>
-                           <spacer name="verticalSpacer">
-                            <property name="orientation">
-                             <enum>Qt::Vertical</enum>
-                            </property>
-                            <property name="sizeType">
-                             <enum>QSizePolicy::Expanding</enum>
-                            </property>
-                            <property name="sizeHint" stdset="0">
-                             <size>
-                              <width>20</width>
-                              <height>193</height>
-                             </size>
-                            </property>
-                           </spacer>
                           </item>
                          </layout>
                         </widget>
@@ -2547,8 +2537,8 @@ QScrollBar:horizontal {
                              <rect>
                               <x>0</x>
                               <y>0</y>
-                              <width>218</width>
-                              <height>218</height>
+                              <width>222</width>
+                              <height>222</height>
                              </rect>
                             </property>
                             <layout class="QHBoxLayout" name="horizontalLayout_11">

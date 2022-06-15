@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUI_BASEEssmeR.ui'
+## Form generated from reading UI file 'GUI_BASEFHjwZY.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -18,7 +18,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(750, 551)
+        MainWindow.resize(933, 679)
         MainWindow.setMinimumSize(QSize(750, 550))
         palette = QPalette()
         brush = QBrush(QColor(255, 255, 255, 255))
@@ -795,6 +795,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_13.setObjectName(u"verticalLayout_13")
         self.labelHeaderUser = QLabel(self.frame_9)
         self.labelHeaderUser.setObjectName(u"labelHeaderUser")
+        self.labelHeaderUser.setMaximumSize(QSize(16777215, 25))
         self.labelHeaderUser.setFont(font1)
         self.labelHeaderUser.setStyleSheet(u"")
 
@@ -805,7 +806,7 @@ class Ui_MainWindow(object):
         self.userTableWidget.setEnabled(True)
         sizePolicy3.setHeightForWidth(self.userTableWidget.sizePolicy().hasHeightForWidth())
         self.userTableWidget.setSizePolicy(sizePolicy3)
-        self.userTableWidget.setMaximumSize(QSize(99999, 200))
+        self.userTableWidget.setMaximumSize(QSize(99999, 1000))
         palette1 = QPalette()
         palette1.setBrush(QPalette.Active, QPalette.WindowText, brush8)
         brush15 = QBrush(QColor(39, 44, 54, 255))
@@ -927,10 +928,7 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_13.addWidget(self.userTableWidget)
 
-        self.verticalSpacer = QSpacerItem(20, 193, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.verticalLayout_13.addItem(self.verticalSpacer)
-
+        self.verticalLayout_13.setStretch(0, 5)
 
         self.verticalLayout_12.addWidget(self.frame_9)
 
@@ -1199,7 +1197,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 218, 218))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 222, 222))
         self.horizontalLayout_11 = QHBoxLayout(self.scrollAreaWidgetContents)
         self.horizontalLayout_11.setObjectName(u"horizontalLayout_11")
         self.plainTextEdit = QPlainTextEdit(self.scrollAreaWidgetContents)

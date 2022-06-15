@@ -2,6 +2,7 @@ import email
 from threading import local
 from models.user_model import User
 from .engine import Session, engine
+from sqlalchemy import exists
 
 local_session = Session(bind = engine)
 
@@ -27,6 +28,20 @@ def update_user(user):
 def delete_user(user):
         local_session.delete(user)
         local_session.commit()
+
+def checkUsernameExist(username):
+        ret = local_session.query(exists().where(User.username == username)).scalar()
+        if(ret):
+                print("Ya existe un usuario con el nombre de usuario: ", username)
+        return ret 
+
+def checkEmailExist(email):
+        ret = local_session.query(exists().where(User.email == email)).scalar()
+        if(ret):
+                print("Ya existe un usuario con el email: ", email)
+        return ret
+
+
 
 # if __name__ == "__main__":
 #     User_Service.create_user("New UserTest", "newusertest3@mail.com")

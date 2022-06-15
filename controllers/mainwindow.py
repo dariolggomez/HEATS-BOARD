@@ -16,6 +16,7 @@ import services.user_service as user_service
 
 # GUI FILE
 from visuals.ui_main import Ui_MainWindow
+from controllers.formUser import FormUser
 from styles.ui_styles import Style
 GLOBAL_STATE = 0
 GLOBAL_TITLE_BAR = True
@@ -106,8 +107,9 @@ class MainWindow(QMainWindow):
         ## CONNECTIONS
         #####
 
-        self.ui.eliminateBtn.clicked.connect(lambda: self.eliminateCurrentRow())
-        self.ui.userTableWidget.itemSelectionChanged.connect(self.enableEliminateBtn())
+        self.ui.eliminateBtn.clicked.connect(self.eliminateCurrentRow)
+        self.ui.userTableWidget.itemSelectionChanged.connect(self.enableEliminateBtn)
+        self.ui.createBtn.clicked.connect(self.showCreateUsersDialog)
 
         ########################################################################
         #                                                                      #
@@ -403,6 +405,10 @@ class MainWindow(QMainWindow):
                 self.ui.label_user_icon.setToolTip(initialsTooltip)
         else:
             self.ui.label_user_icon.hide()
+
+    def showCreateUsersDialog(self):
+        formUser = FormUser()
+        formUser.show()
 
     ########################################################################
     ## END - GUI FUNCTIONS
