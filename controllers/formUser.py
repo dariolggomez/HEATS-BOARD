@@ -32,3 +32,6 @@ class FormUser(QDialog):
         else:
             print(str(errors))
         
+    def setLinesEditsValues(self, user):
+        self.ui.usernameLineEdit.setText(user.username)
+        self.ui.emailLineEdit.setText(user.email)

@@ -110,6 +110,7 @@ class MainWindow(QMainWindow):
         self.ui.eliminateBtn.clicked.connect(self.eliminateCurrentRow)
         self.ui.userTableWidget.itemSelectionChanged.connect(self.enableEliminateBtn)
         self.ui.createBtn.clicked.connect(self.showCreateUsersDialog)
+        self.ui.editBtn.clicked.connect(self.showUpdateUsersDialog)
 
         ########################################################################
         #                                                                      #
@@ -409,6 +410,17 @@ class MainWindow(QMainWindow):
     def showCreateUsersDialog(self):
         formUser = FormUser()
         formUser.show()
+
+    def showUpdateUsersDialog(self):
+        item = self.ui.userTableWidget.currentItem()
+        if(item is not None):
+            user = item.data(Qt.UserRole + 1)
+            formUser = FormUser()
+            formUser.setLinesEditsValues(user)
+            formUser.show()
+        else:
+            print("Debe seleccionar un usuario")
+        
 
     ########################################################################
     ## END - GUI FUNCTIONS
