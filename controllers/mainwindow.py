@@ -107,7 +107,7 @@ class MainWindow(QMainWindow):
         #####
 
         self.ui.eliminateBtn.clicked.connect(lambda: self.eliminateCurrentRow())
-        self.ui.userTableWidget.itemSelectionChanged.connect(self.enableEliminateBtn)
+        self.ui.userTableWidget.itemSelectionChanged.connect(self.enableEliminateBtn())
 
         ########################################################################
         #                                                                      #

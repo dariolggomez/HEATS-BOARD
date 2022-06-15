@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'formUseruBcSxV.ui'
+## Form generated from reading UI file 'formUserSmfqGM.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -13,14 +13,14 @@ from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
 
-class Ui_Form(object):
-    def setupUi(self, Form):
-        if not Form.objectName():
-            Form.setObjectName(u"Form")
-        Form.resize(459, 390)
-        self.verticalLayout = QVBoxLayout(Form)
+class Ui_Dialog(object):
+    def setupUi(self, Dialog):
+        if not Dialog.objectName():
+            Dialog.setObjectName(u"Dialog")
+        Dialog.resize(348, 283)
+        self.verticalLayout = QVBoxLayout(Dialog)
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.bg = QFrame(Form)
+        self.bg = QFrame(Dialog)
         self.bg.setObjectName(u"bg")
         self.bg.setStyleSheet(u"")
         self.bg.setFrameShape(QFrame.StyledPanel)
@@ -46,10 +46,10 @@ class Ui_Form(object):
 
         self.verticalLayout_3.addWidget(self.label)
 
-        self.lineEdit = QLineEdit(self.frame)
-        self.lineEdit.setObjectName(u"lineEdit")
+        self.usernameLineEdit = QLineEdit(self.frame)
+        self.usernameLineEdit.setObjectName(u"usernameLineEdit")
 
-        self.verticalLayout_3.addWidget(self.lineEdit)
+        self.verticalLayout_3.addWidget(self.usernameLineEdit)
 
 
         self.verticalLayout_5.addWidget(self.frame)
@@ -66,10 +66,10 @@ class Ui_Form(object):
 
         self.verticalLayout_4.addWidget(self.label_2)
 
-        self.lineEdit_2 = QLineEdit(self.frame_2)
-        self.lineEdit_2.setObjectName(u"lineEdit_2")
+        self.emailLineEdit = QLineEdit(self.frame_2)
+        self.emailLineEdit.setObjectName(u"emailLineEdit")
 
-        self.verticalLayout_4.addWidget(self.lineEdit_2)
+        self.verticalLayout_4.addWidget(self.emailLineEdit)
 
 
         self.verticalLayout_5.addWidget(self.frame_2)
@@ -119,17 +119,17 @@ class Ui_Form(object):
         self.verticalLayout.addWidget(self.bg)
 
 
-        self.retranslateUi(Form)
+        self.retranslateUi(Dialog)
 
-        QMetaObject.connectSlotsByName(Form)
+        QMetaObject.connectSlotsByName(Dialog)
     # setupUi
 
-    def retranslateUi(self, Form):
-        Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
-        self.label.setText(QCoreApplication.translate("Form", u"Nombre de Usuario", None))
-        self.label_2.setText(QCoreApplication.translate("Form", u"Email", None))
-        self.applyBtn.setText(QCoreApplication.translate("Form", u"Aplicar", None))
-        self.acceptBtn.setText(QCoreApplication.translate("Form", u"Aceptar", None))
-        self.cancelBtn.setText(QCoreApplication.translate("Form", u"Cancelar", None))
+    def retranslateUi(self, Dialog):
+        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Dialog", None))
+        self.label.setText(QCoreApplication.translate("Dialog", u"Nombre de Usuario", None))
+        self.label_2.setText(QCoreApplication.translate("Dialog", u"Email", None))
+        self.applyBtn.setText(QCoreApplication.translate("Dialog", u"Aplicar", None))
+        self.acceptBtn.setText(QCoreApplication.translate("Dialog", u"Aceptar", None))
+        self.cancelBtn.setText(QCoreApplication.translate("Dialog", u"Cancelar", None))
     # retranslateUi
 
