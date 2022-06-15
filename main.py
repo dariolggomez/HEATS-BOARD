@@ -12,7 +12,7 @@ if __name__ == "__main__":
     QtGui.QFontDatabase.addApplicationFont('fonts/segoeui.ttf')
     QtGui.QFontDatabase.addApplicationFont('fonts/segoeuib.ttf')
     window = MainWindow()
-    # user_service.create_user("New UserTest6", "newusertest6@mail.com")
+    # user_service.create_user("User2", "user2@mail.com")
     window.show()
     window.activateWindow()
     window.raise_()
