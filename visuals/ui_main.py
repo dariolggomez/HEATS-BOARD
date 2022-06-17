@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUI_BASEFHjwZY.ui'
+## Form generated from reading UI file 'GUI_BASEgOqahe.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -18,7 +18,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(933, 679)
+        MainWindow.resize(980, 718)
         MainWindow.setMinimumSize(QSize(750, 550))
         palette = QPalette()
         brush = QBrush(QColor(255, 255, 255, 255))
@@ -946,7 +946,10 @@ class Ui_MainWindow(object):
 
         self.editBtn = QPushButton(self.frame_10)
         self.editBtn.setObjectName(u"editBtn")
-        self.editBtn.setMinimumSize(QSize(80, 25))
+        self.editBtn.setMinimumSize(QSize(80, 30))
+        font5 = QFont()
+        font5.setPointSize(9)
+        self.editBtn.setFont(font5)
         self.editBtn.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
 "	border-radius: 5px;	\n"
@@ -965,7 +968,8 @@ class Ui_MainWindow(object):
 
         self.createBtn = QPushButton(self.frame_10)
         self.createBtn.setObjectName(u"createBtn")
-        self.createBtn.setMinimumSize(QSize(80, 25))
+        self.createBtn.setMinimumSize(QSize(80, 30))
+        self.createBtn.setFont(font5)
         self.createBtn.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
 "	border-radius: 5px;	\n"
@@ -985,7 +989,8 @@ class Ui_MainWindow(object):
         self.eliminateBtn = QPushButton(self.frame_10)
         self.eliminateBtn.setObjectName(u"eliminateBtn")
         self.eliminateBtn.setEnabled(False)
-        self.eliminateBtn.setMinimumSize(QSize(80, 25))
+        self.eliminateBtn.setMinimumSize(QSize(80, 30))
+        self.eliminateBtn.setFont(font5)
         self.eliminateBtn.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
 "	border-radius: 5px;	\n"
@@ -1083,10 +1088,10 @@ class Ui_MainWindow(object):
         self.pushButton = QPushButton(self.frame_content_wid_1)
         self.pushButton.setObjectName(u"pushButton")
         self.pushButton.setMinimumSize(QSize(150, 30))
-        font5 = QFont()
-        font5.setFamily(u"Segoe UI")
-        font5.setPointSize(9)
-        self.pushButton.setFont(font5)
+        font6 = QFont()
+        font6.setFamily(u"Segoe UI")
+        font6.setPointSize(9)
+        self.pushButton.setFont(font6)
         self.pushButton.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
 "	border-radius: 5px;	\n"
@@ -1197,7 +1202,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 222, 222))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 278, 222))
         self.horizontalLayout_11 = QHBoxLayout(self.scrollAreaWidgetContents)
         self.horizontalLayout_11.setObjectName(u"horizontalLayout_11")
         self.plainTextEdit = QPlainTextEdit(self.scrollAreaWidgetContents)
@@ -1226,7 +1231,7 @@ class Ui_MainWindow(object):
         self.comboBox.addItem("")
         self.comboBox.addItem("")
         self.comboBox.setObjectName(u"comboBox")
-        self.comboBox.setFont(font5)
+        self.comboBox.setFont(font6)
         self.comboBox.setAutoFillBackground(False)
         self.comboBox.setStyleSheet(u"QComboBox{\n"
 "	background-color: rgb(27, 29, 35);\n"

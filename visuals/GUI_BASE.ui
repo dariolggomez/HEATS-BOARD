@@ -7,8 +7,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>933</width>
-    <height>679</height>
+    <width>980</width>
+    <height>718</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -2122,8 +2122,13 @@ border-radius: 5px;</string>
                             <property name="minimumSize">
                              <size>
                               <width>80</width>
-                              <height>25</height>
+                              <height>30</height>
                              </size>
+                            </property>
+                            <property name="font">
+                             <font>
+                              <pointsize>9</pointsize>
+                             </font>
                             </property>
                             <property name="styleSheet">
                              <string notr="true">QPushButton {
@@ -2150,8 +2155,13 @@ QPushButton:pressed {
                             <property name="minimumSize">
                              <size>
                               <width>80</width>
-                              <height>25</height>
+                              <height>30</height>
                              </size>
+                            </property>
+                            <property name="font">
+                             <font>
+                              <pointsize>9</pointsize>
+                             </font>
                             </property>
                             <property name="styleSheet">
                              <string notr="true">QPushButton {
@@ -2181,8 +2191,13 @@ QPushButton:pressed {
                             <property name="minimumSize">
                              <size>
                               <width>80</width>
-                              <height>25</height>
+                              <height>30</height>
                              </size>
+                            </property>
+                            <property name="font">
+                             <font>
+                              <pointsize>9</pointsize>
+                             </font>
                             </property>
                             <property name="styleSheet">
                              <string notr="true">QPushButton {
@@ -2537,7 +2552,7 @@ QScrollBar:horizontal {
                              <rect>
                               <x>0</x>
                               <y>0</y>
-                              <width>222</width>
+                              <width>278</width>
                               <height>222</height>
                              </rect>
                             </property>
