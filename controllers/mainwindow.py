@@ -416,7 +416,7 @@ class MainWindow(QMainWindow):
         item = self.ui.userTableWidget.currentItem()
         if(item is not None):
             user = item.data(Qt.UserRole + 1)
-            formUser = FormUser()
+            formUser = FormUser(self)
             formUser.setLinesEditsValues(user)
             formUser.show()
         else:
