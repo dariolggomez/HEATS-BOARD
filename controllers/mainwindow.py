@@ -17,6 +17,7 @@ import services.user_service as user_service
 # GUI FILE
 from visuals.ui_main import Ui_MainWindow
 from controllers.formUser import FormUser
+from controllers.formUpdateUser import FormUpdateUser
 from styles.ui_styles import Style
 GLOBAL_STATE = 0
 GLOBAL_TITLE_BAR = True
@@ -416,7 +417,7 @@ class MainWindow(QMainWindow):
         item = self.ui.userTableWidget.currentItem()
         if(item is not None):
             user = item.data(Qt.UserRole + 1)
-            formUser = FormUser(self)
+            formUser = FormUpdateUser(self)
             formUser.setLinesEditsValues(user)
             formUser.show()
         else:
