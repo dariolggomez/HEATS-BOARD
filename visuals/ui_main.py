@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUI_BASEgOqahe.ui'
+## Form generated from reading UI file 'GUI_BASECpAyLL.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -988,7 +988,7 @@ class Ui_MainWindow(object):
 
         self.eliminateBtn = QPushButton(self.frame_10)
         self.eliminateBtn.setObjectName(u"eliminateBtn")
-        self.eliminateBtn.setEnabled(False)
+        self.eliminateBtn.setEnabled(True)
         self.eliminateBtn.setMinimumSize(QSize(80, 30))
         self.eliminateBtn.setFont(font5)
         self.eliminateBtn.setStyleSheet(u"QPushButton {\n"
