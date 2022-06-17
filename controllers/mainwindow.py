@@ -3,7 +3,7 @@ import platform
 import time
 import numpy as np
 from PySide2 import QtCore, QtGui, QtWidgets
-from PySide2.QtCore import (QCoreApplication, QPropertyAnimation, QDate, QDateTime, QMetaObject, QObject, QPoint, QRect, QSize, QTime, QUrl, Qt, QEvent)
+from PySide2.QtCore import (QCoreApplication, QPropertyAnimation, QDate, Slot, QDateTime, QMetaObject, QObject, QPoint, QRect, QSize, QTime, QUrl, Qt, QEvent)
 from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont, QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter, QPixmap, QRadialGradient)
 from PySide2.QtWidgets import *
 from matplotlib.backends.qt_compat import QtWidgets
@@ -242,7 +242,8 @@ class MainWindow(QMainWindow):
 
     def enableEliminateBtn(self):
         self.ui.eliminateBtn.setEnabled(True)
-
+    
+    @Slot()
     def loadUserTable(self):
         # self.ui.userTableWidget.resizeRowsToContents()
         rows = []
@@ -408,7 +409,7 @@ class MainWindow(QMainWindow):
             self.ui.label_user_icon.hide()
 
     def showCreateUsersDialog(self):
-        formUser = FormUser()
+        formUser = FormUser(self)
         formUser.show()
 
     def showUpdateUsersDialog(self):
