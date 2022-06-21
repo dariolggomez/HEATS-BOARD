@@ -1013,7 +1013,7 @@ QPushButton:pressed {
                      </property>
                      <property name="styleSheet">
                       <string notr="true">background: transparent;
-background-image: url(:/16x16/icons/16x16/cil-terminal.png);
+background-image: url(:/16x16/icons/16x16/cil-screen-desktop.png);
 background-position: center;
 background-repeat: no-repeat;
 </string>
@@ -2552,7 +2552,7 @@ QScrollBar:horizontal {
                              <rect>
                               <x>0</x>
                               <y>0</y>
-                              <width>278</width>
+                              <width>222</width>
                               <height>222</height>
                              </rect>
                             </property>

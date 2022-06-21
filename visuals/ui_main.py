@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUI_BASECpAyLL.ui'
+## Form generated from reading UI file 'GUI_BASEzQxoMH.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -435,7 +435,7 @@ class Ui_MainWindow(object):
         self.frame_icon_top_bar.setObjectName(u"frame_icon_top_bar")
         self.frame_icon_top_bar.setMaximumSize(QSize(30, 30))
         self.frame_icon_top_bar.setStyleSheet(u"background: transparent;\n"
-"background-image: url(:/16x16/icons/16x16/cil-terminal.png);\n"
+"background-image: url(:/16x16/icons/16x16/cil-screen-desktop.png);\n"
 "background-position: center;\n"
 "background-repeat: no-repeat;\n"
 "")
@@ -1202,7 +1202,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 278, 222))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 222, 222))
         self.horizontalLayout_11 = QHBoxLayout(self.scrollAreaWidgetContents)
         self.horizontalLayout_11.setObjectName(u"horizontalLayout_11")
         self.plainTextEdit = QPlainTextEdit(self.scrollAreaWidgetContents)
