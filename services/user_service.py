@@ -31,14 +31,10 @@ def delete_user(user):
 
 def checkUsernameExist(username):
         ret = local_session.query(exists().where(User.username == username)).scalar()
-        if(ret):
-                print("Ya existe un usuario con el nombre de usuario: ", username)
         return ret 
 
 def checkEmailExist(email):
         ret = local_session.query(exists().where(User.email == email)).scalar()
-        if(ret):
-                print("Ya existe un usuario con el email: ", email)
         return ret
 
 

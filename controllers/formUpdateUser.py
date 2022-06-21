@@ -1,7 +1,7 @@
 import email
 from unittest import result
 from urllib import request
-from PySide2.QtWidgets import QDialog
+from PySide2.QtWidgets import QDialog, QMessageBox
 from visuals.ui_formUser import Ui_Dialog
 from PySide2.QtCore import Signal, Qt
 import services.user_service as user_service
@@ -47,6 +47,10 @@ class FormUpdateUser(QDialog):
                             self.close()
                         else:
                             print(str(errors))
+                    else:
+                        msgBox = QMessageBox()
+                        msgBox.setText("Ya existe un usuario con ese email.")
+                        msgBox.exec_()
                 else:
                     if(result):
                         user.username = username
@@ -56,18 +60,25 @@ class FormUpdateUser(QDialog):
                         self.close()
                     else:
                         print(str(errors))
-                
+            else:
+                msgBox = QMessageBox()
+                msgBox.setText("Ya existe ese nombre de usuario.")
+                msgBox.exec_()        
         else:
             if(email != user.email):
                 if(not user_service.checkEmailExist(email)):
-                        if(result):
-                            user.username = username
-                            user.email = email
-                            user_service.update_user(user)
-                            self.userUpdatedSignal.emit()
-                            self.close()
-                        else:
-                            print(str(errors))
+                    if(result):
+                        user.username = username
+                        user.email = email
+                        user_service.update_user(user)
+                        self.userUpdatedSignal.emit()
+                        self.close()
+                    else:
+                        print(str(errors))
+                else:
+                    msgBox = QMessageBox()
+                    msgBox.setText("Ya existe un usuario con ese email.")
+                    msgBox.exec_()
             else:
                 self.close()
 
