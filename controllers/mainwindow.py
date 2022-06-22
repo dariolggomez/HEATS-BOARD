@@ -62,7 +62,7 @@ class MainWindow(QMainWindow):
         self.addNewMenu("Usuarios", "btn_new_user", "url(:/16x16/icons/16x16/cil-user-follow.png)", True)
         self.addNewMenu("Configuración", "btn_settings", "url(:/16x16/icons/16x16/cil-equalizer.png)", False)
         self.addNewMenu("Consola", "btn_console", "url(:/16x16/icons/16x16/cil-terminal.png)", False)
-        self.addNewMenu("Conexión", "btn_connection", "url(:/16x16/icons/16x16/cil-rss.png)", True)
+        self.addNewMenu("Conexión", "btn_network", "url(:/16x16/icons/16x16/cil-rss.png)", True)
         ## ==> END ##
 
         # START MENU => SELECTION
@@ -226,6 +226,13 @@ class MainWindow(QMainWindow):
             self.ui.stackedWidget.setCurrentWidget(self.ui.page_widgets)
             self.resetStyle("btn_settings")
             self.labelPage("Settings")
+            btnWidget.setStyleSheet(self.selectMenu(btnWidget.styleSheet()))
+        
+        # PAGE SETTINGS
+        if btnWidget.objectName() == "btn_network":
+            self.ui.stackedWidget.setCurrentWidget(self.ui.page_network)
+            self.resetStyle("btn_network")
+            self.labelPage("Network")
             btnWidget.setStyleSheet(self.selectMenu(btnWidget.styleSheet()))
 
         
