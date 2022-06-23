@@ -4,7 +4,7 @@ import os
 BUFFER_SIZE = 4096
 
 def connectToHost(SERVER_HOST, SERVER_PORT):
-    socket_s = socket.socket()
+    socket_s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     try:
         socket_s.connect((SERVER_HOST, SERVER_PORT))
     except:
