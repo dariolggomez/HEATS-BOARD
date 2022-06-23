@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUI_BASEdUYBsJ.ui'
+## Form generated from reading UI file 'GUI_BASERoEerE.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -558,11 +558,13 @@ class Ui_MainWindow(object):
         self.horizontalLayout_8.setContentsMargins(10, 0, 10, 0)
         self.label_top_info_1 = QLabel(self.frame_top_info)
         self.label_top_info_1.setObjectName(u"label_top_info_1")
-        self.label_top_info_1.setMaximumSize(QSize(16777215, 15))
+        self.label_top_info_1.setMinimumSize(QSize(0, 20))
+        self.label_top_info_1.setMaximumSize(QSize(16777215, 20))
         font2 = QFont()
         font2.setFamily(u"Segoe UI")
         self.label_top_info_1.setFont(font2)
         self.label_top_info_1.setStyleSheet(u"color: rgb(98, 103, 111); ")
+        self.label_top_info_1.setWordWrap(True)
 
         self.horizontalLayout_8.addWidget(self.label_top_info_1)
 
@@ -1047,11 +1049,16 @@ class Ui_MainWindow(object):
         self.frame_title_wid_1.setFrameShape(QFrame.StyledPanel)
         self.frame_title_wid_1.setFrameShadow(QFrame.Raised)
         self.verticalLayout_8 = QVBoxLayout(self.frame_title_wid_1)
+        self.verticalLayout_8.setSpacing(0)
         self.verticalLayout_8.setObjectName(u"verticalLayout_8")
+        self.verticalLayout_8.setContentsMargins(-1, 0, -1, 0)
         self.labelBoxHeaderSettings = QLabel(self.frame_title_wid_1)
         self.labelBoxHeaderSettings.setObjectName(u"labelBoxHeaderSettings")
+        self.labelBoxHeaderSettings.setMinimumSize(QSize(0, 20))
+        self.labelBoxHeaderSettings.setMaximumSize(QSize(16777215, 25))
         self.labelBoxHeaderSettings.setFont(font1)
         self.labelBoxHeaderSettings.setStyleSheet(u"")
+        self.labelBoxHeaderSettings.setWordWrap(True)
 
         self.verticalLayout_8.addWidget(self.labelBoxHeaderSettings)
 
@@ -1202,7 +1209,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 278, 222))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 277, 224))
         self.horizontalLayout_11 = QHBoxLayout(self.scrollAreaWidgetContents)
         self.horizontalLayout_11.setObjectName(u"horizontalLayout_11")
         self.plainTextEdit = QPlainTextEdit(self.scrollAreaWidgetContents)
@@ -1499,6 +1506,7 @@ class Ui_MainWindow(object):
         self.content_network.setFrameShadow(QFrame.Raised)
         self.verticalLayout_14 = QVBoxLayout(self.content_network)
         self.verticalLayout_14.setObjectName(u"verticalLayout_14")
+        self.verticalLayout_14.setContentsMargins(0, 0, 0, 0)
         self.frame_network_1 = QFrame(self.content_network)
         self.frame_network_1.setObjectName(u"frame_network_1")
         self.frame_network_1.setStyleSheet(u"background-color: rgb(41, 45, 56);\n"
