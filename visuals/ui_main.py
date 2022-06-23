@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUI_BASERoEerE.ui'
+## Form generated from reading UI file 'GUI_BASEzByAcM.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -1553,9 +1553,9 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_21.addWidget(self.labelHeaderUser_3)
 
-        self.lineEdit_2 = QLineEdit(self.frame_12)
-        self.lineEdit_2.setObjectName(u"lineEdit_2")
-        self.lineEdit_2.setStyleSheet(u"QLineEdit {\n"
+        self.hostLineEdit = QLineEdit(self.frame_12)
+        self.hostLineEdit.setObjectName(u"hostLineEdit")
+        self.hostLineEdit.setStyleSheet(u"QLineEdit {\n"
 "	background-color: rgb(27, 29, 35);\n"
 "	border-radius: 5px;\n"
 "	border: 2px solid rgb(27, 29, 35);\n"
@@ -1568,7 +1568,7 @@ class Ui_MainWindow(object):
 "	border: 2px solid rgb(91, 101, 124);\n"
 "}")
 
-        self.verticalLayout_21.addWidget(self.lineEdit_2)
+        self.verticalLayout_21.addWidget(self.hostLineEdit)
 
         self.verticalSpacer = QSpacerItem(20, 331, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
@@ -1591,9 +1591,9 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_23.addWidget(self.labelHeaderUser_4)
 
-        self.lineEdit_3 = QLineEdit(self.frame_13)
-        self.lineEdit_3.setObjectName(u"lineEdit_3")
-        self.lineEdit_3.setStyleSheet(u"QLineEdit {\n"
+        self.hostPortLineEdit = QLineEdit(self.frame_13)
+        self.hostPortLineEdit.setObjectName(u"hostPortLineEdit")
+        self.hostPortLineEdit.setStyleSheet(u"QLineEdit {\n"
 "	background-color: rgb(27, 29, 35);\n"
 "	border-radius: 5px;\n"
 "	border: 2px solid rgb(27, 29, 35);\n"
@@ -1605,8 +1605,9 @@ class Ui_MainWindow(object):
 "QLineEdit:focus {\n"
 "	border: 2px solid rgb(91, 101, 124);\n"
 "}")
+        self.hostPortLineEdit.setInputMethodHints(Qt.ImhNone)
 
-        self.verticalLayout_23.addWidget(self.lineEdit_3)
+        self.verticalLayout_23.addWidget(self.hostPortLineEdit)
 
         self.verticalSpacer_2 = QSpacerItem(20, 331, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
@@ -1637,12 +1638,12 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_13.addItem(self.horizontalSpacer_2)
 
-        self.eliminateBtn_2 = QPushButton(self.frame_network_2)
-        self.eliminateBtn_2.setObjectName(u"eliminateBtn_2")
-        self.eliminateBtn_2.setEnabled(True)
-        self.eliminateBtn_2.setMinimumSize(QSize(80, 30))
-        self.eliminateBtn_2.setFont(font5)
-        self.eliminateBtn_2.setStyleSheet(u"QPushButton {\n"
+        self.connectBtn = QPushButton(self.frame_network_2)
+        self.connectBtn.setObjectName(u"connectBtn")
+        self.connectBtn.setEnabled(True)
+        self.connectBtn.setMinimumSize(QSize(80, 30))
+        self.connectBtn.setFont(font5)
+        self.connectBtn.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
 "	border-radius: 5px;	\n"
 "	background-color: rgb(52, 59, 72);\n"
@@ -1656,7 +1657,7 @@ class Ui_MainWindow(object):
 "	border: 2px solid rgb(43, 50, 61);\n"
 "}")
 
-        self.horizontalLayout_13.addWidget(self.eliminateBtn_2)
+        self.horizontalLayout_13.addWidget(self.connectBtn)
 
 
         self.verticalLayout_14.addWidget(self.frame_network_2)
@@ -1847,7 +1848,7 @@ class Ui_MainWindow(object):
         self.labelHeaderUser_2.setText(QCoreApplication.translate("MainWindow", u"Configuraci\u00f3n del Cliente", None))
         self.labelHeaderUser_3.setText(QCoreApplication.translate("MainWindow", u"Direcci\u00f3n del Servidor", None))
         self.labelHeaderUser_4.setText(QCoreApplication.translate("MainWindow", u"Puerto del Servidor", None))
-        self.eliminateBtn_2.setText(QCoreApplication.translate("MainWindow", u"Conectar", None))
+        self.connectBtn.setText(QCoreApplication.translate("MainWindow", u"Conectar", None))
         self.label_credits.setText("")
         self.label_version.setText(QCoreApplication.translate("MainWindow", u"v1.0.0", None))
     # retranslateUi

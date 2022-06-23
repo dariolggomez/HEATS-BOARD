@@ -13,6 +13,7 @@ from matplotlib.figure import Figure
 import matplotlib.pyplot as plt
 from sqlalchemy import true
 import services.user_service as user_service
+import network.client as client
 
 # GUI FILE
 from visuals.ui_main import Ui_MainWindow
@@ -114,6 +115,7 @@ class MainWindow(QMainWindow):
         # self.ui.userTableWidget.itemSelectionChanged.connect(self.enableEliminateBtn)
         self.ui.createBtn.clicked.connect(self.showCreateUsersDialog)
         self.ui.editBtn.clicked.connect(self.showUpdateUsersDialog)
+        self.ui.connectBtn.clicked.connect(self.connectToHost)
 
         ########################################################################
         #                                                                      #
@@ -434,7 +436,11 @@ class MainWindow(QMainWindow):
             formUser.show()
         else:
             print("Debe seleccionar un usuario.")
-        
+
+    def connectToHost(self):
+        host = self.ui.hostLineEdit.text()
+        hostPort = int(self.ui.hostPortLineEdit.text())
+        client.connectToHost(host, hostPort)
 
     ########################################################################
     ## END - GUI FUNCTIONS

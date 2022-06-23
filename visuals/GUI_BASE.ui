@@ -3324,7 +3324,7 @@ border-radius: 5px;</string>
                                  </widget>
                                 </item>
                                 <item>
-                                 <widget class="QLineEdit" name="lineEdit_2">
+                                 <widget class="QLineEdit" name="hostLineEdit">
                                   <property name="styleSheet">
                                    <string notr="true">QLineEdit {
 	background-color: rgb(27, 29, 35);
@@ -3391,7 +3391,7 @@ QLineEdit:focus {
                                  </widget>
                                 </item>
                                 <item>
-                                 <widget class="QLineEdit" name="lineEdit_3">
+                                 <widget class="QLineEdit" name="hostPortLineEdit">
                                   <property name="styleSheet">
                                    <string notr="true">QLineEdit {
 	background-color: rgb(27, 29, 35);
@@ -3405,6 +3405,9 @@ QLineEdit:hover {
 QLineEdit:focus {
 	border: 2px solid rgb(91, 101, 124);
 }</string>
+                                  </property>
+                                  <property name="inputMethodHints">
+                                   <set>Qt::ImhNone</set>
                                   </property>
                                  </widget>
                                 </item>
@@ -3470,7 +3473,7 @@ border-radius: 5px;</string>
                            </spacer>
                           </item>
                           <item>
-                           <widget class="QPushButton" name="eliminateBtn_2">
+                           <widget class="QPushButton" name="connectBtn">
                             <property name="enabled">
                              <bool>true</bool>
                             </property>
