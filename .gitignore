@@ -9,6 +9,9 @@ models\__pycache__\
 services/__pycache__/
 services\__pycache__\
 
+network/log.txt/
+network\log.txt\
+
 visuals/__pycache__/
 visuals\__pycache__\
 
