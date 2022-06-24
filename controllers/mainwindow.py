@@ -125,96 +125,13 @@ class MainWindow(QMainWindow):
         ############################## ---/--/--- ##############################
         
         
-
+        #LOAD DASHBOARD GRAPHICS
+        self.loadGraphics()
 
 
 
         # Static Chart
         # layout = QtWidgets.QGridLayout(self.ui.page_home)
-
-        data = pd.read_csv("network/log.txt", nrows=20, sep="/", header=None)
-        dataToDisplay = []
-        # print(data)
-        for x in range(300,500):
-            dataToDisplay.append(data.iloc[0][x])
-
-        
-        # print(dataToDisplay)
-
-        static_canvas = FigureCanvas(Figure(figsize=(5, 3)))
-        self.ui.chartLayout1.addWidget(NavigationToolbar(static_canvas, self))
-        self.ui.chartLayout1.addWidget(static_canvas)
-
-        self._static_ax = static_canvas.figure.subplots()
-        # self._static_ax.yaxis.set_visible(False)
-        x = np.linspace(0, len(dataToDisplay), len(dataToDisplay))
-        y = np.array(dataToDisplay)
-        self._static_ax.scatter(x, y)
-        self._static_ax.plot()
-
-        # Dynamic Chart
-        dynamic_canvas = FigureCanvas(Figure(figsize=(5, 3)))
-        self.ui.chartLayout2.addWidget(NavigationToolbar(dynamic_canvas, self))
-        self.ui.chartLayout2.addWidget(dynamic_canvas)
-
-        self._dynamic_ax = dynamic_canvas.figure.subplots()
-        t = np.linspace(0, 10, 101)
-        # Set up a Line2D.
-        self._line, = self._dynamic_ax.plot(t, np.sin(t + time.time()))
-        self._timer = dynamic_canvas.new_timer(50)
-        self._timer.add_callback(self._update_canvas)
-        self._timer.start()
-        
-        # Pie Chart
-        labels = 'Parámetros Críticos', 'Parámetros de Alerta', 'Parámetros Normales', 'Parámetros Fatales'
-        sizeNormalParameters = self.countNormalParams(dataToDisplay)
-        sizeAlertParameters = self.countAlertParams(dataToDisplay)
-        sizeCriticalParameters = self.countCriticalParams(dataToDisplay)
-        sizeFatalParameters = self.countFatalParams(dataToDisplay)
-        # print(sizeNormalParameters)
-        # print(sizeAlertParameters)
-        # print(sizeCriticalParameters)
-        # print(sizeFatalParameters)
-        sizes = [sizeCriticalParameters, sizeAlertParameters, sizeNormalParameters, sizeFatalParameters]
-        explode = (0, 0, 0.1, 0)
-        static_canvas_pie = FigureCanvas(Figure(figsize=(5, 3)))
-        self.ui.chartLayout3.addWidget(static_canvas_pie)
-        self.ui.chartLayout3.addWidget(NavigationToolbar(static_canvas_pie, self))
-        
-        
-
-
-        self._pie_ax = static_canvas_pie.figure.subplots()
-        self._pie_ax.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
-        shadow=True, startangle=90)
-        self._pie_ax.axis('equal')
-        self._pie_ax.plot()
-
-        #Bar Chart 
-        labels = ['G1', 'G2', 'G3', 'G4', 'G5']
-        men_means = [20, 34, 30, 35, 27]
-        women_means = [25, 32, 34, 20, 25]
-
-        x = np.arange(len(labels))  # label locations
-        width = 0.35  # width of the bars
-
-        static_canvas_lines = FigureCanvas(Figure(figsize=(5,4)))
-        self.ui.chartLayout4.addWidget(static_canvas_lines)
-        self.ui.chartLayout4.addWidget(NavigationToolbar(static_canvas_lines,self))
-        self.lines_ax = static_canvas_lines.figure.subplots()
-        rects1 = self.lines_ax.bar(x - width/2, men_means, width, label='Masculino')
-        rects2 = self.lines_ax.bar(x + width/2, women_means, width, label='Femenino')
-
-        self.lines_ax.set_ylabel('Puntuación')
-        self.lines_ax.set_title('Puntuación por Grupo y Género')
-        self.lines_ax.set_xticks(x, labels)
-        self.lines_ax.legend()
-
-        self.lines_ax.bar_label(rects1, padding=3)
-        self.lines_ax.bar_label(rects2, padding=3)
-
-        static_canvas_lines.figure.tight_layout()
-        self.lines_ax.plot()
 
         ## ==> START PAGE
         self.ui.stackedWidget.setCurrentWidget(self.ui.page_home)
@@ -261,6 +178,96 @@ class MainWindow(QMainWindow):
             self.resetStyle("btn_network")
             self.labelPage("Network")
             btnWidget.setStyleSheet(self.selectMenu(btnWidget.styleSheet()))
+
+    def loadGraphics(self):
+        try:
+            data = pd.read_csv("network/log.txt", nrows=20, sep="/", header=None)
+        except:
+            print("No se encontró el archivo proveniente de HEATS-NET. Debe conectarse al servidor.")
+            return
+        if(data is not None):
+            dataToDisplay = []
+            # print(data)
+            for x in range(300,500):
+                dataToDisplay.append(data.iloc[0][x])
+
+            
+            # print(dataToDisplay)
+
+            static_canvas = FigureCanvas(Figure(figsize=(5, 3)))
+            self.ui.chartLayout1.addWidget(NavigationToolbar(static_canvas, self))
+            self.ui.chartLayout1.addWidget(static_canvas)
+
+            self._static_ax = static_canvas.figure.subplots()
+            # self._static_ax.yaxis.set_visible(False)
+            x = np.linspace(0, len(dataToDisplay), len(dataToDisplay))
+            y = np.array(dataToDisplay)
+            self._static_ax.scatter(x, y)
+            self._static_ax.plot()
+
+            # Dynamic Chart
+            dynamic_canvas = FigureCanvas(Figure(figsize=(5, 3)))
+            self.ui.chartLayout2.addWidget(NavigationToolbar(dynamic_canvas, self))
+            self.ui.chartLayout2.addWidget(dynamic_canvas)
+
+            self._dynamic_ax = dynamic_canvas.figure.subplots()
+            t = np.linspace(0, 10, 101)
+            # Set up a Line2D.
+            self._line, = self._dynamic_ax.plot(t, np.sin(t + time.time()))
+            self._timer = dynamic_canvas.new_timer(50)
+            self._timer.add_callback(self._update_canvas)
+            self._timer.start()
+            
+            # Pie Chart
+            labels = 'Parámetros Críticos', 'Parámetros de Alerta', 'Parámetros Normales', 'Parámetros Fatales'
+            sizeNormalParameters = self.countNormalParams(dataToDisplay)
+            sizeAlertParameters = self.countAlertParams(dataToDisplay)
+            sizeCriticalParameters = self.countCriticalParams(dataToDisplay)
+            sizeFatalParameters = self.countFatalParams(dataToDisplay)
+            # print(sizeNormalParameters)
+            # print(sizeAlertParameters)
+            # print(sizeCriticalParameters)
+            # print(sizeFatalParameters)
+            sizes = [sizeCriticalParameters, sizeAlertParameters, sizeNormalParameters, sizeFatalParameters]
+            explode = (0, 0, 0.1, 0)
+            static_canvas_pie = FigureCanvas(Figure(figsize=(5, 3)))
+            self.ui.chartLayout3.addWidget(static_canvas_pie)
+            self.ui.chartLayout3.addWidget(NavigationToolbar(static_canvas_pie, self))
+
+            self._pie_ax = static_canvas_pie.figure.subplots()
+            self._pie_ax.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
+            shadow=True, startangle=90)
+            self._pie_ax.axis('equal')
+            self._pie_ax.plot()
+
+            #Bar Chart 
+            labels = ['G1', 'G2', 'G3', 'G4', 'G5']
+            men_means = [20, 34, 30, 35, 27]
+            women_means = [25, 32, 34, 20, 25]
+
+            x = np.arange(len(labels))  # label locations
+            width = 0.35  # width of the bars
+
+            static_canvas_lines = FigureCanvas(Figure(figsize=(5,4)))
+            self.ui.chartLayout4.addWidget(static_canvas_lines)
+            self.ui.chartLayout4.addWidget(NavigationToolbar(static_canvas_lines,self))
+            self.lines_ax = static_canvas_lines.figure.subplots()
+            rects1 = self.lines_ax.bar(x - width/2, men_means, width, label='Masculino')
+            rects2 = self.lines_ax.bar(x + width/2, women_means, width, label='Femenino')
+
+            self.lines_ax.set_ylabel('Puntuación')
+            self.lines_ax.set_title('Puntuación por Grupo y Género')
+            self.lines_ax.set_xticks(x, labels)
+            self.lines_ax.legend()
+
+            self.lines_ax.bar_label(rects1, padding=3)
+            self.lines_ax.bar_label(rects2, padding=3)
+
+            static_canvas_lines.figure.tight_layout()
+            self.lines_ax.plot()
+        else:
+            print("El archivo HEATS-NET.log está vacío. Debe reconectarse al servidor.")
+
 
         
     def countNormalParams(self, data):
