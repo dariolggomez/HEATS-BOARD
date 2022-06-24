@@ -2,6 +2,7 @@ import sys
 import platform
 import time
 import numpy as np
+import pandas as pd
 from PySide2 import QtCore, QtGui, QtWidgets
 from PySide2.QtCore import (QCoreApplication, QPropertyAnimation, QDate, Slot, QDateTime, QMetaObject, QObject, QPoint, QRect, QSize, QTime, QUrl, Qt, QEvent)
 from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont, QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter, QPixmap, QRadialGradient)
@@ -130,13 +131,26 @@ class MainWindow(QMainWindow):
 
         # Static Chart
         # layout = QtWidgets.QGridLayout(self.ui.page_home)
+
+        data = pd.read_csv("network/log.txt", nrows=20, sep="/", header=None)
+        dataToDisplay = []
+        # print(data)
+        for x in range(300,500):
+            dataToDisplay.append(data.iloc[0][x])
+
+        
+        # print(dataToDisplay)
+
         static_canvas = FigureCanvas(Figure(figsize=(5, 3)))
         self.ui.chartLayout1.addWidget(NavigationToolbar(static_canvas, self))
         self.ui.chartLayout1.addWidget(static_canvas)
 
         self._static_ax = static_canvas.figure.subplots()
-        t = np.linspace(0, 10, 501)
-        self._static_ax.plot(t, np.tan(t), ".")
+        # self._static_ax.yaxis.set_visible(False)
+        x = np.linspace(0, len(dataToDisplay), len(dataToDisplay))
+        y = np.array(dataToDisplay)
+        self._static_ax.scatter(x, y)
+        self._static_ax.plot()
 
         # Dynamic Chart
         dynamic_canvas = FigureCanvas(Figure(figsize=(5, 3)))
@@ -153,12 +167,23 @@ class MainWindow(QMainWindow):
         
         # Pie Chart
         labels = 'Parámetros Críticos', 'Parámetros de Alerta', 'Parámetros Normales', 'Parámetros Fatales'
-        sizes = [15, 30, 45, 10]
-        explode = (0, 0.1, 0, 0)
+        sizeNormalParameters = self.countNormalParams(dataToDisplay)
+        sizeAlertParameters = self.countAlertParams(dataToDisplay)
+        sizeCriticalParameters = self.countCriticalParams(dataToDisplay)
+        sizeFatalParameters = self.countFatalParams(dataToDisplay)
+        # print(sizeNormalParameters)
+        # print(sizeAlertParameters)
+        # print(sizeCriticalParameters)
+        # print(sizeFatalParameters)
+        sizes = [sizeCriticalParameters, sizeAlertParameters, sizeNormalParameters, sizeFatalParameters]
+        explode = (0, 0, 0.1, 0)
         static_canvas_pie = FigureCanvas(Figure(figsize=(5, 3)))
         self.ui.chartLayout3.addWidget(static_canvas_pie)
         self.ui.chartLayout3.addWidget(NavigationToolbar(static_canvas_pie, self))
         
+        
+
+
         self._pie_ax = static_canvas_pie.figure.subplots()
         self._pie_ax.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
         shadow=True, startangle=90)
@@ -238,6 +263,42 @@ class MainWindow(QMainWindow):
             btnWidget.setStyleSheet(self.selectMenu(btnWidget.styleSheet()))
 
         
+    def countNormalParams(self, data):
+        count = 0
+        for x in range(0, len(data)):
+            if(data[x] <= 45):
+                count = count + 1
+
+        percent = count/len(data) * 100  
+        return percent
+
+    def countAlertParams(self, data):
+        count = 0
+        for x in range(0, len(data)):
+            if(data[x] > 45 and data[x] <= 60):
+                count = count + 1
+
+        percent = count/len(data) * 100  
+        return percent
+
+    def countCriticalParams(self, data):
+        count = 0
+        for x in range(0, len(data)):
+            if(data[x] > 60 and data[x] <= 85):
+                count = count + 1
+
+        percent = count/len(data) * 100  
+        return percent
+
+    def countFatalParams(self, data):
+        count = 0
+        for x in range(0, len(data)):
+            if(data[x] > 85):
+                count = count + 1
+
+        percent = count/len(data) * 100  
+        return percent
+
 
     def _update_canvas(self):
         t = np.linspace(0, 10, 101)
