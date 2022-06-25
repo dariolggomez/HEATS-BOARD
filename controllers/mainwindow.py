@@ -1,3 +1,4 @@
+from queue import Empty
 import sys
 import platform
 import time
@@ -5,7 +6,7 @@ import numpy as np
 import pandas as pd
 from PySide2 import QtCore, QtGui, QtWidgets
 from PySide2.QtCore import (QCoreApplication, QPropertyAnimation, QDate, Slot, QDateTime, QMetaObject, QObject, QPoint, QRect, QSize, QTime, QUrl, Qt, QEvent)
-from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont, QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter, QPixmap, QRadialGradient)
+from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont, QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter, QPixmap, QRadialGradient, QIntValidator)
 from PySide2.QtWidgets import *
 from matplotlib.backends.qt_compat import QtWidgets
 from matplotlib.backends.backend_qtagg import (
@@ -115,10 +116,8 @@ class MainWindow(QMainWindow):
         #####
 
         self.ui.eliminateBtn.clicked.connect(self.eliminateCurrentRow)
-        # self.ui.userTableWidget.itemSelectionChanged.connect(self.enableEliminateBtn)
         self.ui.createBtn.clicked.connect(self.showCreateUsersDialog)
         self.ui.editBtn.clicked.connect(self.showUpdateUsersDialog)
-        # connectionThread = Thread(target = self.connectToHost)
         self.ui.connectBtn.clicked.connect(self.connectToHost)
 
         ########################################################################
@@ -127,6 +126,12 @@ class MainWindow(QMainWindow):
         #                                                                      #
         ############################## ---/--/--- ##############################
         
+        #HOST PORT INPUT MASK
+        self.intValidator = QIntValidator()
+        self.intValidator.setBottom(0)
+        self.intValidator.setTop(65535)
+        self.ui.hostPortLineEdit.setValidator(self.intValidator)
+        self.ui.hostPortLineEdit.setMaxLength(5)
         
         #LOAD DASHBOARD GRAPHICS
         self.loadGraphics()
@@ -512,9 +517,15 @@ class MainWindow(QMainWindow):
 
     def connectToHost(self):
         host = self.ui.hostLineEdit.text()
-        hostPort = int(self.ui.hostPortLineEdit.text())
-        connectionThread = Thread(target = client.connectToHost, args= (host,hostPort))
-        connectionThread.start()
+        hostPortStr = self.ui.hostPortLineEdit.text()
+        if(hostPortStr != ''):
+            hostPort = int(self.ui.hostPortLineEdit.text())
+            connectionThread = Thread(target = client.connectToHost, args= (host,hostPort))
+            connectionThread.start()
+        else:
+            msgBox = QMessageBox()
+            msgBox.setText("El puerto de red no puede estar vacío.")
+            msgBox.exec_()
         
         # self.loadGraphics()
 
