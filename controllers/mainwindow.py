@@ -206,8 +206,8 @@ class MainWindow(QMainWindow):
             # self._static_ax.yaxis.set_visible(False)
             x = np.linspace(0, len(dataToDisplay), len(dataToDisplay))
             y = np.array(dataToDisplay)
-            self._static_ax.scatter(x, y)
-            self._static_ax.plot()
+            # self._static_ax.scatter()
+            self._static_ax.plot(x, y)
 
             # Dynamic Chart
             dynamic_canvas = FigureCanvas(Figure(figsize=(5, 3)))
@@ -224,10 +224,10 @@ class MainWindow(QMainWindow):
             
             # Pie Chart
             labels = 'Parámetros Críticos', 'Parámetros de Alerta', 'Parámetros Normales', 'Parámetros Fatales'
-            sizeNormalParameters = self.countNormalParams(dataToDisplay)
-            sizeAlertParameters = self.countAlertParams(dataToDisplay)
-            sizeCriticalParameters = self.countCriticalParams(dataToDisplay)
-            sizeFatalParameters = self.countFatalParams(dataToDisplay)
+            sizeNormalParameters,countNormalParameters = self.countNormalParams(dataToDisplay)
+            sizeAlertParameters,countAlertParameters = self.countAlertParams(dataToDisplay)
+            sizeCriticalParameters,countCriticalParameters = self.countCriticalParams(dataToDisplay)
+            sizeFatalParameters,countFatalParameters = self.countFatalParams(dataToDisplay)
             # print(sizeNormalParameters)
             # print(sizeAlertParameters)
             # print(sizeCriticalParameters)
@@ -245,9 +245,9 @@ class MainWindow(QMainWindow):
             self._pie_ax.plot()
 
             #Bar Chart 
-            labels = ['G1', 'G2', 'G3', 'G4', 'G5']
-            men_means = [20, 34, 30, 35, 27]
-            women_means = [25, 32, 34, 20, 25]
+            labels = ['Normales', 'Alerta', 'Críticos', 'Fatales']
+            parameters = [countNormalParameters, countAlertParameters, countCriticalParameters, countFatalParameters]
+            # women_means = [25, 32, 34, 20,]
 
             x = np.arange(len(labels))  # label locations
             width = 0.35  # width of the bars
@@ -256,16 +256,16 @@ class MainWindow(QMainWindow):
             self.ui.chartLayout4.addWidget(static_canvas_lines)
             self.ui.chartLayout4.addWidget(NavigationToolbar(static_canvas_lines,self))
             self.lines_ax = static_canvas_lines.figure.subplots()
-            rects1 = self.lines_ax.bar(x - width/2, men_means, width, label='Masculino')
-            rects2 = self.lines_ax.bar(x + width/2, women_means, width, label='Femenino')
+            rects1 = self.lines_ax.bar(x, parameters, width, label='Parámetros')
+            # rects2 = self.lines_ax.bar(x + width/2, women_means, width, label='Femenino')
 
-            self.lines_ax.set_ylabel('Puntuación')
-            self.lines_ax.set_title('Puntuación por Grupo y Género')
+            self.lines_ax.set_ylabel('Valor')
+            self.lines_ax.set_title('Parámetros por Criticidad')
             self.lines_ax.set_xticks(x, labels)
             self.lines_ax.legend()
 
             self.lines_ax.bar_label(rects1, padding=3)
-            self.lines_ax.bar_label(rects2, padding=3)
+            # self.lines_ax.bar_label(rects2, padding=3)
 
             static_canvas_lines.figure.tight_layout()
             self.lines_ax.plot()
@@ -274,38 +274,38 @@ class MainWindow(QMainWindow):
     def countNormalParams(self, data):
         count = 0
         for x in range(0, len(data)):
-            if(data[x] <= 45):
+            if(data[x] <= 30):
                 count = count + 1
 
         percent = count/len(data) * 100  
-        return percent
+        return percent,count
 
     def countAlertParams(self, data):
         count = 0
         for x in range(0, len(data)):
-            if(data[x] > 45 and data[x] <= 60):
+            if(data[x] > 30 and data[x] <= 40):
                 count = count + 1
 
         percent = count/len(data) * 100  
-        return percent
+        return percent,count
 
     def countCriticalParams(self, data):
         count = 0
         for x in range(0, len(data)):
-            if(data[x] > 60 and data[x] <= 85):
+            if(data[x] > 40 and data[x] <= 80):
                 count = count + 1
 
         percent = count/len(data) * 100  
-        return percent
+        return percent,count
 
     def countFatalParams(self, data):
         count = 0
         for x in range(0, len(data)):
-            if(data[x] > 85):
+            if(data[x] > 80):
                 count = count + 1
 
         percent = count/len(data) * 100  
-        return percent
+        return percent,count
 
 
     def _update_canvas(self):
@@ -509,7 +509,9 @@ class MainWindow(QMainWindow):
     def connectToHost(self):
         host = self.ui.hostLineEdit.text()
         hostPort = int(self.ui.hostPortLineEdit.text())
-        client.connectToHost(host, hostPort)
+        connectionThread = Thread(target = client.connectToHost, args= (host,hostPort))
+        connectionThread.start()
+        
         # self.loadGraphics()
 
     ########################################################################
