@@ -11,6 +11,7 @@ from matplotlib.backends.qt_compat import QtWidgets
 from matplotlib.backends.backend_qtagg import (
     FigureCanvas, NavigationToolbar2QT as NavigationToolbar)
 from matplotlib.figure import Figure
+from threading import Thread
 import matplotlib.pyplot as plt
 from sqlalchemy import true
 import services.user_service as user_service
@@ -26,6 +27,7 @@ GLOBAL_TITLE_BAR = True
 
 class MainWindow(QMainWindow):
     count = 1
+    graphicsLoaded = False
     def __init__(self):
         super().__init__()
         self.ui = Ui_MainWindow()
@@ -116,6 +118,7 @@ class MainWindow(QMainWindow):
         # self.ui.userTableWidget.itemSelectionChanged.connect(self.enableEliminateBtn)
         self.ui.createBtn.clicked.connect(self.showCreateUsersDialog)
         self.ui.editBtn.clicked.connect(self.showUpdateUsersDialog)
+        # connectionThread = Thread(target = self.connectToHost)
         self.ui.connectBtn.clicked.connect(self.connectToHost)
 
         ########################################################################
@@ -153,6 +156,7 @@ class MainWindow(QMainWindow):
         # PAGE HOME
         if btnWidget.objectName() == "btn_home":
             self.ui.stackedWidget.setCurrentWidget(self.ui.page_home)
+            self.loadGraphics()
             self.resetStyle("btn_home")
             self.labelPage("Home")
             btnWidget.setStyleSheet(self.selectMenu(btnWidget.styleSheet()))
@@ -172,7 +176,7 @@ class MainWindow(QMainWindow):
             self.labelPage("Settings")
             btnWidget.setStyleSheet(self.selectMenu(btnWidget.styleSheet()))
         
-        # PAGE SETTINGS
+        # PAGE NETWORK
         if btnWidget.objectName() == "btn_network":
             self.ui.stackedWidget.setCurrentWidget(self.ui.page_network)
             self.resetStyle("btn_network")
@@ -185,7 +189,7 @@ class MainWindow(QMainWindow):
         except:
             print("No se encontró el archivo proveniente de HEATS-NET. Debe conectarse al servidor.")
             return
-        if(data is not None):
+        if(data is not None and self.graphicsLoaded == False):
             dataToDisplay = []
             # print(data)
             for x in range(300,500):
@@ -265,10 +269,7 @@ class MainWindow(QMainWindow):
 
             static_canvas_lines.figure.tight_layout()
             self.lines_ax.plot()
-        else:
-            print("El archivo HEATS-NET.log está vacío. Debe reconectarse al servidor.")
-
-
+            self.graphicsLoaded = True
         
     def countNormalParams(self, data):
         count = 0
@@ -509,6 +510,7 @@ class MainWindow(QMainWindow):
         host = self.ui.hostLineEdit.text()
         hostPort = int(self.ui.hostPortLineEdit.text())
         client.connectToHost(host, hostPort)
+        # self.loadGraphics()
 
     ########################################################################
     ## END - GUI FUNCTIONS
