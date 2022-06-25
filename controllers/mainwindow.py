@@ -322,7 +322,9 @@ class MainWindow(QMainWindow):
             self.loadUserTable()
             # self.ui.eliminateBtn.setEnabled(False)
         else:
-            print("Debe seleccionar un usuario.")
+            msgBox = QMessageBox()
+            msgBox.setText("Debe seleccionar un usuario.")
+            msgBox.exec_()
 
     # def enableEliminateBtn(self):
     #     self.ui.eliminateBtn.setEnabled(True)
@@ -504,7 +506,9 @@ class MainWindow(QMainWindow):
             formUser.setLinesEditsValues(user)
             formUser.show()
         else:
-            print("Debe seleccionar un usuario.")
+            msgBox = QMessageBox()
+            msgBox.setText("Debe seleccionar un usuario.")
+            msgBox.exec_()
 
     def connectToHost(self):
         host = self.ui.hostLineEdit.text()
