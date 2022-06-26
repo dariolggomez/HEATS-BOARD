@@ -131,10 +131,10 @@ class MainWindow(QMainWindow):
         self.ui.hostPortLineEdit.setValidator(self.intValidator)
         self.ui.hostPortLineEdit.setMaxLength(5)
         
+
+        self.ui.console.appendPlainText(f"CONSOLA >> HEATS-BOARD Inicializado.")
         #LOAD DASHBOARD GRAPHICS
         self.loadGraphics()
-
-
 
         # Static Chart
         # layout = QtWidgets.QGridLayout(self.ui.page_home)
@@ -143,7 +143,6 @@ class MainWindow(QMainWindow):
         self.ui.stackedWidget.setCurrentWidget(self.ui.page_home)
         ## ==> END ##
 
-        self.ui.console.appendPlainText(f"CONSOLA >> HEATS-BOARD Inicializado.")
         ## SHOW ==> MAIN WINDOW
         ########################################################################
         # self.show()
@@ -195,7 +194,9 @@ class MainWindow(QMainWindow):
         try:
             data = pd.read_csv("network/log.txt", nrows=20, sep="/", header=None)
         except:
-            print("No se encontró el archivo proveniente de HEATS-NET. Debe conectarse al servidor.")
+            self.ui.console.appendPlainText(f"CONSOLA >> No se encontró el archivo proveniente de HEATS-NET. Debe conectarse al servidor.")
+            self.ui.console.setFocus()
+            # print("No se encontró el archivo proveniente de HEATS-NET. Debe conectarse al servidor.")
             return
         if(data is not None and self.graphicsLoaded == False):
             dataToDisplay = []

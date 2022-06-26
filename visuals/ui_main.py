@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUI_BASEWccjGB.ui'
+## Form generated from reading UI file 'GUI_BASEbYUlHE.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -1696,6 +1696,9 @@ class Ui_MainWindow(object):
         sizePolicy7.setHeightForWidth(self.console.sizePolicy().hasHeightForWidth())
         self.console.setSizePolicy(sizePolicy7)
         self.console.setMinimumSize(QSize(0, 0))
+        font9 = QFont()
+        font9.setPointSize(10)
+        self.console.setFont(font9)
         self.console.setStyleSheet(u"QPlainTextEdit {\n"
 "	background-color: rgb(27, 29, 35);\n"
 "	border-radius: 5px;\n"
