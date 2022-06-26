@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUI_BASEgUkKyB.ui'
+## Form generated from reading UI file 'GUI_BASEitOFrC.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -1681,6 +1681,7 @@ class Ui_MainWindow(object):
         self.frame_console.setSizePolicy(sizePolicy6)
         self.frame_console.setMinimumSize(QSize(0, 100))
         self.frame_console.setMaximumSize(QSize(16777215, 100))
+        self.frame_console.setStyleSheet(u"color: rgb(85, 170, 255);")
         self.frame_console.setFrameShape(QFrame.StyledPanel)
         self.frame_console.setFrameShadow(QFrame.Raised)
         self.verticalLayout_25 = QVBoxLayout(self.frame_console)

@@ -539,11 +539,12 @@ class MainWindow(QMainWindow):
             msgBox.exec_()
 
     def connectToHost(self):
+        # self.ui.console.setFocus
         host = self.ui.hostLineEdit.text()
         hostPortStr = self.ui.hostPortLineEdit.text()
         if(hostPortStr != ''):
             hostPort = int(self.ui.hostPortLineEdit.text())
-            connectionThread = Thread(target = client.connectToHost, args= (host,hostPort))
+            connectionThread = Thread(target = client.connectToHost, args= (self, host,hostPort))
             connectionThread.start()
         else:
             msgBox = QMessageBox()
