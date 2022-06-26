@@ -543,13 +543,14 @@ class MainWindow(QMainWindow):
     def connectToHost(self):
         host = self.ui.hostLineEdit.text()
         hostPortStr = self.ui.hostPortLineEdit.text()
-        if(hostPortStr != ''):
+        if(hostPortStr != '' and host != ''):
+            self.ui.connectBtn.setEnabled(False)
             hostPort = int(self.ui.hostPortLineEdit.text())
             connectionThread = Thread(target = client.connectToHost, args= (self, host,hostPort))
             connectionThread.start()
         else:
             msgBox = QMessageBox()
-            msgBox.setText("El puerto de red no puede estar vacío.")
+            msgBox.setText("La dirección del servidor o el puerto de red no puede estar vacío.")
             msgBox.exec_()
 
     ########################################################################

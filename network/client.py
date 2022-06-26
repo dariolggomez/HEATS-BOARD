@@ -10,6 +10,7 @@ def connectToHost(mainWindow, SERVER_HOST, SERVER_PORT):
     except:
         mainWindow.ui.console.appendPlainText(f"CONSOLA >> No se pudo conectar al servidor >> {SERVER_HOST} : {SERVER_PORT}")
         mainWindow.ui.console.setFocus()
+        mainWindow.ui.connectBtn.setEnabled(True)
         # print(f"No se pudo conectar al servidor {SERVER_HOST}:{SERVER_PORT}")
         return
     mainWindow.ui.console.appendPlainText(f"CONSOLA >> Conexión establecida al servidor >> {SERVER_HOST} : {SERVER_PORT}")
@@ -25,3 +26,4 @@ def connectToHost(mainWindow, SERVER_HOST, SERVER_PORT):
     mainWindow.ui.console.appendPlainText(f"CONSOLA >> Archivo recibido.")
     # print(f"Archivo recibido.")
     socket_s.close()
+    mainWindow.ui.connectBtn.setEnabled(True)
