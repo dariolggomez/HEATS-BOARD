@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUI_BASEzByAcM.ui'
+## Form generated from reading UI file 'GUI_BASEgUkKyB.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -1672,6 +1672,48 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_4.addWidget(self.frame_content)
 
+        self.frame_console = QFrame(self.frame_content_right)
+        self.frame_console.setObjectName(u"frame_console")
+        sizePolicy6 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
+        sizePolicy6.setHorizontalStretch(0)
+        sizePolicy6.setVerticalStretch(0)
+        sizePolicy6.setHeightForWidth(self.frame_console.sizePolicy().hasHeightForWidth())
+        self.frame_console.setSizePolicy(sizePolicy6)
+        self.frame_console.setMinimumSize(QSize(0, 100))
+        self.frame_console.setMaximumSize(QSize(16777215, 100))
+        self.frame_console.setFrameShape(QFrame.StyledPanel)
+        self.frame_console.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_25 = QVBoxLayout(self.frame_console)
+        self.verticalLayout_25.setSpacing(0)
+        self.verticalLayout_25.setObjectName(u"verticalLayout_25")
+        self.verticalLayout_25.setContentsMargins(12, 0, 12, 6)
+        self.console = QPlainTextEdit(self.frame_console)
+        self.console.setObjectName(u"console")
+        sizePolicy7 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Ignored)
+        sizePolicy7.setHorizontalStretch(0)
+        sizePolicy7.setVerticalStretch(0)
+        sizePolicy7.setHeightForWidth(self.console.sizePolicy().hasHeightForWidth())
+        self.console.setSizePolicy(sizePolicy7)
+        self.console.setMinimumSize(QSize(0, 0))
+        self.console.setStyleSheet(u"QPlainTextEdit {\n"
+"	background-color: rgb(27, 29, 35);\n"
+"	border-radius: 5px;\n"
+"	padding: 10px;\n"
+"}\n"
+"QPlainTextEdit:hover {\n"
+"	border: 2px solid rgb(64, 71, 88);\n"
+"}\n"
+"QPlainTextEdit:focus {\n"
+"	border: 2px solid rgb(91, 101, 124);\n"
+"}")
+        self.console.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
+        self.console.setReadOnly(True)
+
+        self.verticalLayout_25.addWidget(self.console)
+
+
+        self.verticalLayout_4.addWidget(self.frame_console)
+
         self.frame_grip = QFrame(self.frame_content_right)
         self.frame_grip.setObjectName(u"frame_grip")
         self.frame_grip.setMinimumSize(QSize(0, 25))
@@ -1751,7 +1793,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(3)
+        self.stackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)

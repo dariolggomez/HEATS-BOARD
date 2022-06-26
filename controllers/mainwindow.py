@@ -73,8 +73,6 @@ class MainWindow(QMainWindow):
         # START MENU => SELECTION
         self.selectStandardMenu("btn_home")
         ## ==> END ##
-
-        
         
         ## USER ICON ==> SHOW HIDE
         self.userIcon("AL", "", True)
@@ -188,6 +186,10 @@ class MainWindow(QMainWindow):
             self.labelPage("Network")
             btnWidget.setStyleSheet(self.selectMenu(btnWidget.styleSheet()))
 
+        # CONSOLE BTN
+        if btnWidget.objectName() == "btn_console":
+            self.toggleConsole(100, True)
+
     def loadGraphics(self):
         try:
             data = pd.read_csv("network/log.txt", nrows=20, sep="/", header=None)
@@ -223,9 +225,9 @@ class MainWindow(QMainWindow):
             t = np.linspace(0, 10, 101)
             # Set up a Line2D.
             self._line, = self._dynamic_ax.plot(t, np.sin(t + time.time()))
-            self._timer = dynamic_canvas.new_timer(50)
-            self._timer.add_callback(self._update_canvas)
-            self._timer.start()
+            # self._timer = dynamic_canvas.new_timer(6000)
+            # self._timer.add_callback(self._update_canvas)
+            # self._timer.start()
             
             # Pie Chart
             labels = 'Parámetros Críticos', 'Parámetros de Alerta', 'Parámetros Normales', 'Parámetros Fatales'
@@ -408,6 +410,27 @@ class MainWindow(QMainWindow):
             self.animation.setDuration(300)
             self.animation.setStartValue(width)
             self.animation.setEndValue(widthExtended)
+            self.animation.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
+            self.animation.start()
+
+    def toggleConsole(self, maxHeight, enable):
+        if enable:
+            # GET WIDTH
+            height = self.ui.frame_console.height()
+            maxExtend = maxHeight
+            standard = 0
+
+            # SET MAX WIDTH
+            if height == 8:
+                heightExtended = maxExtend
+            else:
+                heightExtended = standard
+
+            # ANIMATION
+            self.animation = QPropertyAnimation(self.ui.frame_console, b"minimumHeight")
+            self.animation.setDuration(300)
+            self.animation.setStartValue(height)
+            self.animation.setEndValue(heightExtended)
             self.animation.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
             self.animation.start()
 
