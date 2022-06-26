@@ -143,6 +143,7 @@ class MainWindow(QMainWindow):
         self.ui.stackedWidget.setCurrentWidget(self.ui.page_home)
         ## ==> END ##
 
+        self.ui.console.appendPlainText(f"CONSOLA >> HEATS-BOARD Inicializado.")
         ## SHOW ==> MAIN WINDOW
         ########################################################################
         # self.show()
@@ -188,7 +189,7 @@ class MainWindow(QMainWindow):
 
         # CONSOLE BTN
         if btnWidget.objectName() == "btn_console":
-            self.toggleConsole(100, True)
+            self.toggleConsole(150, True)
 
     def loadGraphics(self):
         try:
@@ -539,7 +540,6 @@ class MainWindow(QMainWindow):
             msgBox.exec_()
 
     def connectToHost(self):
-        # self.ui.console.setFocus
         host = self.ui.hostLineEdit.text()
         hostPortStr = self.ui.hostPortLineEdit.text()
         if(hostPortStr != ''):
@@ -550,8 +550,6 @@ class MainWindow(QMainWindow):
             msgBox = QMessageBox()
             msgBox.setText("El puerto de red no puede estar vacío.")
             msgBox.exec_()
-        
-        # self.loadGraphics()
 
     ########################################################################
     ## END - GUI FUNCTIONS
