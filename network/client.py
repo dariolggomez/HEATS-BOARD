@@ -10,11 +10,11 @@ def connectToHost(mainWindow, SERVER_HOST, SERVER_PORT):
         socket_s.connect((SERVER_HOST, SERVER_PORT))
         connectionStablished = True
     except:
-        mainWindow.ui.console.appendPlainText(f"CONSOLA >> No se pudo conectar al servidor >> {SERVER_HOST} : {SERVER_PORT}")
+        mainWindow.ui.console.insertPlainText(f"CONSOLA >> No se pudo conectar al servidor >> {SERVER_HOST} : {SERVER_PORT}\r")
         mainWindow.ui.connectBtn.setEnabled(True)
         socket_s.close()
     if(connectionStablished):
-        mainWindow.ui.console.appendPlainText(f"CONSOLA >> Conexión establecida al servidor >> {SERVER_HOST} : {SERVER_PORT}")
+        mainWindow.ui.console.insertPlainText(f"CONSOLA >> Conexión establecida al servidor >> {SERVER_HOST} : {SERVER_PORT}\r")
         filename = "network/log.txt"
         with open(filename, "wb") as file:
             while True:
@@ -23,7 +23,7 @@ def connectToHost(mainWindow, SERVER_HOST, SERVER_PORT):
                     break
                 file.write(bytes_read)
         
-        mainWindow.ui.console.appendPlainText(f"CONSOLA >> Archivo recibido.")
+        mainWindow.ui.console.insertPlainText(f"CONSOLA >> Archivo recibido.\r")
         socket_s.close()
         mainWindow.ui.connectBtn.setEnabled(True)
     

@@ -3585,6 +3585,9 @@ QPushButton:pressed {
                     <pointsize>10</pointsize>
                    </font>
                   </property>
+                  <property name="focusPolicy">
+                   <enum>Qt::NoFocus</enum>
+                  </property>
                   <property name="styleSheet">
                    <string notr="true">QPlainTextEdit {
 	background-color: rgb(27, 29, 35);
@@ -3603,6 +3606,9 @@ QPlainTextEdit:focus {
                   </property>
                   <property name="readOnly">
                    <bool>true</bool>
+                  </property>
+                  <property name="textInteractionFlags">
+                   <set>Qt::NoTextInteraction</set>
                   </property>
                  </widget>
                 </item>

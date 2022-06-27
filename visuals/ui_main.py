@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUI_BASEbYUlHE.ui'
+## Form generated from reading UI file 'GUI_BASEOBQFjL.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -1699,6 +1699,7 @@ class Ui_MainWindow(object):
         font9 = QFont()
         font9.setPointSize(10)
         self.console.setFont(font9)
+        self.console.setFocusPolicy(Qt.NoFocus)
         self.console.setStyleSheet(u"QPlainTextEdit {\n"
 "	background-color: rgb(27, 29, 35);\n"
 "	border-radius: 5px;\n"
@@ -1712,6 +1713,7 @@ class Ui_MainWindow(object):
 "}")
         self.console.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
         self.console.setReadOnly(True)
+        self.console.setTextInteractionFlags(Qt.NoTextInteraction)
 
         self.verticalLayout_25.addWidget(self.console)
 

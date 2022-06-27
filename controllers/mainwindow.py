@@ -132,7 +132,7 @@ class MainWindow(QMainWindow):
         self.ui.hostPortLineEdit.setMaxLength(5)
         
 
-        self.ui.console.appendPlainText(f"CONSOLA >> HEATS-BOARD Inicializado.")
+        self.ui.console.insertPlainText(f"CONSOLA >> HEATS-BOARD Inicializado.\r")
         #LOAD DASHBOARD GRAPHICS
         self.loadGraphics()
 
@@ -194,18 +194,13 @@ class MainWindow(QMainWindow):
         try:
             data = pd.read_csv("network/log.txt", nrows=20, sep="/", header=None)
         except:
-            self.ui.console.appendPlainText(f"CONSOLA >> No se encontró el archivo proveniente de HEATS-NET. Debe conectarse al servidor.")
+            self.ui.console.insertPlainText(f"CONSOLA >> No se encontró el archivo proveniente de HEATS-NET. Debe conectarse al servidor.\r")
             self.ui.console.setFocus()
-            # print("No se encontró el archivo proveniente de HEATS-NET. Debe conectarse al servidor.")
             return
         if(data is not None and self.graphicsLoaded == False):
             dataToDisplay = []
-            # print(data)
             for x in range(300,500):
                 dataToDisplay.append(data.iloc[0][x])
-
-            
-            # print(dataToDisplay)
 
             static_canvas = FigureCanvas(Figure(figsize=(5, 3)))
             self.ui.chartLayout1.addWidget(NavigationToolbar(static_canvas, self))
