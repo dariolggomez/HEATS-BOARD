@@ -2,7 +2,7 @@ import email
 from unittest import result
 from urllib import request
 from PySide2.QtWidgets import QDialog, QMessageBox
-from visuals.ui_formUser import Ui_Dialog
+from visuals.ui_formUpdateUser import Ui_Dialog
 from PySide2.QtCore import Signal, Qt
 import services.user_service as user_service
 from validator import validate

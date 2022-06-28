@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'formUseriOIrEn.ui'
+## Form generated from reading UI file 'formUserWCgACW.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -244,8 +244,8 @@ class Ui_Dialog(object):
         self.contentFrame.setStyleSheet(u"")
         self.contentFrame.setFrameShape(QFrame.StyledPanel)
         self.contentFrame.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_5 = QVBoxLayout(self.contentFrame)
-        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+        self.verticalLayout_6 = QVBoxLayout(self.contentFrame)
+        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
         self.label_4 = QLabel(self.contentFrame)
         self.label_4.setObjectName(u"label_4")
         font = QFont()
@@ -254,7 +254,7 @@ class Ui_Dialog(object):
         font.setWeight(75)
         self.label_4.setFont(font)
 
-        self.verticalLayout_5.addWidget(self.label_4)
+        self.verticalLayout_6.addWidget(self.label_4)
 
         self.frame = QFrame(self.contentFrame)
         self.frame.setObjectName(u"frame")
@@ -290,7 +290,7 @@ class Ui_Dialog(object):
         self.verticalLayout_3.addWidget(self.usernameLineEdit)
 
 
-        self.verticalLayout_5.addWidget(self.frame)
+        self.verticalLayout_6.addWidget(self.frame)
 
         self.frame_2 = QFrame(self.contentFrame)
         self.frame_2.setObjectName(u"frame_2")
@@ -326,14 +326,50 @@ class Ui_Dialog(object):
         self.verticalLayout_4.addWidget(self.emailLineEdit)
 
 
-        self.verticalLayout_5.addWidget(self.frame_2)
+        self.verticalLayout_6.addWidget(self.frame_2)
+
+        self.frame_4 = QFrame(self.contentFrame)
+        self.frame_4.setObjectName(u"frame_4")
+        self.frame_4.setStyleSheet(u"background-color: rgb(41, 45, 56);\n"
+"border-radius: 5px;\n"
+"")
+        self.frame_4.setFrameShape(QFrame.StyledPanel)
+        self.frame_4.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_7 = QVBoxLayout(self.frame_4)
+        self.verticalLayout_7.setObjectName(u"verticalLayout_7")
+        self.label_5 = QLabel(self.frame_4)
+        self.label_5.setObjectName(u"label_5")
+        self.label_5.setMaximumSize(QSize(16777215, 25))
+        self.label_5.setStyleSheet(u"color: rgb(85, 170, 255);")
+
+        self.verticalLayout_7.addWidget(self.label_5)
+
+        self.passwordLineEdit = QLineEdit(self.frame_4)
+        self.passwordLineEdit.setObjectName(u"passwordLineEdit")
+        self.passwordLineEdit.setStyleSheet(u"QLineEdit {\n"
+"	background-color: rgb(27, 29, 35);\n"
+"	border-radius: 5px;\n"
+"	border: 2px solid rgb(27, 29, 35);\n"
+"	padding-left: 10px;\n"
+"}\n"
+"QLineEdit:hover {\n"
+"	border: 2px solid rgb(64, 71, 88);\n"
+"}\n"
+"QLineEdit:focus {\n"
+"	border: 2px solid rgb(91, 101, 124);\n"
+"}")
+
+        self.verticalLayout_7.addWidget(self.passwordLineEdit)
+
+
+        self.verticalLayout_6.addWidget(self.frame_4)
 
         self.frame_3 = QFrame(self.contentFrame)
         self.frame_3.setObjectName(u"frame_3")
         self.frame_3.setFrameShape(QFrame.StyledPanel)
         self.frame_3.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_6 = QVBoxLayout(self.frame_3)
-        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
+        self.verticalLayout_8 = QVBoxLayout(self.frame_3)
+        self.verticalLayout_8.setObjectName(u"verticalLayout_8")
         self.errorLabel = QLabel(self.frame_3)
         self.errorLabel.setObjectName(u"errorLabel")
         self.errorLabel.setEnabled(True)
@@ -342,14 +378,10 @@ class Ui_Dialog(object):
         self.errorLabel.setAlignment(Qt.AlignCenter)
         self.errorLabel.setWordWrap(True)
 
-        self.verticalLayout_6.addWidget(self.errorLabel)
+        self.verticalLayout_8.addWidget(self.errorLabel)
 
 
-        self.verticalLayout_5.addWidget(self.frame_3)
-
-        self.verticalSpacer = QSpacerItem(20, 104, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.verticalLayout_5.addItem(self.verticalSpacer)
+        self.verticalLayout_6.addWidget(self.frame_3)
 
 
         self.verticalLayout_2.addWidget(self.contentFrame)
@@ -427,6 +459,7 @@ class Ui_Dialog(object):
         self.label_4.setText(QCoreApplication.translate("Dialog", u"Crear Usuario", None))
         self.label.setText(QCoreApplication.translate("Dialog", u"Nombre de Usuario", None))
         self.label_2.setText(QCoreApplication.translate("Dialog", u"Email", None))
+        self.label_5.setText(QCoreApplication.translate("Dialog", u"Contrase\u00f1a", None))
         self.errorLabel.setText("")
         self.acceptBtn.setText(QCoreApplication.translate("Dialog", u"Aceptar", None))
         self.cancelBtn.setText(QCoreApplication.translate("Dialog", u"Cancelar", None))
