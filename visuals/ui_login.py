@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'ui_loginCifUpd.ui'
+## Form generated from reading UI file 'ui_loginWoMhsS.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -17,8 +17,9 @@ class Ui_Login(object):
     def setupUi(self, Login):
         if not Login.objectName():
             Login.setObjectName(u"Login")
-        Login.resize(359, 303)
-        Login.setMinimumSize(QSize(300, 250))
+        Login.resize(350, 300)
+        Login.setMinimumSize(QSize(350, 300))
+        Login.setMaximumSize(QSize(400, 350))
         Login.setStyleSheet(u"background-color: rgb(44, 49, 60);")
         self.verticalLayout = QVBoxLayout(Login)
         self.verticalLayout.setObjectName(u"verticalLayout")
@@ -238,8 +239,8 @@ class Ui_Login(object):
 "")
         self.bg.setFrameShape(QFrame.StyledPanel)
         self.bg.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_4 = QVBoxLayout(self.bg)
-        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.verticalLayout_3 = QVBoxLayout(self.bg)
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.inputs_frame = QFrame(self.bg)
         self.inputs_frame.setObjectName(u"inputs_frame")
         self.inputs_frame.setMinimumSize(QSize(0, 0))
@@ -249,11 +250,17 @@ class Ui_Login(object):
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.label_user = QLabel(self.inputs_frame)
         self.label_user.setObjectName(u"label_user")
+        font = QFont()
+        font.setPointSize(9)
+        self.label_user.setFont(font)
 
         self.verticalLayout_2.addWidget(self.label_user)
 
         self.user_lineEdit = QLineEdit(self.inputs_frame)
         self.user_lineEdit.setObjectName(u"user_lineEdit")
+        self.user_lineEdit.setMinimumSize(QSize(0, 25))
+        self.user_lineEdit.setMaximumSize(QSize(16777215, 25))
+        self.user_lineEdit.setFont(font)
         self.user_lineEdit.setStyleSheet(u"QLineEdit {\n"
 "	background-color: rgb(27, 29, 35);\n"
 "	border-radius: 5px;\n"
@@ -271,11 +278,15 @@ class Ui_Login(object):
 
         self.label_password = QLabel(self.inputs_frame)
         self.label_password.setObjectName(u"label_password")
+        self.label_password.setFont(font)
 
         self.verticalLayout_2.addWidget(self.label_password)
 
         self.password_lineEdit = QLineEdit(self.inputs_frame)
         self.password_lineEdit.setObjectName(u"password_lineEdit")
+        self.password_lineEdit.setMinimumSize(QSize(0, 25))
+        self.password_lineEdit.setMaximumSize(QSize(16777215, 25))
+        self.password_lineEdit.setFont(font)
         self.password_lineEdit.setStyleSheet(u"QLineEdit {\n"
 "	background-color: rgb(27, 29, 35);\n"
 "	border-radius: 5px;\n"
@@ -293,7 +304,11 @@ class Ui_Login(object):
         self.verticalLayout_2.addWidget(self.password_lineEdit)
 
 
-        self.verticalLayout_4.addWidget(self.inputs_frame)
+        self.verticalLayout_3.addWidget(self.inputs_frame)
+
+        self.verticalSpacer = QSpacerItem(20, 33, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_3.addItem(self.verticalSpacer)
 
         self.buttons_frame = QFrame(self.bg)
         self.buttons_frame.setObjectName(u"buttons_frame")
@@ -307,6 +322,9 @@ class Ui_Login(object):
 
         self.accept_button = QPushButton(self.buttons_frame)
         self.accept_button.setObjectName(u"accept_button")
+        self.accept_button.setMinimumSize(QSize(80, 30))
+        self.accept_button.setMaximumSize(QSize(80, 30))
+        self.accept_button.setFont(font)
         self.accept_button.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
 "	border-radius: 5px;	\n"
@@ -325,6 +343,9 @@ class Ui_Login(object):
 
         self.cancel_button = QPushButton(self.buttons_frame)
         self.cancel_button.setObjectName(u"cancel_button")
+        self.cancel_button.setMinimumSize(QSize(80, 30))
+        self.cancel_button.setMaximumSize(QSize(80, 30))
+        self.cancel_button.setFont(font)
         self.cancel_button.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
 "	border-radius: 5px;	\n"
@@ -342,7 +363,7 @@ class Ui_Login(object):
         self.horizontalLayout.addWidget(self.cancel_button)
 
 
-        self.verticalLayout_4.addWidget(self.buttons_frame)
+        self.verticalLayout_3.addWidget(self.buttons_frame)
 
 
         self.verticalLayout.addWidget(self.bg)
