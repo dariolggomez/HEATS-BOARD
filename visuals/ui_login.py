@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'ui_loginOVabah.ui'
+## Form generated from reading UI file 'ui_loginCifUpd.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -13,16 +13,16 @@ from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
 
-class Ui_Form(object):
-    def setupUi(self, Form):
-        if not Form.objectName():
-            Form.setObjectName(u"Form")
-        Form.resize(359, 303)
-        Form.setMinimumSize(QSize(300, 250))
-        Form.setStyleSheet(u"background-color: rgb(44, 49, 60);")
-        self.verticalLayout = QVBoxLayout(Form)
+class Ui_Login(object):
+    def setupUi(self, Login):
+        if not Login.objectName():
+            Login.setObjectName(u"Login")
+        Login.resize(359, 303)
+        Login.setMinimumSize(QSize(300, 250))
+        Login.setStyleSheet(u"background-color: rgb(44, 49, 60);")
+        self.verticalLayout = QVBoxLayout(Login)
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.bg = QFrame(Form)
+        self.bg = QFrame(Login)
         self.bg.setObjectName(u"bg")
         self.bg.setStyleSheet(u"/* LINE EDIT */\n"
 "background-color: rgb(44, 49, 60);\n"
@@ -348,16 +348,16 @@ class Ui_Form(object):
         self.verticalLayout.addWidget(self.bg)
 
 
-        self.retranslateUi(Form)
+        self.retranslateUi(Login)
 
-        QMetaObject.connectSlotsByName(Form)
+        QMetaObject.connectSlotsByName(Login)
     # setupUi
 
-    def retranslateUi(self, Form):
-        Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
-        self.label_user.setText(QCoreApplication.translate("Form", u"Usuario", None))
-        self.label_password.setText(QCoreApplication.translate("Form", u"Contrase\u00f1a", None))
-        self.accept_button.setText(QCoreApplication.translate("Form", u"Aceptar", None))
-        self.cancel_button.setText(QCoreApplication.translate("Form", u"Cancelar", None))
+    def retranslateUi(self, Login):
+        Login.setWindowTitle(QCoreApplication.translate("Login", u"Form", None))
+        self.label_user.setText(QCoreApplication.translate("Login", u"Usuario", None))
+        self.label_password.setText(QCoreApplication.translate("Login", u"Contrase\u00f1a", None))
+        self.accept_button.setText(QCoreApplication.translate("Login", u"Aceptar", None))
+        self.cancel_button.setText(QCoreApplication.translate("Login", u"Cancelar", None))
     # retranslateUi
 
