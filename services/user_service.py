@@ -7,8 +7,8 @@ from sqlalchemy import exists
 local_session = Session(bind = engine)
 
 
-def create_user(name_p, email_p):
-        local_session.add(User(name_p, email_p))
+def create_user(name_p, password_p, email_p):
+        local_session.add(User(name_p, password_p, email_p))
         local_session.commit()
 
 def read_all():
@@ -22,6 +22,7 @@ def read_byID(id):
 def update_user(user):
         user_to_update = read_byID(user.id)
         user_to_update.username = user.username
+        user_to_update.password = user.password
         user_to_update.email = user.email
         local_session.commit()
 
