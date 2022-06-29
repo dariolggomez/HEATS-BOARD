@@ -2,6 +2,7 @@ from PySide2.QtWidgets import QWidget, QMessageBox
 from visuals.ui_login import Ui_Login
 from services import user_service
 from controllers.mainwindow import MainWindow
+import hashlib
 
 
 
@@ -16,8 +17,9 @@ class Login(QWidget):
     def authenticate(self):
         username = self.ui.user_lineEdit.text()
         password = self.ui.password_lineEdit.text()
+        passwordEncrypted = hashlib.sha256(password.encode()).hexdigest()
         user = user_service.read_byUsername(username)
-        if(user and user.password == password):
+        if(user and user.password == passwordEncrypted):
             mainwindow = MainWindow()
             self.close()
             mainwindow.show()

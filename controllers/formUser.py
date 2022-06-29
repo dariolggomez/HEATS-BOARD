@@ -6,6 +6,7 @@ from visuals.ui_formUser import Ui_Dialog
 from PySide2.QtCore import Signal
 import services.user_service as user_service
 from validator import validate
+import hashlib
 
 class FormUser(QDialog):
     userCreatedSignal = Signal()
@@ -33,7 +34,8 @@ class FormUser(QDialog):
 
         result, _, errors  = validate(request, rules, return_info=True)
         if(result and not user_service.checkUsernameExist(username) and not user_service.checkEmailExist(email)):
-            user_service.create_user(username, password, email)
+            passwordEncrypted = hashlib.sha256(password.encode()).hexdigest()
+            user_service.create_user(username, passwordEncrypted, email)
             self.userCreatedSignal.emit()
             self.close()
         else:
