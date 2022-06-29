@@ -35,8 +35,37 @@ class FormUpdateUser(QDialog):
         print(user.username)
         print(email)
         print(user.email)
-        if(username != user.username):
-            if(not user_service.checkUsernameExist(username)):
+        if(result):
+            if(username != user.username):
+                if(not user_service.checkUsernameExist(username)):
+                    if(email != user.email):
+                        if(not user_service.checkEmailExist(email)):
+                            if(result):
+                                user.username = username
+                                user.email = email
+                                user_service.update_user(user)
+                                self.userUpdatedSignal.emit()
+                                self.close()
+                            else:
+                                print(str(errors))
+                        else:
+                            msgBox = QMessageBox()
+                            msgBox.setText("Ya existe un usuario con ese email.")
+                            msgBox.exec_()
+                    else:
+                        if(result):
+                            user.username = username
+                            user.email = email
+                            user_service.update_user(user)
+                            self.userUpdatedSignal.emit()
+                            self.close()
+                        else:
+                            print(str(errors))
+                else:
+                    msgBox = QMessageBox()
+                    msgBox.setText("Ya existe ese nombre de usuario.")
+                    msgBox.exec_()        
+            else:
                 if(email != user.email):
                     if(not user_service.checkEmailExist(email)):
                         if(result):
@@ -52,35 +81,30 @@ class FormUpdateUser(QDialog):
                         msgBox.setText("Ya existe un usuario con ese email.")
                         msgBox.exec_()
                 else:
-                    if(result):
-                        user.username = username
-                        user.email = email
-                        user_service.update_user(user)
-                        self.userUpdatedSignal.emit()
-                        self.close()
-                    else:
-                        print(str(errors))
-            else:
-                msgBox = QMessageBox()
-                msgBox.setText("Ya existe ese nombre de usuario.")
-                msgBox.exec_()        
+                    self.close()
         else:
-            if(email != user.email):
-                if(not user_service.checkEmailExist(email)):
-                    if(result):
-                        user.username = username
-                        user.email = email
-                        user_service.update_user(user)
-                        self.userUpdatedSignal.emit()
-                        self.close()
-                    else:
-                        print(str(errors))
-                else:
-                    msgBox = QMessageBox()
-                    msgBox.setText("Ya existe un usuario con ese email.")
-                    msgBox.exec_()
+            if("username" in errors):
+                if("Required" in errors["username"]):
+                    msg = QMessageBox()
+                    msg.setText("Nombre de usuario requerido.")
+                    msg.exec_()
+                else:    
+                    if("Min" in errors["username"]):
+                        msg = QMessageBox()
+                        msg.setText("El nombre de usuario debe tener al menos 3 caracteres.")
+                        msg.exec_()
             else:
-                self.close()
+                if("email" in errors):
+                    if("Required" in errors["email"]):
+                        msg = QMessageBox()
+                        msg.setText("Email requerido.")
+                        msg.exec_()
+                    else:
+                        if("Mail" in errors["email"]):
+                            msg = QMessageBox()
+                            msg.setText("El email debe tener un formato correcto, ejemplo: usuario@mail.com")
+                            msg.exec_()
+
 
             
         
