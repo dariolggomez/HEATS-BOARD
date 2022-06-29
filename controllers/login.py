@@ -20,8 +20,11 @@ class Login(QWidget):
         passwordEncrypted = hashlib.sha256(password.encode()).hexdigest()
         user = user_service.read_byUsername(username)
         if(user and user.password == passwordEncrypted):
-            mainwindow = MainWindow()
             self.close()
+            mainwindow = MainWindow()
+            initials = username[0:2]
+            initials = initials.upper()
+            mainwindow.userIcon(initials,"", True)
             mainwindow.show()
             mainwindow.activateWindow()
             mainwindow.raise_()

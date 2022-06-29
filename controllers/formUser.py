@@ -1,7 +1,7 @@
 import email
 from unittest import result
 from urllib import request
-from PySide2.QtWidgets import QDialog
+from PySide2.QtWidgets import QDialog, QMessageBox
 from visuals.ui_formUser import Ui_Dialog
 from PySide2.QtCore import Signal
 import services.user_service as user_service
@@ -33,11 +33,55 @@ class FormUser(QDialog):
                 "email": "required|mail"}
 
         result, _, errors  = validate(request, rules, return_info=True)
-        if(result and not user_service.checkUsernameExist(username) and not user_service.checkEmailExist(email)):
-            passwordEncrypted = hashlib.sha256(password.encode()).hexdigest()
-            user_service.create_user(username, passwordEncrypted, email)
-            self.userCreatedSignal.emit()
-            self.close()
+        if(result):
+            if(not user_service.checkUsernameExist(username)):
+                if(not user_service.checkEmailExist(email)):
+                    passwordEncrypted = hashlib.sha256(password.encode()).hexdigest()
+                    user_service.create_user(username, passwordEncrypted, email)
+                    self.userCreatedSignal.emit()
+                    self.close()
+                else:
+                    msg = QMessageBox()
+                    msg.setText("Ya existe ese email.")
+                    msg.exec_()
+            else:
+                msg = QMessageBox()
+                msg.setText("Ya existe ese nombre de usuario.")
+                msg.exec_()
         else:
             print(str(errors))
+            if("username" in errors):
+                if("Required" in errors["username"]):
+                    msg = QMessageBox()
+                    msg.setText("Nombre de usuario requerido.")
+                    msg.exec_()
+                else:    
+                    if("Min" in errors["username"]):
+                        msg = QMessageBox()
+                        msg.setText("El nombre de usuario debe tener al menos 3 caracteres.")
+                        msg.exec_()
+            else:
+                if("email" in errors):
+                    if("Required" in errors["email"]):
+                        msg = QMessageBox()
+                        msg.setText("Email requerido.")
+                        msg.exec_()
+                    else:
+                        if("Mail" in errors["email"]):
+                            msg = QMessageBox()
+                            msg.setText("El email debe tener un formato correcto, ejemplo: usuario@mail.com")
+                            msg.exec_()
+                else:
+                    if("password" in errors):
+                        if("Required" in errors["password"]):
+                            msg = QMessageBox()
+                            msg.setText("Contraseña requerida.")
+                            msg.exec_()
+                        else:
+                            if("Min" in errors["password"]):
+                                msg = QMessageBox()
+                                msg.setText("La contraseña debe tener al menos 4 caracteres.")
+                                msg.exec_()
+
+
         
