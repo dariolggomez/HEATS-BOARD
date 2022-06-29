@@ -19,6 +19,10 @@ def read_byID(id):
         user = local_session.query(User).filter(User.id == id).first()
         return user
 
+def read_byUsername(username):
+        user = local_session.query(User).filter(User.username == username).first()
+        return user
+
 def update_user(user):
         user_to_update = read_byID(user.id)
         user_to_update.username = user.username
