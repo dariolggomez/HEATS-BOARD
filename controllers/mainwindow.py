@@ -49,7 +49,7 @@ class MainWindow(QMainWindow):
         ## ==> END ##
 
         ## WINDOW SIZE ==> DEFAULT SIZE
-        startSize = QSize(1000, 720)
+        startSize = QSize(1280, 900)
         self.resize(startSize)
         self.setMinimumSize(startSize)
         # self.enableMaximumSize(self, 500, 720)
@@ -208,6 +208,9 @@ class MainWindow(QMainWindow):
             self.ui.chartLayout1.addWidget(static_canvas)
 
             self._static_ax = static_canvas.figure.subplots()
+            self._static_ax.set_title("Frecuencia | Valor")
+            self._static_ax.set_ylabel("Frecuencia")
+            self._static_ax.set_xlabel("Valor")
             # self._static_ax.yaxis.set_visible(False)
             x = np.linspace(0, len(dataToDisplay), len(dataToDisplay))
             y = np.array(dataToDisplay)
@@ -220,6 +223,9 @@ class MainWindow(QMainWindow):
             self.ui.chartLayout2.addWidget(dynamic_canvas)
 
             self._dynamic_ax = dynamic_canvas.figure.subplots()
+            self._dynamic_ax.set_title("Frecuencias Críticas y Fatales")
+            self._dynamic_ax.set_ylabel("Frecuencia")
+            self._dynamic_ax.set_xlabel("Valor")
             dataFiltered = dataToDisplay.copy()
             dataToFilter = dataToDisplay.copy()
             for value in dataToFilter:
@@ -251,6 +257,7 @@ class MainWindow(QMainWindow):
             self.ui.chartLayout3.addWidget(NavigationToolbar(static_canvas_pie, self))
 
             self._pie_ax = static_canvas_pie.figure.subplots()
+            self._pie_ax.set_title("Porcentaje por Criticidad de los Valores")
             self._pie_ax.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
             shadow=True, startangle=90)
             self._pie_ax.axis('equal')
