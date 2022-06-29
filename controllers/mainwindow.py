@@ -223,7 +223,7 @@ class MainWindow(QMainWindow):
             dataFiltered = dataToDisplay.copy()
             dataToFilter = dataToDisplay.copy()
             for value in dataToFilter:
-                if(value < 45):
+                if(value <= 40):
                     dataFiltered.remove(value)
             xDynamic = np.linspace(0, len(dataFiltered), len(dataFiltered))
             yDynamic = np.array(dataFiltered)
