@@ -1,3 +1,4 @@
+from copy import deepcopy
 from queue import Empty
 import sys
 import platform
@@ -219,9 +220,16 @@ class MainWindow(QMainWindow):
             self.ui.chartLayout2.addWidget(dynamic_canvas)
 
             self._dynamic_ax = dynamic_canvas.figure.subplots()
-            t = np.linspace(0, 10, 101)
+            dataFiltered = dataToDisplay.copy()
+            dataToFilter = dataToDisplay.copy()
+            for value in dataToFilter:
+                if(value < 45):
+                    dataFiltered.remove(value)
+            xDynamic = np.linspace(0, len(dataFiltered), len(dataFiltered))
+            yDynamic = np.array(dataFiltered)
+            self._dynamic_ax.plot(xDynamic,yDynamic)
             # Set up a Line2D.
-            self._line, = self._dynamic_ax.plot(t, np.sin(t + time.time()))
+            # self._line, = self._dynamic_ax.plot(t, np.sin(t + time.time()))
             # self._timer = dynamic_canvas.new_timer(6000)
             # self._timer.add_callback(self._update_canvas)
             # self._timer.start()
