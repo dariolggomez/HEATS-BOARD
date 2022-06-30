@@ -106,7 +106,7 @@ class MainWindow(QMainWindow):
 
         ## ==> QTableWidget RARAMETERS
         ########################################################################
-        self.ui.tableWidget.horizontalHeader().setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+        # self.ui.tableWidget.horizontalHeader().setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
         ## ==> END ##
 
 
