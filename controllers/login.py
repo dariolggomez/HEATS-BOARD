@@ -22,6 +22,8 @@ class Login(SingletonClass,QWidget):
         passwordEncrypted = hashlib.sha256(password.encode()).hexdigest()
         user = user_service.read_byUsername(username)
         if(user and user.password == passwordEncrypted):
+            self.ui.user_lineEdit.clear()
+            self.ui.password_lineEdit.clear()
             self.close()
             mainwindow = MainWindow()
             initials = username[0:2]

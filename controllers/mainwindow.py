@@ -16,6 +16,7 @@ from matplotlib.figure import Figure
 from threading import Thread, Timer
 import matplotlib.pyplot as plt
 from sqlalchemy import true
+import controllers.login as Login 
 import services.user_service as user_service
 import network.client as client
 from controllers.singleton import SingletonClass
@@ -28,7 +29,7 @@ from styles.ui_styles import Style
 GLOBAL_STATE = 0
 GLOBAL_TITLE_BAR = True
 
-class MainWindow(SingletonClass,QMainWindow):
+class MainWindow(QMainWindow):
     count = 1
     graphicsLoaded = False
     def __init__(self):
@@ -68,6 +69,7 @@ class MainWindow(SingletonClass,QMainWindow):
             self.ui.stackedWidget.setMinimumWidth(20)
             self.addNewMenu("Dashboard", "btn_home", "url(:/16x16/icons/16x16/cil-chart.png)", True)
             self.addNewMenu("Usuarios", "btn_new_user", "url(:/16x16/icons/16x16/cil-user-follow.png)", True)
+            self.addNewMenu("Cerrar Sesión", "btn_logout", "url(:/16x16/icons/16x16/cil-account-logout.png)", False)
             self.addNewMenu("Configuración", "btn_settings", "url(:/16x16/icons/16x16/cil-equalizer.png)", False)
             self.addNewMenu("Consola", "btn_console", "url(:/16x16/icons/16x16/cil-terminal.png)", False)
             self.addNewMenu("Conexión", "btn_network", "url(:/16x16/icons/16x16/cil-rss.png)", True)
@@ -78,7 +80,7 @@ class MainWindow(SingletonClass,QMainWindow):
             ## ==> END ##
             
             ## USER ICON ==> SHOW HIDE
-            self.userIcon("AL", "", True)
+            # self.userIcon("AL", "", True)
             ## ==> END ##
 
             # self.loadUserTable()
@@ -199,6 +201,14 @@ class MainWindow(SingletonClass,QMainWindow):
         # CONSOLE BTN
         if btnWidget.objectName() == "btn_console":
             self.toggleConsole(150, True)
+        
+        # LOGOUT BTN
+        if btnWidget.objectName() == "btn_logout":
+            self.close()
+            login = Login.Login()
+            login.show()
+            login.activateWindow()
+            login.raise_()
 
     def loadGraphics(self):
         localFileReaded = False
