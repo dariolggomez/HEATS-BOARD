@@ -159,6 +159,7 @@ class MainWindow(QMainWindow):
 
             ## ==> START PAGE
             self.ui.stackedWidget.setCurrentWidget(self.ui.page_home)
+            self.tightLayoutCharts()
             ## ==> END ##
 
             ## SHOW ==> MAIN WINDOW
@@ -407,10 +408,11 @@ class MainWindow(QMainWindow):
         self.dragPos = event.globalPos()
 
     def tightLayoutCharts(self):
-        self.static_canvas.figure.tight_layout()
-        self.dynamic_canvas.figure.tight_layout()
-        self.static_canvas_pie.figure.tight_layout()
-        self.static_canvas_lines.figure.tight_layout()
+        if(self.graphicsLoaded):
+            self.static_canvas.figure.tight_layout()
+            self.dynamic_canvas.figure.tight_layout()
+            self.static_canvas_pie.figure.tight_layout()
+            self.static_canvas_lines.figure.tight_layout()
 
     def winFullscreen(self):
         global GLOBAL_FULLSCREEN
