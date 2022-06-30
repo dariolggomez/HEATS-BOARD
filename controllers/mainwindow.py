@@ -69,10 +69,10 @@ class MainWindow(QMainWindow):
             self.ui.stackedWidget.setMinimumWidth(20)
             self.addNewMenu("Dashboard", "btn_home", "url(:/16x16/icons/16x16/cil-chart.png)", True)
             self.addNewMenu("Usuarios", "btn_new_user", "url(:/16x16/icons/16x16/cil-user-follow.png)", True)
-            self.addNewMenu("Cerrar Sesión", "btn_logout", "url(:/16x16/icons/16x16/cil-account-logout.png)", False)
+            self.addNewMenu("Conexión", "btn_network", "url(:/16x16/icons/16x16/cil-rss.png)", True)
             self.addNewMenu("Configuración", "btn_settings", "url(:/16x16/icons/16x16/cil-equalizer.png)", False)
             self.addNewMenu("Consola", "btn_console", "url(:/16x16/icons/16x16/cil-terminal.png)", False)
-            self.addNewMenu("Conexión", "btn_network", "url(:/16x16/icons/16x16/cil-rss.png)", True)
+            self.addNewMenu("Cerrar Sesión", "btn_logout", "url(:/16x16/icons/16x16/cil-account-logout.png)", False)
             ## ==> END ##
 
             # START MENU => SELECTION
@@ -141,6 +141,7 @@ class MainWindow(QMainWindow):
             #LOAD DASHBOARD GRAPHICS
             self.loadGraphics()
             
+            # BACKUP THREAD
             try:
                 backupExecutionTimer = Timer(30.0, self.backupTemporaryFile)
                 backupExecutionTimer.daemon = True
