@@ -197,12 +197,21 @@ class MainWindow(QMainWindow):
             self.toggleConsole(150, True)
 
     def loadGraphics(self):
+        localFileReaded = False
         try:
             data = pd.read_csv("network/log.txt", nrows=20, sep="/", header=None)
+            localFileReaded = True
         except:
             self.ui.console.insertPlainText(f"CONSOLA >> No se encontró el archivo proveniente de HEATS-NET. Debe conectarse al servidor.\r")
             self.ui.console.setFocus()
-            return
+        if(not localFileReaded):
+            try:
+                data = pd.read_csv("backup/log.txt", nrows=20, sep="/", header=None)
+                self.ui.console.insertPlainText(f"CONSOLA >> Se cargará la última información guardada.\r")
+            except:
+                self.ui.console.insertPlainText(f"CONSOLA >> No se encontró el archivo salva, no se podrá mostrar información.\r")
+                self.ui.console.setFocus()
+                return
         if(data is not None and self.graphicsLoaded == False):
             dataToDisplay = []
             for x in range(300,500):
@@ -577,7 +586,7 @@ class MainWindow(QMainWindow):
         except Exception as e:
             print(str(e))
             print(f"No se encuentra el archivo local.")
-            self.ui.console.insertPlainText(f"CONSOLE >> No se encuentra el archivo de información local\r")
+            self.ui.console.insertPlainText(f"CONSOLA >> No se encuentra el archivo de información local\r")
         if(contentReaded):
             try:
                 with open("backup/log.txt", "w") as backupFile:
@@ -585,7 +594,7 @@ class MainWindow(QMainWindow):
             except Exception as e:
                 print(str(e))
                 print(f"Ocurrió un error al intentar hacer la salva de la información")
-                self.ui.console.insertPlainText(f"Ocurrió un error al intentar hacer la salva de la información.")
+                self.ui.console.insertPlainText(f"CONSOLA >> Ocurrió un error al intentar hacer la salva de la información.")
         try:
             Timer(30.0, self.backupTemporaryFile).start()
         except Exception as e:
