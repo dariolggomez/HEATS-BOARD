@@ -13,7 +13,7 @@ from matplotlib.backends.qt_compat import QtWidgets
 from matplotlib.backends.backend_qtagg import (
     FigureCanvas, NavigationToolbar2QT as NavigationToolbar)
 from matplotlib.figure import Figure
-from threading import Thread
+from threading import Thread, Timer
 import matplotlib.pyplot as plt
 from sqlalchemy import true
 import services.user_service as user_service
@@ -136,6 +136,11 @@ class MainWindow(QMainWindow):
         self.ui.console.insertPlainText(f"CONSOLA >> HEATS-BOARD Inicializado.\r")
         #LOAD DASHBOARD GRAPHICS
         self.loadGraphics()
+        
+        try:
+            Timer(30.0, self.backupTemporaryFile).start()
+        except Exception as e:
+            print(str(e))
 
         # Static Chart
         # layout = QtWidgets.QGridLayout(self.ui.page_home)
@@ -562,6 +567,32 @@ class MainWindow(QMainWindow):
             msgBox = QMessageBox()
             msgBox.setText("La dirección del servidor o el puerto de red no puede estar vacío.")
             msgBox.exec_()
+
+    def backupTemporaryFile(self):
+        contentReaded = False
+        try:
+            with open("network/log.txt", "r") as localFile:
+                content = localFile.readlines()
+                contentReaded = True
+        except Exception as e:
+            print(str(e))
+            print(f"No se encuentra el archivo local.")
+            self.ui.console.insertPlainText(f"CONSOLE >> No se encuentra el archivo de información local\r")
+        if(contentReaded):
+            try:
+                with open("backup/log.txt", "w") as backupFile:
+                    backupFile.writelines(content)
+            except Exception as e:
+                print(str(e))
+                print(f"Ocurrió un error al intentar hacer la salva de la información")
+                self.ui.console.insertPlainText(f"Ocurrió un error al intentar hacer la salva de la información.")
+        try:
+            Timer(30.0, self.backupTemporaryFile).start()
+        except Exception as e:
+            print(str(e))
+
+
+
 
     ########################################################################
     ## END - GUI FUNCTIONS
