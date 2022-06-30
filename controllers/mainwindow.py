@@ -142,7 +142,9 @@ class MainWindow(QMainWindow):
             self.loadGraphics()
             
             try:
-                Timer(30.0, self.backupTemporaryFile).start()
+                backupExecutionTimer = Timer(30.0, self.backupTemporaryFile)
+                backupExecutionTimer.daemon = True
+                backupExecutionTimer.start()
             except Exception as e:
                 print(str(e))
 
@@ -610,7 +612,9 @@ class MainWindow(QMainWindow):
                 print(f"Ocurrió un error al intentar hacer la salva de la información")
                 self.ui.console.insertPlainText(f"CONSOLA >> Ocurrió un error al intentar hacer la salva de la información.")
         try:
-            Timer(30.0, self.backupTemporaryFile).start()
+            backupExecutionTimer =  Timer(30.0, self.backupTemporaryFile)
+            backupExecutionTimer.daemon = True
+            backupExecutionTimer.start()
         except Exception as e:
             print(str(e))
 
