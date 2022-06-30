@@ -239,11 +239,11 @@ class MainWindow(QMainWindow):
             for x in range(300,500):
                 dataToDisplay.append(data.iloc[0][x])
 
-            static_canvas = FigureCanvas(Figure(figsize=(5, 3)))
-            self.ui.chartLayout1.addWidget(NavigationToolbar(static_canvas, self))
-            self.ui.chartLayout1.addWidget(static_canvas)
+            self.static_canvas = FigureCanvas(Figure(figsize=(5, 3)))
+            self.ui.chartLayout1.addWidget(NavigationToolbar(self.static_canvas, self))
+            self.ui.chartLayout1.addWidget(self.static_canvas)
 
-            self._static_ax = static_canvas.figure.subplots()
+            self._static_ax = self.static_canvas.figure.subplots()
             self._static_ax.set_title("Frecuencia | Valor")
             self._static_ax.set_ylabel("Frecuencia")
             self._static_ax.set_xlabel("Valor")
@@ -254,11 +254,11 @@ class MainWindow(QMainWindow):
             self._static_ax.plot(x, y)
 
             # Dynamic Chart
-            dynamic_canvas = FigureCanvas(Figure(figsize=(5, 3)))
-            self.ui.chartLayout2.addWidget(NavigationToolbar(dynamic_canvas, self))
-            self.ui.chartLayout2.addWidget(dynamic_canvas)
+            self.dynamic_canvas = FigureCanvas(Figure(figsize=(5, 3)))
+            self.ui.chartLayout2.addWidget(NavigationToolbar(self.dynamic_canvas, self))
+            self.ui.chartLayout2.addWidget(self.dynamic_canvas)
 
-            self._dynamic_ax = dynamic_canvas.figure.subplots()
+            self._dynamic_ax = self.dynamic_canvas.figure.subplots()
             self._dynamic_ax.set_title("Frecuencias Críticas y Fatales")
             self._dynamic_ax.set_ylabel("Frecuencia")
             self._dynamic_ax.set_xlabel("Valor")
@@ -288,11 +288,11 @@ class MainWindow(QMainWindow):
             # print(sizeFatalParameters)
             sizes = [sizeCriticalParameters, sizeAlertParameters, sizeNormalParameters, sizeFatalParameters]
             explode = (0, 0, 0.1, 0)
-            static_canvas_pie = FigureCanvas(Figure(figsize=(5, 3)))
-            self.ui.chartLayout3.addWidget(static_canvas_pie)
-            self.ui.chartLayout3.addWidget(NavigationToolbar(static_canvas_pie, self))
+            self.static_canvas_pie = FigureCanvas(Figure(figsize=(5, 3)))
+            self.ui.chartLayout3.addWidget(self.static_canvas_pie)
+            self.ui.chartLayout3.addWidget(NavigationToolbar(self.static_canvas_pie, self))
 
-            self._pie_ax = static_canvas_pie.figure.subplots()
+            self._pie_ax = self.static_canvas_pie.figure.subplots()
             self._pie_ax.set_title("Porcentaje por Criticidad de los Valores")
             self._pie_ax.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
             shadow=True, startangle=90)
@@ -307,10 +307,10 @@ class MainWindow(QMainWindow):
             x = np.arange(len(labels))  # label locations
             width = 0.35  # width of the bars
 
-            static_canvas_lines = FigureCanvas(Figure(figsize=(5,4)))
-            self.ui.chartLayout4.addWidget(static_canvas_lines)
-            self.ui.chartLayout4.addWidget(NavigationToolbar(static_canvas_lines,self))
-            self.lines_ax = static_canvas_lines.figure.subplots()
+            self.static_canvas_lines = FigureCanvas(Figure(figsize=(5,4)))
+            self.ui.chartLayout4.addWidget(self.static_canvas_lines)
+            self.ui.chartLayout4.addWidget(NavigationToolbar(self.static_canvas_lines,self))
+            self.lines_ax = self.static_canvas_lines.figure.subplots()
             rects1 = self.lines_ax.bar(x, parameters, width, label='Parámetros')
             # rects2 = self.lines_ax.bar(x + width/2, women_means, width, label='Femenino')
 
@@ -322,7 +322,7 @@ class MainWindow(QMainWindow):
             self.lines_ax.bar_label(rects1, padding=3)
             # self.lines_ax.bar_label(rects2, padding=3)
 
-            static_canvas_lines.figure.tight_layout()
+            self.static_canvas_lines.figure.tight_layout()
             self.lines_ax.plot()
             self.graphicsLoaded = True
         
@@ -406,12 +406,19 @@ class MainWindow(QMainWindow):
     def mousePressEvent(self, event):
         self.dragPos = event.globalPos()
 
+    def tightLayoutCharts(self):
+        self.static_canvas.figure.tight_layout()
+        self.dynamic_canvas.figure.tight_layout()
+        self.static_canvas_pie.figure.tight_layout()
+        self.static_canvas_lines.figure.tight_layout()
+
     def winFullscreen(self):
         global GLOBAL_FULLSCREEN
         global GLOBAL_STATE
         status = GLOBAL_FULLSCREEN
         if status == 0:
             self.showFullScreen()
+            self.tightLayoutCharts()
             GLOBAL_FULLSCREEN = 1
             GLOBAL_STATE = 1
             self.ui.central_widget_layout.setContentsMargins(0,0,0,0)
@@ -419,6 +426,7 @@ class MainWindow(QMainWindow):
             self.ui.frame_size_grip.hide()
         else:
             self.showNormal()
+            self.tightLayoutCharts()
             GLOBAL_FULLSCREEN = 0
             GLOBAL_STATE = 0
             self.ui.central_widget_layout.setContentsMargins(10,10,10,10)
@@ -431,6 +439,7 @@ class MainWindow(QMainWindow):
         status = GLOBAL_STATE
         if status == 0:
             self.showMaximized()
+            self.tightLayoutCharts()
             GLOBAL_STATE = 1
             self.ui.central_widget_layout.setContentsMargins(0, 0, 0, 0)
             self.ui.btn_maximize_restore.setToolTip("Restore")
@@ -440,6 +449,7 @@ class MainWindow(QMainWindow):
         else:
             GLOBAL_STATE = 0
             self.showNormal()
+            self.tightLayoutCharts()
             self.resize(self.width()+1, self.height()+1)
             self.ui.central_widget_layout.setContentsMargins(10, 10, 10, 10)
             self.ui.btn_maximize_restore.setToolTip("Maximize")
