@@ -32,6 +32,7 @@ class Login(SingletonClass,QWidget):
             mainwindow.show()
             mainwindow.activateWindow()
             mainwindow.raise_()
+            mainwindow.tightLayoutCharts()
         else:
             msg = QMessageBox()
             msg.setText("Nombre de usuario o contraseña incorrecto.")
