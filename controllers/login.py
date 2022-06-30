@@ -6,15 +6,15 @@ from controllers.singleton import SingletonClass
 import hashlib
 
 class Login(SingletonClass,QWidget):
-    created = False
     def __init__(self, parent = None):
-        if(not self.created):
+        try:
             super().__init__(parent)
             self.ui = Ui_Login()
             self.ui.setupUi(self)
-            self.created = True
             self.ui.cancel_button.clicked.connect(self.close)
             self.ui.accept_button.clicked.connect(self.authenticate)
+        except Exception as e:
+            print(str(e))
 
     def authenticate(self):
         username = self.ui.user_lineEdit.text()
