@@ -18,6 +18,7 @@ import matplotlib.pyplot as plt
 from sqlalchemy import true
 import services.user_service as user_service
 import network.client as client
+from controllers.singleton import SingletonClass
 
 # GUI FILE
 from visuals.ui_main import Ui_MainWindow
@@ -27,132 +28,135 @@ from styles.ui_styles import Style
 GLOBAL_STATE = 0
 GLOBAL_TITLE_BAR = True
 
-class MainWindow(QMainWindow):
+class MainWindow(SingletonClass,QMainWindow):
     count = 1
     graphicsLoaded = False
     def __init__(self):
-        super().__init__()
-        self.ui = Ui_MainWindow()
-        self.ui.setupUi(self)
-        ########################################################################
-        ## START - WINDOW ATTRIBUTES
-        ########################################################################
-        
-        ## REMOVE ==> STANDARD TITLE BAR
-        self.removeTitleBar(True)
-        ## ==> END ##
-
-        ## SET ==> WINDOW TITLE
-        self.setWindowTitle('HEATS-BOARD')
-        self.labelTitle('HEATS-BOARD')
-        self.labelDescription('App Description')
-        ## ==> END ##
-
-        ## WINDOW SIZE ==> DEFAULT SIZE
-        startSize = QSize(1280, 900)
-        self.resize(startSize)
-        self.setMinimumSize(startSize)
-        # self.enableMaximumSize(self, 500, 720)
-        ## ==> END ##
-
-        ## ==> CREATE MENUS
-        ########################################################################
-
-        ## ==> TOGGLE MENU SIZE
-        self.ui.btn_toggle_menu.clicked.connect(lambda: self.toggleMenu(220, True))
-        ## ==> END ##
-
-        ## ==> ADD CUSTOM MENUS
-        self.ui.stackedWidget.setMinimumWidth(20)
-        self.addNewMenu("Dashboard", "btn_home", "url(:/16x16/icons/16x16/cil-chart.png)", True)
-        self.addNewMenu("Usuarios", "btn_new_user", "url(:/16x16/icons/16x16/cil-user-follow.png)", True)
-        self.addNewMenu("Configuración", "btn_settings", "url(:/16x16/icons/16x16/cil-equalizer.png)", False)
-        self.addNewMenu("Consola", "btn_console", "url(:/16x16/icons/16x16/cil-terminal.png)", False)
-        self.addNewMenu("Conexión", "btn_network", "url(:/16x16/icons/16x16/cil-rss.png)", True)
-        ## ==> END ##
-
-        # START MENU => SELECTION
-        self.selectStandardMenu("btn_home")
-        ## ==> END ##
-        
-        ## USER ICON ==> SHOW HIDE
-        self.userIcon("AL", "", True)
-        ## ==> END ##
-
-        # self.loadUserTable()
-
-
-        ## ==> MOVE WINDOW / MAXIMIZE / RESTORE
-        ########################################################################
-        def moveWindow(event):
-            # IF MAXIMIZED CHANGE TO NORMAL
-            if self.returnStatus() == 1:
-                self.maximize_restore()
-
-            # MOVE WINDOW
-            if event.buttons() == Qt.LeftButton:
-                self.move(self.pos() + event.globalPos() - self.dragPos)
-                self.dragPos = event.globalPos()
-                event.accept()
-
-        # WIDGET TO MOVE
-        self.ui.frame_label_top_btns.mouseMoveEvent = moveWindow
-        ## ==> END ##
-
-        ## ==> LOAD DEFINITIONS
-        ########################################################################
-        self.uiDefinitions()
-        ## ==> END ##
-
-        ## ==> QTableWidget RARAMETERS
-        ########################################################################
-        # self.ui.tableWidget.horizontalHeader().setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
-        ## ==> END ##
-
-
-        #####
-        ## CONNECTIONS
-        #####
-
-        self.ui.eliminateBtn.clicked.connect(self.eliminateCurrentRow)
-        self.ui.createBtn.clicked.connect(self.showCreateUsersDialog)
-        self.ui.editBtn.clicked.connect(self.showUpdateUsersDialog)
-        self.ui.connectBtn.clicked.connect(self.connectToHost)
-
-        ########################################################################
-        #                                                                      #
-        ## END --------------- WIDGETS FUNCTIONS/PARAMETERS ----------------- ##
-        #                                                                      #
-        ############################## ---/--/--- ##############################
-        
-        #HOST PORT INPUT MASK
-        self.intValidator = QIntValidator()
-        self.intValidator.setBottom(0)
-        self.intValidator.setTop(65535)
-        self.ui.hostPortLineEdit.setValidator(self.intValidator)
-        self.ui.hostPortLineEdit.setMaxLength(5)
-        
-
-        self.ui.console.insertPlainText(f"CONSOLA >> HEATS-BOARD Inicializado.\r")
-        #LOAD DASHBOARD GRAPHICS
-        self.loadGraphics()
-        
         try:
-            Timer(30.0, self.backupTemporaryFile).start()
+            super().__init__()
+            self.ui = Ui_MainWindow()
+            self.ui.setupUi(self)
+            ########################################################################
+            ## START - WINDOW ATTRIBUTES
+            ########################################################################
+            
+            ## REMOVE ==> STANDARD TITLE BAR
+            self.removeTitleBar(True)
+            ## ==> END ##
+
+            ## SET ==> WINDOW TITLE
+            self.setWindowTitle('HEATS-BOARD')
+            self.labelTitle('HEATS-BOARD')
+            self.labelDescription('App Description')
+            ## ==> END ##
+
+            ## WINDOW SIZE ==> DEFAULT SIZE
+            startSize = QSize(1280, 900)
+            self.resize(startSize)
+            self.setMinimumSize(startSize)
+            # self.enableMaximumSize(self, 500, 720)
+            ## ==> END ##
+
+            ## ==> CREATE MENUS
+            ########################################################################
+
+            ## ==> TOGGLE MENU SIZE
+            self.ui.btn_toggle_menu.clicked.connect(lambda: self.toggleMenu(220, True))
+            ## ==> END ##
+
+            ## ==> ADD CUSTOM MENUS
+            self.ui.stackedWidget.setMinimumWidth(20)
+            self.addNewMenu("Dashboard", "btn_home", "url(:/16x16/icons/16x16/cil-chart.png)", True)
+            self.addNewMenu("Usuarios", "btn_new_user", "url(:/16x16/icons/16x16/cil-user-follow.png)", True)
+            self.addNewMenu("Configuración", "btn_settings", "url(:/16x16/icons/16x16/cil-equalizer.png)", False)
+            self.addNewMenu("Consola", "btn_console", "url(:/16x16/icons/16x16/cil-terminal.png)", False)
+            self.addNewMenu("Conexión", "btn_network", "url(:/16x16/icons/16x16/cil-rss.png)", True)
+            ## ==> END ##
+
+            # START MENU => SELECTION
+            self.selectStandardMenu("btn_home")
+            ## ==> END ##
+            
+            ## USER ICON ==> SHOW HIDE
+            self.userIcon("AL", "", True)
+            ## ==> END ##
+
+            # self.loadUserTable()
+
+
+            ## ==> MOVE WINDOW / MAXIMIZE / RESTORE
+            ########################################################################
+            def moveWindow(event):
+                # IF MAXIMIZED CHANGE TO NORMAL
+                if self.returnStatus() == 1:
+                    self.maximize_restore()
+
+                # MOVE WINDOW
+                if event.buttons() == Qt.LeftButton:
+                    self.move(self.pos() + event.globalPos() - self.dragPos)
+                    self.dragPos = event.globalPos()
+                    event.accept()
+
+            # WIDGET TO MOVE
+            self.ui.frame_label_top_btns.mouseMoveEvent = moveWindow
+            ## ==> END ##
+
+            ## ==> LOAD DEFINITIONS
+            ########################################################################
+            self.uiDefinitions()
+            ## ==> END ##
+
+            ## ==> QTableWidget RARAMETERS
+            ########################################################################
+            # self.ui.tableWidget.horizontalHeader().setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+            ## ==> END ##
+
+
+            #####
+            ## CONNECTIONS
+            #####
+
+            self.ui.eliminateBtn.clicked.connect(self.eliminateCurrentRow)
+            self.ui.createBtn.clicked.connect(self.showCreateUsersDialog)
+            self.ui.editBtn.clicked.connect(self.showUpdateUsersDialog)
+            self.ui.connectBtn.clicked.connect(self.connectToHost)
+
+            ########################################################################
+            #                                                                      #
+            ## END --------------- WIDGETS FUNCTIONS/PARAMETERS ----------------- ##
+            #                                                                      #
+            ############################## ---/--/--- ##############################
+            
+            #HOST PORT INPUT MASK
+            self.intValidator = QIntValidator()
+            self.intValidator.setBottom(0)
+            self.intValidator.setTop(65535)
+            self.ui.hostPortLineEdit.setValidator(self.intValidator)
+            self.ui.hostPortLineEdit.setMaxLength(5)
+            
+
+            self.ui.console.insertPlainText(f"CONSOLA >> HEATS-BOARD Inicializado.\r")
+            #LOAD DASHBOARD GRAPHICS
+            self.loadGraphics()
+            
+            try:
+                Timer(30.0, self.backupTemporaryFile).start()
+            except Exception as e:
+                print(str(e))
+
+            # Static Chart
+            # layout = QtWidgets.QGridLayout(self.ui.page_home)
+
+            ## ==> START PAGE
+            self.ui.stackedWidget.setCurrentWidget(self.ui.page_home)
+            ## ==> END ##
+
+            ## SHOW ==> MAIN WINDOW
+            ########################################################################
+            # self.show()
+            ## ==> END ##
         except Exception as e:
             print(str(e))
-
-        # Static Chart
-        # layout = QtWidgets.QGridLayout(self.ui.page_home)
-
-        ## ==> START PAGE
-        self.ui.stackedWidget.setCurrentWidget(self.ui.page_home)
-        ## ==> END ##
-
-        ## SHOW ==> MAIN WINDOW
-        ########################################################################
-        # self.show()
-        ## ==> END ##
 
     ########################################################################
     ## MENUS ==> DYNAMIC MENUS FUNCTIONS
