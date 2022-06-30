@@ -27,6 +27,7 @@ from controllers.formUser import FormUser
 from controllers.formUpdateUser import FormUpdateUser
 from styles.ui_styles import Style
 GLOBAL_STATE = 0
+GLOBAL_FULLSCREEN = 0
 GLOBAL_TITLE_BAR = True
 
 class MainWindow(QMainWindow):
@@ -55,6 +56,10 @@ class MainWindow(QMainWindow):
             startSize = QSize(1280, 900)
             self.resize(startSize)
             self.setMinimumSize(startSize)
+            global GLOBAL_STATE
+            global GLOBAL_FULLSCREEN
+            GLOBAL_STATE = 0
+            GLOBAL_FULLSCREEN = 0
             # self.enableMaximumSize(self, 500, 720)
             ## ==> END ##
 
@@ -401,6 +406,26 @@ class MainWindow(QMainWindow):
     def mousePressEvent(self, event):
         self.dragPos = event.globalPos()
 
+    def winFullscreen(self):
+        global GLOBAL_FULLSCREEN
+        global GLOBAL_STATE
+        status = GLOBAL_FULLSCREEN
+        if status == 0:
+            self.showFullScreen()
+            GLOBAL_FULLSCREEN = 1
+            GLOBAL_STATE = 1
+            self.ui.central_widget_layout.setContentsMargins(0,0,0,0)
+            self.ui.frame_top_btns.setMaximumHeight(0)
+            self.ui.frame_size_grip.hide()
+        else:
+            self.showNormal()
+            GLOBAL_FULLSCREEN = 0
+            GLOBAL_STATE = 0
+            self.ui.central_widget_layout.setContentsMargins(10,10,10,10)
+            self.ui.frame_top_btns.setMaximumHeight(42)
+            self.ui.frame_size_grip.show()
+            self.ui.btn_maximize_restore.setIcon(QtGui.QIcon(u":/16x16/icons/16x16/cil-window-maximize.png"))
+
     def maximize_restore(self):
         global GLOBAL_STATE
         status = GLOBAL_STATE
@@ -670,8 +695,12 @@ class MainWindow(QMainWindow):
         ## ==> MAXIMIZE/RESTORE
         self.ui.btn_maximize_restore.clicked.connect(lambda: self.maximize_restore())
 
-        ## SHOW ==> CLOSE APPLICATION
+        ## ==> CLOSE APPLICATION
         self.ui.btn_close.clicked.connect(lambda: self.close())
+
+        ## ==> FULLSCREEN
+        self.ui.btn_fullscreen.clicked.connect(self.winFullscreen)
+        self.ui.btn_settings_fullscreen.clicked.connect(self.winFullscreen) 
 
 
     ########################################################################

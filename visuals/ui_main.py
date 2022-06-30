@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUI_BASEAsfvGB.ui'
+## Form generated from reading UI file 'GUI_BASEnzsFEP.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -464,20 +464,49 @@ class Ui_MainWindow(object):
         self.frame_btns_right.setObjectName(u"frame_btns_right")
         sizePolicy1.setHeightForWidth(self.frame_btns_right.sizePolicy().hasHeightForWidth())
         self.frame_btns_right.setSizePolicy(sizePolicy1)
-        self.frame_btns_right.setMaximumSize(QSize(120, 16777215))
+        self.frame_btns_right.setMaximumSize(QSize(180, 16777215))
         self.frame_btns_right.setFrameShape(QFrame.NoFrame)
         self.frame_btns_right.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_5 = QHBoxLayout(self.frame_btns_right)
         self.horizontalLayout_5.setSpacing(0)
         self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
         self.horizontalLayout_5.setContentsMargins(0, 0, 0, 0)
-        self.btn_minimize = QPushButton(self.frame_btns_right)
-        self.btn_minimize.setObjectName(u"btn_minimize")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.btn_fullscreen = QPushButton(self.frame_btns_right)
+        self.btn_fullscreen.setObjectName(u"btn_fullscreen")
+        sizePolicy2 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Preferred)
         sizePolicy2.setHorizontalStretch(0)
         sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.btn_minimize.sizePolicy().hasHeightForWidth())
-        self.btn_minimize.setSizePolicy(sizePolicy2)
+        sizePolicy2.setHeightForWidth(self.btn_fullscreen.sizePolicy().hasHeightForWidth())
+        self.btn_fullscreen.setSizePolicy(sizePolicy2)
+        self.btn_fullscreen.setMinimumSize(QSize(40, 0))
+        self.btn_fullscreen.setMaximumSize(QSize(40, 16777215))
+        self.btn_fullscreen.setStyleSheet(u"QPushButton {	\n"
+"	border: none;\n"
+"	background-color: transparent;\n"
+"}\n"
+"QPushButton:hover {\n"
+"	background-color: rgb(52, 59, 72);\n"
+"}\n"
+"QPushButton:pressed {	\n"
+"	background-color: rgb(85, 170, 255);\n"
+"}")
+        icon = QIcon()
+        icon.addFile(u":/20x20/icons/20x20/cil-fullscreen.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.btn_fullscreen.setIcon(icon)
+
+        self.horizontalLayout_5.addWidget(self.btn_fullscreen)
+
+        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_5.addItem(self.horizontalSpacer_4)
+
+        self.btn_minimize = QPushButton(self.frame_btns_right)
+        self.btn_minimize.setObjectName(u"btn_minimize")
+        sizePolicy3 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Expanding)
+        sizePolicy3.setHorizontalStretch(0)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.btn_minimize.sizePolicy().hasHeightForWidth())
+        self.btn_minimize.setSizePolicy(sizePolicy3)
         self.btn_minimize.setMinimumSize(QSize(40, 0))
         self.btn_minimize.setMaximumSize(QSize(40, 16777215))
         self.btn_minimize.setStyleSheet(u"QPushButton {	\n"
@@ -490,16 +519,16 @@ class Ui_MainWindow(object):
 "QPushButton:pressed {	\n"
 "	background-color: rgb(85, 170, 255);\n"
 "}")
-        icon = QIcon()
-        icon.addFile(u":/16x16/icons/16x16/cil-window-minimize.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.btn_minimize.setIcon(icon)
+        icon1 = QIcon()
+        icon1.addFile(u":/16x16/icons/16x16/cil-window-minimize.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.btn_minimize.setIcon(icon1)
 
         self.horizontalLayout_5.addWidget(self.btn_minimize)
 
         self.btn_maximize_restore = QPushButton(self.frame_btns_right)
         self.btn_maximize_restore.setObjectName(u"btn_maximize_restore")
-        sizePolicy2.setHeightForWidth(self.btn_maximize_restore.sizePolicy().hasHeightForWidth())
-        self.btn_maximize_restore.setSizePolicy(sizePolicy2)
+        sizePolicy3.setHeightForWidth(self.btn_maximize_restore.sizePolicy().hasHeightForWidth())
+        self.btn_maximize_restore.setSizePolicy(sizePolicy3)
         self.btn_maximize_restore.setMinimumSize(QSize(40, 0))
         self.btn_maximize_restore.setMaximumSize(QSize(40, 16777215))
         self.btn_maximize_restore.setStyleSheet(u"QPushButton {	\n"
@@ -512,16 +541,16 @@ class Ui_MainWindow(object):
 "QPushButton:pressed {	\n"
 "	background-color: rgb(85, 170, 255);\n"
 "}")
-        icon1 = QIcon()
-        icon1.addFile(u":/16x16/icons/16x16/cil-window-maximize.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.btn_maximize_restore.setIcon(icon1)
+        icon2 = QIcon()
+        icon2.addFile(u":/16x16/icons/16x16/cil-window-maximize.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.btn_maximize_restore.setIcon(icon2)
 
         self.horizontalLayout_5.addWidget(self.btn_maximize_restore)
 
         self.btn_close = QPushButton(self.frame_btns_right)
         self.btn_close.setObjectName(u"btn_close")
-        sizePolicy2.setHeightForWidth(self.btn_close.sizePolicy().hasHeightForWidth())
-        self.btn_close.setSizePolicy(sizePolicy2)
+        sizePolicy3.setHeightForWidth(self.btn_close.sizePolicy().hasHeightForWidth())
+        self.btn_close.setSizePolicy(sizePolicy3)
         self.btn_close.setMinimumSize(QSize(40, 0))
         self.btn_close.setMaximumSize(QSize(40, 16777215))
         self.btn_close.setStyleSheet(u"QPushButton {	\n"
@@ -529,14 +558,14 @@ class Ui_MainWindow(object):
 "	background-color: transparent;\n"
 "}\n"
 "QPushButton:hover {\n"
-"	background-color: rgb(52, 59, 72);\n"
+"	background-color: rgb(255, 60, 63);\n"
 "}\n"
 "QPushButton:pressed {	\n"
-"	background-color: rgb(85, 170, 255);\n"
+"	background-color: rgb(217, 0, 0);\n"
 "}")
-        icon2 = QIcon()
-        icon2.addFile(u":/16x16/icons/16x16/cil-x.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.btn_close.setIcon(icon2)
+        icon3 = QIcon()
+        icon3.addFile(u":/16x16/icons/16x16/cil-x.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.btn_close.setIcon(icon3)
 
         self.horizontalLayout_5.addWidget(self.btn_close)
 
@@ -604,11 +633,11 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.frame_left_menu = QFrame(self.frame_center)
         self.frame_left_menu.setObjectName(u"frame_left_menu")
-        sizePolicy3 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy3.setHorizontalStretch(0)
-        sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.frame_left_menu.sizePolicy().hasHeightForWidth())
-        self.frame_left_menu.setSizePolicy(sizePolicy3)
+        sizePolicy4 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(0)
+        sizePolicy4.setHeightForWidth(self.frame_left_menu.sizePolicy().hasHeightForWidth())
+        self.frame_left_menu.setSizePolicy(sizePolicy4)
         self.frame_left_menu.setMinimumSize(QSize(70, 0))
         self.frame_left_menu.setMaximumSize(QSize(70, 16777215))
         self.frame_left_menu.setLayoutDirection(Qt.LeftToRight)
@@ -632,8 +661,8 @@ class Ui_MainWindow(object):
 
         self.frame_extra_menus = QFrame(self.frame_left_menu)
         self.frame_extra_menus.setObjectName(u"frame_extra_menus")
-        sizePolicy3.setHeightForWidth(self.frame_extra_menus.sizePolicy().hasHeightForWidth())
-        self.frame_extra_menus.setSizePolicy(sizePolicy3)
+        sizePolicy4.setHeightForWidth(self.frame_extra_menus.sizePolicy().hasHeightForWidth())
+        self.frame_extra_menus.setSizePolicy(sizePolicy4)
         self.frame_extra_menus.setFrameShape(QFrame.NoFrame)
         self.frame_extra_menus.setFrameShadow(QFrame.Raised)
         self.layout_menu_bottom = QVBoxLayout(self.frame_extra_menus)
@@ -642,11 +671,11 @@ class Ui_MainWindow(object):
         self.layout_menu_bottom.setContentsMargins(0, 0, 0, 25)
         self.label_user_icon = QLabel(self.frame_extra_menus)
         self.label_user_icon.setObjectName(u"label_user_icon")
-        sizePolicy4 = QSizePolicy(QSizePolicy.Maximum, QSizePolicy.Maximum)
-        sizePolicy4.setHorizontalStretch(0)
-        sizePolicy4.setVerticalStretch(0)
-        sizePolicy4.setHeightForWidth(self.label_user_icon.sizePolicy().hasHeightForWidth())
-        self.label_user_icon.setSizePolicy(sizePolicy4)
+        sizePolicy5 = QSizePolicy(QSizePolicy.Maximum, QSizePolicy.Maximum)
+        sizePolicy5.setHorizontalStretch(0)
+        sizePolicy5.setVerticalStretch(0)
+        sizePolicy5.setHeightForWidth(self.label_user_icon.sizePolicy().hasHeightForWidth())
+        self.label_user_icon.setSizePolicy(sizePolicy5)
         self.label_user_icon.setMinimumSize(QSize(60, 60))
         self.label_user_icon.setMaximumSize(QSize(60, 60))
         font4 = QFont()
@@ -806,8 +835,8 @@ class Ui_MainWindow(object):
         self.userTableWidget = QTableWidget(self.frame_9)
         self.userTableWidget.setObjectName(u"userTableWidget")
         self.userTableWidget.setEnabled(True)
-        sizePolicy3.setHeightForWidth(self.userTableWidget.sizePolicy().hasHeightForWidth())
-        self.userTableWidget.setSizePolicy(sizePolicy3)
+        sizePolicy4.setHeightForWidth(self.userTableWidget.sizePolicy().hasHeightForWidth())
+        self.userTableWidget.setSizePolicy(sizePolicy4)
         self.userTableWidget.setMaximumSize(QSize(99999, 1000))
         palette1 = QPalette()
         palette1.setBrush(QPalette.Active, QPalette.WindowText, brush8)
@@ -1070,35 +1099,14 @@ class Ui_MainWindow(object):
         self.frame_content_wid_1.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_9 = QHBoxLayout(self.frame_content_wid_1)
         self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
-        self.gridLayout = QGridLayout()
-        self.gridLayout.setObjectName(u"gridLayout")
-        self.gridLayout.setContentsMargins(-1, -1, -1, 0)
-        self.lineEdit = QLineEdit(self.frame_content_wid_1)
-        self.lineEdit.setObjectName(u"lineEdit")
-        self.lineEdit.setMinimumSize(QSize(0, 30))
-        self.lineEdit.setStyleSheet(u"QLineEdit {\n"
-"	background-color: rgb(27, 29, 35);\n"
-"	border-radius: 5px;\n"
-"	border: 2px solid rgb(27, 29, 35);\n"
-"	padding-left: 10px;\n"
-"}\n"
-"QLineEdit:hover {\n"
-"	border: 2px solid rgb(64, 71, 88);\n"
-"}\n"
-"QLineEdit:focus {\n"
-"	border: 2px solid rgb(91, 101, 124);\n"
-"}")
-
-        self.gridLayout.addWidget(self.lineEdit, 0, 0, 1, 1)
-
-        self.pushButton = QPushButton(self.frame_content_wid_1)
-        self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setMinimumSize(QSize(150, 30))
+        self.btn_settings_fullscreen = QPushButton(self.frame_content_wid_1)
+        self.btn_settings_fullscreen.setObjectName(u"btn_settings_fullscreen")
+        self.btn_settings_fullscreen.setMinimumSize(QSize(200, 30))
         font6 = QFont()
         font6.setFamily(u"Segoe UI")
         font6.setPointSize(9)
-        self.pushButton.setFont(font6)
-        self.pushButton.setStyleSheet(u"QPushButton {\n"
+        self.btn_settings_fullscreen.setFont(font6)
+        self.btn_settings_fullscreen.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
 "	border-radius: 5px;	\n"
 "	background-color: rgb(52, 59, 72);\n"
@@ -1111,22 +1119,19 @@ class Ui_MainWindow(object):
 "	background-color: rgb(35, 40, 49);\n"
 "	border: 2px solid rgb(43, 50, 61);\n"
 "}")
-        icon3 = QIcon()
-        icon3.addFile(u":/16x16/icons/16x16/cil-folder-open.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton.setIcon(icon3)
 
-        self.gridLayout.addWidget(self.pushButton, 0, 1, 1, 1)
+        self.horizontalLayout_9.addWidget(self.btn_settings_fullscreen)
 
-        self.labelVersion_3 = QLabel(self.frame_content_wid_1)
-        self.labelVersion_3.setObjectName(u"labelVersion_3")
-        self.labelVersion_3.setStyleSheet(u"color: rgb(98, 103, 111);")
-        self.labelVersion_3.setLineWidth(1)
-        self.labelVersion_3.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.checkBox = QCheckBox(self.frame_content_wid_1)
+        self.checkBox.setObjectName(u"checkBox")
+        self.checkBox.setAutoFillBackground(False)
+        self.checkBox.setStyleSheet(u"")
 
-        self.gridLayout.addWidget(self.labelVersion_3, 1, 0, 1, 2)
+        self.horizontalLayout_9.addWidget(self.checkBox)
 
+        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.horizontalLayout_9.addLayout(self.gridLayout)
+        self.horizontalLayout_9.addItem(self.horizontalSpacer_5)
 
 
         self.verticalLayout_7.addWidget(self.frame_content_wid_1)
@@ -1148,13 +1153,6 @@ class Ui_MainWindow(object):
         self.gridLayout_4.setObjectName(u"gridLayout_4")
         self.gridLayout_2 = QGridLayout()
         self.gridLayout_2.setObjectName(u"gridLayout_2")
-        self.checkBox = QCheckBox(self.frame_2)
-        self.checkBox.setObjectName(u"checkBox")
-        self.checkBox.setAutoFillBackground(False)
-        self.checkBox.setStyleSheet(u"")
-
-        self.gridLayout_2.addWidget(self.checkBox, 0, 0, 1, 1)
-
         self.radioButton = QRadioButton(self.frame_2)
         self.radioButton.setObjectName(u"radioButton")
         self.radioButton.setStyleSheet(u"")
@@ -1208,7 +1206,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 255, 224))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 280, 224))
         self.horizontalLayout_11 = QHBoxLayout(self.scrollAreaWidgetContents)
         self.horizontalLayout_11.setObjectName(u"horizontalLayout_11")
         self.plainTextEdit = QPlainTextEdit(self.scrollAreaWidgetContents)
@@ -1262,11 +1260,11 @@ class Ui_MainWindow(object):
 
         self.horizontalScrollBar = QScrollBar(self.frame_2)
         self.horizontalScrollBar.setObjectName(u"horizontalScrollBar")
-        sizePolicy5 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
-        sizePolicy5.setHorizontalStretch(0)
-        sizePolicy5.setVerticalStretch(0)
-        sizePolicy5.setHeightForWidth(self.horizontalScrollBar.sizePolicy().hasHeightForWidth())
-        self.horizontalScrollBar.setSizePolicy(sizePolicy5)
+        sizePolicy6 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+        sizePolicy6.setHorizontalStretch(0)
+        sizePolicy6.setVerticalStretch(0)
+        sizePolicy6.setHeightForWidth(self.horizontalScrollBar.sizePolicy().hasHeightForWidth())
+        self.horizontalScrollBar.setSizePolicy(sizePolicy6)
         self.horizontalScrollBar.setStyleSheet(u"QScrollBar:horizontal {\n"
 "    border: none;\n"
 "    background: rgb(52, 59, 72);\n"
@@ -1497,11 +1495,11 @@ class Ui_MainWindow(object):
 
         self.frame_console = QFrame(self.frame_content_right)
         self.frame_console.setObjectName(u"frame_console")
-        sizePolicy6 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
-        sizePolicy6.setHorizontalStretch(0)
-        sizePolicy6.setVerticalStretch(0)
-        sizePolicy6.setHeightForWidth(self.frame_console.sizePolicy().hasHeightForWidth())
-        self.frame_console.setSizePolicy(sizePolicy6)
+        sizePolicy7 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
+        sizePolicy7.setHorizontalStretch(0)
+        sizePolicy7.setVerticalStretch(0)
+        sizePolicy7.setHeightForWidth(self.frame_console.sizePolicy().hasHeightForWidth())
+        self.frame_console.setSizePolicy(sizePolicy7)
         self.frame_console.setMinimumSize(QSize(0, 130))
         self.frame_console.setMaximumSize(QSize(16777215, 150))
         self.frame_console.setStyleSheet(u"color: rgb(85, 170, 255);")
@@ -1513,11 +1511,11 @@ class Ui_MainWindow(object):
         self.verticalLayout_25.setContentsMargins(12, 0, 12, 6)
         self.console = QPlainTextEdit(self.frame_console)
         self.console.setObjectName(u"console")
-        sizePolicy7 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Ignored)
-        sizePolicy7.setHorizontalStretch(0)
-        sizePolicy7.setVerticalStretch(0)
-        sizePolicy7.setHeightForWidth(self.console.sizePolicy().hasHeightForWidth())
-        self.console.setSizePolicy(sizePolicy7)
+        sizePolicy8 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Ignored)
+        sizePolicy8.setHorizontalStretch(0)
+        sizePolicy8.setVerticalStretch(0)
+        sizePolicy8.setHeightForWidth(self.console.sizePolicy().hasHeightForWidth())
+        self.console.setSizePolicy(sizePolicy8)
         self.console.setMinimumSize(QSize(0, 0))
         font9 = QFont()
         font9.setPointSize(10)
@@ -1610,8 +1608,7 @@ class Ui_MainWindow(object):
         QWidget.setTabOrder(self.btn_minimize, self.btn_maximize_restore)
         QWidget.setTabOrder(self.btn_maximize_restore, self.btn_close)
         QWidget.setTabOrder(self.btn_close, self.btn_toggle_menu)
-        QWidget.setTabOrder(self.btn_toggle_menu, self.checkBox)
-        QWidget.setTabOrder(self.checkBox, self.comboBox)
+        QWidget.setTabOrder(self.btn_toggle_menu, self.comboBox)
         QWidget.setTabOrder(self.comboBox, self.radioButton)
         QWidget.setTabOrder(self.radioButton, self.horizontalSlider)
         QWidget.setTabOrder(self.horizontalSlider, self.verticalSlider)
@@ -1632,6 +1629,13 @@ class Ui_MainWindow(object):
         self.btn_toggle_menu.setText("")
         self.label_title_bar_top.setText(QCoreApplication.translate("MainWindow", u"Main Window", None))
 #if QT_CONFIG(tooltip)
+        self.btn_fullscreen.setToolTip(QCoreApplication.translate("MainWindow", u"Pantalla Completa", None))
+#endif // QT_CONFIG(tooltip)
+        self.btn_fullscreen.setText("")
+#if QT_CONFIG(shortcut)
+        self.btn_fullscreen.setShortcut(QCoreApplication.translate("MainWindow", u"F11", None))
+#endif // QT_CONFIG(shortcut)
+#if QT_CONFIG(tooltip)
         self.btn_minimize.setToolTip(QCoreApplication.translate("MainWindow", u"Minimize", None))
 #endif // QT_CONFIG(tooltip)
         self.btn_minimize.setText("")
@@ -1651,9 +1655,7 @@ class Ui_MainWindow(object):
         self.createBtn.setText(QCoreApplication.translate("MainWindow", u"Crear", None))
         self.eliminateBtn.setText(QCoreApplication.translate("MainWindow", u"Eliminar", None))
         self.labelBoxHeaderSettings.setText(QCoreApplication.translate("MainWindow", u"Configuraci\u00f3n", None))
-        self.lineEdit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Write Something", None))
-        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Button", None))
-        self.labelVersion_3.setText(QCoreApplication.translate("MainWindow", u"Frame Description", None))
+        self.btn_settings_fullscreen.setText(QCoreApplication.translate("MainWindow", u"Pantalla Completa    F11", None))
         self.checkBox.setText(QCoreApplication.translate("MainWindow", u"Salvas Peri\u00f3dicas", None))
         self.radioButton.setText(QCoreApplication.translate("MainWindow", u"RadioButton", None))
         self.comboBox.setItemText(0, QCoreApplication.translate("MainWindow", u"Test 1", None))

@@ -1058,7 +1058,7 @@ background-repeat: no-repeat;
                   </property>
                   <property name="maximumSize">
                    <size>
-                    <width>120</width>
+                    <width>180</width>
                     <height>16777215</height>
                    </size>
                   </property>
@@ -1084,6 +1084,66 @@ background-repeat: no-repeat;
                    <property name="bottomMargin">
                     <number>0</number>
                    </property>
+                   <item>
+                    <widget class="QPushButton" name="btn_fullscreen">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="minimumSize">
+                      <size>
+                       <width>40</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>40</width>
+                       <height>16777215</height>
+                      </size>
+                     </property>
+                     <property name="toolTip">
+                      <string>Pantalla Completa</string>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">QPushButton {	
+	border: none;
+	background-color: transparent;
+}
+QPushButton:hover {
+	background-color: rgb(52, 59, 72);
+}
+QPushButton:pressed {	
+	background-color: rgb(85, 170, 255);
+}</string>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="icon">
+                      <iconset resource="files.qrc">
+                       <normaloff>:/20x20/icons/20x20/cil-fullscreen.png</normaloff>:/20x20/icons/20x20/cil-fullscreen.png</iconset>
+                     </property>
+                     <property name="shortcut">
+                      <string>F11</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_4">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
                    <item>
                     <widget class="QPushButton" name="btn_minimize">
                      <property name="sizePolicy">
@@ -1201,10 +1261,10 @@ QPushButton:pressed {
 	background-color: transparent;
 }
 QPushButton:hover {
-	background-color: rgb(52, 59, 72);
+	background-color: rgb(255, 60, 63);
 }
 QPushButton:pressed {	
-	background-color: rgb(85, 170, 255);
+	background-color: rgb(217, 0, 0);
 }</string>
                      </property>
                      <property name="text">
@@ -2376,53 +2436,21 @@ border-radius: 5px;
                             </property>
                             <layout class="QHBoxLayout" name="horizontalLayout_9">
                              <item>
-                              <layout class="QGridLayout" name="gridLayout">
-                               <property name="bottomMargin">
-                                <number>0</number>
+                              <widget class="QPushButton" name="btn_settings_fullscreen">
+                               <property name="minimumSize">
+                                <size>
+                                 <width>200</width>
+                                 <height>30</height>
+                                </size>
                                </property>
-                               <item row="0" column="0">
-                                <widget class="QLineEdit" name="lineEdit">
-                                 <property name="minimumSize">
-                                  <size>
-                                   <width>0</width>
-                                   <height>30</height>
-                                  </size>
-                                 </property>
-                                 <property name="styleSheet">
-                                  <string notr="true">QLineEdit {
-	background-color: rgb(27, 29, 35);
-	border-radius: 5px;
-	border: 2px solid rgb(27, 29, 35);
-	padding-left: 10px;
-}
-QLineEdit:hover {
-	border: 2px solid rgb(64, 71, 88);
-}
-QLineEdit:focus {
-	border: 2px solid rgb(91, 101, 124);
-}</string>
-                                 </property>
-                                 <property name="placeholderText">
-                                  <string>Write Something</string>
-                                 </property>
-                                </widget>
-                               </item>
-                               <item row="0" column="1">
-                                <widget class="QPushButton" name="pushButton">
-                                 <property name="minimumSize">
-                                  <size>
-                                   <width>150</width>
-                                   <height>30</height>
-                                  </size>
-                                 </property>
-                                 <property name="font">
-                                  <font>
-                                   <family>Segoe UI</family>
-                                   <pointsize>9</pointsize>
-                                  </font>
-                                 </property>
-                                 <property name="styleSheet">
-                                  <string notr="true">QPushButton {
+                               <property name="font">
+                                <font>
+                                 <family>Segoe UI</family>
+                                 <pointsize>9</pointsize>
+                                </font>
+                               </property>
+                               <property name="styleSheet">
+                                <string notr="true">QPushButton {
 	border: 2px solid rgb(52, 59, 72);
 	border-radius: 5px;	
 	background-color: rgb(52, 59, 72);
@@ -2435,33 +2463,37 @@ QPushButton:pressed {
 	background-color: rgb(35, 40, 49);
 	border: 2px solid rgb(43, 50, 61);
 }</string>
-                                 </property>
-                                 <property name="text">
-                                  <string>Button</string>
-                                 </property>
-                                 <property name="icon">
-                                  <iconset resource="files.qrc">
-                                   <normaloff>:/16x16/icons/16x16/cil-folder-open.png</normaloff>:/16x16/icons/16x16/cil-folder-open.png</iconset>
-                                 </property>
-                                </widget>
-                               </item>
-                               <item row="1" column="0" colspan="2">
-                                <widget class="QLabel" name="labelVersion_3">
-                                 <property name="styleSheet">
-                                  <string notr="true">color: rgb(98, 103, 111);</string>
-                                 </property>
-                                 <property name="lineWidth">
-                                  <number>1</number>
-                                 </property>
-                                 <property name="text">
-                                  <string>Frame Description</string>
-                                 </property>
-                                 <property name="alignment">
-                                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                                 </property>
-                                </widget>
-                               </item>
-                              </layout>
+                               </property>
+                               <property name="text">
+                                <string>Pantalla Completa    F11</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QCheckBox" name="checkBox">
+                               <property name="autoFillBackground">
+                                <bool>false</bool>
+                               </property>
+                               <property name="styleSheet">
+                                <string notr="true"/>
+                               </property>
+                               <property name="text">
+                                <string>Salvas Periódicas</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <spacer name="horizontalSpacer_5">
+                               <property name="orientation">
+                                <enum>Qt::Horizontal</enum>
+                               </property>
+                               <property name="sizeHint" stdset="0">
+                                <size>
+                                 <width>40</width>
+                                 <height>20</height>
+                                </size>
+                               </property>
+                              </spacer>
                              </item>
                             </layout>
                            </widget>
@@ -2493,19 +2525,6 @@ border-radius: 5px;</string>
                       <layout class="QGridLayout" name="gridLayout_4">
                        <item row="0" column="0">
                         <layout class="QGridLayout" name="gridLayout_2">
-                         <item row="0" column="0">
-                          <widget class="QCheckBox" name="checkBox">
-                           <property name="autoFillBackground">
-                            <bool>false</bool>
-                           </property>
-                           <property name="styleSheet">
-                            <string notr="true"/>
-                           </property>
-                           <property name="text">
-                            <string>Salvas Periódicas</string>
-                           </property>
-                          </widget>
-                         </item>
                          <item row="0" column="1">
                           <widget class="QRadioButton" name="radioButton">
                            <property name="styleSheet">
@@ -2582,7 +2601,7 @@ QScrollBar:horizontal {
                              <rect>
                               <x>0</x>
                               <y>0</y>
-                              <width>255</width>
+                              <width>280</width>
                               <height>224</height>
                              </rect>
                             </property>
@@ -3296,7 +3315,6 @@ QPlainTextEdit:focus {
   <tabstop>btn_maximize_restore</tabstop>
   <tabstop>btn_close</tabstop>
   <tabstop>btn_toggle_menu</tabstop>
-  <tabstop>checkBox</tabstop>
   <tabstop>comboBox</tabstop>
   <tabstop>radioButton</tabstop>
   <tabstop>horizontalSlider</tabstop>
