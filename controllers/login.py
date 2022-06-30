@@ -2,17 +2,19 @@ from PySide2.QtWidgets import QWidget, QMessageBox
 from visuals.ui_login import Ui_Login
 from services import user_service
 from controllers.mainwindow import MainWindow
+from controllers.singleton import SingletonClass
 import hashlib
 
-
-
-class Login(QWidget):
+class Login(SingletonClass,QWidget):
+    created = False
     def __init__(self, parent = None):
-        super().__init__(parent)
-        self.ui = Ui_Login()
-        self.ui.setupUi(self)
-        self.ui.cancel_button.clicked.connect(self.close)
-        self.ui.accept_button.clicked.connect(self.authenticate)
+        if(not self.created):
+            super().__init__(parent)
+            self.ui = Ui_Login()
+            self.ui.setupUi(self)
+            self.created = True
+            self.ui.cancel_button.clicked.connect(self.close)
+            self.ui.accept_button.clicked.connect(self.authenticate)
 
     def authenticate(self):
         username = self.ui.user_lineEdit.text()
