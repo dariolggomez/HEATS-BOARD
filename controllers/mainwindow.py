@@ -195,6 +195,7 @@ class MainWindow(QMainWindow):
             self.resetStyle("btn_home")
             self.labelPage("Home")
             btnWidget.setStyleSheet(self.selectMenu(btnWidget.styleSheet()))
+            self.tightLayoutCharts()
 
         # PAGE USER
         if btnWidget.objectName() == "btn_new_user":
