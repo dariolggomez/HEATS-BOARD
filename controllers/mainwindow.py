@@ -156,7 +156,7 @@ class MainWindow(QMainWindow):
             
             # BACKUP THREAD
             try:
-                backupExecutionTimer = Timer(30.0, self.backupTemporaryFile)
+                backupExecutionTimer = Timer(30.0, self.checkIfBackupOn)
                 backupExecutionTimer.daemon = True
                 backupExecutionTimer.start()
             except Exception as e:
@@ -418,6 +418,22 @@ class MainWindow(QMainWindow):
             GLOBAL_BACKUP = 1
         else:
             GLOBAL_BACKUP = 0
+
+    def checkIfBackupOn(self):
+        global GLOBAL_BACKUP
+        if(GLOBAL_BACKUP):
+            try:
+                backupThread = Thread(target=self.backupTemporaryFile)
+                backupThread.daemon = True
+                backupThread.start()
+            except Exception as e:
+                print(str(e))
+        try:
+            checkIfBackupTimer = Timer(30.0, self.checkIfBackupOn)
+            checkIfBackupTimer.daemon = True
+            checkIfBackupTimer.start()
+        except Exception as e:
+            print(str(e))
 
 
     def saveBeforeExit(self):
@@ -708,14 +724,7 @@ class MainWindow(QMainWindow):
                     print(str(e))
                     print(f"Ocurrió un error al intentar hacer la salva de la información")
                     self.ui.console.insertPlainText(f"CONSOLA >> Ocurrió un error al intentar hacer la salva de la información.")
-            try:
-                backupExecutionTimer =  Timer(30.0, self.backupTemporaryFile)
-                backupExecutionTimer.daemon = True
-                backupExecutionTimer.start()
-            except Exception as e:
-                print(str(e))
-
-
+            
 
 
     ########################################################################
