@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUI_BASEnzsFEP.ui'
+## Form generated from reading UI file 'GUI_BASEpJQona.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -1122,12 +1122,12 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_9.addWidget(self.btn_settings_fullscreen)
 
-        self.checkBox = QCheckBox(self.frame_content_wid_1)
-        self.checkBox.setObjectName(u"checkBox")
-        self.checkBox.setAutoFillBackground(False)
-        self.checkBox.setStyleSheet(u"")
+        self.backupCheckBox = QCheckBox(self.frame_content_wid_1)
+        self.backupCheckBox.setObjectName(u"backupCheckBox")
+        self.backupCheckBox.setAutoFillBackground(False)
+        self.backupCheckBox.setStyleSheet(u"")
 
-        self.horizontalLayout_9.addWidget(self.checkBox)
+        self.horizontalLayout_9.addWidget(self.backupCheckBox)
 
         self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
@@ -1656,7 +1656,7 @@ class Ui_MainWindow(object):
         self.eliminateBtn.setText(QCoreApplication.translate("MainWindow", u"Eliminar", None))
         self.labelBoxHeaderSettings.setText(QCoreApplication.translate("MainWindow", u"Configuraci\u00f3n", None))
         self.btn_settings_fullscreen.setText(QCoreApplication.translate("MainWindow", u"Pantalla Completa    F11", None))
-        self.checkBox.setText(QCoreApplication.translate("MainWindow", u"Salvas Peri\u00f3dicas", None))
+        self.backupCheckBox.setText(QCoreApplication.translate("MainWindow", u"Salvas Peri\u00f3dicas", None))
         self.radioButton.setText(QCoreApplication.translate("MainWindow", u"RadioButton", None))
         self.comboBox.setItemText(0, QCoreApplication.translate("MainWindow", u"Test 1", None))
         self.comboBox.setItemText(1, QCoreApplication.translate("MainWindow", u"Test 2", None))

@@ -29,6 +29,7 @@ from styles.ui_styles import Style
 GLOBAL_STATE = 0
 GLOBAL_FULLSCREEN = 0
 GLOBAL_TITLE_BAR = True
+GLOBAL_BACKUP = 1
 
 class MainWindow(QMainWindow):
     count = 1
@@ -146,6 +147,13 @@ class MainWindow(QMainWindow):
             #LOAD DASHBOARD GRAPHICS
             self.loadGraphics()
             
+            # LOAD SETTINGS
+            try:    
+                loadSettingsThread = Thread(target=self.loadSettings)
+                loadSettingsThread.start()
+            except Exception as e:
+                print(str(e))
+            
             # BACKUP THREAD
             try:
                 backupExecutionTimer = Timer(30.0, self.backupTemporaryFile)
@@ -156,6 +164,9 @@ class MainWindow(QMainWindow):
 
             # Static Chart
             # layout = QtWidgets.QGridLayout(self.ui.page_home)
+
+            # STATES CHANGES CONNECTIONS
+            self.ui.backupCheckBox.stateChanged.connect(self.synchronizeBackupWithSettings)
 
             ## ==> START PAGE
             self.ui.stackedWidget.setCurrentWidget(self.ui.page_home)
@@ -213,7 +224,7 @@ class MainWindow(QMainWindow):
         
         # LOGOUT BTN
         if btnWidget.objectName() == "btn_logout":
-            self.close()
+            self.saveBeforeExit()
             login = Login.Login()
             login.show()
             login.activateWindow()
@@ -400,8 +411,54 @@ class MainWindow(QMainWindow):
                 table_item = QTableWidgetItem(str(text))
                 table_item.setData(QtCore.Qt.UserRole+1, user_service.read_byID(rows[row][0]))
                 self.ui.userTableWidget.setItem(row, col, table_item)
-        
-        
+
+    def synchronizeBackupWithSettings(self):
+        global GLOBAL_BACKUP
+        if(self.ui.backupCheckBox.isChecked()):
+            GLOBAL_BACKUP = 1
+        else:
+            GLOBAL_BACKUP = 0
+
+
+    def saveBeforeExit(self):
+        try:
+            saveThread = Thread(target=self.saveSettings)
+            saveThread.daemon = True
+            saveThread.start()
+        except Exception as e:
+            print(str(e))
+        self.close()    
+    
+    def saveSettings(self):
+        backup = self.ui.backupCheckBox.isChecked()
+        try:
+            with open("settings.txt", "w") as file:
+                if(backup):
+                    file.write("True")
+                else:
+                    file.write("False")
+        except Exception as e:
+            print(str(e))
+
+    def loadSettings(self):
+        global GLOBAL_BACKUP
+        content = ""
+        try:
+            with open("settings.txt", "r") as file:
+                content = file.read()
+        except Exception as e:
+            print(str(e))
+        if(content != ""):
+            if("True" in content):
+                GLOBAL_BACKUP = 1
+                self.ui.backupCheckBox.setChecked(True)
+            else: 
+                if("False" in content):
+                    GLOBAL_BACKUP = 0
+                    self.ui.backupCheckBox.setChecked(False)
+        else:
+            GLOBAL_BACKUP = 1
+            self.ui.backupCheckBox.setChecked(True)
 
 
     def mousePressEvent(self, event):
@@ -633,28 +690,30 @@ class MainWindow(QMainWindow):
 
     def backupTemporaryFile(self):
         contentReaded = False
-        try:
-            with open("network/log.txt", "r") as localFile:
-                content = localFile.readlines()
-                contentReaded = True
-        except Exception as e:
-            print(str(e))
-            print(f"No se encuentra el archivo local.")
-            self.ui.console.insertPlainText(f"CONSOLA >> No se encuentra el archivo de información local\r")
-        if(contentReaded):
+        global GLOBAL_BACKUP
+        if(GLOBAL_BACKUP):
             try:
-                with open("backup/log.txt", "w") as backupFile:
-                    backupFile.writelines(content)
+                with open("network/log.txt", "r") as localFile:
+                    content = localFile.readlines()
+                    contentReaded = True
             except Exception as e:
                 print(str(e))
-                print(f"Ocurrió un error al intentar hacer la salva de la información")
-                self.ui.console.insertPlainText(f"CONSOLA >> Ocurrió un error al intentar hacer la salva de la información.")
-        try:
-            backupExecutionTimer =  Timer(30.0, self.backupTemporaryFile)
-            backupExecutionTimer.daemon = True
-            backupExecutionTimer.start()
-        except Exception as e:
-            print(str(e))
+                print(f"No se encuentra el archivo local.")
+                self.ui.console.insertPlainText(f"CONSOLA >> No se encuentra el archivo de información local\r")
+            if(contentReaded):
+                try:
+                    with open("backup/log.txt", "w") as backupFile:
+                        backupFile.writelines(content)
+                except Exception as e:
+                    print(str(e))
+                    print(f"Ocurrió un error al intentar hacer la salva de la información")
+                    self.ui.console.insertPlainText(f"CONSOLA >> Ocurrió un error al intentar hacer la salva de la información.")
+            try:
+                backupExecutionTimer =  Timer(30.0, self.backupTemporaryFile)
+                backupExecutionTimer.daemon = True
+                backupExecutionTimer.start()
+            except Exception as e:
+                print(str(e))
 
 
 
@@ -708,7 +767,7 @@ class MainWindow(QMainWindow):
         self.ui.btn_maximize_restore.clicked.connect(lambda: self.maximize_restore())
 
         ## ==> CLOSE APPLICATION
-        self.ui.btn_close.clicked.connect(lambda: self.close())
+        self.ui.btn_close.clicked.connect(self.saveBeforeExit)
 
         ## ==> FULLSCREEN
         self.ui.btn_fullscreen.clicked.connect(self.winFullscreen)

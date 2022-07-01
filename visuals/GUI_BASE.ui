@@ -2470,7 +2470,7 @@ QPushButton:pressed {
                               </widget>
                              </item>
                              <item>
-                              <widget class="QCheckBox" name="checkBox">
+                              <widget class="QCheckBox" name="backupCheckBox">
                                <property name="autoFillBackground">
                                 <bool>false</bool>
                                </property>
