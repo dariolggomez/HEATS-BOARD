@@ -12,6 +12,12 @@ services\__pycache__\
 network/log.txt/
 network\log.txt\
 
+backup/log.txt/
+backup\log.txt\
+
+settings.txt/
+settings.txt\
+
 visuals/__pycache__/
 visuals\__pycache__\
 
