@@ -10,12 +10,14 @@ class User(Base):
     username = Column(String(25),nullable=False,unique=True)
     password = Column(String(80),nullable=False,unique=False)
     email = Column(String(80), unique = True, nullable = False)
+    role = Column(Integer(), nullable = False, unique = False)
     date_created = Column(DateTime(),default = datetime.now)
 
-    def __init__(self, username, password, email):
+    def __init__(self, username, password, email, role):
         self.username = username
         self.email = email
         self.password = password
+        self.role = role
 
     def __repr__(self) -> str:
         return f"<User username = {self.username}, email = {self.email}>"

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'formUserWCgACW.ui'
+## Form generated from reading UI file 'formUserzqecxu.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -17,7 +17,7 @@ class Ui_Dialog(object):
     def setupUi(self, Dialog):
         if not Dialog.objectName():
             Dialog.setObjectName(u"Dialog")
-        Dialog.resize(540, 452)
+        Dialog.resize(540, 509)
         Dialog.setStyleSheet(u"background-color: rgb(44, 49, 60);")
         self.verticalLayout = QVBoxLayout(Dialog)
         self.verticalLayout.setObjectName(u"verticalLayout")
@@ -245,7 +245,9 @@ class Ui_Dialog(object):
         self.contentFrame.setFrameShape(QFrame.StyledPanel)
         self.contentFrame.setFrameShadow(QFrame.Raised)
         self.verticalLayout_6 = QVBoxLayout(self.contentFrame)
+        self.verticalLayout_6.setSpacing(6)
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
+        self.verticalLayout_6.setContentsMargins(0, 0, 0, 0)
         self.label_4 = QLabel(self.contentFrame)
         self.label_4.setObjectName(u"label_4")
         font = QFont()
@@ -255,6 +257,46 @@ class Ui_Dialog(object):
         self.label_4.setFont(font)
 
         self.verticalLayout_6.addWidget(self.label_4)
+
+        self.frame_3 = QFrame(self.contentFrame)
+        self.frame_3.setObjectName(u"frame_3")
+        self.frame_3.setStyleSheet(u"background-color: rgb(41, 45, 56);\n"
+"border-radius: 5px;\n"
+"")
+        self.frame_3.setFrameShape(QFrame.StyledPanel)
+        self.frame_3.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_5 = QVBoxLayout(self.frame_3)
+        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+        self.label_3 = QLabel(self.frame_3)
+        self.label_3.setObjectName(u"label_3")
+
+        self.verticalLayout_5.addWidget(self.label_3)
+
+        self.comboBox = QComboBox(self.frame_3)
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.setObjectName(u"comboBox")
+        self.comboBox.setStyleSheet(u"QComboBox{\n"
+"	background-color: rgb(27, 29, 35);\n"
+"	border-radius: 5px;\n"
+"	border: 2px solid rgb(27, 29, 35);\n"
+"	padding: 5px;\n"
+"	padding-left: 10px;\n"
+"}\n"
+"QComboBox:hover{\n"
+"	border: 2px solid rgb(64, 71, 88);\n"
+"}\n"
+"QComboBox QAbstractItemView {\n"
+"	color: rgb(85, 170, 255);	\n"
+"	background-color: rgb(27, 29, 35);\n"
+"	padding: 10px;\n"
+"	selection-background-color: rgb(39, 44, 54);\n"
+"}")
+
+        self.verticalLayout_5.addWidget(self.comboBox)
+
+
+        self.verticalLayout_6.addWidget(self.frame_3)
 
         self.frame = QFrame(self.contentFrame)
         self.frame.setObjectName(u"frame")
@@ -364,24 +406,9 @@ class Ui_Dialog(object):
 
         self.verticalLayout_6.addWidget(self.frame_4)
 
-        self.frame_3 = QFrame(self.contentFrame)
-        self.frame_3.setObjectName(u"frame_3")
-        self.frame_3.setFrameShape(QFrame.StyledPanel)
-        self.frame_3.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_8 = QVBoxLayout(self.frame_3)
-        self.verticalLayout_8.setObjectName(u"verticalLayout_8")
-        self.errorLabel = QLabel(self.frame_3)
-        self.errorLabel.setObjectName(u"errorLabel")
-        self.errorLabel.setEnabled(True)
-        self.errorLabel.setStyleSheet(u"color: rgb(190, 2, 2);\n"
-"")
-        self.errorLabel.setAlignment(Qt.AlignCenter)
-        self.errorLabel.setWordWrap(True)
+        self.verticalSpacer = QSpacerItem(20, 31, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.verticalLayout_8.addWidget(self.errorLabel)
-
-
-        self.verticalLayout_6.addWidget(self.frame_3)
+        self.verticalLayout_6.addItem(self.verticalSpacer)
 
 
         self.verticalLayout_2.addWidget(self.contentFrame)
@@ -451,16 +478,22 @@ class Ui_Dialog(object):
 
         self.retranslateUi(Dialog)
 
+        self.comboBox.setCurrentIndex(0)
+
+
         QMetaObject.connectSlotsByName(Dialog)
     # setupUi
 
     def retranslateUi(self, Dialog):
         Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Dialog", None))
         self.label_4.setText(QCoreApplication.translate("Dialog", u"Crear Usuario", None))
+        self.label_3.setText(QCoreApplication.translate("Dialog", u"Rol", None))
+        self.comboBox.setItemText(0, QCoreApplication.translate("Dialog", u"Usuario", None))
+        self.comboBox.setItemText(1, QCoreApplication.translate("Dialog", u"Operador", None))
+
         self.label.setText(QCoreApplication.translate("Dialog", u"Nombre de Usuario", None))
         self.label_2.setText(QCoreApplication.translate("Dialog", u"Email", None))
         self.label_5.setText(QCoreApplication.translate("Dialog", u"Contrase\u00f1a", None))
-        self.errorLabel.setText("")
         self.acceptBtn.setText(QCoreApplication.translate("Dialog", u"Aceptar", None))
         self.cancelBtn.setText(QCoreApplication.translate("Dialog", u"Cancelar", None))
     # retranslateUi

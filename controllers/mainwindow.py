@@ -34,7 +34,8 @@ GLOBAL_BACKUP = 1
 class MainWindow(QMainWindow):
     count = 1
     graphicsLoaded = False
-    def __init__(self):
+    # authenticatedUser = None
+    def __init__(self, authenticatedUser = None):
         try:
             super().__init__()
             self.ui = Ui_MainWindow()
@@ -74,7 +75,8 @@ class MainWindow(QMainWindow):
             ## ==> ADD CUSTOM MENUS
             self.ui.stackedWidget.setMinimumWidth(20)
             self.addNewMenu("Dashboard", "btn_home", "url(:/16x16/icons/16x16/cil-chart.png)", True)
-            self.addNewMenu("Usuarios", "btn_new_user", "url(:/16x16/icons/16x16/cil-user-follow.png)", True)
+            if (authenticatedUser is not None and authenticatedUser.role == 1):
+                self.addNewMenu("Usuarios", "btn_new_user", "url(:/16x16/icons/16x16/cil-user-follow.png)", True)
             self.addNewMenu("Conexión", "btn_network", "url(:/16x16/icons/16x16/cil-rss.png)", True)
             self.addNewMenu("Configuración", "btn_settings", "url(:/16x16/icons/16x16/cil-equalizer.png)", True)
             self.addNewMenu("Consola", "btn_console", "url(:/16x16/icons/16x16/cil-terminal.png)", False)
@@ -386,8 +388,18 @@ class MainWindow(QMainWindow):
         item = self.ui.userTableWidget.currentItem()
         if(item is not None):
             user = item.data(Qt.UserRole+1)
-            user_service.delete_user(user)
-            self.loadUserTable()
+            if(user.role == 1):
+                operators = user_service.getAllOperators()
+                if(len(operators) > 1):
+                    user_service.delete_user(user)
+                    self.loadUserTable()
+                else:
+                    errMsgBox = QMessageBox()
+                    errMsgBox.setText("Debe dejar al menos un operador en el sistema.")
+                    errMsgBox.exec_()
+            else:
+                user_service.delete_user(user)
+                self.loadUserTable()
             # self.ui.eliminateBtn.setEnabled(False)
         else:
             msgBox = QMessageBox()

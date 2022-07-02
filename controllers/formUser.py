@@ -23,6 +23,7 @@ class FormUser(QDialog):
         username = self.ui.usernameLineEdit.text()
         password = self.ui.passwordLineEdit.text()
         email = self.ui.emailLineEdit.text()
+        role = self.ui.comboBox.currentIndex()
 
         request = {"username": username,
                    "password": password,
@@ -37,7 +38,7 @@ class FormUser(QDialog):
             if(not user_service.checkUsernameExist(username)):
                 if(not user_service.checkEmailExist(email)):
                     passwordEncrypted = hashlib.sha256(password.encode()).hexdigest()
-                    user_service.create_user(username, passwordEncrypted, email)
+                    user_service.create_user(username, passwordEncrypted, email, role)
                     self.userCreatedSignal.emit()
                     self.close()
                 else:

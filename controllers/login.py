@@ -19,21 +19,26 @@ class Login(SingletonClass,QWidget):
     def authenticate(self):
         username = self.ui.user_lineEdit.text()
         password = self.ui.password_lineEdit.text()
-        passwordEncrypted = hashlib.sha256(password.encode()).hexdigest()
-        user = user_service.read_byUsername(username)
-        if(user and user.password == passwordEncrypted):
-            self.ui.user_lineEdit.clear()
-            self.ui.password_lineEdit.clear()
-            self.close()
-            mainwindow = MainWindow()
-            initials = username[0:2]
-            initials = initials.upper()
-            mainwindow.userIcon(initials,"", True)
-            mainwindow.show()
-            mainwindow.activateWindow()
-            mainwindow.raise_()
-            mainwindow.tightLayoutCharts()
+        if(username != "" and password != ""):
+            passwordEncrypted = hashlib.sha256(password.encode()).hexdigest()
+            user = user_service.read_byUsername(username)
+            if(user and user.password == passwordEncrypted):
+                self.ui.user_lineEdit.clear()
+                self.ui.password_lineEdit.clear()
+                self.close()
+                mainwindow = MainWindow(user)
+                initials = username[0:2]
+                initials = initials.upper()
+                mainwindow.userIcon(initials,"", True)
+                mainwindow.show()
+                mainwindow.activateWindow()
+                mainwindow.raise_()
+                mainwindow.tightLayoutCharts()
+            else:
+                msg = QMessageBox()
+                msg.setText("Nombre de usuario o contraseña incorrecto.")
+                msg.exec_()
         else:
-            msg = QMessageBox()
-            msg.setText("Nombre de usuario o contraseña incorrecto.")
-            msg.exec_()
+            errMsg = QMessageBox()
+            errMsg.setText("No pueden existir campos vacíos.")
+            errMsg.exec_()

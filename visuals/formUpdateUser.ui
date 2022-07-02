@@ -257,7 +257,7 @@ QSlider::handle:vertical:pressed {
             </font>
            </property>
            <property name="text">
-            <string>Crear Usuario</string>
+            <string>Editar Usuario</string>
            </property>
           </widget>
          </item>
