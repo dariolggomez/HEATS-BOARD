@@ -730,7 +730,7 @@ class MainWindow(QMainWindow):
                 print(str(e))
                 print(f"No se encuentra el archivo local.")
                 self.ui.console.insertPlainText(f"{datetime.today().strftime('%Y-%m-%d %H:%M:%S')} >> No se encuentra el archivo de información local\r")
-            if(contentReaded):
+            if(contentReaded and len(content) > 0):
                 try:
                     with open("backup/log.txt", "w") as backupFile:
                         backupFile.writelines(content)
