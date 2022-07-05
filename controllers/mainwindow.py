@@ -52,7 +52,7 @@ class MainWindow(QMainWindow):
             ## SET ==> WINDOW TITLE
             self.setWindowTitle('HEATS-BOARD')
             self.labelTitle('HEATS-BOARD')
-            self.labelDescription('App Description')
+            self.labelDescription('Herramienta para la Visualización Centralizada de Información')
             ## ==> END ##
 
             ## WINDOW SIZE ==> DEFAULT SIZE
@@ -196,7 +196,7 @@ class MainWindow(QMainWindow):
             self.ui.stackedWidget.setCurrentWidget(self.ui.page_home)
             self.loadGraphics()
             self.resetStyle("btn_home")
-            self.labelPage("Home")
+            self.labelPage("Dashboard")
             btnWidget.setStyleSheet(self.selectMenu(btnWidget.styleSheet()))
             self.tightLayoutCharts()
 
@@ -205,21 +205,21 @@ class MainWindow(QMainWindow):
             self.ui.stackedWidget.setCurrentWidget(self.ui.page_users)
             self.loadUserTable()
             self.resetStyle("btn_new_user")
-            self.labelPage("Users")
+            self.labelPage("Usuarios")
             btnWidget.setStyleSheet(self.selectMenu(btnWidget.styleSheet()))
 
         # PAGE SETTINGS
         if btnWidget.objectName() == "btn_settings":
             self.ui.stackedWidget.setCurrentWidget(self.ui.page_widgets)
             self.resetStyle("btn_settings")
-            self.labelPage("Settings")
+            self.labelPage("Configuración")
             btnWidget.setStyleSheet(self.selectMenu(btnWidget.styleSheet()))
         
         # PAGE NETWORK
         if btnWidget.objectName() == "btn_network":
             self.ui.stackedWidget.setCurrentWidget(self.ui.page_network)
             self.resetStyle("btn_network")
-            self.labelPage("Network")
+            self.labelPage("Conexión")
             btnWidget.setStyleSheet(self.selectMenu(btnWidget.styleSheet()))
 
         # CONSOLE BTN
@@ -417,7 +417,7 @@ class MainWindow(QMainWindow):
         for user in user_service.read_all():
             rows.append((user.id, user.username, user.email, user.date_created.date()))
         self.ui.userTableWidget.setColumnCount(4)
-        self.ui.userTableWidget.setHorizontalHeaderLabels(("ID", "Username", "Email", "Date Created"))
+        self.ui.userTableWidget.setHorizontalHeaderLabels(("ID", "Nombre de Usuario", "Correo", "Fecha de Creación"))
         self.ui.userTableWidget.horizontalHeader().setVisible(True)
         self.ui.userTableWidget.setRowCount(len(rows))
         for row, cols in enumerate(rows):
