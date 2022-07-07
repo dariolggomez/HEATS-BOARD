@@ -6,13 +6,16 @@ from controllers.singleton import SingletonClass
 import hashlib
 
 class Login(SingletonClass,QWidget):
+    __instanciated = False
     def __init__(self, parent = None):
         try:
-            super().__init__(parent)
-            self.ui = Ui_Login()
-            self.ui.setupUi(self)
-            self.ui.cancel_button.clicked.connect(self.close)
-            self.ui.accept_button.clicked.connect(self.authenticate)
+            if(not self.__instanciated):
+                super().__init__(parent)
+                self.ui = Ui_Login()
+                self.ui.setupUi(self)
+                self.ui.cancel_button.clicked.connect(self.close)
+                self.ui.accept_button.clicked.connect(self.authenticate)
+                self.__instanciated = True
         except Exception as e:
             print(str(e))
 
