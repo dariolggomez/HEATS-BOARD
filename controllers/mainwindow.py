@@ -194,7 +194,8 @@ class MainWindow(QMainWindow):
         # PAGE HOME
         if btnWidget.objectName() == "btn_home":
             self.ui.stackedWidget.setCurrentWidget(self.ui.page_home)
-            self.loadGraphics()
+            if(self.graphicsLoaded == False):
+                self.loadGraphics()
             self.resetStyle("btn_home")
             self.labelPage("Dashboard")
             btnWidget.setStyleSheet(self.selectMenu(btnWidget.styleSheet()))
