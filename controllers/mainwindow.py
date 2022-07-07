@@ -713,6 +713,7 @@ class MainWindow(QMainWindow):
             self.ui.connectBtn.setEnabled(False)
             hostPort = int(self.ui.hostPortLineEdit.text())
             connectionThread = Thread(target = client.connectToHost, args= (self, host,hostPort))
+            connectionThread.daemon = True
             connectionThread.start()
         else:
             msgBox = QMessageBox()
