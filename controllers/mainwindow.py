@@ -265,7 +265,7 @@ class MainWindow(QMainWindow):
             self._static_ax.set_ylabel("Frecuencia")
             self._static_ax.set_xlabel("Valor")
             # self._static_ax.yaxis.set_visible(False)
-            x = np.linspace(0, len(dataToDisplay), len(dataToDisplay))
+            x = np.linspace(0, len(dataToDisplay)-1, len(dataToDisplay))
             y = np.array(dataToDisplay)
             # self._static_ax.scatter()
             self._static_ax.plot(x, y)
@@ -284,7 +284,7 @@ class MainWindow(QMainWindow):
             for value in dataToFilter:
                 if(value <= 40):
                     dataFiltered.remove(value)
-            xDynamic = np.linspace(0, len(dataFiltered), len(dataFiltered))
+            xDynamic = np.linspace(0, len(dataFiltered)-1, len(dataFiltered))
             yDynamic = np.array(dataFiltered)
             self._dynamic_ax.plot(xDynamic,yDynamic)
             # Set up a Line2D.
