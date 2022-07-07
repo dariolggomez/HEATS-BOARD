@@ -710,7 +710,7 @@ class MainWindow(QMainWindow):
         host = self.ui.hostLineEdit.text()
         hostPortStr = self.ui.hostPortLineEdit.text()
         if(hostPortStr != '' and host != ''):
-            self.ui.connectBtn.setEnabled(False)
+            # self.ui.connectBtn.setEnabled(False)
             hostPort = int(self.ui.hostPortLineEdit.text())
             connectionThread = Thread(target = client.connectToHost, args= (self, host,hostPort))
             connectionThread.daemon = True

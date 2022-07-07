@@ -13,7 +13,7 @@ def connectToHost(mainWindow, SERVER_HOST, SERVER_PORT):
         connectionStablished = True
     except:
         mainWindow.ui.console.insertPlainText(f"{datetime.today().strftime('%Y-%m-%d %H:%M:%S')} >> No se pudo conectar al servidor >> {SERVER_HOST} : {SERVER_PORT}\r")
-        mainWindow.ui.connectBtn.setEnabled(True)
+        # mainWindow.ui.connectBtn.setEnabled(True)
         socket_s.close()
     if(connectionStablished):
         mainWindow.ui.console.insertPlainText(f"{datetime.today().strftime('%Y-%m-%d %H:%M:%S')} >> Conexión establecida al servidor >> {SERVER_HOST} : {SERVER_PORT}\r")
@@ -34,5 +34,5 @@ def connectToHost(mainWindow, SERVER_HOST, SERVER_PORT):
             mainWindow.ui.console.insertPlainText(f"{datetime.today().strftime('%Y-%m-%d %H:%M:%S')} >> Archivo recibido.\r")
         socket_s.close()
         mainWindow.ui.console.insertPlainText(f"{datetime.today().strftime('%Y-%m-%d %H:%M:%S')} >> Conexión cerrada con el servidor >> {SERVER_HOST} : {SERVER_PORT}\r")
-        mainWindow.ui.connectBtn.setEnabled(True)
+        # mainWindow.ui.connectBtn.setEnabled(True)
     
