@@ -416,13 +416,18 @@ class MainWindow(QMainWindow):
         # self.ui.userTableWidget.resizeRowsToContents()
         rows = []
         for user in user_service.read_all():
-            rows.append((user.id, user.username, user.email, user.date_created.date()))
-        self.ui.userTableWidget.setColumnCount(4)
-        self.ui.userTableWidget.setHorizontalHeaderLabels(("ID", "Nombre de Usuario", "Correo", "Fecha de Creación"))
+            rows.append((user.id, user.role, user.username, user.email, user.date_created.date()))
+        self.ui.userTableWidget.setColumnCount(5)
+        self.ui.userTableWidget.setHorizontalHeaderLabels(("ID","Rol", "Nombre de Usuario", "Correo", "Fecha de Creación"))
         self.ui.userTableWidget.horizontalHeader().setVisible(True)
         self.ui.userTableWidget.setRowCount(len(rows))
         for row, cols in enumerate(rows):
             for col, text in enumerate(cols):
+                if(col == 1):
+                    if(text == 0):
+                        text = "Usuario"
+                    else:
+                        text = "Operador"
                 table_item = QTableWidgetItem(str(text))
                 table_item.setData(QtCore.Qt.UserRole+1, user_service.read_byID(rows[row][0]))
                 self.ui.userTableWidget.setItem(row, col, table_item)
