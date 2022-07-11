@@ -261,9 +261,9 @@ class MainWindow(QMainWindow):
             self.ui.chartLayout1.addWidget(self.static_canvas)
 
             self._static_ax = self.static_canvas.figure.subplots()
-            self._static_ax.set_title("Frecuencia | Valor")
+            self._static_ax.set_title("Frecuencia | Tiempo")
             self._static_ax.set_ylabel("Frecuencia")
-            self._static_ax.set_xlabel("Valor")
+            self._static_ax.set_xlabel("Tiempo")
             # self._static_ax.yaxis.set_visible(False)
             x = np.linspace(0, len(dataToDisplay)-1, len(dataToDisplay))
             y = np.array(dataToDisplay)
@@ -278,7 +278,7 @@ class MainWindow(QMainWindow):
             self._dynamic_ax = self.dynamic_canvas.figure.subplots()
             self._dynamic_ax.set_title("Frecuencias Críticas y Fatales")
             self._dynamic_ax.set_ylabel("Frecuencia")
-            self._dynamic_ax.set_xlabel("Valor")
+            self._dynamic_ax.set_xlabel("Tiempo")
             dataFiltered = dataToDisplay.copy()
             dataToFilter = dataToDisplay.copy()
             for value in dataToFilter:
