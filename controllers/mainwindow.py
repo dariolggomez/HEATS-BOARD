@@ -149,7 +149,8 @@ class MainWindow(QMainWindow):
 
             self.ui.console.insertPlainText(f"{datetime.today().strftime('%Y-%m-%d %H:%M:%S')} >> HEATS-BOARD Inicializado.\r")
             #LOAD DASHBOARD GRAPHICS
-            DashboardController.loadGraphics(self)
+            self.dashboardController = DashboardController(self)
+            self.dashboardController.loadGraphics()
             
             # LOAD SETTINGS
             try:    
@@ -196,7 +197,7 @@ class MainWindow(QMainWindow):
         if btnWidget.objectName() == "btn_home":
             self.ui.stackedWidget.setCurrentWidget(self.ui.page_home)
             if(self.graphicsLoaded == False):
-                DashboardController.loadGraphics(self)
+                self.dashboardController.loadGraphics()
             self.resetStyle("btn_home")
             self.labelPage("Dashboard")
             btnWidget.setStyleSheet(self.selectMenu(btnWidget.styleSheet()))
@@ -236,43 +237,6 @@ class MainWindow(QMainWindow):
             login.activateWindow()
             login.raise_()
         
-    def countNormalParams(self, data):
-        count = 0
-        for x in range(0, len(data)):
-            if(data[x] <= 30):
-                count = count + 1
-
-        percent = count/len(data) * 100  
-        return percent,count
-
-    def countAlertParams(self, data):
-        count = 0
-        for x in range(0, len(data)):
-            if(data[x] > 30 and data[x] <= 40):
-                count = count + 1
-
-        percent = count/len(data) * 100  
-        return percent,count
-
-    def countCriticalParams(self, data):
-        count = 0
-        for x in range(0, len(data)):
-            if(data[x] > 40 and data[x] <= 80):
-                count = count + 1
-
-        percent = count/len(data) * 100  
-        return percent,count
-
-    def countFatalParams(self, data):
-        count = 0
-        for x in range(0, len(data)):
-            if(data[x] > 80):
-                count = count + 1
-
-        percent = count/len(data) * 100  
-        return percent,count
-
-
     def _update_canvas(self):
         t = np.linspace(0, 10, 101)
         # Shift the sinusoid as a function of time.
