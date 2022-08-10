@@ -1,32 +1,32 @@
 from controllers.mainwindow import *
 class DashboardController():
-    __parent = None
+    __mainWindow = None
     def __init__(self, parent):
-        self.__parent = parent
+        self.__mainWindow = parent
     def loadGraphics(self):
         localFileReaded = False
         try:
             data = pd.read_csv("network/log.txt", nrows=20, sep="/", header=None)
             localFileReaded = True
         except:
-            self.__parent.ui.console.insertPlainText(f"{datetime.today().strftime('%Y-%m-%d %H:%M:%S')} >> No se encontró el archivo proveniente de HEATS-NET. Debe conectarse al servidor.\r")
-            self.__parent.ui.console.setFocus()
+            self.__mainWindow.ui.console.insertPlainText(f"{datetime.today().strftime('%Y-%m-%d %H:%M:%S')} >> No se encontró el archivo proveniente de HEATS-NET. Debe conectarse al servidor.\r")
+            self.__mainWindow.ui.console.setFocus()
         if(not localFileReaded):
             try:
                 data = pd.read_csv("backup/log.txt", nrows=20, sep="/", header=None)
-                self.__parent.ui.console.insertPlainText(f"{datetime.today().strftime('%Y-%m-%d %H:%M:%S')} >> Se cargará la última información guardada.\r")
+                self.__mainWindow.ui.console.insertPlainText(f"{datetime.today().strftime('%Y-%m-%d %H:%M:%S')} >> Se cargará la última información guardada.\r")
             except:
-                self.__parent.ui.console.insertPlainText(f"{datetime.today().strftime('%Y-%m-%d %H:%M:%S')} >> No se encontró el archivo salva, no se podrá mostrar información.\r")
-                self.__parent.ui.console.setFocus()
+                self.__mainWindow.ui.console.insertPlainText(f"{datetime.today().strftime('%Y-%m-%d %H:%M:%S')} >> No se encontró el archivo salva, no se podrá mostrar información.\r")
+                self.__mainWindow.ui.console.setFocus()
                 return
-        if(data is not None and self.__parent.graphicsLoaded == False):
+        if(data is not None and self.__mainWindow.graphicsLoaded == False):
             dataToDisplay = []
             for x in range(300,500):
                 dataToDisplay.append(data.iloc[0][x])
 
             self.static_canvas = FigureCanvas(Figure(figsize=(5, 3)))
-            self.__parent.ui.chartLayout1.addWidget(NavigationToolbar(self.static_canvas, self.__parent))
-            self.__parent.ui.chartLayout1.addWidget(self.static_canvas)
+            self.__mainWindow.ui.chartLayout1.addWidget(NavigationToolbar(self.static_canvas, self.__mainWindow))
+            self.__mainWindow.ui.chartLayout1.addWidget(self.static_canvas)
 
             self._static_ax = self.static_canvas.figure.subplots()
             self._static_ax.set_title("Frecuencia | Tiempo")
@@ -40,8 +40,8 @@ class DashboardController():
 
             # Dynamic Chart
             self.dynamic_canvas = FigureCanvas(Figure(figsize=(5, 3)))
-            self.__parent.ui.chartLayout2.addWidget(NavigationToolbar(self.dynamic_canvas, self.__parent))
-            self.__parent.ui.chartLayout2.addWidget(self.dynamic_canvas)
+            self.__mainWindow.ui.chartLayout2.addWidget(NavigationToolbar(self.dynamic_canvas, self.__mainWindow))
+            self.__mainWindow.ui.chartLayout2.addWidget(self.dynamic_canvas)
 
             self._dynamic_ax = self.dynamic_canvas.figure.subplots()
             self._dynamic_ax.set_title("Frecuencias Críticas y Fatales")
@@ -74,8 +74,8 @@ class DashboardController():
             sizes = [sizeCriticalParameters, sizeAlertParameters, sizeNormalParameters, sizeFatalParameters]
             explode = (0, 0, 0.1, 0)
             self.static_canvas_pie = FigureCanvas(Figure(figsize=(5, 3)))
-            self.__parent.ui.chartLayout3.addWidget(self.static_canvas_pie)
-            self.__parent.ui.chartLayout3.addWidget(NavigationToolbar(self.static_canvas_pie, self.__parent))
+            self.__mainWindow.ui.chartLayout3.addWidget(self.static_canvas_pie)
+            self.__mainWindow.ui.chartLayout3.addWidget(NavigationToolbar(self.static_canvas_pie, self.__mainWindow))
 
             self._pie_ax = self.static_canvas_pie.figure.subplots()
             self._pie_ax.set_title("Porcentaje por Criticidad de los Valores")
@@ -93,8 +93,8 @@ class DashboardController():
             width = 0.35  # width of the bars
 
             self.static_canvas_lines = FigureCanvas(Figure(figsize=(5,4)))
-            self.__parent.ui.chartLayout4.addWidget(self.static_canvas_lines)
-            self.__parent.ui.chartLayout4.addWidget(NavigationToolbar(self.static_canvas_lines,self.__parent))
+            self.__mainWindow.ui.chartLayout4.addWidget(self.static_canvas_lines)
+            self.__mainWindow.ui.chartLayout4.addWidget(NavigationToolbar(self.static_canvas_lines,self.__mainWindow))
             self.lines_ax = self.static_canvas_lines.figure.subplots()
             rects1 = self.lines_ax.bar(x, parameters, width, label='Parámetros')
             # rects2 = self.lines_ax.bar(x + width/2, women_means, width, label='Femenino')
@@ -109,7 +109,7 @@ class DashboardController():
 
             self.static_canvas_lines.figure.tight_layout()
             self.lines_ax.plot()
-            self.__parent.graphicsLoaded = True
+            self.__mainWindow.graphicsLoaded = True
 
     def countNormalParams(self, data):
         count = 0
@@ -148,7 +148,7 @@ class DashboardController():
         return percent,count
 
     def tightLayoutCharts(self):
-        if(self.__parent.graphicsLoaded):
+        if(self.__mainWindow.graphicsLoaded):
             self.static_canvas.figure.tight_layout()
             self.dynamic_canvas.figure.tight_layout()
             self.static_canvas_pie.figure.tight_layout()
