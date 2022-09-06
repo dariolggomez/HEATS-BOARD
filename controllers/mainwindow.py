@@ -590,9 +590,10 @@ class MainWindow(QMainWindow):
         if(hostPortStr != '' and host != ''):
             # self.ui.connectBtn.setEnabled(False)
             hostPort = int(self.ui.hostPortLineEdit.text())
-            connectionThread = Thread(target = server.start_server, args= (host,hostPort))
+            connectionThread = Thread(target = server.start_server, args= (host,hostPort, self))
             connectionThread.daemon = True
             connectionThread.start()
+            # server.start_server(host,hostPort, self)
         else:
             msgBox = QMessageBox()
             msgBox.setText("La dirección del servidor o el puerto de red no puede estar vacío.")

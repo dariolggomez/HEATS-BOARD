@@ -13,9 +13,10 @@ request_search = {
 
 
 class Message:
-    def __init__(self, selector, sock, addr):
+    def __init__(self, selector, sock, addr, controller):
         self.selector = selector
         self.sock = sock
+        self.controller = controller
         self.addr = addr
         self._recv_buffer = b""
         self._send_buffer = b""
@@ -96,7 +97,7 @@ class Message:
             answer = request_search.get(query) or f"No match for '{query}'."
             content = {"result": answer}
         elif action == "get_netnodes_in_use":
-            answer = maincontroller.MainWindow.getNetNodesInUse()
+            answer = self.controller.getNetNodesInUse()
             content = {"action": action,
                        "result": answer}
         else:

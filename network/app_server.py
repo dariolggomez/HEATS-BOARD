@@ -7,14 +7,13 @@ import traceback
 
 import network.libserver as libserver
 
-sel = selectors.DefaultSelector()
 
 
-def accept_wrapper(sock):
+def accept_wrapper(sel, sock, controllerInstance):
     conn, addr = sock.accept()  # Should be ready to read
     print(f"Accepted connection from {addr}")
     conn.setblocking(False)
-    message = libserver.Message(sel, conn, addr)
+    message = libserver.Message(sel, conn, addr, controllerInstance)
     sel.register(conn, selectors.EVENT_READ, data=message)
 
 
@@ -23,7 +22,8 @@ def accept_wrapper(sock):
 #     sys.exit(1)
 
 
-def start_server(host, port):
+def start_server(host, port, controllerInstance):
+    sel = selectors.DefaultSelector()
     lsock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     # Avoid bind() exception: OSError: [Errno 48] Address already in use
     lsock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -38,7 +38,7 @@ def start_server(host, port):
             events = sel.select(timeout=None)
             for key, mask in events:
                 if key.data is None:
-                    accept_wrapper(key.fileobj)
+                    accept_wrapper(sel, key.fileobj, controllerInstance)
                 else:
                     message = key.data
                     try:
@@ -52,6 +52,6 @@ def start_server(host, port):
     except Exception as e:
         print(e)
 
-def stop_server():
-    sel.close()
-    print("Servidor apagado.")
+# def stop_server():
+#     sel.close()
+#     print("Servidor apagado.")
