@@ -20,7 +20,7 @@ from sqlalchemy import true
 import controllers.login as Login
 from controllers.dashboard import DashboardController 
 import services.user_service as user_service
-import network.client as client
+import network.app_server as server
 from controllers.singleton import SingletonClass
 
 # GUI FILE
@@ -37,6 +37,7 @@ class MainWindow(QMainWindow):
     count = 1
     graphicsLoaded = False
     # authenticatedUser = None
+    __net_nodes_in_use = list()
     def __init__(self, authenticatedUser = None):
         try:
             super().__init__()
@@ -184,6 +185,21 @@ class MainWindow(QMainWindow):
             ## ==> END ##
         except Exception as e:
             print(str(e))
+
+    def getNetNodesInUse(self):
+        return self.__net_nodes_in_use
+
+    def addNetNodeInUse(self, netId):
+        if(self.__net_nodes_in_use.count(netId) == 0):
+            self.__net_nodes_in_use.append(netId)
+        else: 
+            raise ValueError(f"Ocurrió un error al establecer el uso del nodo.")
+
+    def removeNetNodeInUse(self, netId):
+        if(self.__net_nodes_in_use.count(netId) == 1):
+            self.__net_nodes_in_use.remove(netId)
+        else:    
+            raise ValueError(f"No se encontró el nodo a desconectar.")
 
     ########################################################################
     ## MENUS ==> DYNAMIC MENUS FUNCTIONS
@@ -574,7 +590,7 @@ class MainWindow(QMainWindow):
         if(hostPortStr != '' and host != ''):
             # self.ui.connectBtn.setEnabled(False)
             hostPort = int(self.ui.hostPortLineEdit.text())
-            connectionThread = Thread(target = client.connectToHost, args= (self, host,hostPort))
+            connectionThread = Thread(target = server.start_server, args= (host,hostPort))
             connectionThread.daemon = True
             connectionThread.start()
         else:
