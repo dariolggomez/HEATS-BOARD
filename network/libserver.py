@@ -4,6 +4,7 @@ import json
 import io
 import struct
 import controllers.mainwindow as maincontroller
+import PySide2.QtCore as QtCore
 
 request_search = {
     "morpheus": "Follow the white rabbit. \U0001f430",
@@ -12,8 +13,10 @@ request_search = {
 }
 
 
-class Message:
+class Message(QtCore.QObject):
+    addNetNodeInUse = QtCore.Signal(object)
     def __init__(self, selector, sock, addr, controller):
+        super().__init__()
         self.selector = selector
         self.sock = sock
         self.controller = controller
@@ -24,6 +27,9 @@ class Message:
         self.jsonheader = None
         self.request = None
         self.response_created = False
+
+        #Signals and Slots Connections
+        self.addNetNodeInUse.connect(self.controller.addNetNodeInUse)
 
     def _set_selector_events_mask(self, mode):
         """Set selector to listen for events: mode is 'r', 'w', or 'rw'."""
@@ -100,6 +106,11 @@ class Message:
             answer = self.controller.getNetNodesInUse()
             content = {"action": action,
                        "result": answer}
+        elif action == "add_node_in_use":
+            netNodeId = self.request.get("value")
+            self.addNetNodeInUse.emit(netNodeId)
+            content = {"action": action,
+                       "result": "Done"}
         else:
             content = {"result": f"Error: invalid action '{action}'."}
         content_encoding = "utf-8"

@@ -188,7 +188,7 @@ class MainWindow(QMainWindow):
 
     def getNetNodesInUse(self):
         return self.__net_nodes_in_use
-
+    @Slot()
     def addNetNodeInUse(self, netId):
         if(self.__net_nodes_in_use.count(netId) == 0):
             self.__net_nodes_in_use.append(netId)
