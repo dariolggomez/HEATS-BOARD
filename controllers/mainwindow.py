@@ -176,7 +176,7 @@ class MainWindow(QMainWindow):
 
             ## ==> START PAGE
             self.ui.stackedWidget.setCurrentWidget(self.ui.page_home)
-            self.tightLayoutCharts()
+            self.dashboardController.tightLayoutCharts()
             ## ==> END ##
 
             ## SHOW ==> MAIN WINDOW
@@ -217,7 +217,7 @@ class MainWindow(QMainWindow):
             self.resetStyle("btn_home")
             self.labelPage("Dashboard")
             btnWidget.setStyleSheet(self.selectMenu(btnWidget.styleSheet()))
-            self.tightLayoutCharts()
+            self.dashboardController.tightLayoutCharts()
 
         # PAGE USER
         if btnWidget.objectName() == "btn_new_user":
@@ -373,12 +373,12 @@ class MainWindow(QMainWindow):
     def mousePressEvent(self, event):
         self.dragPos = event.globalPos()
 
-    def tightLayoutCharts(self):
-        if(self.graphicsLoaded):
-            self.static_canvas.figure.tight_layout()
-            self.dynamic_canvas.figure.tight_layout()
-            self.static_canvas_pie.figure.tight_layout()
-            self.static_canvas_lines.figure.tight_layout()
+    # def tightLayoutCharts(self):
+    #     if(self.graphicsLoaded):
+    #         self.static_canvas.figure.tight_layout()
+    #         self.dynamic_canvas.figure.tight_layout()
+    #         self.static_canvas_pie.figure.tight_layout()
+    #         self.static_canvas_lines.figure.tight_layout()
 
     def winFullscreen(self):
         global GLOBAL_FULLSCREEN
@@ -386,7 +386,7 @@ class MainWindow(QMainWindow):
         status = GLOBAL_FULLSCREEN
         if status == 0:
             self.showFullScreen()
-            self.tightLayoutCharts()
+            self.dashboardController.tightLayoutCharts()
             GLOBAL_FULLSCREEN = 1
             GLOBAL_STATE = 1
             self.ui.central_widget_layout.setContentsMargins(0,0,0,0)
@@ -394,7 +394,7 @@ class MainWindow(QMainWindow):
             self.ui.frame_size_grip.hide()
         else:
             self.showNormal()
-            self.tightLayoutCharts()
+            self.dashboardController.tightLayoutCharts()
             GLOBAL_FULLSCREEN = 0
             GLOBAL_STATE = 0
             self.ui.central_widget_layout.setContentsMargins(10,10,10,10)
@@ -407,7 +407,7 @@ class MainWindow(QMainWindow):
         status = GLOBAL_STATE
         if status == 0:
             self.showMaximized()
-            self.tightLayoutCharts()
+            self.dashboardController.tightLayoutCharts()
             GLOBAL_STATE = 1
             self.ui.central_widget_layout.setContentsMargins(0, 0, 0, 0)
             self.ui.btn_maximize_restore.setToolTip("Restore")
@@ -417,7 +417,7 @@ class MainWindow(QMainWindow):
         else:
             GLOBAL_STATE = 0
             self.showNormal()
-            self.tightLayoutCharts()
+            self.dashboardController.tightLayoutCharts()
             self.resize(self.width()+1, self.height()+1)
             self.ui.central_widget_layout.setContentsMargins(10, 10, 10, 10)
             self.ui.btn_maximize_restore.setToolTip("Maximize")
