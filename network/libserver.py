@@ -15,6 +15,7 @@ request_search = {
 
 class Message(QtCore.QObject):
     addNetNodeInUse = QtCore.Signal(object)
+    removeNetNodeInUse = QtCore.Signal(object)
     def __init__(self, selector, sock, addr, controller):
         super().__init__()
         self.selector = selector
@@ -30,6 +31,7 @@ class Message(QtCore.QObject):
 
         #Signals and Slots Connections
         self.addNetNodeInUse.connect(self.controller.addNetNodeInUse)
+        self.removeNetNodeInUse.connect(self.controller.removeNetNodeInUse)
 
     def _set_selector_events_mask(self, mode):
         """Set selector to listen for events: mode is 'r', 'w', or 'rw'."""
@@ -109,6 +111,11 @@ class Message(QtCore.QObject):
         elif action == "add_node_in_use":
             netNodeId = self.request.get("value")
             self.addNetNodeInUse.emit(netNodeId)
+            content = {"action": action,
+                       "result": "Done"}
+        elif action == "disconnect_net_node":
+            netNodeId = self.request.get("value")
+            self.removeNetNodeInUse.emit(netNodeId)
             content = {"action": action,
                        "result": "Done"}
         else:

@@ -194,7 +194,7 @@ class MainWindow(QMainWindow):
             self.__net_nodes_in_use.append(netId)
         else: 
             raise ValueError(f"Ocurrió un error al establecer el uso del nodo.")
-
+    @Slot()
     def removeNetNodeInUse(self, netId):
         if(self.__net_nodes_in_use.count(netId) == 1):
             self.__net_nodes_in_use.remove(netId)
