@@ -16,6 +16,7 @@ request_search = {
 class Message(QtCore.QObject):
     addNetNodeInUse = QtCore.Signal(object)
     removeNetNodeInUse = QtCore.Signal(object)
+    # checkNodeInUseSignal = QtCore.Signal(object)
     def __init__(self, selector, sock, addr, controller):
         super().__init__()
         self.selector = selector
@@ -32,6 +33,7 @@ class Message(QtCore.QObject):
         #Signals and Slots Connections
         self.addNetNodeInUse.connect(self.controller.addNetNodeInUse)
         self.removeNetNodeInUse.connect(self.controller.removeNetNodeInUse)
+        # self.checkNodeInUseSignal.connect(self.controller.checkIfNetNodeInUse)
 
     def _set_selector_events_mask(self, mode):
         """Set selector to listen for events: mode is 'r', 'w', or 'rw'."""
@@ -118,6 +120,12 @@ class Message(QtCore.QObject):
             self.removeNetNodeInUse.emit(netNodeId)
             content = {"action": action,
                        "result": "Done"}
+        elif action == "check_if_net_in_use":
+            netNodeId = self.request.get("value")
+            answer = self.controller.checkIfNetNodeInUse(netNodeId)
+            content = {"action": action,
+                       "result": answer,
+                       "nodeId": netNodeId}
         else:
             content = {"result": f"Error: invalid action '{action}'."}
         content_encoding = "utf-8"

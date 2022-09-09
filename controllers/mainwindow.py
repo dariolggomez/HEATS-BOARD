@@ -200,6 +200,12 @@ class MainWindow(QMainWindow):
             self.__net_nodes_in_use.remove(netId)
         else:    
             raise ValueError(f"No se encontró el nodo a desconectar.")
+    @Slot()
+    def checkIfNetNodeInUse(self, netId):
+        if(self.__net_nodes_in_use.count(netId) == 1):
+            return True
+        else:
+            return False
 
     ########################################################################
     ## MENUS ==> DYNAMIC MENUS FUNCTIONS
