@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUI_BASEnltjLF.ui'
+## Form generated from reading UI file 'GUI_BASEIcazhZ.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -1284,11 +1284,32 @@ class Ui_MainWindow(object):
 "border-radius: 5px;")
         self.frame_network_2.setFrameShape(QFrame.StyledPanel)
         self.frame_network_2.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_13 = QHBoxLayout(self.frame_network_2)
-        self.horizontalLayout_13.setObjectName(u"horizontalLayout_13")
+        self.horizontalLayout_11 = QHBoxLayout(self.frame_network_2)
+        self.horizontalLayout_11.setObjectName(u"horizontalLayout_11")
         self.horizontalSpacer_2 = QSpacerItem(351, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.horizontalLayout_13.addItem(self.horizontalSpacer_2)
+        self.horizontalLayout_11.addItem(self.horizontalSpacer_2)
+
+        self.disconnectBtn = QPushButton(self.frame_network_2)
+        self.disconnectBtn.setObjectName(u"disconnectBtn")
+        self.disconnectBtn.setEnabled(True)
+        self.disconnectBtn.setMinimumSize(QSize(100, 30))
+        self.disconnectBtn.setFont(font5)
+        self.disconnectBtn.setStyleSheet(u"QPushButton {\n"
+"	border: 2px solid rgb(52, 59, 72);\n"
+"	border-radius: 5px;	\n"
+"	background-color: rgb(52, 59, 72);\n"
+"}\n"
+"QPushButton:hover {\n"
+"	background-color: rgb(57, 65, 80);\n"
+"	border: 2px solid rgb(61, 70, 86);\n"
+"}\n"
+"QPushButton:pressed {	\n"
+"	background-color: rgb(35, 40, 49);\n"
+"	border: 2px solid rgb(43, 50, 61);\n"
+"}")
+
+        self.horizontalLayout_11.addWidget(self.disconnectBtn)
 
         self.connectBtn = QPushButton(self.frame_network_2)
         self.connectBtn.setObjectName(u"connectBtn")
@@ -1309,7 +1330,7 @@ class Ui_MainWindow(object):
 "	border: 2px solid rgb(43, 50, 61);\n"
 "}")
 
-        self.horizontalLayout_13.addWidget(self.connectBtn)
+        self.horizontalLayout_11.addWidget(self.connectBtn)
 
 
         self.verticalLayout_14.addWidget(self.frame_network_2)
@@ -1442,7 +1463,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(3)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1484,6 +1505,7 @@ class Ui_MainWindow(object):
         self.labelHeaderUser_2.setText(QCoreApplication.translate("MainWindow", u"Configuraci\u00f3n del Cliente", None))
         self.labelHeaderUser_3.setText(QCoreApplication.translate("MainWindow", u"Direcci\u00f3n del Servidor", None))
         self.labelHeaderUser_4.setText(QCoreApplication.translate("MainWindow", u"Puerto del Servidor", None))
+        self.disconnectBtn.setText(QCoreApplication.translate("MainWindow", u"Desconectar", None))
         self.connectBtn.setText(QCoreApplication.translate("MainWindow", u"Conectar", None))
         self.label_credits.setText("")
         self.label_version.setText(QCoreApplication.translate("MainWindow", u"v1.0.0", None))

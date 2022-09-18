@@ -43,6 +43,7 @@ class MainWindow(QMainWindow):
             super().__init__()
             self.ui = Ui_MainWindow()
             self.ui.setupUi(self)
+            self.serverController = server.ServerController()
             ########################################################################
             ## START - WINDOW ATTRIBUTES
             ########################################################################
@@ -133,6 +134,7 @@ class MainWindow(QMainWindow):
             self.ui.createBtn.clicked.connect(self.showCreateUsersDialog)
             self.ui.editBtn.clicked.connect(self.showUpdateUsersDialog)
             self.ui.connectBtn.clicked.connect(self.connectToHost)
+            self.ui.disconnectBtn.clicked.connect(self.disconnectServer)
 
             ########################################################################
             #                                                                      #
@@ -594,9 +596,9 @@ class MainWindow(QMainWindow):
         host = self.ui.hostLineEdit.text()
         hostPortStr = self.ui.hostPortLineEdit.text()
         if(hostPortStr != '' and host != ''):
-            # self.ui.connectBtn.setEnabled(False)
+            self.ui.connectBtn.setEnabled(False)
             hostPort = int(self.ui.hostPortLineEdit.text())
-            connectionThread = Thread(target = server.start_server, args= (host,hostPort, self))
+            connectionThread = Thread(target = self.serverController.start_server, args= (host,hostPort, self))
             connectionThread.daemon = True
             connectionThread.start()
             # server.start_server(host,hostPort, self)
@@ -604,6 +606,10 @@ class MainWindow(QMainWindow):
             msgBox = QMessageBox()
             msgBox.setText("La dirección del servidor o el puerto de red no puede estar vacío.")
             msgBox.exec_()
+
+    def disconnectServer(self):
+        self.serverController.stop_server()
+        self.ui.connectBtn.setEnabled(True)
 
     def backupTemporaryFile(self):
         contentReaded = False
