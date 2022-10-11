@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUI_BASEERNBkV.ui'
+## Form generated from reading UI file 'GUI_BASEWXqUJK.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -1350,17 +1350,19 @@ class Ui_MainWindow(object):
         self.rt_graphics_content.setFrameShape(QFrame.StyledPanel)
         self.rt_graphics_content.setFrameShadow(QFrame.Raised)
         self.verticalLayout_28 = QVBoxLayout(self.rt_graphics_content)
+        self.verticalLayout_28.setSpacing(0)
         self.verticalLayout_28.setObjectName(u"verticalLayout_28")
         self.upsideGraphics = QFrame(self.rt_graphics_content)
         self.upsideGraphics.setObjectName(u"upsideGraphics")
-        self.upsideGraphics.setFrameShape(QFrame.StyledPanel)
+        self.upsideGraphics.setFrameShape(QFrame.NoFrame)
         self.upsideGraphics.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_18 = QHBoxLayout(self.upsideGraphics)
+        self.horizontalLayout_18.setSpacing(0)
         self.horizontalLayout_18.setObjectName(u"horizontalLayout_18")
         self.horizontalLayout_18.setContentsMargins(0, 0, 0, 0)
         self.frame_waveform = QFrame(self.upsideGraphics)
         self.frame_waveform.setObjectName(u"frame_waveform")
-        self.frame_waveform.setFrameShape(QFrame.StyledPanel)
+        self.frame_waveform.setFrameShape(QFrame.NoFrame)
         self.frame_waveform.setFrameShadow(QFrame.Raised)
         self.verticalLayout_31 = QVBoxLayout(self.frame_waveform)
         self.verticalLayout_31.setObjectName(u"verticalLayout_31")
@@ -1375,9 +1377,10 @@ class Ui_MainWindow(object):
 
         self.frame_fft_transform = QFrame(self.upsideGraphics)
         self.frame_fft_transform.setObjectName(u"frame_fft_transform")
-        self.frame_fft_transform.setFrameShape(QFrame.StyledPanel)
+        self.frame_fft_transform.setFrameShape(QFrame.NoFrame)
         self.frame_fft_transform.setFrameShadow(QFrame.Raised)
         self.verticalLayout_34 = QVBoxLayout(self.frame_fft_transform)
+        self.verticalLayout_34.setSpacing(0)
         self.verticalLayout_34.setObjectName(u"verticalLayout_34")
         self.verticalLayout_34.setContentsMargins(0, 0, 0, 0)
         self.fft_transform_layout = QVBoxLayout()
@@ -1393,14 +1396,14 @@ class Ui_MainWindow(object):
 
         self.downsideGraphics = QFrame(self.rt_graphics_content)
         self.downsideGraphics.setObjectName(u"downsideGraphics")
-        self.downsideGraphics.setFrameShape(QFrame.StyledPanel)
+        self.downsideGraphics.setFrameShape(QFrame.NoFrame)
         self.downsideGraphics.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_19 = QHBoxLayout(self.downsideGraphics)
         self.horizontalLayout_19.setObjectName(u"horizontalLayout_19")
         self.horizontalLayout_19.setContentsMargins(0, 0, 0, 0)
         self.spectrogram_frame = QFrame(self.downsideGraphics)
         self.spectrogram_frame.setObjectName(u"spectrogram_frame")
-        self.spectrogram_frame.setFrameShape(QFrame.StyledPanel)
+        self.spectrogram_frame.setFrameShape(QFrame.NoFrame)
         self.spectrogram_frame.setFrameShadow(QFrame.Raised)
         self.verticalLayout_35 = QVBoxLayout(self.spectrogram_frame)
         self.verticalLayout_35.setObjectName(u"verticalLayout_35")

@@ -2879,15 +2879,21 @@ QPushButton:pressed {
                        <enum>QFrame::Raised</enum>
                       </property>
                       <layout class="QVBoxLayout" name="verticalLayout_28">
+                       <property name="spacing">
+                        <number>0</number>
+                       </property>
                        <item>
                         <widget class="QFrame" name="upsideGraphics">
                          <property name="frameShape">
-                          <enum>QFrame::StyledPanel</enum>
+                          <enum>QFrame::NoFrame</enum>
                          </property>
                          <property name="frameShadow">
                           <enum>QFrame::Raised</enum>
                          </property>
                          <layout class="QHBoxLayout" name="horizontalLayout_18">
+                          <property name="spacing">
+                           <number>0</number>
+                          </property>
                           <property name="leftMargin">
                            <number>0</number>
                           </property>
@@ -2903,7 +2909,7 @@ QPushButton:pressed {
                           <item>
                            <widget class="QFrame" name="frame_waveform">
                             <property name="frameShape">
-                             <enum>QFrame::StyledPanel</enum>
+                             <enum>QFrame::NoFrame</enum>
                             </property>
                             <property name="frameShadow">
                              <enum>QFrame::Raised</enum>
@@ -2930,12 +2936,15 @@ QPushButton:pressed {
                           <item>
                            <widget class="QFrame" name="frame_fft_transform">
                             <property name="frameShape">
-                             <enum>QFrame::StyledPanel</enum>
+                             <enum>QFrame::NoFrame</enum>
                             </property>
                             <property name="frameShadow">
                              <enum>QFrame::Raised</enum>
                             </property>
                             <layout class="QVBoxLayout" name="verticalLayout_34">
+                             <property name="spacing">
+                              <number>0</number>
+                             </property>
                              <property name="leftMargin">
                               <number>0</number>
                              </property>
@@ -2960,7 +2969,7 @@ QPushButton:pressed {
                        <item>
                         <widget class="QFrame" name="downsideGraphics">
                          <property name="frameShape">
-                          <enum>QFrame::StyledPanel</enum>
+                          <enum>QFrame::NoFrame</enum>
                          </property>
                          <property name="frameShadow">
                           <enum>QFrame::Raised</enum>
@@ -2981,7 +2990,7 @@ QPushButton:pressed {
                           <item>
                            <widget class="QFrame" name="spectrogram_frame">
                             <property name="frameShape">
-                             <enum>QFrame::StyledPanel</enum>
+                             <enum>QFrame::NoFrame</enum>
                             </property>
                             <property name="frameShadow">
                              <enum>QFrame::Raised</enum>
