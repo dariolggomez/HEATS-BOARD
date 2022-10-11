@@ -78,7 +78,8 @@ class MainWindow(QMainWindow):
 
             ## ==> ADD CUSTOM MENUS
             self.ui.stackedWidget.setMinimumWidth(20)
-            self.addNewMenu("Dashboard", "btn_home", "url(:/16x16/icons/16x16/cil-chart.png)", True)
+            self.addNewMenu("Dashboard", "btn_home", "url(:/16x16/icons/16x16/cil-chart-line.png)", True)
+            self.addNewMenu("Gráficas", "btn_rt_graphics", "url(:/16x16/icons/16x16/cil-chart.png)", True)
             if (authenticatedUser is not None and authenticatedUser.role == 1):
                 self.addNewMenu("Usuarios", "btn_new_user", "url(:/16x16/icons/16x16/cil-user-follow.png)", True)
             self.addNewMenu("Conexión", "btn_network", "url(:/16x16/icons/16x16/cil-rss.png)", True)
@@ -226,6 +227,13 @@ class MainWindow(QMainWindow):
             self.labelPage("Dashboard")
             btnWidget.setStyleSheet(self.selectMenu(btnWidget.styleSheet()))
             self.dashboardController.tightLayoutCharts()
+        
+        # RT Graphics
+        if btnWidget.objectName() == "btn_rt_graphics":
+            self.ui.stackedWidget.setCurrentWidget(self.ui.page_rt_graphics)
+            self.resetStyle("btn_rt_graphics")
+            self.labelPage("Gráficas")
+            btnWidget.setStyleSheet(self.selectMenu(btnWidget.styleSheet()))
 
         # PAGE USER
         if btnWidget.objectName() == "btn_new_user":
