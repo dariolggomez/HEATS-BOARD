@@ -63,7 +63,7 @@ class Message(QtCore.QObject):
 
     def _write(self):
         if self._send_buffer:
-            print(f"Sending {self._send_buffer!r} to {self.addr}")
+            # print(f"Sending {self._send_buffer!r} to {self.addr}")
             try:
                 # Should be ready to write
                 sent = self.sock.send(self._send_buffer)
@@ -183,7 +183,7 @@ class Message(QtCore.QObject):
         self._write()
 
     def close(self):
-        print(f"Closing connection to {self.addr}")
+        # print(f"Closing connection to {self.addr}")
         try:
             self.selector.unregister(self.sock)
         except Exception as e:
