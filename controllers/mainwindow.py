@@ -641,8 +641,9 @@ class MainWindow(QMainWindow):
                     print(str(e))
                     print(f"Ocurrió un error al intentar hacer la salva de la información")
                     self.ui.console.insertPlainText(f"{datetime.today().strftime('%Y-%m-%d %H:%M:%S')} >> Ocurrió un error al intentar hacer la salva de la información.")
-            
-
+    @Slot()        
+    def update_waveform(self, valuesList):
+        self.graphicsController.update_waveform(valuesList)
 
     ########################################################################
     ## END - GUI FUNCTIONS

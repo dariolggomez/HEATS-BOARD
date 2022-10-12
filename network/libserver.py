@@ -16,6 +16,7 @@ request_search = {
 class Message(QtCore.QObject):
     addNetNodeInUse = QtCore.Signal(object)
     removeNetNodeInUse = QtCore.Signal(object)
+    update_waveform_signal = QtCore.Signal(object)
     # checkNodeInUseSignal = QtCore.Signal(object)
     def __init__(self, selector, sock, addr, controller):
         super().__init__()
@@ -126,6 +127,15 @@ class Message(QtCore.QObject):
             content = {"action": action,
                        "result": answer,
                        "nodeId": netNodeId}
+        elif action == "update_waveform":
+            values_dict = self.request.get("value")
+            x = values_dict.get("x")
+            y = values_dict.get("y")
+            ptr = values_dict.get("ptr")
+            values_list = [x, y, ptr]
+            self.update_waveform_signal.connect(self.controller.update_waveform(values_list))
+            content = {"action": action,
+                       "result": "Done"}
         else:
             content = {"result": f"Error: invalid action '{action}'."}
         content_encoding = "utf-8"
@@ -223,7 +233,7 @@ class Message(QtCore.QObject):
         if self.jsonheader["content-type"] == "text/json":
             encoding = self.jsonheader["content-encoding"]
             self.request = self._json_decode(data, encoding)
-            print(f"Received request {self.request!r} from {self.addr}")
+            # print(f"Received request {self.request!r} from {self.addr}")
         else:
             # Binary or unknown content-type
             self.request = data

@@ -51,7 +51,7 @@ class GraphicsController():
         self.waveform_plot.setYRange(-2 ** 15, 2 ** 15 - 1)
         self.waveform_plot.setLabel('left', "Señal", units='A.U.')
         self.waveform_plot.setLabel('bottom', "Tiempo", units='s')
-        self.curve = self.waveform_plot.plot(pen=self.default_pen, skipFiniteCheck=True)
+        self.waveform_curve = self.waveform_plot.plot(pen=self.default_pen, skipFiniteCheck=True)
         self.__mainWindow.ui.waveform_layout.addWidget(self.waveform_plot)
 
     def createFftPlot(self):
@@ -86,3 +86,7 @@ class GraphicsController():
         # set scale: x in seconds, y in Hz
         self.waterfall_image.setTransform(tr)
         self.__mainWindow.ui.spectrogram_layout.addWidget(self.waterfall_plot)
+
+    def update_waveform(self, valuesList):
+        self.waveform_curve.setData(x=valuesList[0], y=valuesList[1], clear=True)
+        self.waveform_curve.setPos(valuesList[2], 0)
