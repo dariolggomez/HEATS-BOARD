@@ -136,6 +136,9 @@ class Message(QtCore.QObject):
             self.update_waveform_signal.connect(self.controller.update_waveform(values_list))
             content = {"action": action,
                        "result": "Done"}
+        elif action == "request_creation":
+            content = {"action": action,
+                       "result": True}
         else:
             content = {"result": f"Error: invalid action '{action}'."}
         content_encoding = "utf-8"
