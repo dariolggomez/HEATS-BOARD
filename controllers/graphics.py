@@ -88,5 +88,5 @@ class GraphicsController():
         self.__mainWindow.ui.spectrogram_layout.addWidget(self.waterfall_plot)
 
     def update_waveform(self, valuesList):
-        self.waveform_curve.setData(x=valuesList[0], y=valuesList[1])
+        self.waveform_curve.setData(x=valuesList[0], y=valuesList[1], clear=True)
         self.waveform_curve.setPos(valuesList[2], 0)
