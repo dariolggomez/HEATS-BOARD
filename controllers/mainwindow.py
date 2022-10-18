@@ -645,6 +645,10 @@ class MainWindow(QMainWindow):
     def update_waveform(self, valuesList):
         self.graphicsController.update_waveform(valuesList)
 
+    @Slot()
+    def update_fft(self, values):
+        self.graphicsController.update_fft(values)
+
     ########################################################################
     ## END - GUI FUNCTIONS
     ########################################################################

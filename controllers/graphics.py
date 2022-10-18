@@ -90,3 +90,7 @@ class GraphicsController():
     def update_waveform(self, valuesList):
         self.waveform_curve.setData(x=valuesList[0], y=valuesList[1], clear=True)
         self.waveform_curve.setPos(valuesList[2], 0)
+
+    def update_fft(self, values):
+        self.fft_curve.setData(x=values[0], y=values[1])
+        self.fft_plot.enableAutoRange('y', True)
