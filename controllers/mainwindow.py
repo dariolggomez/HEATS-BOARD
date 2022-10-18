@@ -649,6 +649,10 @@ class MainWindow(QMainWindow):
     def update_fft(self, values):
         self.graphicsController.update_fft(values)
 
+    @Slot()
+    def update_spectrogram(self, values):
+        self.graphicsController.update_spectrogram_data(values)
+
     ########################################################################
     ## END - GUI FUNCTIONS
     ########################################################################

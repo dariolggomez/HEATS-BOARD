@@ -18,6 +18,7 @@ class Message(QtCore.QObject):
     removeNetNodeInUse = QtCore.Signal(object)
     update_waveform_signal = QtCore.Signal(object)
     update_fft_signal = QtCore.Signal(object)
+    update_spectrogram_signal = QtCore.Signal(object)
     # checkNodeInUseSignal = QtCore.Signal(object)
     def __init__(self, selector, sock, addr, controller):
         super().__init__()
@@ -38,6 +39,7 @@ class Message(QtCore.QObject):
         # self.checkNodeInUseSignal.connect(self.controller.checkIfNetNodeInUse)
         self.update_waveform_signal.connect(self.controller.update_waveform)
         self.update_fft_signal.connect(self.controller.update_fft)
+        self.update_spectrogram_signal.connect(self.controller.update_spectrogram)
 
     def _set_selector_events_mask(self, mode):
         """Set selector to listen for events: mode is 'r', 'w', or 'rw'."""
@@ -142,6 +144,12 @@ class Message(QtCore.QObject):
         elif action == "update_fft":
             values = self.request.get("value")
             self.update_fft_signal.emit(values)
+            content = {"action": action,
+                       "result": "Done"}
+        elif action == "update_spectrogram":
+            values = self.request.get("value")
+            self.update_spectrogram_signal.emit(values)
+            # self.controller.update_spectrogram(values)
             content = {"action": action,
                        "result": "Done"}
         elif action == "request_creation":
