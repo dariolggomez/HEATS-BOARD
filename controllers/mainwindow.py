@@ -354,7 +354,8 @@ class MainWindow(QMainWindow):
             saveThread.start()
         except Exception as e:
             print(str(e))
-        self.close()    
+        self.close()
+        self.destroy()    
     
     def saveSettings(self):
         backup = self.ui.backupCheckBox.isChecked()

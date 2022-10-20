@@ -29,6 +29,7 @@ class Login(SingletonClass,QWidget):
                 self.ui.user_lineEdit.clear()
                 self.ui.password_lineEdit.clear()
                 self.close()
+                self.destroy()
                 mainwindow = MainWindow(user)
                 initials = username[0:2]
                 initials = initials.upper()
