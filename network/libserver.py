@@ -3,6 +3,8 @@ import selectors
 import json
 import io
 import struct
+import socket
+import ssl
 import controllers.mainwindow as maincontroller
 import PySide2.QtCore as QtCore
 
@@ -56,9 +58,11 @@ class Message(QtCore.QObject):
     def _read(self):
         try:
             # Should be ready to read
-            data = self.sock.recv(4096)
-        except BlockingIOError:
+            data = self.sock.recv(16384)
+        except ssl.SSLError as e:
             # Resource temporarily unavailable (errno EWOULDBLOCK)
+            if e.errno != ssl.SSL_ERROR_WANT_READ and e.errno != ssl.SSL_ERROR_WANT_WRITE:
+                raise
             pass
         else:
             if data:
@@ -72,8 +76,10 @@ class Message(QtCore.QObject):
             try:
                 # Should be ready to write
                 sent = self.sock.send(self._send_buffer)
-            except BlockingIOError:
+            except ssl.SSLError as e:
                 # Resource temporarily unavailable (errno EWOULDBLOCK)
+                if e.errno != ssl.SSL_ERROR_WANT_READ and e.errno != ssl.SSL_ERROR_WANT_WRITE:
+                    raise
                 pass
             else:
                 self._send_buffer = self._send_buffer[sent:]
@@ -212,8 +218,9 @@ class Message(QtCore.QObject):
             )
 
         try:
+            self.sock.shutdown(socket.SHUT_RDWR)
             self.sock.close()
-        except OSError as e:
+        except ssl.SSLError as e:
             print(f"Error: socket.close() exception for {self.addr}: {e!r}")
         finally:
             # Delete reference to socket object for garbage collection
