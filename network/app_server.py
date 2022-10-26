@@ -2,7 +2,9 @@
 
 import sys
 import socket
+import ssl
 import selectors
+from threading import Thread
 import traceback
 import PySide2.QtCore as QtCore
 import network.libserver as libserver
@@ -10,15 +12,21 @@ import network.libserver as libserver
 class ServerController(QtCore.QObject):
     def __init__(self):
         super().__init__()
+        self.create_ssl_context()
 
 
-    def accept_wrapper(self, sel, sock, controllerInstance):
-        conn, addr = sock.accept()  # Should be ready to read
+    def accept_wrapper(self, sel, sock, addr, controllerInstance):
+        # conn, addr = sock.accept()  # Should be ready to read
         # print(f"Accepted connection from {addr}")
+        sock.settimeout(10)
+        conn = self.ssl_context.wrap_socket(sock, server_side=True)
         conn.setblocking(False)
         message = libserver.Message(sel, conn, addr, controllerInstance)
         sel.register(conn, selectors.EVENT_READ, data=message)
 
+    def create_ssl_context(self):
+        self.ssl_context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
+        self.ssl_context.load_cert_chain(certfile="security/server.crt", keyfile="security/server.key")
 
     # if len(sys.argv) != 3:
     #     print(f"Usage: {sys.argv[0]} <host> <port>")
@@ -31,7 +39,7 @@ class ServerController(QtCore.QObject):
         # Avoid bind() exception: OSError: [Errno 48] Address already in use
         self.lsock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         self.lsock.bind((host, port))
-        self.lsock.listen()
+        self.lsock.listen(5)
         print(f"Listening on {(host, port)}")
         self.lsock.setblocking(False)
         self.sel.register(self.lsock, selectors.EVENT_READ, data=None)
@@ -39,12 +47,16 @@ class ServerController(QtCore.QObject):
 
         try:
             while True:
-                events = self.sel.select(timeout=None)
+                events = self.sel.select(timeout=0.01)
                 if(not self.serverRunning):
                     break
                 for key, mask in events:
                     if key.data is None:
-                        self.accept_wrapper(self.sel, key.fileobj, controllerInstance)
+                        conn, addr = key.fileobj.accept()
+                        # self.accept_wrapper(self.sel, conn, addr, controllerInstance)
+                        handshaker_thread = Thread(target=self.accept_wrapper, args=(self.sel, conn, addr, controllerInstance))
+                        handshaker_thread.daemon = True
+                        handshaker_thread.start()
                     else:
                         message = key.data
                         try:
