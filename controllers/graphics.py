@@ -19,8 +19,8 @@ class GraphicsController(QObject):
         self.createWaveformPlot()
         self.createFftPlot()
         self.create_spectrogram_graphic()
-        parent.ui.start_btn.clicked.connect(self.start_spectrogram_updates)
-        parent.ui.stop_btn.clicked.connect(self.stop_spectrogram_updates)
+        parent.ui.start_btn.clicked.connect(self.start_all)
+        parent.ui.stop_btn.clicked.connect(self.stop_all)
         self.set_spectrogram_image_signal.connect(self.set_spectrogram_image)
 
     def generatePgColormap(self, cm_name):
@@ -94,12 +94,14 @@ class GraphicsController(QObject):
         self.__mainWindow.ui.spectrogram_layout.addWidget(self.waterfall_plot)
 
     def update_waveform(self, valuesList):
-        self.waveform_curve.setData(x=valuesList[0], y=valuesList[1], clear=True)
-        self.waveform_curve.setPos(valuesList[2], 0)
+        if self.running:
+            self.waveform_curve.setData(x=valuesList[0], y=valuesList[1], clear=True)
+            self.waveform_curve.setPos(valuesList[2], 0)
 
     def update_fft(self, values):
-        self.fft_curve.setData(x=values[0], y=values[1])
-        self.fft_plot.enableAutoRange('y', True)
+        if self.running:
+            self.fft_curve.setData(x=values[0], y=values[1])
+            self.fft_plot.enableAutoRange('y', True)
 
     def update_spectrogram_data(self, spectrogram_data):
         self.waterfall_data.append(spectrogram_data)
@@ -122,11 +124,19 @@ class GraphicsController(QObject):
         self.waterfall_image.setImage(values[0], levels=(values[1], values[2]), autoLevels=False)
 
     def start_spectrogram_updates(self):
-        self.__mainWindow.ui.start_btn.setEnabled(False)
         self.spectrogram_update_timer = Timer((self.TIMEOUT+1000)/1000, function=self.update_spectrogram)
         self.spectrogram_update_timer.daemon = True
         self.spectrogram_update_timer.start()
 
     def stop_spectrogram_updates(self):
         self.spectrogram_update_timer.cancel()
+
+    def start_all(self):
+        self.running = True
+        self.start_spectrogram_updates()
+        self.__mainWindow.ui.start_btn.setEnabled(False)
+
+    def stop_all(self):
+        self.running = False
+        self.stop_spectrogram_updates()
         self.__mainWindow.ui.start_btn.setEnabled(True)
