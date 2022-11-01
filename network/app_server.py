@@ -4,24 +4,26 @@ import sys
 import socket
 import ssl
 import selectors
+from datetime import datetime
 from threading import Thread
 import traceback
 import PySide2.QtCore as QtCore
 import network.libserver as libserver
 
 class ServerController(QtCore.QObject):
-    def __init__(self):
+    def __init__(self, mainWindow):
         super().__init__()
+        self.mainWindow_controller = mainWindow
         self.create_ssl_context()
 
 
-    def accept_wrapper(self, sel, sock, addr, controllerInstance):
+    def accept_wrapper(self, sel, sock, addr):
         # conn, addr = sock.accept()  # Should be ready to read
         # print(f"Accepted connection from {addr}")
         sock.settimeout(10)
         conn = self.ssl_context.wrap_socket(sock, server_side=True)
         conn.setblocking(False)
-        message = libserver.Message(sel, conn, addr, controllerInstance)
+        message = libserver.Message(sel, conn, addr, self.mainWindow_controller)
         sel.register(conn, selectors.EVENT_READ, data=message)
 
     def create_ssl_context(self):
@@ -33,7 +35,7 @@ class ServerController(QtCore.QObject):
     #     sys.exit(1)
 
 
-    def start_server(self, host, port, controllerInstance):
+    def start_server(self, host, port):
         self.sel = selectors.DefaultSelector()
         self.lsock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         # Avoid bind() exception: OSError: [Errno 48] Address already in use
@@ -41,6 +43,7 @@ class ServerController(QtCore.QObject):
         self.lsock.bind((host, port))
         self.lsock.listen(5)
         print(f"Listening on {(host, port)}")
+        self.mainWindow_controller.ui.console.insertPlainText(f"{datetime.today().strftime('%Y-%m-%d %H:%M:%S')} >> Servidor iniciado >> {host} : {port}\r")
         self.lsock.setblocking(False)
         self.sel.register(self.lsock, selectors.EVENT_READ, data=None)
         self.serverRunning = True
@@ -54,7 +57,7 @@ class ServerController(QtCore.QObject):
                     if key.data is None:
                         conn, addr = key.fileobj.accept()
                         # self.accept_wrapper(self.sel, conn, addr, controllerInstance)
-                        handshaker_thread = Thread(target=self.accept_wrapper, args=(self.sel, conn, addr, controllerInstance))
+                        handshaker_thread = Thread(target=self.accept_wrapper, args=(self.sel, conn, addr))
                         handshaker_thread.daemon = True
                         handshaker_thread.start()
                     else:
@@ -77,6 +80,7 @@ class ServerController(QtCore.QObject):
             self.lsock = None
             self.sel.close()
             print("Servidor apagado.")
+            self.mainWindow_controller.ui.console.insertPlainText(f"{datetime.today().strftime('%Y-%m-%d %H:%M:%S')} >> Servidor apagado\r")
         except Exception as e:
             print(f"Ocurrió un error al intentar apagar el servidor.\nException:{e}")
 
