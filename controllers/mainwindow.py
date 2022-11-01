@@ -44,7 +44,7 @@ class MainWindow(QMainWindow):
             super().__init__()
             self.ui = Ui_MainWindow()
             self.ui.setupUi(self)
-            self.serverController = server.ServerController()
+            self.serverController = server.ServerController(self)
             self.graphicsController = graphics.GraphicsController(self)
             ########################################################################
             ## START - WINDOW ATTRIBUTES
@@ -608,8 +608,8 @@ class MainWindow(QMainWindow):
         hostPortStr = self.ui.hostPortLineEdit.text()
         if(hostPortStr != '' and host != ''):
             self.ui.connectBtn.setEnabled(False)
-            hostPort = int(self.ui.hostPortLineEdit.text())
-            connectionThread = Thread(target = self.serverController.start_server, args= (host,hostPort, self))
+            port = int(self.ui.hostPortLineEdit.text())
+            connectionThread = Thread(target = self.serverController.start_server, args= (host,port))
             connectionThread.daemon = True
             connectionThread.start()
             # server.start_server(host,hostPort, self)
