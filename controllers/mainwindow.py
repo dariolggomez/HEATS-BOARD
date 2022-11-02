@@ -22,7 +22,7 @@ from controllers.dashboard import DashboardController
 import services.user_service as user_service
 import network.app_server as server
 from controllers.singleton import SingletonClass
-from controllers import graphics
+from controllers import graphics, nodesCentre
 
 # GUI FILE
 from visuals.ui_main import Ui_MainWindow
@@ -45,6 +45,7 @@ class MainWindow(QMainWindow):
             self.ui = Ui_MainWindow()
             self.ui.setupUi(self)
             self.serverController = server.ServerController(self)
+            self.nodesCentreController = nodesCentre.NodesCentreController(self)
             self.graphicsController = graphics.GraphicsController(self)
             ########################################################################
             ## START - WINDOW ATTRIBUTES
