@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUI_BASEWXqUJK.ui'
+## Form generated from reading UI file 'GUI_BASEwdJuoQ.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -721,6 +721,92 @@ class Ui_MainWindow(object):
         self.stackedWidget.setStyleSheet(u"background: transparent;\n"
 "/*background-color: rgb(255, 255, 255);*/\n"
 "color: rgb(85, 170, 255);")
+        self.page_nodes_centre = QWidget()
+        self.page_nodes_centre.setObjectName(u"page_nodes_centre")
+        self.verticalLayout_26 = QVBoxLayout(self.page_nodes_centre)
+        self.verticalLayout_26.setObjectName(u"verticalLayout_26")
+        self.verticalLayout_26.setContentsMargins(0, 0, 0, 0)
+        self.nodes_centre_content = QFrame(self.page_nodes_centre)
+        self.nodes_centre_content.setObjectName(u"nodes_centre_content")
+        self.nodes_centre_content.setFrameShape(QFrame.NoFrame)
+        self.nodes_centre_content.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_30 = QVBoxLayout(self.nodes_centre_content)
+        self.verticalLayout_30.setObjectName(u"verticalLayout_30")
+        self.verticalLayout_30.setContentsMargins(0, 0, 0, 0)
+        self.top_nodes_centre_content = QFrame(self.nodes_centre_content)
+        self.top_nodes_centre_content.setObjectName(u"top_nodes_centre_content")
+        self.top_nodes_centre_content.setMaximumSize(QSize(16777215, 30))
+        self.top_nodes_centre_content.setFrameShape(QFrame.NoFrame)
+        self.top_nodes_centre_content.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_13 = QHBoxLayout(self.top_nodes_centre_content)
+        self.horizontalLayout_13.setObjectName(u"horizontalLayout_13")
+        self.horizontalLayout_13.setContentsMargins(-1, 0, -1, 0)
+        self.nodes_connected_label = QLabel(self.top_nodes_centre_content)
+        self.nodes_connected_label.setObjectName(u"nodes_connected_label")
+        font5 = QFont()
+        font5.setFamily(u"Segoe UI Semibold")
+        font5.setPointSize(11)
+        font5.setBold(True)
+        font5.setWeight(75)
+        self.nodes_connected_label.setFont(font5)
+
+        self.horizontalLayout_13.addWidget(self.nodes_connected_label)
+
+
+        self.verticalLayout_30.addWidget(self.top_nodes_centre_content)
+
+        self.bottom_nodes_centre_content = QFrame(self.nodes_centre_content)
+        self.bottom_nodes_centre_content.setObjectName(u"bottom_nodes_centre_content")
+        self.bottom_nodes_centre_content.setFrameShape(QFrame.NoFrame)
+        self.bottom_nodes_centre_content.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_12 = QHBoxLayout(self.bottom_nodes_centre_content)
+        self.horizontalLayout_12.setObjectName(u"horizontalLayout_12")
+        self.horizontalLayout_12.setContentsMargins(0, 0, 0, 0)
+        self.nodes_graphic_frame = QFrame(self.bottom_nodes_centre_content)
+        self.nodes_graphic_frame.setObjectName(u"nodes_graphic_frame")
+        self.nodes_graphic_frame.setFrameShape(QFrame.NoFrame)
+        self.nodes_graphic_frame.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_32 = QVBoxLayout(self.nodes_graphic_frame)
+        self.verticalLayout_32.setObjectName(u"verticalLayout_32")
+        self.verticalLayout_32.setContentsMargins(0, 0, 0, 0)
+        self.nodes_graphic_layout = QVBoxLayout()
+        self.nodes_graphic_layout.setObjectName(u"nodes_graphic_layout")
+
+        self.verticalLayout_32.addLayout(self.nodes_graphic_layout)
+
+
+        self.horizontalLayout_12.addWidget(self.nodes_graphic_frame)
+
+        self.nodes_tables_frame = QFrame(self.bottom_nodes_centre_content)
+        self.nodes_tables_frame.setObjectName(u"nodes_tables_frame")
+        self.nodes_tables_frame.setFrameShape(QFrame.StyledPanel)
+        self.nodes_tables_frame.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_27 = QVBoxLayout(self.nodes_tables_frame)
+        self.verticalLayout_27.setObjectName(u"verticalLayout_27")
+        self.frame_net_nodes = QFrame(self.nodes_tables_frame)
+        self.frame_net_nodes.setObjectName(u"frame_net_nodes")
+        self.frame_net_nodes.setFrameShape(QFrame.StyledPanel)
+        self.frame_net_nodes.setFrameShadow(QFrame.Raised)
+
+        self.verticalLayout_27.addWidget(self.frame_net_nodes)
+
+        self.frame_rt_nodes = QFrame(self.nodes_tables_frame)
+        self.frame_rt_nodes.setObjectName(u"frame_rt_nodes")
+        self.frame_rt_nodes.setFrameShape(QFrame.StyledPanel)
+        self.frame_rt_nodes.setFrameShadow(QFrame.Raised)
+
+        self.verticalLayout_27.addWidget(self.frame_rt_nodes)
+
+
+        self.horizontalLayout_12.addWidget(self.nodes_tables_frame)
+
+
+        self.verticalLayout_30.addWidget(self.bottom_nodes_centre_content)
+
+
+        self.verticalLayout_26.addWidget(self.nodes_centre_content)
+
+        self.stackedWidget.addWidget(self.page_nodes_centre)
         self.page_home = QWidget()
         self.page_home.setObjectName(u"page_home")
         self.verticalLayout_10 = QVBoxLayout(self.page_home)
@@ -978,9 +1064,9 @@ class Ui_MainWindow(object):
         self.editBtn = QPushButton(self.frame_10)
         self.editBtn.setObjectName(u"editBtn")
         self.editBtn.setMinimumSize(QSize(80, 30))
-        font5 = QFont()
-        font5.setPointSize(9)
-        self.editBtn.setFont(font5)
+        font6 = QFont()
+        font6.setPointSize(9)
+        self.editBtn.setFont(font6)
         self.editBtn.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
 "	border-radius: 5px;	\n"
@@ -1000,7 +1086,7 @@ class Ui_MainWindow(object):
         self.createBtn = QPushButton(self.frame_10)
         self.createBtn.setObjectName(u"createBtn")
         self.createBtn.setMinimumSize(QSize(80, 30))
-        self.createBtn.setFont(font5)
+        self.createBtn.setFont(font6)
         self.createBtn.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
 "	border-radius: 5px;	\n"
@@ -1021,7 +1107,7 @@ class Ui_MainWindow(object):
         self.eliminateBtn.setObjectName(u"eliminateBtn")
         self.eliminateBtn.setEnabled(True)
         self.eliminateBtn.setMinimumSize(QSize(80, 30))
-        self.eliminateBtn.setFont(font5)
+        self.eliminateBtn.setFont(font6)
         self.eliminateBtn.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
 "	border-radius: 5px;	\n"
@@ -1102,10 +1188,10 @@ class Ui_MainWindow(object):
         self.btn_settings_fullscreen = QPushButton(self.frame_content_wid_1)
         self.btn_settings_fullscreen.setObjectName(u"btn_settings_fullscreen")
         self.btn_settings_fullscreen.setMinimumSize(QSize(200, 30))
-        font6 = QFont()
-        font6.setFamily(u"Segoe UI")
-        font6.setPointSize(9)
-        self.btn_settings_fullscreen.setFont(font6)
+        font7 = QFont()
+        font7.setFamily(u"Segoe UI")
+        font7.setPointSize(9)
+        self.btn_settings_fullscreen.setFont(font7)
         self.btn_settings_fullscreen.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
 "	border-radius: 5px;	\n"
@@ -1170,12 +1256,12 @@ class Ui_MainWindow(object):
         self.labelHeaderUser_2 = QLabel(self.frame_network_1)
         self.labelHeaderUser_2.setObjectName(u"labelHeaderUser_2")
         self.labelHeaderUser_2.setMaximumSize(QSize(16777215, 30))
-        font7 = QFont()
-        font7.setFamily(u"Segoe UI")
-        font7.setPointSize(12)
-        font7.setBold(True)
-        font7.setWeight(75)
-        self.labelHeaderUser_2.setFont(font7)
+        font8 = QFont()
+        font8.setFamily(u"Segoe UI")
+        font8.setPointSize(12)
+        font8.setBold(True)
+        font8.setWeight(75)
+        self.labelHeaderUser_2.setFont(font8)
         self.labelHeaderUser_2.setStyleSheet(u"")
 
         self.verticalLayout_24.addWidget(self.labelHeaderUser_2)
@@ -1195,12 +1281,12 @@ class Ui_MainWindow(object):
         self.labelHeaderUser_3 = QLabel(self.frame_12)
         self.labelHeaderUser_3.setObjectName(u"labelHeaderUser_3")
         self.labelHeaderUser_3.setMaximumSize(QSize(16777215, 25))
-        font8 = QFont()
-        font8.setFamily(u"Segoe UI")
-        font8.setPointSize(9)
-        font8.setBold(True)
-        font8.setWeight(75)
-        self.labelHeaderUser_3.setFont(font8)
+        font9 = QFont()
+        font9.setFamily(u"Segoe UI")
+        font9.setPointSize(9)
+        font9.setBold(True)
+        font9.setWeight(75)
+        self.labelHeaderUser_3.setFont(font9)
         self.labelHeaderUser_3.setStyleSheet(u"")
 
         self.verticalLayout_21.addWidget(self.labelHeaderUser_3)
@@ -1238,7 +1324,7 @@ class Ui_MainWindow(object):
         self.labelHeaderUser_4 = QLabel(self.frame_13)
         self.labelHeaderUser_4.setObjectName(u"labelHeaderUser_4")
         self.labelHeaderUser_4.setMaximumSize(QSize(16777215, 25))
-        self.labelHeaderUser_4.setFont(font8)
+        self.labelHeaderUser_4.setFont(font9)
         self.labelHeaderUser_4.setStyleSheet(u"")
 
         self.verticalLayout_23.addWidget(self.labelHeaderUser_4)
@@ -1294,7 +1380,7 @@ class Ui_MainWindow(object):
         self.disconnectBtn.setObjectName(u"disconnectBtn")
         self.disconnectBtn.setEnabled(True)
         self.disconnectBtn.setMinimumSize(QSize(100, 30))
-        self.disconnectBtn.setFont(font5)
+        self.disconnectBtn.setFont(font6)
         self.disconnectBtn.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
 "	border-radius: 5px;	\n"
@@ -1315,7 +1401,7 @@ class Ui_MainWindow(object):
         self.connectBtn.setObjectName(u"connectBtn")
         self.connectBtn.setEnabled(True)
         self.connectBtn.setMinimumSize(QSize(80, 30))
-        self.connectBtn.setFont(font5)
+        self.connectBtn.setFont(font6)
         self.connectBtn.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
 "	border-radius: 5px;	\n"
@@ -1428,12 +1514,12 @@ class Ui_MainWindow(object):
         self.start_btn = QPushButton(self.frame_interactions_btns)
         self.start_btn.setObjectName(u"start_btn")
         self.start_btn.setMinimumSize(QSize(65, 30))
-        font9 = QFont()
-        font9.setFamily(u"Segoe UI Semibold")
-        font9.setPointSize(10)
-        font9.setBold(True)
-        font9.setWeight(75)
-        self.start_btn.setFont(font9)
+        font10 = QFont()
+        font10.setFamily(u"Segoe UI Semibold")
+        font10.setPointSize(10)
+        font10.setBold(True)
+        font10.setWeight(75)
+        self.start_btn.setFont(font10)
         self.start_btn.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(50, 50, 51);\n"
 "	border-radius: 5px;	\n"
@@ -1453,7 +1539,7 @@ class Ui_MainWindow(object):
         self.stop_btn = QPushButton(self.frame_interactions_btns)
         self.stop_btn.setObjectName(u"stop_btn")
         self.stop_btn.setMinimumSize(QSize(65, 30))
-        self.stop_btn.setFont(font9)
+        self.stop_btn.setFont(font10)
         self.stop_btn.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(50, 50, 51);\n"
 "	border-radius: 5px;	\n"
@@ -1473,7 +1559,7 @@ class Ui_MainWindow(object):
         self.reset_btn = QPushButton(self.frame_interactions_btns)
         self.reset_btn.setObjectName(u"reset_btn")
         self.reset_btn.setMinimumSize(QSize(65, 30))
-        self.reset_btn.setFont(font9)
+        self.reset_btn.setFont(font10)
         self.reset_btn.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(50, 50, 51);\n"
 "	border-radius: 5px;	\n"
@@ -1530,9 +1616,9 @@ class Ui_MainWindow(object):
         sizePolicy7.setHeightForWidth(self.console.sizePolicy().hasHeightForWidth())
         self.console.setSizePolicy(sizePolicy7)
         self.console.setMinimumSize(QSize(0, 0))
-        font10 = QFont()
-        font10.setPointSize(10)
-        self.console.setFont(font10)
+        font11 = QFont()
+        font11.setPointSize(10)
+        self.console.setFont(font11)
         self.console.setFocusPolicy(Qt.NoFocus)
         self.console.setStyleSheet(u"QPlainTextEdit {\n"
 "	background-color: rgb(27, 29, 35);\n"
@@ -1624,7 +1710,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(4)
+        self.stackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1656,6 +1742,7 @@ class Ui_MainWindow(object):
         self.label_top_info_1.setText("")
         self.label_top_info_2.setText(QCoreApplication.translate("MainWindow", u"| HOME", None))
         self.label_user_icon.setText(QCoreApplication.translate("MainWindow", u"AL", None))
+        self.nodes_connected_label.setText(QCoreApplication.translate("MainWindow", u"Nodos conectados", None))
         self.labelHeaderUser.setText(QCoreApplication.translate("MainWindow", u"Usuarios", None))
         self.editBtn.setText(QCoreApplication.translate("MainWindow", u"Editar", None))
         self.createBtn.setText(QCoreApplication.translate("MainWindow", u"Crear", None))
