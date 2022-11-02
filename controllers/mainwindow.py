@@ -478,6 +478,10 @@ class MainWindow(QMainWindow):
             self.animation.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
             self.animation.start()
 
+    @Slot()
+    def showConsoleMessage(self, message):
+        self.ui.console.insertPlainText(f"{datetime.today().strftime('%Y-%m-%d %H:%M:%S')} >> {message}\r")
+
     def toggleConsole(self, maxHeight, enable):
         if enable:
             # GET WIDTH

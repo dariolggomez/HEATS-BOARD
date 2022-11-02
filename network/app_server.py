@@ -11,9 +11,11 @@ import PySide2.QtCore as QtCore
 import network.libserver as libserver
 
 class ServerController(QtCore.QObject):
+    consoleMessageSignal = QtCore.Signal(str)
     def __init__(self, mainWindow):
         super().__init__()
         self.mainWindow_controller = mainWindow
+        self.consoleMessageSignal.connect(self.mainWindow_controller.showConsoleMessage)
         self.create_ssl_context()
 
 
@@ -43,7 +45,7 @@ class ServerController(QtCore.QObject):
         self.lsock.bind((host, port))
         self.lsock.listen(5)
         print(f"Listening on {(host, port)}")
-        self.mainWindow_controller.ui.console.insertPlainText(f"{datetime.today().strftime('%Y-%m-%d %H:%M:%S')} >> Servidor iniciado >> {host} : {port}\r")
+        self.consoleMessageSignal.emit(f"Servidor iniciado >> {host} : {port}")
         self.lsock.setblocking(False)
         self.sel.register(self.lsock, selectors.EVENT_READ, data=None)
         self.serverRunning = True
@@ -80,7 +82,7 @@ class ServerController(QtCore.QObject):
             self.lsock = None
             self.sel.close()
             print("Servidor apagado.")
-            self.mainWindow_controller.ui.console.insertPlainText(f"{datetime.today().strftime('%Y-%m-%d %H:%M:%S')} >> Servidor apagado\r")
+            self.consoleMessageSignal.emit(f"Servidor apagado")
         except Exception as e:
             print(f"Ocurrió un error al intentar apagar el servidor.\nException:{e}")
 
