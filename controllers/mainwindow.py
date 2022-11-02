@@ -80,7 +80,8 @@ class MainWindow(QMainWindow):
 
             ## ==> ADD CUSTOM MENUS
             self.ui.stackedWidget.setMinimumWidth(20)
-            self.addNewMenu("Dashboard", "btn_home", "url(:/16x16/icons/16x16/cil-chart-line.png)", True)
+            self.addNewMenu("Centro de Nodos", "btn_nodes", "url(:/16x16/icons/16x16/cil-layers.png)", True)
+            self.addNewMenu("Dashboard", "btn_dashboard", "url(:/16x16/icons/16x16/cil-chart-line.png)", True)
             self.addNewMenu("Gráficas", "btn_rt_graphics", "url(:/16x16/icons/16x16/cil-chart.png)", True)
             if (authenticatedUser is not None and authenticatedUser.role == 1):
                 self.addNewMenu("Usuarios", "btn_new_user", "url(:/16x16/icons/16x16/cil-user-follow.png)", True)
@@ -91,7 +92,8 @@ class MainWindow(QMainWindow):
             ## ==> END ##
 
             # START MENU => SELECTION
-            self.selectStandardMenu("btn_home")
+            self.selectStandardMenu("btn_nodes")
+            self.labelPage("Centro de Nodos")
             ## ==> END ##
             
             ## USER ICON ==> SHOW HIDE
@@ -180,7 +182,7 @@ class MainWindow(QMainWindow):
             self.ui.backupCheckBox.stateChanged.connect(self.synchronizeBackupWithSettings)
 
             ## ==> START PAGE
-            self.ui.stackedWidget.setCurrentWidget(self.ui.page_home)
+            self.ui.stackedWidget.setCurrentWidget(self.ui.page_nodes_centre)
             self.dashboardController.tightLayoutCharts()
             ## ==> END ##
 
@@ -220,12 +222,19 @@ class MainWindow(QMainWindow):
         
         btnWidget = self.sender()
 
-        # PAGE HOME
-        if btnWidget.objectName() == "btn_home":
+        # Page Nodes Centre
+        if btnWidget.objectName() == "btn_nodes":
+            self.ui.stackedWidget.setCurrentWidget(self.ui.page_nodes_centre)
+            self.resetStyle("btn_nodes")
+            self.labelPage("Centro de Nodos")
+            btnWidget.setStyleSheet(self.selectMenu(btnWidget.styleSheet()))
+
+        # PAGE Dashboard
+        if btnWidget.objectName() == "btn_dashboard":
             self.ui.stackedWidget.setCurrentWidget(self.ui.page_home)
             if(self.graphicsLoaded == False):
                 self.dashboardController.loadGraphics()
-            self.resetStyle("btn_home")
+            self.resetStyle("btn_dashboard")
             self.labelPage("Dashboard")
             btnWidget.setStyleSheet(self.selectMenu(btnWidget.styleSheet()))
             self.dashboardController.tightLayoutCharts()
