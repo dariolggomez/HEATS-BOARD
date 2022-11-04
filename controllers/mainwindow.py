@@ -197,11 +197,15 @@ class MainWindow(QMainWindow):
     def getNetNodesInUse(self):
         return self.__net_nodes_in_use
     @Slot()
-    def addNetNodeInUse(self, netId):
-        if(self.__net_nodes_in_use.count(netId) == 0):
-            self.__net_nodes_in_use.append(netId)
-        else: 
-            raise ValueError(f"Ocurrió un error al establecer el uso del nodo.")
+    def addNetNodeInUse(self, netNodeDict):
+        exist = False
+        for netNodeDict in self.__net_nodes_in_use:
+            if netNodeDict.get("id") == netNodeDict.get("id"):
+                exist = True
+                raise ValueError(f"Ocurrió un error al establecer el uso del nodo.")
+        if not exist:
+            self.__net_nodes_in_use.append(netNodeDict) 
+            
     @Slot()
     def removeNetNodeInUse(self, netId):
         if(self.__net_nodes_in_use.count(netId) == 1):
