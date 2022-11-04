@@ -123,8 +123,8 @@ class Message(QtCore.QObject):
             content = {"action": action,
                        "result": answer}
         elif action == "add_node_in_use":
-            netNodeId = self.request.get("value")
-            self.addNetNodeInUse.emit(netNodeId)
+            nodesDict = self.request.get("value")
+            self.addNetNodeInUse.emit(nodesDict)
             content = {"action": action,
                        "result": "Done"}
         elif action == "disconnect_net_node":
