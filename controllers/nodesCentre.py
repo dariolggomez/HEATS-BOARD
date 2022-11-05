@@ -14,6 +14,7 @@ class NodesCentreController(QtCore.QObject):
         self.t_end = 0.0
         self.ptr = 0
         self.connected_net_data = deque(maxlen= 10)
+        self.connected_rt_data = deque(maxlen= 10)
         self.createNodesPlot()
         self.startNodesPlot()
 
@@ -33,14 +34,23 @@ class NodesCentreController(QtCore.QObject):
     def updateNodesPlot(self):
         self.t_end = time()
         self.net_connected = 0
-        for nodes in self.__mainWindow.getNetNodesInUse():
+        self.rt_connected = 0
+        
+        for netNodeDict in self.__mainWindow.getNetNodesInUse():
             self.net_connected += 1
+            for rtNodesDict in netNodeDict.get("rtNodesList"):
+                if rtNodesDict.get("status") == 1:
+                    self.rt_connected += 1
+        
         self.connected_net_data.append(self.net_connected)
+        self.connected_rt_data.append(self.rt_connected)
         self.ptr += (self.t_end - self.last_time)
         self.last_time = time()
         
         self.net_nodes_curve.setData(self.connected_net_data)
         self.net_nodes_curve.setPos(self.ptr, 0)
+        self.rt_nodes_curve.setData(self.connected_rt_data)
+        self.rt_nodes_curve.setPos(self.ptr, 0)
 
     def startNodesPlot(self):
         self.last_time = time()
