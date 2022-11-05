@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUI_BASEwdJuoQ.ui'
+## Form generated from reading UI file 'GUI_BASEJWrGmR.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -783,17 +783,286 @@ class Ui_MainWindow(object):
         self.nodes_tables_frame.setFrameShadow(QFrame.Raised)
         self.verticalLayout_27 = QVBoxLayout(self.nodes_tables_frame)
         self.verticalLayout_27.setObjectName(u"verticalLayout_27")
+        self.verticalLayout_27.setContentsMargins(0, 0, 0, 0)
         self.frame_net_nodes = QFrame(self.nodes_tables_frame)
         self.frame_net_nodes.setObjectName(u"frame_net_nodes")
-        self.frame_net_nodes.setFrameShape(QFrame.StyledPanel)
+        self.frame_net_nodes.setFrameShape(QFrame.NoFrame)
         self.frame_net_nodes.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_33 = QVBoxLayout(self.frame_net_nodes)
+        self.verticalLayout_33.setObjectName(u"verticalLayout_33")
+        self.verticalLayout_33.setContentsMargins(0, 0, 0, 0)
+        self.netNodeStatusTable = QTableWidget(self.frame_net_nodes)
+        self.netNodeStatusTable.setObjectName(u"netNodeStatusTable")
+        self.netNodeStatusTable.setEnabled(True)
+        sizePolicy4.setHeightForWidth(self.netNodeStatusTable.sizePolicy().hasHeightForWidth())
+        self.netNodeStatusTable.setSizePolicy(sizePolicy4)
+        self.netNodeStatusTable.setMaximumSize(QSize(99999, 1000))
+        palette1 = QPalette()
+        palette1.setBrush(QPalette.Active, QPalette.WindowText, brush8)
+        brush15 = QBrush(QColor(30, 30, 30, 255))
+        brush15.setStyle(Qt.SolidPattern)
+        palette1.setBrush(QPalette.Active, QPalette.Button, brush15)
+        palette1.setBrush(QPalette.Active, QPalette.Text, brush8)
+        palette1.setBrush(QPalette.Active, QPalette.ButtonText, brush8)
+        palette1.setBrush(QPalette.Active, QPalette.Base, brush15)
+        palette1.setBrush(QPalette.Active, QPalette.Window, brush15)
+        brush16 = QBrush(QColor(85, 170, 255, 128))
+        brush16.setStyle(Qt.NoBrush)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette1.setBrush(QPalette.Active, QPalette.PlaceholderText, brush16)
+#endif
+        palette1.setBrush(QPalette.Inactive, QPalette.WindowText, brush8)
+        palette1.setBrush(QPalette.Inactive, QPalette.Button, brush15)
+        palette1.setBrush(QPalette.Inactive, QPalette.Text, brush8)
+        palette1.setBrush(QPalette.Inactive, QPalette.ButtonText, brush8)
+        palette1.setBrush(QPalette.Inactive, QPalette.Base, brush15)
+        palette1.setBrush(QPalette.Inactive, QPalette.Window, brush15)
+        brush17 = QBrush(QColor(85, 170, 255, 128))
+        brush17.setStyle(Qt.NoBrush)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette1.setBrush(QPalette.Inactive, QPalette.PlaceholderText, brush17)
+#endif
+        palette1.setBrush(QPalette.Disabled, QPalette.WindowText, brush8)
+        palette1.setBrush(QPalette.Disabled, QPalette.Button, brush15)
+        palette1.setBrush(QPalette.Disabled, QPalette.Text, brush8)
+        palette1.setBrush(QPalette.Disabled, QPalette.ButtonText, brush8)
+        palette1.setBrush(QPalette.Disabled, QPalette.Base, brush15)
+        palette1.setBrush(QPalette.Disabled, QPalette.Window, brush15)
+        brush18 = QBrush(QColor(85, 170, 255, 128))
+        brush18.setStyle(Qt.NoBrush)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette1.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush18)
+#endif
+        self.netNodeStatusTable.setPalette(palette1)
+        self.netNodeStatusTable.setFocusPolicy(Qt.NoFocus)
+        self.netNodeStatusTable.setStyleSheet(u"QTableWidget {	\n"
+"	background-color: rgb(30, 30, 30);\n"
+"	padding: 10px;\n"
+"	border-radius: 0px;\n"
+"	gridline-color: rgb(44, 49, 60);\n"
+"	/*border-bottom: 1px solid rgb(44, 49, 60);*/\n"
+"	border-top-left-radius: 0px;\n"
+"	border-top-right-radius: 0px;\n"
+"}\n"
+"QTableWidget::item{\n"
+"	border-color: rgb(44, 49, 60);\n"
+"	padding-left: 5px;\n"
+"	padding-right: 5px;\n"
+"	gridline-color: rgb(44, 49, 60);\n"
+"}\n"
+"QTableWidget::item:selected{\n"
+"	background-color: rgb(50, 50, 51);\n"
+"	color: rgb(219, 219, 219);\n"
+"}\n"
+"QScrollBar:horizontal {\n"
+"    border: none;\n"
+"    background: rgb(52, 59, 72);\n"
+"    height: 14px;\n"
+"    margin: 0px 21px 0 21px;\n"
+"	border-radius: 0px;\n"
+"}\n"
+" QScrollBar:vertical {\n"
+"	border: none;\n"
+"    background: rgb(52, 59, 72);\n"
+"    width: 14px;\n"
+"    margin: 21px 0 21px 0;\n"
+"	border-radius: 0px;\n"
+" }\n"
+"QHeaderView::section{\n"
+"	Background-color: rgb(39, 44, 54);\n"
+"	max-width: 30px;\n"
+"	border: 1px solid rgb(44, 49, 60);\n"
+"	border-style: none;\n"
+""
+                        "    border-bottom: 1px solid rgb(44, 49, 60);\n"
+"    border-right: 1px solid rgb(44, 49, 60);\n"
+"}\n"
+"QTableWidget::horizontalHeader {	\n"
+"	background-color: rgb(81, 255, 0);\n"
+"}\n"
+"QHeaderView::section:horizontal\n"
+"{\n"
+"    border: 1px solid rgb(30,30,30);\n"
+"	background-color: rgb(0, 122, 204);\n"
+"	padding: 3px;\n"
+"	border-top-left-radius: 7px;\n"
+"    border-top-right-radius: 7px;\n"
+"}\n"
+"QHeaderView::section:vertical\n"
+"{\n"
+"    border: 1px solid rgb(0, 122, 204);\n"
+"}\n"
+"")
+        self.netNodeStatusTable.setFrameShape(QFrame.NoFrame)
+        self.netNodeStatusTable.setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)
+        self.netNodeStatusTable.setHorizontalScrollBarPolicy(Qt.ScrollBarAsNeeded)
+        self.netNodeStatusTable.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
+        self.netNodeStatusTable.setAutoScroll(True)
+        self.netNodeStatusTable.setAutoScrollMargin(16)
+        self.netNodeStatusTable.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.netNodeStatusTable.setAlternatingRowColors(False)
+        self.netNodeStatusTable.setSelectionMode(QAbstractItemView.SingleSelection)
+        self.netNodeStatusTable.setSelectionBehavior(QAbstractItemView.SelectRows)
+        self.netNodeStatusTable.setVerticalScrollMode(QAbstractItemView.ScrollPerPixel)
+        self.netNodeStatusTable.setHorizontalScrollMode(QAbstractItemView.ScrollPerPixel)
+        self.netNodeStatusTable.setShowGrid(True)
+        self.netNodeStatusTable.setGridStyle(Qt.SolidLine)
+        self.netNodeStatusTable.setSortingEnabled(True)
+        self.netNodeStatusTable.setWordWrap(True)
+        self.netNodeStatusTable.setRowCount(0)
+        self.netNodeStatusTable.horizontalHeader().setVisible(False)
+        self.netNodeStatusTable.horizontalHeader().setCascadingSectionResizes(False)
+        self.netNodeStatusTable.horizontalHeader().setDefaultSectionSize(200)
+        self.netNodeStatusTable.horizontalHeader().setStretchLastSection(True)
+        self.netNodeStatusTable.verticalHeader().setVisible(False)
+        self.netNodeStatusTable.verticalHeader().setCascadingSectionResizes(False)
+        self.netNodeStatusTable.verticalHeader().setMinimumSectionSize(30)
+        self.netNodeStatusTable.verticalHeader().setDefaultSectionSize(30)
+        self.netNodeStatusTable.verticalHeader().setHighlightSections(False)
+        self.netNodeStatusTable.verticalHeader().setStretchLastSection(False)
+
+        self.verticalLayout_33.addWidget(self.netNodeStatusTable)
+
 
         self.verticalLayout_27.addWidget(self.frame_net_nodes)
 
         self.frame_rt_nodes = QFrame(self.nodes_tables_frame)
         self.frame_rt_nodes.setObjectName(u"frame_rt_nodes")
-        self.frame_rt_nodes.setFrameShape(QFrame.StyledPanel)
+        self.frame_rt_nodes.setFrameShape(QFrame.NoFrame)
         self.frame_rt_nodes.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_36 = QVBoxLayout(self.frame_rt_nodes)
+        self.verticalLayout_36.setObjectName(u"verticalLayout_36")
+        self.verticalLayout_36.setContentsMargins(0, 0, 0, 0)
+        self.rtNodeStatusTable = QTableWidget(self.frame_rt_nodes)
+        self.rtNodeStatusTable.setObjectName(u"rtNodeStatusTable")
+        self.rtNodeStatusTable.setEnabled(True)
+        sizePolicy4.setHeightForWidth(self.rtNodeStatusTable.sizePolicy().hasHeightForWidth())
+        self.rtNodeStatusTable.setSizePolicy(sizePolicy4)
+        self.rtNodeStatusTable.setMaximumSize(QSize(99999, 1000))
+        palette2 = QPalette()
+        palette2.setBrush(QPalette.Active, QPalette.WindowText, brush8)
+        palette2.setBrush(QPalette.Active, QPalette.Button, brush15)
+        palette2.setBrush(QPalette.Active, QPalette.Text, brush8)
+        palette2.setBrush(QPalette.Active, QPalette.ButtonText, brush8)
+        palette2.setBrush(QPalette.Active, QPalette.Base, brush15)
+        palette2.setBrush(QPalette.Active, QPalette.Window, brush15)
+        brush19 = QBrush(QColor(85, 170, 255, 128))
+        brush19.setStyle(Qt.NoBrush)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette2.setBrush(QPalette.Active, QPalette.PlaceholderText, brush19)
+#endif
+        palette2.setBrush(QPalette.Inactive, QPalette.WindowText, brush8)
+        palette2.setBrush(QPalette.Inactive, QPalette.Button, brush15)
+        palette2.setBrush(QPalette.Inactive, QPalette.Text, brush8)
+        palette2.setBrush(QPalette.Inactive, QPalette.ButtonText, brush8)
+        palette2.setBrush(QPalette.Inactive, QPalette.Base, brush15)
+        palette2.setBrush(QPalette.Inactive, QPalette.Window, brush15)
+        brush20 = QBrush(QColor(85, 170, 255, 128))
+        brush20.setStyle(Qt.NoBrush)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette2.setBrush(QPalette.Inactive, QPalette.PlaceholderText, brush20)
+#endif
+        palette2.setBrush(QPalette.Disabled, QPalette.WindowText, brush8)
+        palette2.setBrush(QPalette.Disabled, QPalette.Button, brush15)
+        palette2.setBrush(QPalette.Disabled, QPalette.Text, brush8)
+        palette2.setBrush(QPalette.Disabled, QPalette.ButtonText, brush8)
+        palette2.setBrush(QPalette.Disabled, QPalette.Base, brush15)
+        palette2.setBrush(QPalette.Disabled, QPalette.Window, brush15)
+        brush21 = QBrush(QColor(85, 170, 255, 128))
+        brush21.setStyle(Qt.NoBrush)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette2.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush21)
+#endif
+        self.rtNodeStatusTable.setPalette(palette2)
+        self.rtNodeStatusTable.setFocusPolicy(Qt.NoFocus)
+        self.rtNodeStatusTable.setStyleSheet(u"QTableWidget {	\n"
+"	background-color: rgb(30, 30, 30);\n"
+"	padding: 10px;\n"
+"	border-radius: 0px;\n"
+"	gridline-color: rgb(44, 49, 60);\n"
+"	/*border-bottom: 1px solid rgb(44, 49, 60);*/\n"
+"	border-top-left-radius: 0px;\n"
+"	border-top-right-radius: 0px;\n"
+"}\n"
+"QTableWidget::item{\n"
+"	border-color: rgb(44, 49, 60);\n"
+"	padding-left: 5px;\n"
+"	padding-right: 5px;\n"
+"	gridline-color: rgb(44, 49, 60);\n"
+"}\n"
+"QTableWidget::item:selected{\n"
+"	background-color: rgb(50, 50, 51);\n"
+"	color: rgb(219, 219, 219);\n"
+"}\n"
+"QScrollBar:horizontal {\n"
+"    border: none;\n"
+"    background: rgb(52, 59, 72);\n"
+"    height: 14px;\n"
+"    margin: 0px 21px 0 21px;\n"
+"	border-radius: 0px;\n"
+"}\n"
+" QScrollBar:vertical {\n"
+"	border: none;\n"
+"    background: rgb(52, 59, 72);\n"
+"    width: 14px;\n"
+"    margin: 21px 0 21px 0;\n"
+"	border-radius: 0px;\n"
+" }\n"
+"QHeaderView::section{\n"
+"	Background-color: rgb(39, 44, 54);\n"
+"	max-width: 30px;\n"
+"	border: 1px solid rgb(44, 49, 60);\n"
+"	border-style: none;\n"
+""
+                        "    border-bottom: 1px solid rgb(44, 49, 60);\n"
+"    border-right: 1px solid rgb(44, 49, 60);\n"
+"}\n"
+"QTableWidget::horizontalHeader {	\n"
+"	background-color: rgb(81, 255, 0);\n"
+"}\n"
+"QHeaderView::section:horizontal\n"
+"{\n"
+"    border: 1px solid rgb(30,30,30);\n"
+"	background-color: rgb(0, 122, 204);\n"
+"	padding: 3px;\n"
+"	border-top-left-radius: 7px;\n"
+"    border-top-right-radius: 7px;\n"
+"}\n"
+"QHeaderView::section:vertical\n"
+"{\n"
+"    border: 1px solid rgb(0, 122, 204);\n"
+"}\n"
+"")
+        self.rtNodeStatusTable.setFrameShape(QFrame.NoFrame)
+        self.rtNodeStatusTable.setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)
+        self.rtNodeStatusTable.setHorizontalScrollBarPolicy(Qt.ScrollBarAsNeeded)
+        self.rtNodeStatusTable.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
+        self.rtNodeStatusTable.setAutoScroll(True)
+        self.rtNodeStatusTable.setAutoScrollMargin(16)
+        self.rtNodeStatusTable.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.rtNodeStatusTable.setAlternatingRowColors(False)
+        self.rtNodeStatusTable.setSelectionMode(QAbstractItemView.SingleSelection)
+        self.rtNodeStatusTable.setSelectionBehavior(QAbstractItemView.SelectRows)
+        self.rtNodeStatusTable.setVerticalScrollMode(QAbstractItemView.ScrollPerPixel)
+        self.rtNodeStatusTable.setHorizontalScrollMode(QAbstractItemView.ScrollPerPixel)
+        self.rtNodeStatusTable.setShowGrid(True)
+        self.rtNodeStatusTable.setGridStyle(Qt.SolidLine)
+        self.rtNodeStatusTable.setSortingEnabled(True)
+        self.rtNodeStatusTable.setWordWrap(True)
+        self.rtNodeStatusTable.setRowCount(0)
+        self.rtNodeStatusTable.horizontalHeader().setVisible(False)
+        self.rtNodeStatusTable.horizontalHeader().setCascadingSectionResizes(False)
+        self.rtNodeStatusTable.horizontalHeader().setDefaultSectionSize(200)
+        self.rtNodeStatusTable.horizontalHeader().setStretchLastSection(True)
+        self.rtNodeStatusTable.verticalHeader().setVisible(False)
+        self.rtNodeStatusTable.verticalHeader().setCascadingSectionResizes(False)
+        self.rtNodeStatusTable.verticalHeader().setMinimumSectionSize(30)
+        self.rtNodeStatusTable.verticalHeader().setDefaultSectionSize(30)
+        self.rtNodeStatusTable.verticalHeader().setHighlightSections(False)
+        self.rtNodeStatusTable.verticalHeader().setStretchLastSection(False)
+
+        self.verticalLayout_36.addWidget(self.rtNodeStatusTable)
+
 
         self.verticalLayout_27.addWidget(self.frame_rt_nodes)
 
@@ -924,43 +1193,43 @@ class Ui_MainWindow(object):
         sizePolicy4.setHeightForWidth(self.userTableWidget.sizePolicy().hasHeightForWidth())
         self.userTableWidget.setSizePolicy(sizePolicy4)
         self.userTableWidget.setMaximumSize(QSize(99999, 1000))
-        palette1 = QPalette()
-        palette1.setBrush(QPalette.Active, QPalette.WindowText, brush8)
-        brush15 = QBrush(QColor(39, 44, 54, 255))
-        brush15.setStyle(Qt.SolidPattern)
-        palette1.setBrush(QPalette.Active, QPalette.Button, brush15)
-        palette1.setBrush(QPalette.Active, QPalette.Text, brush8)
-        palette1.setBrush(QPalette.Active, QPalette.ButtonText, brush8)
-        palette1.setBrush(QPalette.Active, QPalette.Base, brush15)
-        palette1.setBrush(QPalette.Active, QPalette.Window, brush15)
-        brush16 = QBrush(QColor(85, 170, 255, 128))
-        brush16.setStyle(Qt.NoBrush)
+        palette3 = QPalette()
+        palette3.setBrush(QPalette.Active, QPalette.WindowText, brush8)
+        brush22 = QBrush(QColor(39, 44, 54, 255))
+        brush22.setStyle(Qt.SolidPattern)
+        palette3.setBrush(QPalette.Active, QPalette.Button, brush22)
+        palette3.setBrush(QPalette.Active, QPalette.Text, brush8)
+        palette3.setBrush(QPalette.Active, QPalette.ButtonText, brush8)
+        palette3.setBrush(QPalette.Active, QPalette.Base, brush22)
+        palette3.setBrush(QPalette.Active, QPalette.Window, brush22)
+        brush23 = QBrush(QColor(85, 170, 255, 128))
+        brush23.setStyle(Qt.NoBrush)
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette1.setBrush(QPalette.Active, QPalette.PlaceholderText, brush16)
+        palette3.setBrush(QPalette.Active, QPalette.PlaceholderText, brush23)
 #endif
-        palette1.setBrush(QPalette.Inactive, QPalette.WindowText, brush8)
-        palette1.setBrush(QPalette.Inactive, QPalette.Button, brush15)
-        palette1.setBrush(QPalette.Inactive, QPalette.Text, brush8)
-        palette1.setBrush(QPalette.Inactive, QPalette.ButtonText, brush8)
-        palette1.setBrush(QPalette.Inactive, QPalette.Base, brush15)
-        palette1.setBrush(QPalette.Inactive, QPalette.Window, brush15)
-        brush17 = QBrush(QColor(85, 170, 255, 128))
-        brush17.setStyle(Qt.NoBrush)
+        palette3.setBrush(QPalette.Inactive, QPalette.WindowText, brush8)
+        palette3.setBrush(QPalette.Inactive, QPalette.Button, brush22)
+        palette3.setBrush(QPalette.Inactive, QPalette.Text, brush8)
+        palette3.setBrush(QPalette.Inactive, QPalette.ButtonText, brush8)
+        palette3.setBrush(QPalette.Inactive, QPalette.Base, brush22)
+        palette3.setBrush(QPalette.Inactive, QPalette.Window, brush22)
+        brush24 = QBrush(QColor(85, 170, 255, 128))
+        brush24.setStyle(Qt.NoBrush)
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette1.setBrush(QPalette.Inactive, QPalette.PlaceholderText, brush17)
+        palette3.setBrush(QPalette.Inactive, QPalette.PlaceholderText, brush24)
 #endif
-        palette1.setBrush(QPalette.Disabled, QPalette.WindowText, brush8)
-        palette1.setBrush(QPalette.Disabled, QPalette.Button, brush15)
-        palette1.setBrush(QPalette.Disabled, QPalette.Text, brush8)
-        palette1.setBrush(QPalette.Disabled, QPalette.ButtonText, brush8)
-        palette1.setBrush(QPalette.Disabled, QPalette.Base, brush15)
-        palette1.setBrush(QPalette.Disabled, QPalette.Window, brush15)
-        brush18 = QBrush(QColor(85, 170, 255, 128))
-        brush18.setStyle(Qt.NoBrush)
+        palette3.setBrush(QPalette.Disabled, QPalette.WindowText, brush8)
+        palette3.setBrush(QPalette.Disabled, QPalette.Button, brush22)
+        palette3.setBrush(QPalette.Disabled, QPalette.Text, brush8)
+        palette3.setBrush(QPalette.Disabled, QPalette.ButtonText, brush8)
+        palette3.setBrush(QPalette.Disabled, QPalette.Base, brush22)
+        palette3.setBrush(QPalette.Disabled, QPalette.Window, brush22)
+        brush25 = QBrush(QColor(85, 170, 255, 128))
+        brush25.setStyle(Qt.NoBrush)
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette1.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush18)
+        palette3.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush25)
 #endif
-        self.userTableWidget.setPalette(palette1)
+        self.userTableWidget.setPalette(palette3)
         self.userTableWidget.setStyleSheet(u"QTableWidget {	\n"
 "	background-color: rgb(39, 44, 54);\n"
 "	padding: 10px;\n"
