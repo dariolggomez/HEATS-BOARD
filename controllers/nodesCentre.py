@@ -1,5 +1,6 @@
 import pyqtgraph as pg
 from PySide2 import QtCore
+from PySide2.QtWidgets import QTableWidgetItem
 from time import time
 from collections import deque
 class NodesCentreController(QtCore.QObject):
@@ -17,6 +18,12 @@ class NodesCentreController(QtCore.QObject):
         self.connected_rt_data = deque(maxlen= 10)
         self.createNodesPlot()
         self.startNodesPlot()
+        self.initializeNetTable()
+
+    def initializeNetTable(self):
+        self.__mainWindow.ui.netNodeStatusTable.setColumnCount(3)
+        self.__mainWindow.ui.netNodeStatusTable.setHorizontalHeaderLabels(("Id","Nombre","Ciudad"))
+        self.__mainWindow.ui.netNodeStatusTable.horizontalHeader().setVisible(True)
 
     def createNodesPlot(self):
         self.nodes_plot = pg.PlotWidget(title="Nodos conectados")
@@ -30,6 +37,20 @@ class NodesCentreController(QtCore.QObject):
         self.net_nodes_curve = self.nodes_plot.plot(name= 'Nodos NET', pen=self.net_curve_pen, skipFiniteCheck=True)
         self.rt_nodes_curve = self.nodes_plot.plot(name= 'Nodos RT', pen=self.rt_curve_pen, skipFiniteCheck=True)
         self.__mainWindow.ui.nodes_graphic_layout.addWidget(self.nodes_plot)
+
+    def loadNetStatusTable(self):
+        rows = []
+        for netNodeDict in self.__mainWindow.getNetNodesInUse():
+            rows.append((netNodeDict.get("id"), netNodeDict.get("nodename"), netNodeDict.get("city")))
+        self.__mainWindow.ui.netNodeStatusTable.setColumnCount(3)
+        self.__mainWindow.ui.netNodeStatusTable.setHorizontalHeaderLabels(("Id","Nombre","Ciudad"))
+        self.__mainWindow.ui.netNodeStatusTable.horizontalHeader().setVisible(True)
+        self.__mainWindow.ui.netNodeStatusTable.setRowCount(len(rows))
+        for row, cols in enumerate(rows):
+            for col, text in enumerate(cols):
+                table_item = QTableWidgetItem(str(text))
+                table_item.setTextAlignment(QtCore.Qt.AlignHCenter)
+                self.__mainWindow.ui.netNodeStatusTable.setItem(row, col, table_item)
 
     def updateNodesPlot(self):
         self.t_end = time()

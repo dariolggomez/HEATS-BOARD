@@ -204,7 +204,8 @@ class MainWindow(QMainWindow):
                 exist = True
                 raise ValueError(f"Ocurrió un error al establecer el uso del nodo.")
         if not exist:
-            self.__net_nodes_in_use.append(netNodeDictParam) 
+            self.__net_nodes_in_use.append(netNodeDictParam)
+            self.nodesCentreController.loadNetStatusTable() 
             
     @Slot()
     def removeNetNodeInUse(self, netId):
