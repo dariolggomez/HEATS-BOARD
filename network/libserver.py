@@ -119,7 +119,7 @@ class Message(QtCore.QObject):
             answer = request_search.get(query) or f"No match for '{query}'."
             content = {"result": answer}
         elif action == "get_netnodes_in_use":
-            answer = self.controller.getNetNodesInUse()
+            answer = self.controller.getNetNodesIDInUse()
             content = {"action": action,
                        "result": answer}
         elif action == "add_node_in_use":
