@@ -52,6 +52,22 @@ class NodesCentreController(QtCore.QObject):
                 table_item.setTextAlignment(QtCore.Qt.AlignHCenter)
                 self.__mainWindow.ui.netNodeStatusTable.setItem(row, col, table_item)
 
+    def loadRtStatusTable(self):
+        rows = []
+        for netNodeDict in self.__mainWindow.getNetNodesInUse():
+            for rtNodeDict in netNodeDict.get("rtNodesList"):
+                if rtNodeDict.get("status") == 1:
+                    rows.append((rtNodeDict.get("id"), rtNodeDict.get("nodename"), rtNodeDict.get("city"), rtNodeDict.get("status")))
+        self.__mainWindow.ui.rtNodeStatusTable.setColumnCount(3)
+        self.__mainWindow.ui.rtNodeStatusTable.setHorizontalHeaderLabels(("Id","Nombre","Ciudad"))
+        self.__mainWindow.ui.rtNodeStatusTable.horizontalHeader().setVisible(True)
+        self.__mainWindow.ui.rtNodeStatusTable.setRowCount(len(rows))
+        for row, cols in enumerate(rows):
+            for col, text in enumerate(cols):
+                table_item = QTableWidgetItem(str(text))
+                table_item.setTextAlignment(QtCore.Qt.AlignHCenter)
+                self.__mainWindow.ui.rtNodeStatusTable.setItem(row, col, table_item)
+
     def updateNodesPlot(self):
         self.t_end = time()
         self.net_connected = 0
