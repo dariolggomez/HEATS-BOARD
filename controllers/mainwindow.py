@@ -196,6 +196,13 @@ class MainWindow(QMainWindow):
 
     def getNetNodesInUse(self):
         return self.__net_nodes_in_use
+
+    def getNetNodesIDInUse(self):
+        netIds = []
+        for netNodeDict in self.__net_nodes_in_use:
+            netIds.append(netNodeDict.get("id"))
+        return netIds
+        
     @Slot()
     def addNetNodeInUse(self, netNodeDictParam):
         exist = False
