@@ -210,10 +210,17 @@ class MainWindow(QMainWindow):
             
     @Slot()
     def removeNetNodeInUse(self, netId):
-        if(self.__net_nodes_in_use.count(netId) == 1):
-            self.__net_nodes_in_use.remove(netId)
-        else:    
+        exist = False
+        for index, netNodeDict in enumerate(self.__net_nodes_in_use):
+            if netNodeDict.get("id") == netId:
+                exist = True
+                self.__net_nodes_in_use.pop(index)
+                break
+        if not exist:   
             raise ValueError(f"No se encontró el nodo a desconectar.")
+        else:
+            self.nodesCentreController.loadNetStatusTable()
+            self.nodesCentreController.loadRtStatusTable()
     @Slot()
     def checkIfNetNodeInUse(self, netId):
         if(self.__net_nodes_in_use.count(netId) == 1):
