@@ -202,7 +202,28 @@ class MainWindow(QMainWindow):
         for netNodeDict in self.__net_nodes_in_use:
             netIds.append(netNodeDict.get("id"))
         return netIds
-        
+
+    @Slot()
+    def update_rt_status(self, rtNodeDictParam):
+        exist = False
+        newRtNodeDict = {"id": rtNodeDictParam.get("id"),
+                      "nodename": rtNodeDictParam.get("nodename"),
+                      "city": rtNodeDictParam.get("city"),
+                      "status": rtNodeDictParam.get("status")}
+        for netNodeDict in self.__net_nodes_in_use:
+            if netNodeDict.get("id") == rtNodeDictParam.get("net_relation_id"):
+                netNode = netNodeDict
+                for rtNodeDict in netNodeDict.get("rtNodesList"):
+                    if rtNodeDict.get("id") == rtNodeDictParam.get("id"):
+                        exist = True
+                        rtNodesList = netNodeDict.get("rtNodesList")
+                        rtNodesList.remove(rtNodeDict)
+                        rtNodesList.append(newRtNodeDict)
+                        break
+        if not exist:
+            netNode.get("rtNodesList").append(newRtNodeDict)
+        self.nodesCentreController.loadRtStatusTable()
+
     @Slot()
     def addNetNodeInUse(self, netNodeDictParam):
         exist = False
