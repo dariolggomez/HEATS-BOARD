@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUI_BASEJWrGmR.ui'
+## Form generated from reading UI file 'GUI_BASEfocUfe.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -907,7 +907,7 @@ class Ui_MainWindow(object):
         self.netNodeStatusTable.setHorizontalScrollMode(QAbstractItemView.ScrollPerPixel)
         self.netNodeStatusTable.setShowGrid(True)
         self.netNodeStatusTable.setGridStyle(Qt.SolidLine)
-        self.netNodeStatusTable.setSortingEnabled(True)
+        self.netNodeStatusTable.setSortingEnabled(False)
         self.netNodeStatusTable.setWordWrap(True)
         self.netNodeStatusTable.setRowCount(0)
         self.netNodeStatusTable.horizontalHeader().setVisible(False)
@@ -1047,7 +1047,7 @@ class Ui_MainWindow(object):
         self.rtNodeStatusTable.setHorizontalScrollMode(QAbstractItemView.ScrollPerPixel)
         self.rtNodeStatusTable.setShowGrid(True)
         self.rtNodeStatusTable.setGridStyle(Qt.SolidLine)
-        self.rtNodeStatusTable.setSortingEnabled(True)
+        self.rtNodeStatusTable.setSortingEnabled(False)
         self.rtNodeStatusTable.setWordWrap(True)
         self.rtNodeStatusTable.setRowCount(0)
         self.rtNodeStatusTable.horizontalHeader().setVisible(False)
