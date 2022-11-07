@@ -21,6 +21,7 @@ class Message(QtCore.QObject):
     update_waveform_signal = QtCore.Signal(object)
     update_fft_signal = QtCore.Signal(object)
     update_spectrogram_signal = QtCore.Signal(object)
+    update_rt_node_status = QtCore.Signal(object)
     # checkNodeInUseSignal = QtCore.Signal(object)
     def __init__(self, selector, sock, addr, controller):
         super().__init__()
@@ -42,6 +43,7 @@ class Message(QtCore.QObject):
         self.update_waveform_signal.connect(self.controller.update_waveform)
         self.update_fft_signal.connect(self.controller.update_fft)
         self.update_spectrogram_signal.connect(self.controller.update_spectrogram)
+        self.update_rt_node_status.connect(self.controller.update_rt_status)
 
     def _set_selector_events_mask(self, mode):
         """Set selector to listen for events: mode is 'r', 'w', or 'rw'."""
@@ -161,6 +163,11 @@ class Message(QtCore.QObject):
         elif action == "request_creation":
             content = {"action": action,
                        "result": True}
+        elif action == "update_rt_node":
+            rtNodeDict = self.request.get("value")
+            self.update_rt_node_status.emit(rtNodeDict)
+            content = {"action": action,
+                       "result": "Done"}
         else:
             content = {"result": f"Error: invalid action '{action}'."}
         content_encoding = "utf-8"
