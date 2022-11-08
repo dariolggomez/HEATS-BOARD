@@ -18,9 +18,9 @@ request_search = {
 class Message(QtCore.QObject):
     addNetNodeInUse = QtCore.Signal(object)
     removeNetNodeInUse = QtCore.Signal(object)
-    update_waveform_signal = QtCore.Signal(object)
-    update_fft_signal = QtCore.Signal(object)
-    update_spectrogram_signal = QtCore.Signal(object)
+    update_waveform_signal = QtCore.Signal(object, int)
+    update_fft_signal = QtCore.Signal(object, int)
+    update_spectrogram_signal = QtCore.Signal(object, int)
     update_rt_node_status = QtCore.Signal(object)
     # checkNodeInUseSignal = QtCore.Signal(object)
     def __init__(self, selector, sock, addr, controller):
@@ -145,18 +145,23 @@ class Message(QtCore.QObject):
             x = values_dict.get("x")
             y = values_dict.get("y")
             ptr = values_dict.get("ptr")
+            net_sender_id = values_dict.get("net_sender_id")
             values_list = [x, y, ptr]
-            self.update_waveform_signal.emit(values_list)
+            self.update_waveform_signal.emit(values_list, net_sender_id)
             content = {"action": action,
                        "result": "Done"}
         elif action == "update_fft":
             values = self.request.get("value")
-            self.update_fft_signal.emit(values)
+            fft_data = values.get("fft_data")
+            net_sender_id = values.get("net_sender_id")
+            self.update_fft_signal.emit(fft_data, net_sender_id)
             content = {"action": action,
                        "result": "Done"}
         elif action == "update_spectrogram":
             values = self.request.get("value")
-            self.update_spectrogram_signal.emit(values)
+            spectrogram_data = values.get("spectrogram_data")
+            net_sender_id = values.get("net_sender_id")
+            self.update_spectrogram_signal.emit(spectrogram_data, net_sender_id)
             # self.controller.update_spectrogram(values)
             content = {"action": action,
                        "result": "Done"}
