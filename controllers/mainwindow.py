@@ -47,6 +47,7 @@ class MainWindow(QMainWindow):
             self.serverController = server.ServerController(self)
             self.nodesCentreController = nodesCentre.NodesCentreController(self)
             self.graphicsController = graphics.GraphicsController(self)
+            self.currentReceptorId = None
             ########################################################################
             ## START - WINDOW ATTRIBUTES
             ########################################################################
@@ -181,6 +182,7 @@ class MainWindow(QMainWindow):
 
             # STATES CHANGES CONNECTIONS
             self.ui.backupCheckBox.stateChanged.connect(self.synchronizeBackupWithSettings)
+            self.ui.receptor_node.currentIndexChanged.connect(self.synchronizeReceptorNode)
 
             ## ==> START PAGE
             self.ui.stackedWidget.setCurrentWidget(self.ui.page_nodes_centre)
@@ -233,6 +235,7 @@ class MainWindow(QMainWindow):
                 raise ValueError(f"Ocurrió un error al establecer el uso del nodo.")
         if not exist:
             self.__net_nodes_in_use.append(netNodeDictParam)
+            self.ui.receptor_node.addItem(netNodeDictParam.get("nodename"), netNodeDictParam.get("id"))
             self.nodesCentreController.loadNetStatusTable()
             self.nodesCentreController.loadRtStatusTable() 
             
@@ -247,6 +250,8 @@ class MainWindow(QMainWindow):
         if not exist:   
             raise ValueError(f"No se encontró el nodo a desconectar.")
         else:
+            comboNetIndex = self.ui.receptor_node.findData(netId, Qt.UserRole)
+            self.ui.receptor_node.removeItem(comboNetIndex)
             self.nodesCentreController.loadNetStatusTable()
             self.nodesCentreController.loadRtStatusTable()
     @Slot()
@@ -373,6 +378,9 @@ class MainWindow(QMainWindow):
                 table_item = QTableWidgetItem(str(text))
                 table_item.setData(QtCore.Qt.UserRole+1, user_service.read_byID(rows[row][0]))
                 self.ui.userTableWidget.setItem(row, col, table_item)
+
+    def synchronizeReceptorNode(self):
+        self.currentReceptorId = self.ui.receptor_node.currentData()
 
     def synchronizeBackupWithSettings(self):
         global GLOBAL_BACKUP
@@ -698,16 +706,19 @@ class MainWindow(QMainWindow):
                     print(f"Ocurrió un error al intentar hacer la salva de la información")
                     self.ui.console.insertPlainText(f"{datetime.today().strftime('%Y-%m-%d %H:%M:%S')} >> Ocurrió un error al intentar hacer la salva de la información.")
     @Slot()        
-    def update_waveform(self, valuesList):
-        self.graphicsController.update_waveform(valuesList)
+    def update_waveform(self, valuesList, net_sender_id):
+        if self.currentReceptorId == net_sender_id:
+            self.graphicsController.update_waveform(valuesList)
 
     @Slot()
-    def update_fft(self, values):
-        self.graphicsController.update_fft(values)
+    def update_fft(self, values, net_sender_id):
+        if self.currentReceptorId == net_sender_id:
+            self.graphicsController.update_fft(values)
 
     @Slot()
-    def update_spectrogram(self, values):
-        self.graphicsController.update_spectrogram_data(values)
+    def update_spectrogram(self, values, net_sender_id):
+        if self.currentReceptorId == net_sender_id:
+            self.graphicsController.update_spectrogram_data(values)
 
     ########################################################################
     ## END - GUI FUNCTIONS

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUI_BASEfocUfe.ui'
+## Form generated from reading UI file 'GUI_BASELXAjCQ.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -1777,9 +1777,13 @@ class Ui_MainWindow(object):
         self.frame_interactions_btns.setFrameShape(QFrame.StyledPanel)
         self.frame_interactions_btns.setFrameShadow(QFrame.Raised)
         self.verticalLayout_29 = QVBoxLayout(self.frame_interactions_btns)
-        self.verticalLayout_29.setSpacing(8)
         self.verticalLayout_29.setObjectName(u"verticalLayout_29")
-        self.verticalLayout_29.setContentsMargins(-1, 0, -1, 110)
+        self.verticalLayout_29.setContentsMargins(-1, 0, -1, 12)
+        self.receptor_node = QComboBox(self.frame_interactions_btns)
+        self.receptor_node.setObjectName(u"receptor_node")
+
+        self.verticalLayout_29.addWidget(self.receptor_node)
+
         self.start_btn = QPushButton(self.frame_interactions_btns)
         self.start_btn.setObjectName(u"start_btn")
         self.start_btn.setMinimumSize(QSize(65, 30))
@@ -1979,7 +1983,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(5)
 
 
         QMetaObject.connectSlotsByName(MainWindow)

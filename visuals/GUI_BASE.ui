@@ -1632,7 +1632,7 @@ QPushButton:pressed {
 color: rgb(85, 170, 255);</string>
                   </property>
                   <property name="currentIndex">
-                   <number>0</number>
+                   <number>5</number>
                   </property>
                   <widget class="QWidget" name="page_nodes_centre">
                    <layout class="QVBoxLayout" name="verticalLayout_26">
@@ -3953,15 +3953,15 @@ QPushButton:pressed {
                              <enum>QFrame::Raised</enum>
                             </property>
                             <layout class="QVBoxLayout" name="verticalLayout_29">
-                             <property name="spacing">
-                              <number>8</number>
-                             </property>
                              <property name="topMargin">
                               <number>0</number>
                              </property>
                              <property name="bottomMargin">
-                              <number>110</number>
+                              <number>12</number>
                              </property>
+                             <item>
+                              <widget class="QComboBox" name="receptor_node"/>
+                             </item>
                              <item>
                               <widget class="QPushButton" name="start_btn">
                                <property name="minimumSize">
