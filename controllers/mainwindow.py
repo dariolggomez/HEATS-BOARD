@@ -160,7 +160,7 @@ class MainWindow(QMainWindow):
             self.ui.console.insertPlainText(f"{datetime.today().strftime('%Y-%m-%d %H:%M:%S')} >> HEATS-BOARD Inicializado.\r")
             #LOAD DASHBOARD GRAPHICS
             self.dashboardController = DashboardController(self)
-            self.dashboardController.loadGraphics()
+            # self.dashboardController.loadGraphics()
             
             # LOAD SETTINGS
             try:    
@@ -186,7 +186,7 @@ class MainWindow(QMainWindow):
 
             ## ==> START PAGE
             self.ui.stackedWidget.setCurrentWidget(self.ui.page_nodes_centre)
-            self.dashboardController.tightLayoutCharts()
+            # self.dashboardController.tightLayoutCharts()
             ## ==> END ##
 
             ## SHOW ==> MAIN WINDOW
@@ -279,12 +279,12 @@ class MainWindow(QMainWindow):
         # PAGE Dashboard
         if btnWidget.objectName() == "btn_dashboard":
             self.ui.stackedWidget.setCurrentWidget(self.ui.page_home)
-            if(self.graphicsLoaded == False):
-                self.dashboardController.loadGraphics()
+            # if(self.graphicsLoaded == False):
+                # self.dashboardController.loadGraphics()
             self.resetStyle("btn_dashboard")
             self.labelPage("Dashboard")
             btnWidget.setStyleSheet(self.selectMenu(btnWidget.styleSheet()))
-            self.dashboardController.tightLayoutCharts()
+            # self.dashboardController.tightLayoutCharts()
         
         # RT Graphics
         if btnWidget.objectName() == "btn_rt_graphics":
@@ -464,7 +464,7 @@ class MainWindow(QMainWindow):
         status = GLOBAL_FULLSCREEN
         if status == 0:
             self.showFullScreen()
-            self.dashboardController.tightLayoutCharts()
+            # self.dashboardController.tightLayoutCharts()
             GLOBAL_FULLSCREEN = 1
             GLOBAL_STATE = 1
             self.ui.central_widget_layout.setContentsMargins(0,0,0,0)
@@ -472,7 +472,7 @@ class MainWindow(QMainWindow):
             self.ui.frame_size_grip.hide()
         else:
             self.showNormal()
-            self.dashboardController.tightLayoutCharts()
+            # self.dashboardController.tightLayoutCharts()
             GLOBAL_FULLSCREEN = 0
             GLOBAL_STATE = 0
             self.ui.central_widget_layout.setContentsMargins(10,10,10,10)
@@ -485,7 +485,7 @@ class MainWindow(QMainWindow):
         status = GLOBAL_STATE
         if status == 0:
             self.showMaximized()
-            self.dashboardController.tightLayoutCharts()
+            # self.dashboardController.tightLayoutCharts()
             GLOBAL_STATE = 1
             self.ui.central_widget_layout.setContentsMargins(0, 0, 0, 0)
             self.ui.btn_maximize_restore.setToolTip("Restore")
@@ -495,7 +495,7 @@ class MainWindow(QMainWindow):
         else:
             GLOBAL_STATE = 0
             self.showNormal()
-            self.dashboardController.tightLayoutCharts()
+            # self.dashboardController.tightLayoutCharts()
             self.resize(self.width()+1, self.height()+1)
             self.ui.central_widget_layout.setContentsMargins(10, 10, 10, 10)
             self.ui.btn_maximize_restore.setToolTip("Maximize")
@@ -539,7 +539,7 @@ class MainWindow(QMainWindow):
 
     @Slot()
     def showConsoleMessage(self, message):
-        self.ui.console.insertPlainText(f"{datetime.today().strftime('%Y-%m-%d %H:%M:%S')} >> {message}\r")
+        self.ui.console.appendPlainText(f"{datetime.today().strftime('%Y-%m-%d %H:%M:%S')} >> {message}")
 
     def toggleConsole(self, maxHeight, enable):
         if enable:
@@ -712,6 +712,9 @@ class MainWindow(QMainWindow):
 
     @Slot()
     def update_fft(self, values, net_sender_id):
+        kpi_thread = Thread(target=self.dashboardController.recognize_data, args=(values,net_sender_id))
+        kpi_thread.daemon = True
+        kpi_thread.start() 
         if self.currentReceptorId == net_sender_id:
             self.graphicsController.update_fft(values)
 
