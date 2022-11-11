@@ -1632,7 +1632,7 @@ QPushButton:pressed {
 color: rgb(85, 170, 255);</string>
                   </property>
                   <property name="currentIndex">
-                   <number>0</number>
+                   <number>1</number>
                   </property>
                   <widget class="QWidget" name="page_nodes_centre">
                    <layout class="QVBoxLayout" name="verticalLayout_26">
@@ -2584,8 +2584,7 @@ QHeaderView::section:vertical
                        <item row="0" column="0">
                         <widget class="QFrame" name="frame_5">
                          <property name="styleSheet">
-                          <string notr="true">background-color: rgb(255, 255, 255);
-border-color: rgb(47, 47, 47);
+                          <string notr="true">border-color: rgb(47, 47, 47);
 border-radius: 5px</string>
                          </property>
                          <property name="frameShape">
@@ -2974,8 +2973,7 @@ QHeaderView::section:vertical
                        <item row="0" column="1">
                         <widget class="QFrame" name="frame_6">
                          <property name="styleSheet">
-                          <string notr="true">background-color: rgb(255, 255, 255);
-border-color: rgb(47, 47, 47);
+                          <string notr="true">border-color: rgb(47, 47, 47);
 border-radius: 5px 5px</string>
                          </property>
                          <property name="frameShape">
@@ -3364,8 +3362,7 @@ QHeaderView::section:vertical
                        <item row="1" column="0">
                         <widget class="QFrame" name="frame_7">
                          <property name="styleSheet">
-                          <string notr="true">background-color: rgb(255, 255, 255);
-border-color: rgb(47, 47, 47);
+                          <string notr="true">border-color: rgb(47, 47, 47);
 border-radius: 5px 5px</string>
                          </property>
                          <property name="frameShape">
@@ -3754,8 +3751,7 @@ QHeaderView::section:vertical
                        <item row="1" column="1">
                         <widget class="QFrame" name="frame_8">
                          <property name="styleSheet">
-                          <string notr="true">background-color: rgb(255, 255, 255);
-border-color: rgb(47, 47, 47);
+                          <string notr="true">border-color: rgb(47, 47, 47);
 border-radius: 5px 5px</string>
                          </property>
                          <property name="frameShape">

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUI_BASEZTsgGk.ui'
+## Form generated from reading UI file 'GUI_BASEkmbKgO.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -1089,8 +1089,7 @@ class Ui_MainWindow(object):
         self.gridLayout_3.setObjectName(u"gridLayout_3")
         self.frame_5 = QFrame(self.frame_4)
         self.frame_5.setObjectName(u"frame_5")
-        self.frame_5.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
-"border-color: rgb(47, 47, 47);\n"
+        self.frame_5.setStyleSheet(u"border-color: rgb(47, 47, 47);\n"
 "border-radius: 5px")
         self.frame_5.setFrameShape(QFrame.StyledPanel)
         self.frame_5.setFrameShadow(QFrame.Raised)
@@ -1232,8 +1231,7 @@ class Ui_MainWindow(object):
 
         self.frame_6 = QFrame(self.frame_4)
         self.frame_6.setObjectName(u"frame_6")
-        self.frame_6.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
-"border-color: rgb(47, 47, 47);\n"
+        self.frame_6.setStyleSheet(u"border-color: rgb(47, 47, 47);\n"
 "border-radius: 5px 5px")
         self.frame_6.setFrameShape(QFrame.StyledPanel)
         self.frame_6.setFrameShadow(QFrame.Raised)
@@ -1375,8 +1373,7 @@ class Ui_MainWindow(object):
 
         self.frame_7 = QFrame(self.frame_4)
         self.frame_7.setObjectName(u"frame_7")
-        self.frame_7.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
-"border-color: rgb(47, 47, 47);\n"
+        self.frame_7.setStyleSheet(u"border-color: rgb(47, 47, 47);\n"
 "border-radius: 5px 5px")
         self.frame_7.setFrameShape(QFrame.StyledPanel)
         self.frame_7.setFrameShadow(QFrame.Raised)
@@ -1518,8 +1515,7 @@ class Ui_MainWindow(object):
 
         self.frame_8 = QFrame(self.frame_4)
         self.frame_8.setObjectName(u"frame_8")
-        self.frame_8.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
-"border-color: rgb(47, 47, 47);\n"
+        self.frame_8.setStyleSheet(u"border-color: rgb(47, 47, 47);\n"
 "border-radius: 5px 5px")
         self.frame_8.setFrameShape(QFrame.StyledPanel)
         self.frame_8.setFrameShadow(QFrame.Raised)
@@ -2487,7 +2483,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
