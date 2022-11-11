@@ -163,11 +163,11 @@ class MainWindow(QMainWindow):
             # self.dashboardController.loadGraphics()
             
             # LOAD SETTINGS
-            try:    
-                loadSettingsThread = Thread(target=self.loadSettings)
-                loadSettingsThread.start()
-            except Exception as e:
-                print(str(e))
+            # try:    
+            #     loadSettingsThread = Thread(target=self.loadSettings)
+            #     loadSettingsThread.start()
+            # except Exception as e:
+            #     print(str(e))
             
             # BACKUP THREAD
             try:
