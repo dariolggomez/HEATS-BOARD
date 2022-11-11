@@ -13,9 +13,31 @@ class DashboardController(QObject):
         self.__mainWindow = parent
         self.showConsoleMessageSignal.connect(self.__mainWindow.showConsoleMessage)
         self.compareDataSignal.connect(self.compare_data)
+        self.init_tables()
         self.load_data()
         self.saverThread = Thread(target=self.saveData)
         self.saverThread.daemon = True
+    
+    def init_tables(self):
+        #Max amplitude table
+        self.__mainWindow.ui.maxAmplitudeTable.setColumnCount(2)
+        self.__mainWindow.ui.maxAmplitudeTable.setHorizontalHeaderLabels(("Nombre","Magnitud"))
+        self.__mainWindow.ui.maxAmplitudeTable.horizontalHeader().setVisible(True)
+
+        #Max frequenct table
+        self.__mainWindow.ui.maxFrequencyTable.setColumnCount(2)
+        self.__mainWindow.ui.maxFrequencyTable.setHorizontalHeaderLabels(("Nombre","Frecuencia"))
+        self.__mainWindow.ui.maxFrequencyTable.horizontalHeader().setVisible(True)
+
+        #Min amplitude table
+        self.__mainWindow.ui.minAmplitudeTable.setColumnCount(2)
+        self.__mainWindow.ui.minAmplitudeTable.setHorizontalHeaderLabels(("Nombre","Magnitud"))
+        self.__mainWindow.ui.minAmplitudeTable.horizontalHeader().setVisible(True)
+
+        #Min frequency table
+        self.__mainWindow.ui.minFrequencyTable.setColumnCount(2)
+        self.__mainWindow.ui.minFrequencyTable.setHorizontalHeaderLabels(("Nombre","Frecuencia"))
+        self.__mainWindow.ui.minFrequencyTable.horizontalHeader().setVisible(True)
     
     def load_data(self):
         try:
