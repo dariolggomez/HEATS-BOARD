@@ -137,7 +137,7 @@ class DashboardController(QObject):
                 break
         maxAmpFrequency = values[0][maxAmpIndex]
         minAmpFrequency = values[0][minAmpIndex]
-        if maxAmpFrequency != max(values[0]) and minAmpFrequency != min(values[0]):
+        if maxAmpFrequency < max(values[0]) and minAmpFrequency < max(values[0]) and maxAmpFrequency > min(values[0]) and minAmpFrequency > min(values[0]):
             self.compareDataSignal.emit(net_id, maxAmplitude, maxAmpFrequency, minAmplitude, minAmpFrequency)
         
     @Slot()    
