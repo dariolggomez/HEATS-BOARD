@@ -9,17 +9,25 @@ class DashboardController(QObject):
     __mainWindow = None
     showConsoleMessageSignal = Signal(str)
     compareDataSignal = Signal(int, float, float, float, float)
+    loadAllTablesSignal = Signal()
     loadMaxAmpTableSignal = Signal()
+    loadMaxFreqTableSignal = Signal()
+
     def __init__(self, parent):
         super().__init__()
         self.__mainWindow = parent
-        self.showConsoleMessageSignal.connect(self.__mainWindow.showConsoleMessage)
-        self.compareDataSignal.connect(self.compare_data)
-        self.loadMaxAmpTableSignal.connect(self.load_max_amp_table)
+        self.signalsConnections()
         self.init_tables()
         self.load_data()
         self.saverThread = Thread(target=self.saveData)
         self.saverThread.daemon = True
+    
+    def signalsConnections(self):
+        self.showConsoleMessageSignal.connect(self.__mainWindow.showConsoleMessage)
+        self.compareDataSignal.connect(self.compare_data)
+        self.loadAllTablesSignal.connect(self.load_all_tables)
+        self.loadMaxAmpTableSignal.connect(self.load_max_amp_table)
+        self.loadMaxFreqTableSignal.connect(self.load_max_freq_table)
     
     def init_tables(self):
         #Max amplitude table
@@ -27,7 +35,7 @@ class DashboardController(QObject):
         self.__mainWindow.ui.maxAmplitudeTable.setHorizontalHeaderLabels(("Nombre","Magnitud"))
         self.__mainWindow.ui.maxAmplitudeTable.horizontalHeader().setVisible(True)
 
-        #Max frequenct table
+        #Max frequency table
         self.__mainWindow.ui.maxFrequencyTable.setColumnCount(2)
         self.__mainWindow.ui.maxFrequencyTable.setHorizontalHeaderLabels(("Nombre","Frecuencia"))
         self.__mainWindow.ui.maxFrequencyTable.horizontalHeader().setVisible(True)
@@ -43,6 +51,11 @@ class DashboardController(QObject):
         self.__mainWindow.ui.minFrequencyTable.horizontalHeader().setVisible(True)
 
     @Slot()
+    def load_all_tables(self):
+        self.load_max_amp_table()
+        self.load_max_freq_table()
+
+    @Slot()
     def load_max_amp_table(self):
         rows = []
         for key in self.dashData:
@@ -53,6 +66,18 @@ class DashboardController(QObject):
                 table_item = QTableWidgetItem(str(text))
                 table_item.setTextAlignment(QtCore.Qt.AlignHCenter)
                 self.__mainWindow.ui.maxAmplitudeTable.setItem(row, col, table_item)
+
+    @Slot()
+    def load_max_freq_table(self):
+        rows = []
+        for key in self.dashData:
+            rows.append((self.dashData.get(key)[0], self.dashData.get(key)[3]))
+        self.__mainWindow.ui.maxFrequencyTable.setRowCount(len(rows))
+        for row, cols in enumerate(rows):
+            for col, text in enumerate(cols):
+                table_item = QTableWidgetItem(str(text))
+                table_item.setTextAlignment(QtCore.Qt.AlignHCenter)
+                self.__mainWindow.ui.maxFrequencyTable.setItem(row, col, table_item)
     
     def load_data(self):
         try:
@@ -61,7 +86,7 @@ class DashboardController(QObject):
             if self.dashData == None:
                 self.dashData = {}
             else:
-                self.loadMaxAmpTableSignal.emit()
+                self.loadAllTablesSignal.emit()
         except Exception as e:
             print(e)
             self.showConsoleMessageSignal.emit("No se pudieron cargar los datos del dashboard. Se creará una nueva salva al recibir datos.")
@@ -111,4 +136,4 @@ class DashboardController(QObject):
     def saveData(self):
         with open('backup/data.yaml', 'w') as f:
             yaml.dump(self.dashData, f)
-        self.loadMaxAmpTableSignal.emit()
+        self.loadAllTablesSignal.emit()
