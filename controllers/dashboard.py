@@ -12,6 +12,8 @@ class DashboardController(QObject):
     loadAllTablesSignal = Signal()
     loadMaxAmpTableSignal = Signal()
     loadMaxFreqTableSignal = Signal()
+    loadMinAmpTableSignal = Signal()
+    loadMinFreqTableSignal = Signal()
 
     def __init__(self, parent):
         super().__init__()
@@ -28,6 +30,8 @@ class DashboardController(QObject):
         self.loadAllTablesSignal.connect(self.load_all_tables)
         self.loadMaxAmpTableSignal.connect(self.load_max_amp_table)
         self.loadMaxFreqTableSignal.connect(self.load_max_freq_table)
+        self.loadMinAmpTableSignal.connect(self.load_min_amp_table)
+        self.loadMinFreqTableSignal.connect(self.load_min_freq_table)
     
     def init_tables(self):
         #Max amplitude table
@@ -54,6 +58,8 @@ class DashboardController(QObject):
     def load_all_tables(self):
         self.load_max_amp_table()
         self.load_max_freq_table()
+        self.load_min_amp_table()
+        self.load_min_freq_table()
 
     @Slot()
     def load_max_amp_table(self):
@@ -78,6 +84,30 @@ class DashboardController(QObject):
                 table_item = QTableWidgetItem(str(text))
                 table_item.setTextAlignment(QtCore.Qt.AlignHCenter)
                 self.__mainWindow.ui.maxFrequencyTable.setItem(row, col, table_item)
+    
+    @Slot()
+    def load_min_amp_table(self):
+        rows = []
+        for key in self.dashData:
+            rows.append((self.dashData.get(key)[0], self.dashData.get(key)[2]))
+        self.__mainWindow.ui.minAmplitudeTable.setRowCount(len(rows))
+        for row, cols in enumerate(rows):
+            for col, text in enumerate(cols):
+                table_item = QTableWidgetItem(str(text))
+                table_item.setTextAlignment(QtCore.Qt.AlignHCenter)
+                self.__mainWindow.ui.minAmplitudeTable.setItem(row, col, table_item)
+
+    @Slot()
+    def load_min_freq_table(self):
+        rows = []
+        for key in self.dashData:
+            rows.append((self.dashData.get(key)[0], self.dashData.get(key)[4]))
+        self.__mainWindow.ui.minFrequencyTable.setRowCount(len(rows))
+        for row, cols in enumerate(rows):
+            for col, text in enumerate(cols):
+                table_item = QTableWidgetItem(str(text))
+                table_item.setTextAlignment(QtCore.Qt.AlignHCenter)
+                self.__mainWindow.ui.minFrequencyTable.setItem(row, col, table_item)
     
     def load_data(self):
         try:
