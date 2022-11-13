@@ -4,6 +4,8 @@ from PySide2 import QtCore
 from PySide2.QtCore import QObject, Signal, Slot
 from PySide2.QtWidgets import QTableWidgetItem
 from threading import Thread
+import pyqtgraph as pg
+import numpy as np
 
 class DashboardController(QObject):
     __mainWindow = None
@@ -20,6 +22,7 @@ class DashboardController(QObject):
         self.__mainWindow = parent
         self.signalsConnections()
         self.init_tables()
+        self.createHistograms()
         self.load_data()
         self.saverThread = Thread(target=self.saveData)
         self.saverThread.daemon = True
@@ -35,37 +38,54 @@ class DashboardController(QObject):
     
     def init_tables(self):
         #Max amplitude table
-        self.__mainWindow.ui.maxAmplitudeTable.setColumnCount(2)
-        self.__mainWindow.ui.maxAmplitudeTable.setHorizontalHeaderLabels(("Nombre","Magnitud"))
+        self.__mainWindow.ui.maxAmplitudeTable.setColumnCount(3)
+        self.__mainWindow.ui.maxAmplitudeTable.setHorizontalHeaderLabels(("Nombre","Magnitud", "Frecuencia"))
         self.__mainWindow.ui.maxAmplitudeTable.horizontalHeader().setVisible(True)
 
         #Max frequency table
-        self.__mainWindow.ui.maxFrequencyTable.setColumnCount(2)
-        self.__mainWindow.ui.maxFrequencyTable.setHorizontalHeaderLabels(("Nombre","Frecuencia"))
-        self.__mainWindow.ui.maxFrequencyTable.horizontalHeader().setVisible(True)
+        # self.__mainWindow.ui.maxFrequencyTable.setColumnCount(2)
+        # self.__mainWindow.ui.maxFrequencyTable.setHorizontalHeaderLabels(("Nombre","Frecuencia"))
+        # self.__mainWindow.ui.maxFrequencyTable.horizontalHeader().setVisible(True)
 
         #Min amplitude table
-        self.__mainWindow.ui.minAmplitudeTable.setColumnCount(2)
-        self.__mainWindow.ui.minAmplitudeTable.setHorizontalHeaderLabels(("Nombre","Magnitud"))
+        self.__mainWindow.ui.minAmplitudeTable.setColumnCount(3)
+        self.__mainWindow.ui.minAmplitudeTable.setHorizontalHeaderLabels(("Nombre","Magnitud","Frecuencia"))
         self.__mainWindow.ui.minAmplitudeTable.horizontalHeader().setVisible(True)
 
         #Min frequency table
-        self.__mainWindow.ui.minFrequencyTable.setColumnCount(2)
-        self.__mainWindow.ui.minFrequencyTable.setHorizontalHeaderLabels(("Nombre","Frecuencia"))
-        self.__mainWindow.ui.minFrequencyTable.horizontalHeader().setVisible(True)
+        # self.__mainWindow.ui.minFrequencyTable.setColumnCount(2)
+        # self.__mainWindow.ui.minFrequencyTable.setHorizontalHeaderLabels(("Nombre","Frecuencia"))
+        # self.__mainWindow.ui.minFrequencyTable.horizontalHeader().setVisible(True)
+
+    def createHistograms(self):
+        #Max amp
+        self.maxAmpHistogram = pg.PlotWidget()
+        self.maxAmpHistogram.setLabel('left', 'Número de nodos')
+        self.maxAmpHistogram.setLabel('bottom', 'Amplitud')
+        self.maxAmpHistogram.setMouseEnabled(x=False, y=False)
+        self.__mainWindow.ui.maxAmpHistLayout.addWidget(self.maxAmpHistogram)
+
+        #Min amp
+        self.minAmpHistogram = pg.PlotWidget()
+        self.minAmpHistogram.setLabel('left', 'Número de nodos')
+        self.minAmpHistogram.setLabel('bottom', 'Amplitud')
+        self.minAmpHistogram.setMouseEnabled(x=False, y=False)
+        self.__mainWindow.ui.minAmpHistLayout.addWidget(self.minAmpHistogram)
 
     @Slot()
     def load_all_tables(self):
         self.load_max_amp_table()
-        self.load_max_freq_table()
+        # self.load_max_freq_table()
         self.load_min_amp_table()
-        self.load_min_freq_table()
+        # self.load_min_freq_table()
+        self.load_max_amp_histogram()
+        self.load_min_amp_histogram()
 
     @Slot()
     def load_max_amp_table(self):
         rows = []
         for key in self.dashData:
-            rows.append((self.dashData.get(key)[0], self.dashData.get(key)[1]))
+            rows.append((self.dashData.get(key)[0], self.dashData.get(key)[1], self.dashData.get(key)[3]))
         self.__mainWindow.ui.maxAmplitudeTable.setRowCount(len(rows))
         for row, cols in enumerate(rows):
             for col, text in enumerate(cols):
@@ -89,7 +109,7 @@ class DashboardController(QObject):
     def load_min_amp_table(self):
         rows = []
         for key in self.dashData:
-            rows.append((self.dashData.get(key)[0], self.dashData.get(key)[2]))
+            rows.append((self.dashData.get(key)[0], self.dashData.get(key)[2], self.dashData.get(key)[4]))
         self.__mainWindow.ui.minAmplitudeTable.setRowCount(len(rows))
         for row, cols in enumerate(rows):
             for col, text in enumerate(cols):
@@ -108,6 +128,20 @@ class DashboardController(QObject):
                 table_item = QTableWidgetItem(str(text))
                 table_item.setTextAlignment(QtCore.Qt.AlignHCenter)
                 self.__mainWindow.ui.minFrequencyTable.setItem(row, col, table_item)
+
+    @Slot()
+    def load_max_amp_histogram(self):
+        ampData = [x[1] for x in self.dashData.values()]
+        y, x = np.histogram(ampData, bins=np.linspace(min(ampData), max(ampData), 10))
+        self.maxAmpHistogram.clear()
+        self.maxAmpHistogram.plot(x, y, stepMode=True, fillLevel=0, brush=(0,0,255,150))
+
+    @Slot()
+    def load_min_amp_histogram(self):
+        ampData = [x[2] for x in self.dashData.values()]
+        y, x = np.histogram(ampData, bins=np.linspace(min(ampData), max(ampData), 10))
+        self.minAmpHistogram.clear()
+        self.minAmpHistogram.plot(x, y, stepMode=True, fillLevel=0, brush=(0,0,255,150))
     
     def load_data(self):
         try:

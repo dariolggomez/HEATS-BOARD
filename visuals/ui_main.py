@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUI_BASEGxsiWy.ui'
+## Form generated from reading UI file 'GUI_BASEetnwKG.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -1085,19 +1085,19 @@ class Ui_MainWindow(object):
         self.frame_4.setObjectName(u"frame_4")
         self.frame_4.setFrameShape(QFrame.StyledPanel)
         self.frame_4.setFrameShadow(QFrame.Raised)
-        self.gridLayout_3 = QGridLayout(self.frame_4)
-        self.gridLayout_3.setObjectName(u"gridLayout_3")
-        self.frame_5 = QFrame(self.frame_4)
-        self.frame_5.setObjectName(u"frame_5")
-        self.frame_5.setStyleSheet(u"border-color: rgb(47, 47, 47);\n"
+        self.gridLayout = QGridLayout(self.frame_4)
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.maxAmpFrame = QFrame(self.frame_4)
+        self.maxAmpFrame.setObjectName(u"maxAmpFrame")
+        self.maxAmpFrame.setStyleSheet(u"border-color: rgb(47, 47, 47);\n"
 "border-radius: 5px")
-        self.frame_5.setFrameShape(QFrame.StyledPanel)
-        self.frame_5.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_17 = QVBoxLayout(self.frame_5)
+        self.maxAmpFrame.setFrameShape(QFrame.StyledPanel)
+        self.maxAmpFrame.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_17 = QVBoxLayout(self.maxAmpFrame)
         self.verticalLayout_17.setSpacing(4)
         self.verticalLayout_17.setObjectName(u"verticalLayout_17")
         self.verticalLayout_17.setContentsMargins(0, 0, 0, 0)
-        self.label = QLabel(self.frame_5)
+        self.label = QLabel(self.maxAmpFrame)
         self.label.setObjectName(u"label")
         self.label.setMaximumSize(QSize(16777215, 20))
         self.label.setFont(font5)
@@ -1105,7 +1105,7 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_17.addWidget(self.label)
 
-        self.maxAmplitudeTable = QTableWidget(self.frame_5)
+        self.maxAmplitudeTable = QTableWidget(self.maxAmpFrame)
         self.maxAmplitudeTable.setObjectName(u"maxAmplitudeTable")
         self.maxAmplitudeTable.setEnabled(True)
         sizePolicy4.setHeightForWidth(self.maxAmplitudeTable.sizePolicy().hasHeightForWidth())
@@ -1236,32 +1236,56 @@ class Ui_MainWindow(object):
         self.verticalLayout_17.addWidget(self.maxAmplitudeTable)
 
 
-        self.gridLayout_3.addWidget(self.frame_5, 0, 0, 1, 1)
+        self.gridLayout.addWidget(self.maxAmpFrame, 0, 0, 1, 1)
 
-        self.frame_6 = QFrame(self.frame_4)
-        self.frame_6.setObjectName(u"frame_6")
-        self.frame_6.setStyleSheet(u"border-color: rgb(47, 47, 47);\n"
-"border-radius: 5px 5px")
-        self.frame_6.setFrameShape(QFrame.StyledPanel)
-        self.frame_6.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_18 = QVBoxLayout(self.frame_6)
-        self.verticalLayout_18.setSpacing(4)
-        self.verticalLayout_18.setObjectName(u"verticalLayout_18")
-        self.verticalLayout_18.setContentsMargins(0, 0, 0, 0)
-        self.label_2 = QLabel(self.frame_6)
+        self.maxAmpDistFrame = QFrame(self.frame_4)
+        self.maxAmpDistFrame.setObjectName(u"maxAmpDistFrame")
+        self.maxAmpDistFrame.setFrameShape(QFrame.StyledPanel)
+        self.maxAmpDistFrame.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_38 = QVBoxLayout(self.maxAmpDistFrame)
+        self.verticalLayout_38.setSpacing(4)
+        self.verticalLayout_38.setObjectName(u"verticalLayout_38")
+        self.verticalLayout_38.setContentsMargins(0, 0, 0, 0)
+        self.label_2 = QLabel(self.maxAmpDistFrame)
         self.label_2.setObjectName(u"label_2")
         self.label_2.setMaximumSize(QSize(16777215, 20))
         self.label_2.setFont(font5)
         self.label_2.setAlignment(Qt.AlignBottom|Qt.AlignHCenter)
 
-        self.verticalLayout_18.addWidget(self.label_2)
+        self.verticalLayout_38.addWidget(self.label_2)
 
-        self.maxFrequencyTable = QTableWidget(self.frame_6)
-        self.maxFrequencyTable.setObjectName(u"maxFrequencyTable")
-        self.maxFrequencyTable.setEnabled(True)
-        sizePolicy4.setHeightForWidth(self.maxFrequencyTable.sizePolicy().hasHeightForWidth())
-        self.maxFrequencyTable.setSizePolicy(sizePolicy4)
-        self.maxFrequencyTable.setMaximumSize(QSize(99999, 1000))
+        self.maxAmpHistLayout = QVBoxLayout()
+        self.maxAmpHistLayout.setObjectName(u"maxAmpHistLayout")
+
+        self.verticalLayout_38.addLayout(self.maxAmpHistLayout)
+
+
+        self.gridLayout.addWidget(self.maxAmpDistFrame, 0, 1, 1, 1)
+
+        self.minAmpFrame = QFrame(self.frame_4)
+        self.minAmpFrame.setObjectName(u"minAmpFrame")
+        self.minAmpFrame.setStyleSheet(u"border-color: rgb(47, 47, 47);\n"
+"border-radius: 5px 5px")
+        self.minAmpFrame.setFrameShape(QFrame.StyledPanel)
+        self.minAmpFrame.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_19 = QVBoxLayout(self.minAmpFrame)
+        self.verticalLayout_19.setSpacing(4)
+        self.verticalLayout_19.setObjectName(u"verticalLayout_19")
+        self.verticalLayout_19.setContentsMargins(0, 0, 0, 0)
+        self.label_3 = QLabel(self.minAmpFrame)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setMaximumSize(QSize(16777215, 20))
+        self.label_3.setFont(font5)
+        self.label_3.setAlignment(Qt.AlignBottom|Qt.AlignHCenter)
+
+        self.verticalLayout_19.addWidget(self.label_3)
+
+        self.minAmplitudeTable = QTableWidget(self.minAmpFrame)
+        self.minAmplitudeTable.setObjectName(u"minAmplitudeTable")
+        self.minAmplitudeTable.setEnabled(True)
+        sizePolicy4.setHeightForWidth(self.minAmplitudeTable.sizePolicy().hasHeightForWidth())
+        self.minAmplitudeTable.setSizePolicy(sizePolicy4)
+        self.minAmplitudeTable.setMaximumSize(QSize(99999, 1000))
         palette4 = QPalette()
         palette4.setBrush(QPalette.Active, QPalette.WindowText, brush6)
         palette4.setBrush(QPalette.Active, QPalette.Button, brush15)
@@ -1296,158 +1320,7 @@ class Ui_MainWindow(object):
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
         palette4.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush27)
 #endif
-        self.maxFrequencyTable.setPalette(palette4)
-        self.maxFrequencyTable.setFocusPolicy(Qt.NoFocus)
-        self.maxFrequencyTable.setStyleSheet(u"QTableWidget {	\n"
-"	background-color: rgb(30, 30, 30);\n"
-"	padding: 10px;\n"
-"	border-radius: 0px;\n"
-"	gridline-color: rgb(44, 49, 60);\n"
-"	/*border-bottom: 1px solid rgb(44, 49, 60);*/\n"
-"	border-top-left-radius: 0px;\n"
-"	border-top-right-radius: 0px;\n"
-"}\n"
-"QTableWidget::item{\n"
-"	border-color: rgb(44, 49, 60);\n"
-"	padding-left: 5px;\n"
-"	padding-right: 5px;\n"
-"	gridline-color: rgb(44, 49, 60);\n"
-"}\n"
-"QTableWidget::item:selected{\n"
-"	background-color: rgb(50, 50, 51);\n"
-"	color: rgb(219, 219, 219);\n"
-"}\n"
-"QScrollBar:horizontal {\n"
-"    border: none;\n"
-"    background: rgb(52, 59, 72);\n"
-"    height: 14px;\n"
-"    margin: 0px 21px 0 21px;\n"
-"	border-radius: 0px;\n"
-"}\n"
-" QScrollBar:vertical {\n"
-"	border: none;\n"
-"    background: rgb(52, 59, 72);\n"
-"    width: 14px;\n"
-"    margin: 21px 0 21px 0;\n"
-"	border-radius: 0px;\n"
-" }\n"
-"QHeaderView::section{\n"
-"	Background-color: rgb(39, 44, 54);\n"
-"	max-width: 30px;\n"
-"	border: 1px solid rgb(44, 49, 60);\n"
-"	border-style: none;\n"
-""
-                        "    border-bottom: 1px solid rgb(44, 49, 60);\n"
-"    border-right: 1px solid rgb(44, 49, 60);\n"
-"}\n"
-"QTableWidget::horizontalHeader {	\n"
-"	background-color: rgb(81, 255, 0);\n"
-"}\n"
-"QHeaderView::section:horizontal\n"
-"{\n"
-"    border: 1px solid rgb(30,30,30);\n"
-"	background-color: rgb(0, 122, 204);\n"
-"	padding: 3px;\n"
-"	border-top-left-radius: 7px;\n"
-"    border-top-right-radius: 7px;\n"
-"}\n"
-"QHeaderView::section:vertical\n"
-"{\n"
-"    border: 1px solid rgb(0, 122, 204);\n"
-"}\n"
-"")
-        self.maxFrequencyTable.setFrameShape(QFrame.NoFrame)
-        self.maxFrequencyTable.setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)
-        self.maxFrequencyTable.setHorizontalScrollBarPolicy(Qt.ScrollBarAsNeeded)
-        self.maxFrequencyTable.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
-        self.maxFrequencyTable.setAutoScroll(True)
-        self.maxFrequencyTable.setAutoScrollMargin(16)
-        self.maxFrequencyTable.setEditTriggers(QAbstractItemView.NoEditTriggers)
-        self.maxFrequencyTable.setAlternatingRowColors(False)
-        self.maxFrequencyTable.setSelectionMode(QAbstractItemView.SingleSelection)
-        self.maxFrequencyTable.setSelectionBehavior(QAbstractItemView.SelectRows)
-        self.maxFrequencyTable.setVerticalScrollMode(QAbstractItemView.ScrollPerPixel)
-        self.maxFrequencyTable.setHorizontalScrollMode(QAbstractItemView.ScrollPerPixel)
-        self.maxFrequencyTable.setShowGrid(True)
-        self.maxFrequencyTable.setGridStyle(Qt.SolidLine)
-        self.maxFrequencyTable.setSortingEnabled(False)
-        self.maxFrequencyTable.setWordWrap(True)
-        self.maxFrequencyTable.setRowCount(0)
-        self.maxFrequencyTable.horizontalHeader().setVisible(False)
-        self.maxFrequencyTable.horizontalHeader().setCascadingSectionResizes(False)
-        self.maxFrequencyTable.horizontalHeader().setDefaultSectionSize(200)
-        self.maxFrequencyTable.horizontalHeader().setStretchLastSection(True)
-        self.maxFrequencyTable.verticalHeader().setVisible(False)
-        self.maxFrequencyTable.verticalHeader().setCascadingSectionResizes(False)
-        self.maxFrequencyTable.verticalHeader().setMinimumSectionSize(30)
-        self.maxFrequencyTable.verticalHeader().setDefaultSectionSize(30)
-        self.maxFrequencyTable.verticalHeader().setHighlightSections(False)
-        self.maxFrequencyTable.verticalHeader().setStretchLastSection(False)
-
-        self.verticalLayout_18.addWidget(self.maxFrequencyTable)
-
-
-        self.gridLayout_3.addWidget(self.frame_6, 0, 1, 1, 1)
-
-        self.frame_7 = QFrame(self.frame_4)
-        self.frame_7.setObjectName(u"frame_7")
-        self.frame_7.setStyleSheet(u"border-color: rgb(47, 47, 47);\n"
-"border-radius: 5px 5px")
-        self.frame_7.setFrameShape(QFrame.StyledPanel)
-        self.frame_7.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_19 = QVBoxLayout(self.frame_7)
-        self.verticalLayout_19.setSpacing(4)
-        self.verticalLayout_19.setObjectName(u"verticalLayout_19")
-        self.verticalLayout_19.setContentsMargins(0, 0, 0, 0)
-        self.label_3 = QLabel(self.frame_7)
-        self.label_3.setObjectName(u"label_3")
-        self.label_3.setMaximumSize(QSize(16777215, 20))
-        self.label_3.setFont(font5)
-        self.label_3.setAlignment(Qt.AlignBottom|Qt.AlignHCenter)
-
-        self.verticalLayout_19.addWidget(self.label_3)
-
-        self.minAmplitudeTable = QTableWidget(self.frame_7)
-        self.minAmplitudeTable.setObjectName(u"minAmplitudeTable")
-        self.minAmplitudeTable.setEnabled(True)
-        sizePolicy4.setHeightForWidth(self.minAmplitudeTable.sizePolicy().hasHeightForWidth())
-        self.minAmplitudeTable.setSizePolicy(sizePolicy4)
-        self.minAmplitudeTable.setMaximumSize(QSize(99999, 1000))
-        palette5 = QPalette()
-        palette5.setBrush(QPalette.Active, QPalette.WindowText, brush6)
-        palette5.setBrush(QPalette.Active, QPalette.Button, brush15)
-        palette5.setBrush(QPalette.Active, QPalette.Text, brush6)
-        palette5.setBrush(QPalette.Active, QPalette.ButtonText, brush6)
-        palette5.setBrush(QPalette.Active, QPalette.Base, brush15)
-        palette5.setBrush(QPalette.Active, QPalette.Window, brush15)
-        brush28 = QBrush(QColor(210, 210, 210, 128))
-        brush28.setStyle(Qt.NoBrush)
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette5.setBrush(QPalette.Active, QPalette.PlaceholderText, brush28)
-#endif
-        palette5.setBrush(QPalette.Inactive, QPalette.WindowText, brush6)
-        palette5.setBrush(QPalette.Inactive, QPalette.Button, brush15)
-        palette5.setBrush(QPalette.Inactive, QPalette.Text, brush6)
-        palette5.setBrush(QPalette.Inactive, QPalette.ButtonText, brush6)
-        palette5.setBrush(QPalette.Inactive, QPalette.Base, brush15)
-        palette5.setBrush(QPalette.Inactive, QPalette.Window, brush15)
-        brush29 = QBrush(QColor(210, 210, 210, 128))
-        brush29.setStyle(Qt.NoBrush)
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette5.setBrush(QPalette.Inactive, QPalette.PlaceholderText, brush29)
-#endif
-        palette5.setBrush(QPalette.Disabled, QPalette.WindowText, brush6)
-        palette5.setBrush(QPalette.Disabled, QPalette.Button, brush15)
-        palette5.setBrush(QPalette.Disabled, QPalette.Text, brush6)
-        palette5.setBrush(QPalette.Disabled, QPalette.ButtonText, brush6)
-        palette5.setBrush(QPalette.Disabled, QPalette.Base, brush15)
-        palette5.setBrush(QPalette.Disabled, QPalette.Window, brush15)
-        brush30 = QBrush(QColor(210, 210, 210, 128))
-        brush30.setStyle(Qt.NoBrush)
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette5.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush30)
-#endif
-        self.minAmplitudeTable.setPalette(palette5)
+        self.minAmplitudeTable.setPalette(palette4)
         self.minAmplitudeTable.setFocusPolicy(Qt.NoFocus)
         self.minAmplitudeTable.setStyleSheet(u"QTableWidget {	\n"
 "	background-color: rgb(30, 30, 30);\n"
@@ -1538,158 +1411,31 @@ class Ui_MainWindow(object):
         self.verticalLayout_19.addWidget(self.minAmplitudeTable)
 
 
-        self.gridLayout_3.addWidget(self.frame_7, 1, 0, 1, 1)
+        self.gridLayout.addWidget(self.minAmpFrame, 1, 0, 1, 1)
 
-        self.frame_8 = QFrame(self.frame_4)
-        self.frame_8.setObjectName(u"frame_8")
-        self.frame_8.setStyleSheet(u"border-color: rgb(47, 47, 47);\n"
-"border-radius: 5px 5px")
-        self.frame_8.setFrameShape(QFrame.StyledPanel)
-        self.frame_8.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_20 = QVBoxLayout(self.frame_8)
-        self.verticalLayout_20.setSpacing(4)
-        self.verticalLayout_20.setObjectName(u"verticalLayout_20")
-        self.verticalLayout_20.setContentsMargins(0, 0, 0, 0)
-        self.label_4 = QLabel(self.frame_8)
+        self.minAmpDistFrame = QFrame(self.frame_4)
+        self.minAmpDistFrame.setObjectName(u"minAmpDistFrame")
+        self.minAmpDistFrame.setFrameShape(QFrame.NoFrame)
+        self.minAmpDistFrame.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_37 = QVBoxLayout(self.minAmpDistFrame)
+        self.verticalLayout_37.setSpacing(4)
+        self.verticalLayout_37.setObjectName(u"verticalLayout_37")
+        self.verticalLayout_37.setContentsMargins(0, 0, 0, 0)
+        self.label_4 = QLabel(self.minAmpDistFrame)
         self.label_4.setObjectName(u"label_4")
         self.label_4.setMaximumSize(QSize(16777215, 20))
         self.label_4.setFont(font5)
         self.label_4.setAlignment(Qt.AlignBottom|Qt.AlignHCenter)
 
-        self.verticalLayout_20.addWidget(self.label_4)
+        self.verticalLayout_37.addWidget(self.label_4)
 
-        self.minFrequencyTable = QTableWidget(self.frame_8)
-        self.minFrequencyTable.setObjectName(u"minFrequencyTable")
-        self.minFrequencyTable.setEnabled(True)
-        sizePolicy4.setHeightForWidth(self.minFrequencyTable.sizePolicy().hasHeightForWidth())
-        self.minFrequencyTable.setSizePolicy(sizePolicy4)
-        self.minFrequencyTable.setMaximumSize(QSize(99999, 1000))
-        palette6 = QPalette()
-        palette6.setBrush(QPalette.Active, QPalette.WindowText, brush6)
-        palette6.setBrush(QPalette.Active, QPalette.Button, brush15)
-        palette6.setBrush(QPalette.Active, QPalette.Text, brush6)
-        palette6.setBrush(QPalette.Active, QPalette.ButtonText, brush6)
-        palette6.setBrush(QPalette.Active, QPalette.Base, brush15)
-        palette6.setBrush(QPalette.Active, QPalette.Window, brush15)
-        brush31 = QBrush(QColor(210, 210, 210, 128))
-        brush31.setStyle(Qt.NoBrush)
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette6.setBrush(QPalette.Active, QPalette.PlaceholderText, brush31)
-#endif
-        palette6.setBrush(QPalette.Inactive, QPalette.WindowText, brush6)
-        palette6.setBrush(QPalette.Inactive, QPalette.Button, brush15)
-        palette6.setBrush(QPalette.Inactive, QPalette.Text, brush6)
-        palette6.setBrush(QPalette.Inactive, QPalette.ButtonText, brush6)
-        palette6.setBrush(QPalette.Inactive, QPalette.Base, brush15)
-        palette6.setBrush(QPalette.Inactive, QPalette.Window, brush15)
-        brush32 = QBrush(QColor(210, 210, 210, 128))
-        brush32.setStyle(Qt.NoBrush)
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette6.setBrush(QPalette.Inactive, QPalette.PlaceholderText, brush32)
-#endif
-        palette6.setBrush(QPalette.Disabled, QPalette.WindowText, brush6)
-        palette6.setBrush(QPalette.Disabled, QPalette.Button, brush15)
-        palette6.setBrush(QPalette.Disabled, QPalette.Text, brush6)
-        palette6.setBrush(QPalette.Disabled, QPalette.ButtonText, brush6)
-        palette6.setBrush(QPalette.Disabled, QPalette.Base, brush15)
-        palette6.setBrush(QPalette.Disabled, QPalette.Window, brush15)
-        brush33 = QBrush(QColor(210, 210, 210, 128))
-        brush33.setStyle(Qt.NoBrush)
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette6.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush33)
-#endif
-        self.minFrequencyTable.setPalette(palette6)
-        self.minFrequencyTable.setFocusPolicy(Qt.NoFocus)
-        self.minFrequencyTable.setStyleSheet(u"QTableWidget {	\n"
-"	background-color: rgb(30, 30, 30);\n"
-"	padding: 10px;\n"
-"	border-radius: 0px;\n"
-"	gridline-color: rgb(44, 49, 60);\n"
-"	/*border-bottom: 1px solid rgb(44, 49, 60);*/\n"
-"	border-top-left-radius: 0px;\n"
-"	border-top-right-radius: 0px;\n"
-"}\n"
-"QTableWidget::item{\n"
-"	border-color: rgb(44, 49, 60);\n"
-"	padding-left: 5px;\n"
-"	padding-right: 5px;\n"
-"	gridline-color: rgb(44, 49, 60);\n"
-"}\n"
-"QTableWidget::item:selected{\n"
-"	background-color: rgb(50, 50, 51);\n"
-"	color: rgb(219, 219, 219);\n"
-"}\n"
-"QScrollBar:horizontal {\n"
-"    border: none;\n"
-"    background: rgb(52, 59, 72);\n"
-"    height: 14px;\n"
-"    margin: 0px 21px 0 21px;\n"
-"	border-radius: 0px;\n"
-"}\n"
-" QScrollBar:vertical {\n"
-"	border: none;\n"
-"    background: rgb(52, 59, 72);\n"
-"    width: 14px;\n"
-"    margin: 21px 0 21px 0;\n"
-"	border-radius: 0px;\n"
-" }\n"
-"QHeaderView::section{\n"
-"	Background-color: rgb(39, 44, 54);\n"
-"	max-width: 30px;\n"
-"	border: 1px solid rgb(44, 49, 60);\n"
-"	border-style: none;\n"
-""
-                        "    border-bottom: 1px solid rgb(44, 49, 60);\n"
-"    border-right: 1px solid rgb(44, 49, 60);\n"
-"}\n"
-"QTableWidget::horizontalHeader {	\n"
-"	background-color: rgb(81, 255, 0);\n"
-"}\n"
-"QHeaderView::section:horizontal\n"
-"{\n"
-"    border: 1px solid rgb(30,30,30);\n"
-"	background-color: rgb(0, 122, 204);\n"
-"	padding: 3px;\n"
-"	border-top-left-radius: 7px;\n"
-"    border-top-right-radius: 7px;\n"
-"}\n"
-"QHeaderView::section:vertical\n"
-"{\n"
-"    border: 1px solid rgb(0, 122, 204);\n"
-"}\n"
-"")
-        self.minFrequencyTable.setFrameShape(QFrame.NoFrame)
-        self.minFrequencyTable.setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)
-        self.minFrequencyTable.setHorizontalScrollBarPolicy(Qt.ScrollBarAsNeeded)
-        self.minFrequencyTable.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
-        self.minFrequencyTable.setAutoScroll(True)
-        self.minFrequencyTable.setAutoScrollMargin(16)
-        self.minFrequencyTable.setEditTriggers(QAbstractItemView.NoEditTriggers)
-        self.minFrequencyTable.setAlternatingRowColors(False)
-        self.minFrequencyTable.setSelectionMode(QAbstractItemView.SingleSelection)
-        self.minFrequencyTable.setSelectionBehavior(QAbstractItemView.SelectRows)
-        self.minFrequencyTable.setVerticalScrollMode(QAbstractItemView.ScrollPerPixel)
-        self.minFrequencyTable.setHorizontalScrollMode(QAbstractItemView.ScrollPerPixel)
-        self.minFrequencyTable.setShowGrid(True)
-        self.minFrequencyTable.setGridStyle(Qt.SolidLine)
-        self.minFrequencyTable.setSortingEnabled(False)
-        self.minFrequencyTable.setWordWrap(True)
-        self.minFrequencyTable.setRowCount(0)
-        self.minFrequencyTable.horizontalHeader().setVisible(False)
-        self.minFrequencyTable.horizontalHeader().setCascadingSectionResizes(False)
-        self.minFrequencyTable.horizontalHeader().setDefaultSectionSize(200)
-        self.minFrequencyTable.horizontalHeader().setStretchLastSection(True)
-        self.minFrequencyTable.verticalHeader().setVisible(False)
-        self.minFrequencyTable.verticalHeader().setCascadingSectionResizes(False)
-        self.minFrequencyTable.verticalHeader().setMinimumSectionSize(30)
-        self.minFrequencyTable.verticalHeader().setDefaultSectionSize(30)
-        self.minFrequencyTable.verticalHeader().setHighlightSections(False)
-        self.minFrequencyTable.verticalHeader().setStretchLastSection(False)
+        self.minAmpHistLayout = QVBoxLayout()
+        self.minAmpHistLayout.setObjectName(u"minAmpHistLayout")
 
-        self.verticalLayout_20.addWidget(self.minFrequencyTable)
+        self.verticalLayout_37.addLayout(self.minAmpHistLayout)
 
 
-        self.gridLayout_3.addWidget(self.frame_8, 1, 1, 1, 1)
+        self.gridLayout.addWidget(self.minAmpDistFrame, 1, 1, 1, 1)
 
 
         self.verticalLayout_10.addWidget(self.frame_4)
@@ -1729,43 +1475,43 @@ class Ui_MainWindow(object):
         sizePolicy4.setHeightForWidth(self.userTableWidget.sizePolicy().hasHeightForWidth())
         self.userTableWidget.setSizePolicy(sizePolicy4)
         self.userTableWidget.setMaximumSize(QSize(99999, 1000))
-        palette7 = QPalette()
-        palette7.setBrush(QPalette.Active, QPalette.WindowText, brush6)
-        brush34 = QBrush(QColor(39, 44, 54, 255))
-        brush34.setStyle(Qt.SolidPattern)
-        palette7.setBrush(QPalette.Active, QPalette.Button, brush34)
-        palette7.setBrush(QPalette.Active, QPalette.Text, brush6)
-        palette7.setBrush(QPalette.Active, QPalette.ButtonText, brush6)
-        palette7.setBrush(QPalette.Active, QPalette.Base, brush34)
-        palette7.setBrush(QPalette.Active, QPalette.Window, brush34)
-        brush35 = QBrush(QColor(210, 210, 210, 128))
-        brush35.setStyle(Qt.NoBrush)
+        palette5 = QPalette()
+        palette5.setBrush(QPalette.Active, QPalette.WindowText, brush6)
+        brush28 = QBrush(QColor(39, 44, 54, 255))
+        brush28.setStyle(Qt.SolidPattern)
+        palette5.setBrush(QPalette.Active, QPalette.Button, brush28)
+        palette5.setBrush(QPalette.Active, QPalette.Text, brush6)
+        palette5.setBrush(QPalette.Active, QPalette.ButtonText, brush6)
+        palette5.setBrush(QPalette.Active, QPalette.Base, brush28)
+        palette5.setBrush(QPalette.Active, QPalette.Window, brush28)
+        brush29 = QBrush(QColor(210, 210, 210, 128))
+        brush29.setStyle(Qt.NoBrush)
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette7.setBrush(QPalette.Active, QPalette.PlaceholderText, brush35)
+        palette5.setBrush(QPalette.Active, QPalette.PlaceholderText, brush29)
 #endif
-        palette7.setBrush(QPalette.Inactive, QPalette.WindowText, brush6)
-        palette7.setBrush(QPalette.Inactive, QPalette.Button, brush34)
-        palette7.setBrush(QPalette.Inactive, QPalette.Text, brush6)
-        palette7.setBrush(QPalette.Inactive, QPalette.ButtonText, brush6)
-        palette7.setBrush(QPalette.Inactive, QPalette.Base, brush34)
-        palette7.setBrush(QPalette.Inactive, QPalette.Window, brush34)
-        brush36 = QBrush(QColor(210, 210, 210, 128))
-        brush36.setStyle(Qt.NoBrush)
+        palette5.setBrush(QPalette.Inactive, QPalette.WindowText, brush6)
+        palette5.setBrush(QPalette.Inactive, QPalette.Button, brush28)
+        palette5.setBrush(QPalette.Inactive, QPalette.Text, brush6)
+        palette5.setBrush(QPalette.Inactive, QPalette.ButtonText, brush6)
+        palette5.setBrush(QPalette.Inactive, QPalette.Base, brush28)
+        palette5.setBrush(QPalette.Inactive, QPalette.Window, brush28)
+        brush30 = QBrush(QColor(210, 210, 210, 128))
+        brush30.setStyle(Qt.NoBrush)
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette7.setBrush(QPalette.Inactive, QPalette.PlaceholderText, brush36)
+        palette5.setBrush(QPalette.Inactive, QPalette.PlaceholderText, brush30)
 #endif
-        palette7.setBrush(QPalette.Disabled, QPalette.WindowText, brush6)
-        palette7.setBrush(QPalette.Disabled, QPalette.Button, brush34)
-        palette7.setBrush(QPalette.Disabled, QPalette.Text, brush6)
-        palette7.setBrush(QPalette.Disabled, QPalette.ButtonText, brush6)
-        palette7.setBrush(QPalette.Disabled, QPalette.Base, brush34)
-        palette7.setBrush(QPalette.Disabled, QPalette.Window, brush34)
-        brush37 = QBrush(QColor(210, 210, 210, 128))
-        brush37.setStyle(Qt.NoBrush)
+        palette5.setBrush(QPalette.Disabled, QPalette.WindowText, brush6)
+        palette5.setBrush(QPalette.Disabled, QPalette.Button, brush28)
+        palette5.setBrush(QPalette.Disabled, QPalette.Text, brush6)
+        palette5.setBrush(QPalette.Disabled, QPalette.ButtonText, brush6)
+        palette5.setBrush(QPalette.Disabled, QPalette.Base, brush28)
+        palette5.setBrush(QPalette.Disabled, QPalette.Window, brush28)
+        brush31 = QBrush(QColor(210, 210, 210, 128))
+        brush31.setStyle(Qt.NoBrush)
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette7.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush37)
+        palette5.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush31)
 #endif
-        self.userTableWidget.setPalette(palette7)
+        self.userTableWidget.setPalette(palette5)
         self.userTableWidget.setStyleSheet(u"QTableWidget {	\n"
 "	background-color: rgb(39, 44, 54);\n"
 "	padding: 10px;\n"
@@ -2553,9 +2299,9 @@ class Ui_MainWindow(object):
         self.label_user_icon.setText(QCoreApplication.translate("MainWindow", u"AL", None))
         self.nodes_connected_label.setText(QCoreApplication.translate("MainWindow", u"Nodos conectados", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"M\u00e1xima amplitud de onda", None))
-        self.label_2.setText(QCoreApplication.translate("MainWindow", u"M\u00e1xima frecuencia", None))
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"Distribuci\u00f3n de m\u00e1xima amplitud", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"M\u00ednima amplitud de onda", None))
-        self.label_4.setText(QCoreApplication.translate("MainWindow", u"M\u00ednima frecuencia", None))
+        self.label_4.setText(QCoreApplication.translate("MainWindow", u"Distribuci\u00f3n de m\u00ednima amplitud", None))
         self.labelHeaderUser.setText(QCoreApplication.translate("MainWindow", u"Usuarios", None))
         self.editBtn.setText(QCoreApplication.translate("MainWindow", u"Editar", None))
         self.createBtn.setText(QCoreApplication.translate("MainWindow", u"Crear", None))
