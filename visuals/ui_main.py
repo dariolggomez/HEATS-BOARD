@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUI_BASEetnwKG.ui'
+## Form generated from reading UI file 'GUI_BASExZhZjx.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -1089,6 +1089,7 @@ class Ui_MainWindow(object):
         self.gridLayout.setObjectName(u"gridLayout")
         self.maxAmpFrame = QFrame(self.frame_4)
         self.maxAmpFrame.setObjectName(u"maxAmpFrame")
+        self.maxAmpFrame.setMinimumSize(QSize(420, 0))
         self.maxAmpFrame.setStyleSheet(u"border-color: rgb(47, 47, 47);\n"
 "border-radius: 5px")
         self.maxAmpFrame.setFrameShape(QFrame.StyledPanel)
@@ -1242,22 +1243,58 @@ class Ui_MainWindow(object):
         self.maxAmpDistFrame.setObjectName(u"maxAmpDistFrame")
         self.maxAmpDistFrame.setFrameShape(QFrame.StyledPanel)
         self.maxAmpDistFrame.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_38 = QVBoxLayout(self.maxAmpDistFrame)
-        self.verticalLayout_38.setSpacing(4)
-        self.verticalLayout_38.setObjectName(u"verticalLayout_38")
-        self.verticalLayout_38.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_18 = QVBoxLayout(self.maxAmpDistFrame)
+        self.verticalLayout_18.setSpacing(4)
+        self.verticalLayout_18.setObjectName(u"verticalLayout_18")
+        self.verticalLayout_18.setContentsMargins(0, 0, 0, 0)
         self.label_2 = QLabel(self.maxAmpDistFrame)
         self.label_2.setObjectName(u"label_2")
         self.label_2.setMaximumSize(QSize(16777215, 20))
         self.label_2.setFont(font5)
         self.label_2.setAlignment(Qt.AlignBottom|Qt.AlignHCenter)
 
-        self.verticalLayout_38.addWidget(self.label_2)
+        self.verticalLayout_18.addWidget(self.label_2)
 
         self.maxAmpHistLayout = QVBoxLayout()
         self.maxAmpHistLayout.setObjectName(u"maxAmpHistLayout")
 
-        self.verticalLayout_38.addLayout(self.maxAmpHistLayout)
+        self.verticalLayout_18.addLayout(self.maxAmpHistLayout)
+
+        self.frameBottomMaxDist = QFrame(self.maxAmpDistFrame)
+        self.frameBottomMaxDist.setObjectName(u"frameBottomMaxDist")
+        self.frameBottomMaxDist.setMaximumSize(QSize(16777215, 50))
+        self.frameBottomMaxDist.setFrameShape(QFrame.StyledPanel)
+        self.frameBottomMaxDist.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_15 = QHBoxLayout(self.frameBottomMaxDist)
+        self.horizontalLayout_15.setObjectName(u"horizontalLayout_15")
+        self.horizontalLayout_15.setContentsMargins(0, 0, 0, 0)
+        self.horizontalSpacer_6 = QSpacerItem(317, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_15.addItem(self.horizontalSpacer_6)
+
+        self.label_5 = QLabel(self.frameBottomMaxDist)
+        self.label_5.setObjectName(u"label_5")
+        self.label_5.setMaximumSize(QSize(16777215, 20))
+        font6 = QFont()
+        font6.setFamily(u"Segoe UI Semibold")
+        font6.setPointSize(9)
+        font6.setBold(True)
+        font6.setWeight(75)
+        self.label_5.setFont(font6)
+
+        self.horizontalLayout_15.addWidget(self.label_5)
+
+        self.maxAmpDistSpinBox = QSpinBox(self.frameBottomMaxDist)
+        self.maxAmpDistSpinBox.setObjectName(u"maxAmpDistSpinBox")
+        self.maxAmpDistSpinBox.setMaximumSize(QSize(50, 16777215))
+        self.maxAmpDistSpinBox.setMinimum(1)
+        self.maxAmpDistSpinBox.setMaximum(50)
+        self.maxAmpDistSpinBox.setValue(10)
+
+        self.horizontalLayout_15.addWidget(self.maxAmpDistSpinBox)
+
+
+        self.verticalLayout_18.addWidget(self.frameBottomMaxDist)
 
 
         self.gridLayout.addWidget(self.maxAmpDistFrame, 0, 1, 1, 1)
@@ -1417,22 +1454,53 @@ class Ui_MainWindow(object):
         self.minAmpDistFrame.setObjectName(u"minAmpDistFrame")
         self.minAmpDistFrame.setFrameShape(QFrame.NoFrame)
         self.minAmpDistFrame.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_37 = QVBoxLayout(self.minAmpDistFrame)
-        self.verticalLayout_37.setSpacing(4)
-        self.verticalLayout_37.setObjectName(u"verticalLayout_37")
-        self.verticalLayout_37.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_20 = QVBoxLayout(self.minAmpDistFrame)
+        self.verticalLayout_20.setSpacing(4)
+        self.verticalLayout_20.setObjectName(u"verticalLayout_20")
+        self.verticalLayout_20.setContentsMargins(0, 0, 0, 0)
         self.label_4 = QLabel(self.minAmpDistFrame)
         self.label_4.setObjectName(u"label_4")
         self.label_4.setMaximumSize(QSize(16777215, 20))
         self.label_4.setFont(font5)
         self.label_4.setAlignment(Qt.AlignBottom|Qt.AlignHCenter)
 
-        self.verticalLayout_37.addWidget(self.label_4)
+        self.verticalLayout_20.addWidget(self.label_4)
 
         self.minAmpHistLayout = QVBoxLayout()
         self.minAmpHistLayout.setObjectName(u"minAmpHistLayout")
 
-        self.verticalLayout_37.addLayout(self.minAmpHistLayout)
+        self.verticalLayout_20.addLayout(self.minAmpHistLayout)
+
+        self.frameBottomMinDist = QFrame(self.minAmpDistFrame)
+        self.frameBottomMinDist.setObjectName(u"frameBottomMinDist")
+        self.frameBottomMinDist.setMaximumSize(QSize(16777215, 50))
+        self.frameBottomMinDist.setFrameShape(QFrame.StyledPanel)
+        self.frameBottomMinDist.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_16 = QHBoxLayout(self.frameBottomMinDist)
+        self.horizontalLayout_16.setObjectName(u"horizontalLayout_16")
+        self.horizontalLayout_16.setContentsMargins(0, 0, 0, 0)
+        self.horizontalSpacer_7 = QSpacerItem(317, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_16.addItem(self.horizontalSpacer_7)
+
+        self.label_6 = QLabel(self.frameBottomMinDist)
+        self.label_6.setObjectName(u"label_6")
+        self.label_6.setMaximumSize(QSize(16777215, 20))
+        self.label_6.setFont(font6)
+
+        self.horizontalLayout_16.addWidget(self.label_6)
+
+        self.minAmpDistSpinBox = QSpinBox(self.frameBottomMinDist)
+        self.minAmpDistSpinBox.setObjectName(u"minAmpDistSpinBox")
+        self.minAmpDistSpinBox.setMaximumSize(QSize(50, 16777215))
+        self.minAmpDistSpinBox.setMinimum(1)
+        self.minAmpDistSpinBox.setMaximum(50)
+        self.minAmpDistSpinBox.setValue(10)
+
+        self.horizontalLayout_16.addWidget(self.minAmpDistSpinBox)
+
+
+        self.verticalLayout_20.addWidget(self.frameBottomMinDist)
 
 
         self.gridLayout.addWidget(self.minAmpDistFrame, 1, 1, 1, 1)
@@ -1615,9 +1683,9 @@ class Ui_MainWindow(object):
         self.editBtn = QPushButton(self.frame_10)
         self.editBtn.setObjectName(u"editBtn")
         self.editBtn.setMinimumSize(QSize(80, 30))
-        font6 = QFont()
-        font6.setPointSize(9)
-        self.editBtn.setFont(font6)
+        font7 = QFont()
+        font7.setPointSize(9)
+        self.editBtn.setFont(font7)
         self.editBtn.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
 "	border-radius: 5px;	\n"
@@ -1637,7 +1705,7 @@ class Ui_MainWindow(object):
         self.createBtn = QPushButton(self.frame_10)
         self.createBtn.setObjectName(u"createBtn")
         self.createBtn.setMinimumSize(QSize(80, 30))
-        self.createBtn.setFont(font6)
+        self.createBtn.setFont(font7)
         self.createBtn.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
 "	border-radius: 5px;	\n"
@@ -1658,7 +1726,7 @@ class Ui_MainWindow(object):
         self.eliminateBtn.setObjectName(u"eliminateBtn")
         self.eliminateBtn.setEnabled(True)
         self.eliminateBtn.setMinimumSize(QSize(80, 30))
-        self.eliminateBtn.setFont(font6)
+        self.eliminateBtn.setFont(font7)
         self.eliminateBtn.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
 "	border-radius: 5px;	\n"
@@ -1739,10 +1807,10 @@ class Ui_MainWindow(object):
         self.btn_settings_fullscreen = QPushButton(self.frame_content_wid_1)
         self.btn_settings_fullscreen.setObjectName(u"btn_settings_fullscreen")
         self.btn_settings_fullscreen.setMinimumSize(QSize(200, 30))
-        font7 = QFont()
-        font7.setFamily(u"Segoe UI")
-        font7.setPointSize(9)
-        self.btn_settings_fullscreen.setFont(font7)
+        font8 = QFont()
+        font8.setFamily(u"Segoe UI")
+        font8.setPointSize(9)
+        self.btn_settings_fullscreen.setFont(font8)
         self.btn_settings_fullscreen.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
 "	border-radius: 5px;	\n"
@@ -1807,12 +1875,12 @@ class Ui_MainWindow(object):
         self.labelHeaderUser_2 = QLabel(self.frame_network_1)
         self.labelHeaderUser_2.setObjectName(u"labelHeaderUser_2")
         self.labelHeaderUser_2.setMaximumSize(QSize(16777215, 30))
-        font8 = QFont()
-        font8.setFamily(u"Segoe UI")
-        font8.setPointSize(12)
-        font8.setBold(True)
-        font8.setWeight(75)
-        self.labelHeaderUser_2.setFont(font8)
+        font9 = QFont()
+        font9.setFamily(u"Segoe UI")
+        font9.setPointSize(12)
+        font9.setBold(True)
+        font9.setWeight(75)
+        self.labelHeaderUser_2.setFont(font9)
         self.labelHeaderUser_2.setStyleSheet(u"")
 
         self.verticalLayout_24.addWidget(self.labelHeaderUser_2)
@@ -1832,12 +1900,12 @@ class Ui_MainWindow(object):
         self.labelHeaderUser_3 = QLabel(self.frame_12)
         self.labelHeaderUser_3.setObjectName(u"labelHeaderUser_3")
         self.labelHeaderUser_3.setMaximumSize(QSize(16777215, 25))
-        font9 = QFont()
-        font9.setFamily(u"Segoe UI")
-        font9.setPointSize(9)
-        font9.setBold(True)
-        font9.setWeight(75)
-        self.labelHeaderUser_3.setFont(font9)
+        font10 = QFont()
+        font10.setFamily(u"Segoe UI")
+        font10.setPointSize(9)
+        font10.setBold(True)
+        font10.setWeight(75)
+        self.labelHeaderUser_3.setFont(font10)
         self.labelHeaderUser_3.setStyleSheet(u"")
 
         self.verticalLayout_21.addWidget(self.labelHeaderUser_3)
@@ -1875,7 +1943,7 @@ class Ui_MainWindow(object):
         self.labelHeaderUser_4 = QLabel(self.frame_13)
         self.labelHeaderUser_4.setObjectName(u"labelHeaderUser_4")
         self.labelHeaderUser_4.setMaximumSize(QSize(16777215, 25))
-        self.labelHeaderUser_4.setFont(font9)
+        self.labelHeaderUser_4.setFont(font10)
         self.labelHeaderUser_4.setStyleSheet(u"")
 
         self.verticalLayout_23.addWidget(self.labelHeaderUser_4)
@@ -1931,7 +1999,7 @@ class Ui_MainWindow(object):
         self.disconnectBtn.setObjectName(u"disconnectBtn")
         self.disconnectBtn.setEnabled(True)
         self.disconnectBtn.setMinimumSize(QSize(100, 30))
-        self.disconnectBtn.setFont(font6)
+        self.disconnectBtn.setFont(font7)
         self.disconnectBtn.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
 "	border-radius: 5px;	\n"
@@ -1952,7 +2020,7 @@ class Ui_MainWindow(object):
         self.connectBtn.setObjectName(u"connectBtn")
         self.connectBtn.setEnabled(True)
         self.connectBtn.setMinimumSize(QSize(80, 30))
-        self.connectBtn.setFont(font6)
+        self.connectBtn.setFont(font7)
         self.connectBtn.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
 "	border-radius: 5px;	\n"
@@ -2069,12 +2137,12 @@ class Ui_MainWindow(object):
         self.start_btn = QPushButton(self.frame_interactions_btns)
         self.start_btn.setObjectName(u"start_btn")
         self.start_btn.setMinimumSize(QSize(65, 30))
-        font10 = QFont()
-        font10.setFamily(u"Segoe UI Semibold")
-        font10.setPointSize(10)
-        font10.setBold(True)
-        font10.setWeight(75)
-        self.start_btn.setFont(font10)
+        font11 = QFont()
+        font11.setFamily(u"Segoe UI Semibold")
+        font11.setPointSize(10)
+        font11.setBold(True)
+        font11.setWeight(75)
+        self.start_btn.setFont(font11)
         self.start_btn.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(50, 50, 51);\n"
 "	border-radius: 5px;	\n"
@@ -2094,7 +2162,7 @@ class Ui_MainWindow(object):
         self.stop_btn = QPushButton(self.frame_interactions_btns)
         self.stop_btn.setObjectName(u"stop_btn")
         self.stop_btn.setMinimumSize(QSize(65, 30))
-        self.stop_btn.setFont(font10)
+        self.stop_btn.setFont(font11)
         self.stop_btn.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(50, 50, 51);\n"
 "	border-radius: 5px;	\n"
@@ -2114,7 +2182,7 @@ class Ui_MainWindow(object):
         self.reset_btn = QPushButton(self.frame_interactions_btns)
         self.reset_btn.setObjectName(u"reset_btn")
         self.reset_btn.setMinimumSize(QSize(65, 30))
-        self.reset_btn.setFont(font10)
+        self.reset_btn.setFont(font11)
         self.reset_btn.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(50, 50, 51);\n"
 "	border-radius: 5px;	\n"
@@ -2171,9 +2239,9 @@ class Ui_MainWindow(object):
         sizePolicy7.setHeightForWidth(self.console.sizePolicy().hasHeightForWidth())
         self.console.setSizePolicy(sizePolicy7)
         self.console.setMinimumSize(QSize(0, 0))
-        font11 = QFont()
-        font11.setPointSize(10)
-        self.console.setFont(font11)
+        font12 = QFont()
+        font12.setPointSize(10)
+        self.console.setFont(font12)
         self.console.setFocusPolicy(Qt.NoFocus)
         self.console.setStyleSheet(u"QPlainTextEdit {\n"
 "	background-color: rgb(27, 29, 35);\n"
@@ -2300,8 +2368,10 @@ class Ui_MainWindow(object):
         self.nodes_connected_label.setText(QCoreApplication.translate("MainWindow", u"Nodos conectados", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"M\u00e1xima amplitud de onda", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"Distribuci\u00f3n de m\u00e1xima amplitud", None))
+        self.label_5.setText(QCoreApplication.translate("MainWindow", u"Saltos", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"M\u00ednima amplitud de onda", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"Distribuci\u00f3n de m\u00ednima amplitud", None))
+        self.label_6.setText(QCoreApplication.translate("MainWindow", u"Saltos", None))
         self.labelHeaderUser.setText(QCoreApplication.translate("MainWindow", u"Usuarios", None))
         self.editBtn.setText(QCoreApplication.translate("MainWindow", u"Editar", None))
         self.createBtn.setText(QCoreApplication.translate("MainWindow", u"Crear", None))

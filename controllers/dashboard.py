@@ -35,6 +35,8 @@ class DashboardController(QObject):
         self.loadMaxFreqTableSignal.connect(self.load_max_freq_table)
         self.loadMinAmpTableSignal.connect(self.load_min_amp_table)
         self.loadMinFreqTableSignal.connect(self.load_min_freq_table)
+        self.__mainWindow.ui.maxAmpDistSpinBox.valueChanged.connect(self.load_max_amp_histogram)
+        self.__mainWindow.ui.minAmpDistSpinBox.valueChanged.connect(self.load_min_amp_histogram)
     
     def init_tables(self):
         #Max amplitude table
@@ -132,14 +134,14 @@ class DashboardController(QObject):
     @Slot()
     def load_max_amp_histogram(self):
         ampData = [x[1] for x in self.dashData.values()]
-        y, x = np.histogram(ampData, bins=np.linspace(min(ampData), max(ampData), 10))
+        y, x = np.histogram(ampData, bins=np.linspace(min(ampData), max(ampData), self.__mainWindow.ui.maxAmpDistSpinBox.value()))
         self.maxAmpHistogram.clear()
         self.maxAmpHistogram.plot(x, y, stepMode=True, fillLevel=0, brush=(0,0,255,150))
 
     @Slot()
     def load_min_amp_histogram(self):
         ampData = [x[2] for x in self.dashData.values()]
-        y, x = np.histogram(ampData, bins=np.linspace(min(ampData), max(ampData), 10))
+        y, x = np.histogram(ampData, bins=np.linspace(min(ampData), max(ampData), self.__mainWindow.ui.minAmpDistSpinBox.value()))
         self.minAmpHistogram.clear()
         self.minAmpHistogram.plot(x, y, stepMode=True, fillLevel=0, brush=(0,0,255,150))
     
