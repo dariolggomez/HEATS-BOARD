@@ -205,6 +205,16 @@ class MainWindow(QMainWindow):
             netIds.append(netNodeDict.get("id"))
         return netIds
 
+    def getReceptorNetNodenameAndCity(self):
+        nodename = None
+        city = None
+        for netNodeDict in self.__net_nodes_in_use:
+            if netNodeDict.get("id") == self.currentReceptorId:
+                nodename = netNodeDict.get("nodename")
+                city = netNodeDict.get("city")
+                break
+        return nodename, city
+
     @Slot()
     def update_rt_status(self, rtNodeDictParam):
         exist = False

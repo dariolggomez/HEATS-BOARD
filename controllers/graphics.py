@@ -7,6 +7,7 @@ from pyqtgraph.Qt import QtCore, QtGui, QtWidgets
 from pyqtgraph.exporters import ImageExporter
 from time import perf_counter
 from PySide2.QtCore import Slot, Qt, QObject, Signal
+from controllers import reporter as rp
 
 class GraphicsController(QObject):
     __mainWindow = None
@@ -153,3 +154,6 @@ class GraphicsController(QObject):
         spectrogramExporter = ImageExporter(self.waterfall_plot.plotItem)
         spectrogramExporter.parameters()['width'] = 2000
         spectrogramExporter.export('images/spectrogram.png')
+
+        nodename, city = self.__mainWindow.getReceptorNetNodenameAndCity()
+        reportPath = rp.createDiploma(nodename, city)
