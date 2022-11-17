@@ -1632,7 +1632,7 @@ QPushButton:pressed {
 color: rgb(210, 210, 210);</string>
                   </property>
                   <property name="currentIndex">
-                   <number>1</number>
+                   <number>5</number>
                   </property>
                   <widget class="QWidget" name="page_nodes_centre">
                    <layout class="QVBoxLayout" name="verticalLayout_26">
@@ -4986,7 +4986,7 @@ QPushButton:pressed {
                             </property>
                             <layout class="QVBoxLayout" name="verticalLayout_29">
                              <property name="topMargin">
-                              <number>0</number>
+                              <number>4</number>
                              </property>
                              <property name="bottomMargin">
                               <number>12</number>
@@ -5099,6 +5099,42 @@ QPushButton:pressed {
                                </property>
                                <property name="text">
                                 <string>Restablecer</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QPushButton" name="save_btn">
+                               <property name="minimumSize">
+                                <size>
+                                 <width>65</width>
+                                 <height>30</height>
+                                </size>
+                               </property>
+                               <property name="font">
+                                <font>
+                                 <family>Segoe UI Semibold</family>
+                                 <pointsize>10</pointsize>
+                                 <weight>75</weight>
+                                 <bold>true</bold>
+                                </font>
+                               </property>
+                               <property name="styleSheet">
+                                <string notr="true">QPushButton {
+	border: 2px solid rgb(50, 50, 51);
+	border-radius: 5px;	
+	background-color: rgb(50, 50, 51);
+}
+QPushButton:hover {
+	background-color: rgb(56, 56, 57);
+	border: 2px solid rgb(56, 56, 57);
+}
+QPushButton:pressed {	
+	background-color: rgb(56, 56, 57);
+	border: 1px solid rgb(0, 122, 204);
+}</string>
+                               </property>
+                               <property name="text">
+                                <string>Salvar</string>
                                </property>
                               </widget>
                              </item>

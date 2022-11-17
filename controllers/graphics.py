@@ -4,6 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pyqtgraph as pg
 from pyqtgraph.Qt import QtCore, QtGui, QtWidgets
+from pyqtgraph.exporters import ImageExporter
 from time import perf_counter
 from PySide2.QtCore import Slot, Qt, QObject, Signal
 
@@ -21,6 +22,7 @@ class GraphicsController(QObject):
         self.create_spectrogram_graphic()
         parent.ui.start_btn.clicked.connect(self.start_all)
         parent.ui.stop_btn.clicked.connect(self.stop_all)
+        parent.ui.save_btn.clicked.connect(self.save)
         self.set_spectrogram_image_signal.connect(self.set_spectrogram_image)
 
     def generatePgColormap(self, cm_name):
@@ -140,3 +142,14 @@ class GraphicsController(QObject):
         self.running = False
         self.stop_spectrogram_updates()
         self.__mainWindow.ui.start_btn.setEnabled(True)
+
+    def save(self):
+        self.stop_all()
+
+        fftExporter = ImageExporter(self.fft_plot.plotItem)
+        fftExporter.parameters()['width'] = 2000
+        fftExporter.export('images/fft.png')
+
+        spectrogramExporter = ImageExporter(self.waterfall_plot.plotItem)
+        spectrogramExporter.parameters()['width'] = 2000
+        spectrogramExporter.export('images/spectrogram.png')

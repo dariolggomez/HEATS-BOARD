@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUI_BASExZhZjx.ui'
+## Form generated from reading UI file 'GUI_BASEKNgwMz.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -2128,7 +2128,7 @@ class Ui_MainWindow(object):
         self.frame_interactions_btns.setFrameShadow(QFrame.Raised)
         self.verticalLayout_29 = QVBoxLayout(self.frame_interactions_btns)
         self.verticalLayout_29.setObjectName(u"verticalLayout_29")
-        self.verticalLayout_29.setContentsMargins(-1, 0, -1, 12)
+        self.verticalLayout_29.setContentsMargins(-1, 4, -1, 12)
         self.receptor_node = QComboBox(self.frame_interactions_btns)
         self.receptor_node.setObjectName(u"receptor_node")
 
@@ -2198,6 +2198,26 @@ class Ui_MainWindow(object):
 "}")
 
         self.verticalLayout_29.addWidget(self.reset_btn)
+
+        self.save_btn = QPushButton(self.frame_interactions_btns)
+        self.save_btn.setObjectName(u"save_btn")
+        self.save_btn.setMinimumSize(QSize(65, 30))
+        self.save_btn.setFont(font11)
+        self.save_btn.setStyleSheet(u"QPushButton {\n"
+"	border: 2px solid rgb(50, 50, 51);\n"
+"	border-radius: 5px;	\n"
+"	background-color: rgb(50, 50, 51);\n"
+"}\n"
+"QPushButton:hover {\n"
+"	background-color: rgb(56, 56, 57);\n"
+"	border: 2px solid rgb(56, 56, 57);\n"
+"}\n"
+"QPushButton:pressed {	\n"
+"	background-color: rgb(56, 56, 57);\n"
+"	border: 1px solid rgb(0, 122, 204);\n"
+"}")
+
+        self.verticalLayout_29.addWidget(self.save_btn)
 
 
         self.horizontalLayout_19.addWidget(self.frame_interactions_btns)
@@ -2333,7 +2353,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(5)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -2387,6 +2407,7 @@ class Ui_MainWindow(object):
         self.start_btn.setText(QCoreApplication.translate("MainWindow", u"Iniciar", None))
         self.stop_btn.setText(QCoreApplication.translate("MainWindow", u"Detener", None))
         self.reset_btn.setText(QCoreApplication.translate("MainWindow", u"Restablecer", None))
+        self.save_btn.setText(QCoreApplication.translate("MainWindow", u"Salvar", None))
         self.label_credits.setText("")
         self.label_version.setText(QCoreApplication.translate("MainWindow", u"v1.0.0", None))
     # retranslateUi
