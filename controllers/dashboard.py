@@ -134,14 +134,14 @@ class DashboardController(QObject):
     @Slot()
     def load_max_amp_histogram(self):
         ampData = [x[1] for x in self.dashData.values()]
-        y, x = np.histogram(ampData, bins=np.linspace(min(ampData), max(ampData), self.__mainWindow.ui.maxAmpDistSpinBox.value()))
+        y, x = np.histogram(ampData, bins=np.linspace(min(ampData), max(ampData), self.__mainWindow.ui.maxAmpDistSpinBox.value()+1))
         self.maxAmpHistogram.clear()
         self.maxAmpHistogram.plot(x, y, stepMode=True, fillLevel=0, brush=(0,0,255,150))
 
     @Slot()
     def load_min_amp_histogram(self):
         ampData = [x[2] for x in self.dashData.values()]
-        y, x = np.histogram(ampData, bins=np.linspace(min(ampData), max(ampData), self.__mainWindow.ui.minAmpDistSpinBox.value()))
+        y, x = np.histogram(ampData, bins=np.linspace(min(ampData), max(ampData), self.__mainWindow.ui.minAmpDistSpinBox.value()+1))
         self.minAmpHistogram.clear()
         self.minAmpHistogram.plot(x, y, stepMode=True, fillLevel=0, brush=(0,0,255,150))
     
