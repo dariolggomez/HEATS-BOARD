@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUI_BASEMiwOuq.ui'
+## Form generated from reading UI file 'GUI_BASESDFvle.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -1078,16 +1078,44 @@ class Ui_MainWindow(object):
         self.stackedWidget.addWidget(self.page_nodes_centre)
         self.page_info_panel = QWidget()
         self.page_info_panel.setObjectName(u"page_info_panel")
-        self.verticalLayout_10 = QVBoxLayout(self.page_info_panel)
+        self.verticalLayout_38 = QVBoxLayout(self.page_info_panel)
+        self.verticalLayout_38.setObjectName(u"verticalLayout_38")
+        self.verticalLayout_38.setContentsMargins(12, 0, 12, 0)
+        self.panel_top_menu = QFrame(self.page_info_panel)
+        self.panel_top_menu.setObjectName(u"panel_top_menu")
+        self.panel_top_menu.setMinimumSize(QSize(0, 50))
+        self.panel_top_menu.setMaximumSize(QSize(16777215, 50))
+        self.panel_top_menu.setFrameShape(QFrame.StyledPanel)
+        self.panel_top_menu.setFrameShadow(QFrame.Raised)
+        self.panel_top_layout = QHBoxLayout(self.panel_top_menu)
+        self.panel_top_layout.setSpacing(0)
+        self.panel_top_layout.setObjectName(u"panel_top_layout")
+        self.panel_top_layout.setContentsMargins(0, 0, 0, 0)
+
+        self.verticalLayout_38.addWidget(self.panel_top_menu)
+
+        self.frame_panel_stacked_widget = QFrame(self.page_info_panel)
+        self.frame_panel_stacked_widget.setObjectName(u"frame_panel_stacked_widget")
+        self.frame_panel_stacked_widget.setFrameShape(QFrame.NoFrame)
+        self.frame_panel_stacked_widget.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_10 = QVBoxLayout(self.frame_panel_stacked_widget)
         self.verticalLayout_10.setObjectName(u"verticalLayout_10")
         self.verticalLayout_10.setContentsMargins(0, 0, 0, 0)
-        self.frame_4 = QFrame(self.page_info_panel)
-        self.frame_4.setObjectName(u"frame_4")
-        self.frame_4.setFrameShape(QFrame.StyledPanel)
-        self.frame_4.setFrameShadow(QFrame.Raised)
-        self.gridLayout = QGridLayout(self.frame_4)
+        self.panel_stacked_widget = QStackedWidget(self.frame_panel_stacked_widget)
+        self.panel_stacked_widget.setObjectName(u"panel_stacked_widget")
+        self.page_poles = QWidget()
+        self.page_poles.setObjectName(u"page_poles")
+        self.verticalLayout_37 = QVBoxLayout(self.page_poles)
+        self.verticalLayout_37.setObjectName(u"verticalLayout_37")
+        self.verticalLayout_37.setContentsMargins(0, 0, 0, 0)
+        self.panel_content_frame = QFrame(self.page_poles)
+        self.panel_content_frame.setObjectName(u"panel_content_frame")
+        self.panel_content_frame.setFrameShape(QFrame.NoFrame)
+        self.panel_content_frame.setFrameShadow(QFrame.Raised)
+        self.gridLayout = QGridLayout(self.panel_content_frame)
         self.gridLayout.setObjectName(u"gridLayout")
-        self.maxAmpFrame = QFrame(self.frame_4)
+        self.gridLayout.setContentsMargins(0, 0, 0, 0)
+        self.maxAmpFrame = QFrame(self.panel_content_frame)
         self.maxAmpFrame.setObjectName(u"maxAmpFrame")
         self.maxAmpFrame.setMinimumSize(QSize(420, 0))
         self.maxAmpFrame.setStyleSheet(u"border-color: rgb(47, 47, 47);\n"
@@ -1239,7 +1267,7 @@ class Ui_MainWindow(object):
 
         self.gridLayout.addWidget(self.maxAmpFrame, 0, 0, 1, 1)
 
-        self.maxAmpDistFrame = QFrame(self.frame_4)
+        self.maxAmpDistFrame = QFrame(self.panel_content_frame)
         self.maxAmpDistFrame.setObjectName(u"maxAmpDistFrame")
         self.maxAmpDistFrame.setFrameShape(QFrame.StyledPanel)
         self.maxAmpDistFrame.setFrameShadow(QFrame.Raised)
@@ -1299,7 +1327,7 @@ class Ui_MainWindow(object):
 
         self.gridLayout.addWidget(self.maxAmpDistFrame, 0, 1, 1, 1)
 
-        self.minAmpFrame = QFrame(self.frame_4)
+        self.minAmpFrame = QFrame(self.panel_content_frame)
         self.minAmpFrame.setObjectName(u"minAmpFrame")
         self.minAmpFrame.setStyleSheet(u"border-color: rgb(47, 47, 47);\n"
 "border-radius: 5px 5px")
@@ -1450,7 +1478,7 @@ class Ui_MainWindow(object):
 
         self.gridLayout.addWidget(self.minAmpFrame, 1, 0, 1, 1)
 
-        self.minAmpDistFrame = QFrame(self.frame_4)
+        self.minAmpDistFrame = QFrame(self.panel_content_frame)
         self.minAmpDistFrame.setObjectName(u"minAmpDistFrame")
         self.minAmpDistFrame.setFrameShape(QFrame.NoFrame)
         self.minAmpDistFrame.setFrameShadow(QFrame.Raised)
@@ -1506,7 +1534,17 @@ class Ui_MainWindow(object):
         self.gridLayout.addWidget(self.minAmpDistFrame, 1, 1, 1, 1)
 
 
-        self.verticalLayout_10.addWidget(self.frame_4)
+        self.verticalLayout_37.addWidget(self.panel_content_frame)
+
+        self.panel_stacked_widget.addWidget(self.page_poles)
+        self.page_2 = QWidget()
+        self.page_2.setObjectName(u"page_2")
+        self.panel_stacked_widget.addWidget(self.page_2)
+
+        self.verticalLayout_10.addWidget(self.panel_stacked_widget)
+
+
+        self.verticalLayout_38.addWidget(self.frame_panel_stacked_widget)
 
         self.stackedWidget.addWidget(self.page_info_panel)
         self.page_users = QWidget()
@@ -2354,6 +2392,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         self.stackedWidget.setCurrentIndex(1)
+        self.panel_stacked_widget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
