@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUI_BASEKNgwMz.ui'
+## Form generated from reading UI file 'GUI_BASEMiwOuq.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -1076,12 +1076,12 @@ class Ui_MainWindow(object):
         self.verticalLayout_26.addWidget(self.nodes_centre_content)
 
         self.stackedWidget.addWidget(self.page_nodes_centre)
-        self.page_home = QWidget()
-        self.page_home.setObjectName(u"page_home")
-        self.verticalLayout_10 = QVBoxLayout(self.page_home)
+        self.page_info_panel = QWidget()
+        self.page_info_panel.setObjectName(u"page_info_panel")
+        self.verticalLayout_10 = QVBoxLayout(self.page_info_panel)
         self.verticalLayout_10.setObjectName(u"verticalLayout_10")
         self.verticalLayout_10.setContentsMargins(0, 0, 0, 0)
-        self.frame_4 = QFrame(self.page_home)
+        self.frame_4 = QFrame(self.page_info_panel)
         self.frame_4.setObjectName(u"frame_4")
         self.frame_4.setFrameShape(QFrame.StyledPanel)
         self.frame_4.setFrameShadow(QFrame.Raised)
@@ -1508,7 +1508,7 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_10.addWidget(self.frame_4)
 
-        self.stackedWidget.addWidget(self.page_home)
+        self.stackedWidget.addWidget(self.page_info_panel)
         self.page_users = QWidget()
         self.page_users.setObjectName(u"page_users")
         self.verticalLayout_16 = QVBoxLayout(self.page_users)
@@ -2353,7 +2353,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(5)
+        self.stackedWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)

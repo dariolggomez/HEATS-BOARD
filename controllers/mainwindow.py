@@ -288,7 +288,7 @@ class MainWindow(QMainWindow):
 
         # PAGE Dashboard
         if btnWidget.objectName() == "btn_dashboard":
-            self.ui.stackedWidget.setCurrentWidget(self.ui.page_home)
+            self.ui.stackedWidget.setCurrentWidget(self.ui.page_info_panel)
             # if(self.graphicsLoaded == False):
                 # self.dashboardController.loadGraphics()
             self.resetStyle("btn_dashboard")
