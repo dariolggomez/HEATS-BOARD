@@ -1637,13 +1637,13 @@ color: rgb(210, 210, 210);</string>
                   <widget class="QWidget" name="page_nodes_centre">
                    <layout class="QVBoxLayout" name="verticalLayout_26">
                     <property name="leftMargin">
-                     <number>0</number>
+                     <number>12</number>
                     </property>
                     <property name="topMargin">
                      <number>0</number>
                     </property>
                     <property name="rightMargin">
-                     <number>0</number>
+                     <number>12</number>
                     </property>
                     <property name="bottomMargin">
                      <number>0</number>
@@ -2560,19 +2560,22 @@ QHeaderView::section:vertical
                   </widget>
                   <widget class="QWidget" name="page_info_panel">
                    <layout class="QVBoxLayout" name="verticalLayout_38">
+                    <property name="spacing">
+                     <number>8</number>
+                    </property>
                     <property name="leftMargin">
-                     <number>12</number>
+                     <number>9</number>
                     </property>
                     <property name="topMargin">
                      <number>0</number>
                     </property>
                     <property name="rightMargin">
-                     <number>12</number>
+                     <number>9</number>
                     </property>
                     <property name="bottomMargin">
                      <number>0</number>
                     </property>
-                    <item>
+                    <item alignment="Qt::AlignLeft">
                      <widget class="QFrame" name="panel_top_menu">
                       <property name="minimumSize">
                        <size>
@@ -2586,51 +2589,66 @@ QHeaderView::section:vertical
                         <height>50</height>
                        </size>
                       </property>
-                      <property name="frameShape">
-                       <enum>QFrame::StyledPanel</enum>
+                      <property name="styleSheet">
+                       <string notr="true"/>
                       </property>
-                      <property name="frameShadow">
-                       <enum>QFrame::Raised</enum>
-                      </property>
-                      <layout class="QHBoxLayout" name="panel_top_layout">
-                       <property name="spacing">
-                        <number>0</number>
-                       </property>
-                       <property name="leftMargin">
-                        <number>0</number>
-                       </property>
-                       <property name="topMargin">
-                        <number>0</number>
-                       </property>
-                       <property name="rightMargin">
-                        <number>0</number>
-                       </property>
-                       <property name="bottomMargin">
-                        <number>0</number>
-                       </property>
-                      </layout>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QFrame" name="frame_panel_stacked_widget">
                       <property name="frameShape">
                        <enum>QFrame::NoFrame</enum>
                       </property>
                       <property name="frameShadow">
                        <enum>QFrame::Raised</enum>
                       </property>
-                      <layout class="QVBoxLayout" name="verticalLayout_10">
+                      <property name="lineWidth">
+                       <number>1</number>
+                      </property>
+                      <layout class="QHBoxLayout" name="panel_top_layout">
+                       <property name="spacing">
+                        <number>8</number>
+                       </property>
                        <property name="leftMargin">
-                        <number>0</number>
+                        <number>4</number>
                        </property>
                        <property name="topMargin">
-                        <number>0</number>
+                        <number>4</number>
                        </property>
                        <property name="rightMargin">
-                        <number>0</number>
+                        <number>4</number>
                        </property>
                        <property name="bottomMargin">
-                        <number>0</number>
+                        <number>4</number>
+                       </property>
+                      </layout>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QFrame" name="frame_panel_stacked_widget">
+                      <property name="styleSheet">
+                       <string notr="true">background-color: rgb(41, 45, 56);</string>
+                      </property>
+                      <property name="frameShape">
+                       <enum>QFrame::NoFrame</enum>
+                      </property>
+                      <property name="frameShadow">
+                       <enum>QFrame::Raised</enum>
+                      </property>
+                      <property name="lineWidth">
+                       <number>1</number>
+                      </property>
+                      <layout class="QVBoxLayout" name="verticalLayout_10">
+                       <property name="spacing">
+                        <number>8</number>
+                       </property>
+                       <property name="leftMargin">
+                        <number>12</number>
+                       </property>
+                       <property name="topMargin">
+                        <number>12</number>
+                       </property>
+                       <property name="rightMargin">
+                        <number>12</number>
+                       </property>
+                       <property name="bottomMargin">
+                        <number>12</number>
                        </property>
                        <item>
                         <widget class="QStackedWidget" name="panel_stacked_widget">

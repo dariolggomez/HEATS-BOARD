@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUI_BASESDFvle.ui'
+## Form generated from reading UI file 'GUI_BASECRZonp.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -725,7 +725,7 @@ class Ui_MainWindow(object):
         self.page_nodes_centre.setObjectName(u"page_nodes_centre")
         self.verticalLayout_26 = QVBoxLayout(self.page_nodes_centre)
         self.verticalLayout_26.setObjectName(u"verticalLayout_26")
-        self.verticalLayout_26.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_26.setContentsMargins(12, 0, 12, 0)
         self.nodes_centre_content = QFrame(self.page_nodes_centre)
         self.nodes_centre_content.setObjectName(u"nodes_centre_content")
         self.nodes_centre_content.setFrameShape(QFrame.NoFrame)
@@ -1079,28 +1079,34 @@ class Ui_MainWindow(object):
         self.page_info_panel = QWidget()
         self.page_info_panel.setObjectName(u"page_info_panel")
         self.verticalLayout_38 = QVBoxLayout(self.page_info_panel)
+        self.verticalLayout_38.setSpacing(8)
         self.verticalLayout_38.setObjectName(u"verticalLayout_38")
-        self.verticalLayout_38.setContentsMargins(12, 0, 12, 0)
+        self.verticalLayout_38.setContentsMargins(9, 0, 9, 0)
         self.panel_top_menu = QFrame(self.page_info_panel)
         self.panel_top_menu.setObjectName(u"panel_top_menu")
         self.panel_top_menu.setMinimumSize(QSize(0, 50))
         self.panel_top_menu.setMaximumSize(QSize(16777215, 50))
-        self.panel_top_menu.setFrameShape(QFrame.StyledPanel)
+        self.panel_top_menu.setStyleSheet(u"")
+        self.panel_top_menu.setFrameShape(QFrame.NoFrame)
         self.panel_top_menu.setFrameShadow(QFrame.Raised)
+        self.panel_top_menu.setLineWidth(1)
         self.panel_top_layout = QHBoxLayout(self.panel_top_menu)
-        self.panel_top_layout.setSpacing(0)
+        self.panel_top_layout.setSpacing(8)
         self.panel_top_layout.setObjectName(u"panel_top_layout")
-        self.panel_top_layout.setContentsMargins(0, 0, 0, 0)
+        self.panel_top_layout.setContentsMargins(4, 4, 4, 4)
 
-        self.verticalLayout_38.addWidget(self.panel_top_menu)
+        self.verticalLayout_38.addWidget(self.panel_top_menu, 0, Qt.AlignLeft)
 
         self.frame_panel_stacked_widget = QFrame(self.page_info_panel)
         self.frame_panel_stacked_widget.setObjectName(u"frame_panel_stacked_widget")
+        self.frame_panel_stacked_widget.setStyleSheet(u"background-color: rgb(41, 45, 56);")
         self.frame_panel_stacked_widget.setFrameShape(QFrame.NoFrame)
         self.frame_panel_stacked_widget.setFrameShadow(QFrame.Raised)
+        self.frame_panel_stacked_widget.setLineWidth(1)
         self.verticalLayout_10 = QVBoxLayout(self.frame_panel_stacked_widget)
+        self.verticalLayout_10.setSpacing(8)
         self.verticalLayout_10.setObjectName(u"verticalLayout_10")
-        self.verticalLayout_10.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_10.setContentsMargins(12, 12, 12, 12)
         self.panel_stacked_widget = QStackedWidget(self.frame_panel_stacked_widget)
         self.panel_stacked_widget.setObjectName(u"panel_stacked_widget")
         self.page_poles = QWidget()
