@@ -34,6 +34,27 @@ class Style():
     """
     )
 
+    style_bt_panel = (
+    """
+    QPushButton {
+        border-radius: 10px;
+        padding: 5px;
+        background-color: rgb(27, 29, 35);
+    }
+    QPushButton[Active=true] {
+        border-radius: 10px;
+        background-color: rgb(0, 122, 204);
+        text-align: center;
+    }
+    QPushButton:hover {
+        background-color: rgb(5, 128, 204);
+    }
+    QPushButton:pressed {
+        background-color: rgb(10, 133, 204);
+    }
+    """
+    )
+
     style_table_users = (
      """
     QTableWidget {	

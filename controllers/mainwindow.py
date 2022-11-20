@@ -93,9 +93,15 @@ class MainWindow(QMainWindow):
             self.addNewMenu("Cerrar Sesión", "btn_logout", "url(:/16x16/icons/16x16/cil-account-logout.png)", False)
             ## ==> END ##
 
+            ## ==> ADD CUSTOM PANEL MENUS
+            self.addNewPanelMenu("Extremos", "btn_poles")
+            self.addNewPanelMenu("Umbral", "btn_threshold")
+            ## ==> END ##
+
             # START MENU => SELECTION
             self.selectStandardMenu("btn_nodes")
             self.labelPage("Centro de Nodos")
+            self.selectPanelStandardMenu("btn_poles")
             ## ==> END ##
             
             ## USER ICON ==> SHOW HIDE
@@ -336,6 +342,23 @@ class MainWindow(QMainWindow):
             login.show()
             login.activateWindow()
             login.raise_()
+
+    def panelButton(self):
+        # GET BT CLICKED
+        
+        btnWidget = self.sender()
+
+        # Page Poles
+        if btnWidget.objectName() == "btn_poles":
+            self.ui.panel_stacked_widget.setCurrentWidget(self.ui.page_poles)
+            self.resetPanelStyle("btn_poles")
+            btnWidget.setStyleSheet(self.selectPanelMenu(btnWidget.styleSheet()))
+
+        # Page Threshold
+        if btnWidget.objectName() == "btn_threshold":
+            self.ui.panel_stacked_widget.setCurrentWidget(self.ui.page_2)
+            self.resetPanelStyle("btn_threshold")
+            btnWidget.setStyleSheet(self.selectPanelMenu(btnWidget.styleSheet()))
         
     def _update_canvas(self):
         t = np.linspace(0, 10, 101)
@@ -614,6 +637,20 @@ class MainWindow(QMainWindow):
         else:
             self.ui.layout_menu_bottom.addWidget(button)
 
+    def addNewPanelMenu(self, name, objName):
+        font = QFont()
+        font.setFamily(u"Segoe UI")
+        button = QPushButton(str(self.count),self)
+        button.setObjectName(objName)
+        button.setMinimumSize(QSize(80, 35))
+        button.setLayoutDirection(Qt.LeftToRight)
+        button.setFont(font)
+        button.setStyleSheet(Style.style_bt_panel)
+        button.setText(name)
+        button.setToolTip(name)
+        button.clicked.connect(self.panelButton)
+        self.ui.panel_top_layout.addWidget(button)
+
     ## ==> SELECT/DESELECT MENU
     ########################################################################
     ## ==> SELECT
@@ -621,9 +658,17 @@ class MainWindow(QMainWindow):
         select = getStyle + ("QPushButton { border-right: 7px solid rgb(44, 49, 60); }")
         return select
 
+    def selectPanelMenu(self, getStyle):
+        select = getStyle + ("QPushButton { background-color: rgb(0, 122, 204); }")
+        return select
+
     ## ==> DESELECT
     def deselectMenu(self, getStyle):
         deselect = getStyle.replace("QPushButton { border-right: 7px solid rgb(44, 49, 60); }", "")
+        return deselect
+
+    def deselectPanelMenu(self, getStyle):
+        deselect = getStyle.replace("QPushButton { background-color: rgb(0, 122, 204); }", "")
         return deselect
 
     ## ==> START SELECTION
@@ -632,11 +677,21 @@ class MainWindow(QMainWindow):
             if w.objectName() == widget:
                 w.setStyleSheet(self.selectMenu(w.styleSheet()))
 
+    def selectPanelStandardMenu(self, widget):
+        for w in self.ui.panel_top_menu.findChildren(QPushButton):
+            if w.objectName() == widget:
+                w.setStyleSheet(self.selectPanelMenu(w.styleSheet()))
+
     ## ==> RESET SELECTION
     def resetStyle(self, widget):
         for w in self.ui.frame_left_menu.findChildren(QPushButton):
             if w.objectName() != widget:
                 w.setStyleSheet(self.deselectMenu(w.styleSheet()))
+
+    def resetPanelStyle(self, widget):
+        for w in self.ui.panel_top_menu.findChildren(QPushButton):
+            if w.objectName() != widget:
+                w.setStyleSheet(self.deselectPanelMenu(w.styleSheet()))
 
     ## ==> CHANGE PAGE LABEL TEXT
     def labelPage(self, text):
