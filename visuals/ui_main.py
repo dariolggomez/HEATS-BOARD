@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUI_BASECRZonp.ui'
+## Form generated from reading UI file 'GUI_BASESxIgzZ.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -1543,9 +1543,95 @@ class Ui_MainWindow(object):
         self.verticalLayout_37.addWidget(self.panel_content_frame)
 
         self.panel_stacked_widget.addWidget(self.page_poles)
-        self.page_2 = QWidget()
-        self.page_2.setObjectName(u"page_2")
-        self.panel_stacked_widget.addWidget(self.page_2)
+        self.page_threshold = QWidget()
+        self.page_threshold.setObjectName(u"page_threshold")
+        self.verticalLayout_39 = QVBoxLayout(self.page_threshold)
+        self.verticalLayout_39.setObjectName(u"verticalLayout_39")
+        self.verticalLayout_39.setContentsMargins(0, 0, 0, 0)
+        self.threshold_content = QFrame(self.page_threshold)
+        self.threshold_content.setObjectName(u"threshold_content")
+        self.threshold_content.setFrameShape(QFrame.NoFrame)
+        self.threshold_content.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_17 = QHBoxLayout(self.threshold_content)
+        self.horizontalLayout_17.setObjectName(u"horizontalLayout_17")
+        self.horizontalLayout_17.setContentsMargins(0, 0, 0, 0)
+        self.frame_threshold_table = QFrame(self.threshold_content)
+        self.frame_threshold_table.setObjectName(u"frame_threshold_table")
+        self.frame_threshold_table.setFrameShape(QFrame.StyledPanel)
+        self.frame_threshold_table.setFrameShadow(QFrame.Raised)
+        self.threshold_table_layout = QVBoxLayout(self.frame_threshold_table)
+        self.threshold_table_layout.setSpacing(20)
+        self.threshold_table_layout.setObjectName(u"threshold_table_layout")
+        self.threshold_table_layout.setContentsMargins(0, 0, 0, 0)
+        self.threshold_table_label = QLabel(self.frame_threshold_table)
+        self.threshold_table_label.setObjectName(u"threshold_table_label")
+        self.threshold_table_label.setMaximumSize(QSize(16777215, 25))
+        self.threshold_table_label.setFont(font5)
+
+        self.threshold_table_layout.addWidget(self.threshold_table_label, 0, Qt.AlignTop)
+
+
+        self.horizontalLayout_17.addWidget(self.frame_threshold_table, 0, Qt.AlignTop)
+
+        self.frame_threshold_config = QFrame(self.threshold_content)
+        self.frame_threshold_config.setObjectName(u"frame_threshold_config")
+        self.frame_threshold_config.setMinimumSize(QSize(250, 0))
+        self.frame_threshold_config.setMaximumSize(QSize(250, 16777215))
+        self.frame_threshold_config.setFrameShape(QFrame.StyledPanel)
+        self.frame_threshold_config.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_40 = QVBoxLayout(self.frame_threshold_config)
+        self.verticalLayout_40.setSpacing(20)
+        self.verticalLayout_40.setObjectName(u"verticalLayout_40")
+        self.verticalLayout_40.setContentsMargins(-1, 0, -1, -1)
+        self.threshold_label = QLabel(self.frame_threshold_config)
+        self.threshold_label.setObjectName(u"threshold_label")
+        self.threshold_label.setMaximumSize(QSize(16777215, 25))
+        self.threshold_label.setFont(font5)
+
+        self.verticalLayout_40.addWidget(self.threshold_label)
+
+        self.spinBox = QSpinBox(self.frame_threshold_config)
+        self.spinBox.setObjectName(u"spinBox")
+        self.spinBox.setButtonSymbols(QAbstractSpinBox.UpDownArrows)
+        self.spinBox.setMinimum(80)
+        self.spinBox.setMaximum(160)
+        self.spinBox.setValue(140)
+
+        self.verticalLayout_40.addWidget(self.spinBox)
+
+        self.apply_threshold_btn = QPushButton(self.frame_threshold_config)
+        self.apply_threshold_btn.setObjectName(u"apply_threshold_btn")
+        self.apply_threshold_btn.setMinimumSize(QSize(100, 30))
+        self.apply_threshold_btn.setMaximumSize(QSize(85, 16777215))
+        font7 = QFont()
+        font7.setFamily(u"Segoe UI Semibold")
+        font7.setPointSize(10)
+        font7.setBold(True)
+        font7.setWeight(75)
+        self.apply_threshold_btn.setFont(font7)
+        self.apply_threshold_btn.setStyleSheet(u"QPushButton {\n"
+"	border: 2px solid rgb(50, 50, 51);\n"
+"	border-radius: 5px;	\n"
+"	background-color: rgb(50, 50, 51);\n"
+"}\n"
+"QPushButton:hover {\n"
+"	background-color: rgb(56, 56, 57);\n"
+"	border: 2px solid rgb(56, 56, 57);\n"
+"}\n"
+"QPushButton:pressed {	\n"
+"	background-color: rgb(56, 56, 57);\n"
+"	border: 1px solid rgb(0, 122, 204);\n"
+"}")
+
+        self.verticalLayout_40.addWidget(self.apply_threshold_btn, 0, Qt.AlignRight|Qt.AlignTop)
+
+
+        self.horizontalLayout_17.addWidget(self.frame_threshold_config)
+
+
+        self.verticalLayout_39.addWidget(self.threshold_content)
+
+        self.panel_stacked_widget.addWidget(self.page_threshold)
 
         self.verticalLayout_10.addWidget(self.panel_stacked_widget)
 
@@ -1727,9 +1813,9 @@ class Ui_MainWindow(object):
         self.editBtn = QPushButton(self.frame_10)
         self.editBtn.setObjectName(u"editBtn")
         self.editBtn.setMinimumSize(QSize(80, 30))
-        font7 = QFont()
-        font7.setPointSize(9)
-        self.editBtn.setFont(font7)
+        font8 = QFont()
+        font8.setPointSize(9)
+        self.editBtn.setFont(font8)
         self.editBtn.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
 "	border-radius: 5px;	\n"
@@ -1749,7 +1835,7 @@ class Ui_MainWindow(object):
         self.createBtn = QPushButton(self.frame_10)
         self.createBtn.setObjectName(u"createBtn")
         self.createBtn.setMinimumSize(QSize(80, 30))
-        self.createBtn.setFont(font7)
+        self.createBtn.setFont(font8)
         self.createBtn.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
 "	border-radius: 5px;	\n"
@@ -1770,7 +1856,7 @@ class Ui_MainWindow(object):
         self.eliminateBtn.setObjectName(u"eliminateBtn")
         self.eliminateBtn.setEnabled(True)
         self.eliminateBtn.setMinimumSize(QSize(80, 30))
-        self.eliminateBtn.setFont(font7)
+        self.eliminateBtn.setFont(font8)
         self.eliminateBtn.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
 "	border-radius: 5px;	\n"
@@ -1851,10 +1937,10 @@ class Ui_MainWindow(object):
         self.btn_settings_fullscreen = QPushButton(self.frame_content_wid_1)
         self.btn_settings_fullscreen.setObjectName(u"btn_settings_fullscreen")
         self.btn_settings_fullscreen.setMinimumSize(QSize(200, 30))
-        font8 = QFont()
-        font8.setFamily(u"Segoe UI")
-        font8.setPointSize(9)
-        self.btn_settings_fullscreen.setFont(font8)
+        font9 = QFont()
+        font9.setFamily(u"Segoe UI")
+        font9.setPointSize(9)
+        self.btn_settings_fullscreen.setFont(font9)
         self.btn_settings_fullscreen.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
 "	border-radius: 5px;	\n"
@@ -1919,12 +2005,12 @@ class Ui_MainWindow(object):
         self.labelHeaderUser_2 = QLabel(self.frame_network_1)
         self.labelHeaderUser_2.setObjectName(u"labelHeaderUser_2")
         self.labelHeaderUser_2.setMaximumSize(QSize(16777215, 30))
-        font9 = QFont()
-        font9.setFamily(u"Segoe UI")
-        font9.setPointSize(12)
-        font9.setBold(True)
-        font9.setWeight(75)
-        self.labelHeaderUser_2.setFont(font9)
+        font10 = QFont()
+        font10.setFamily(u"Segoe UI")
+        font10.setPointSize(12)
+        font10.setBold(True)
+        font10.setWeight(75)
+        self.labelHeaderUser_2.setFont(font10)
         self.labelHeaderUser_2.setStyleSheet(u"")
 
         self.verticalLayout_24.addWidget(self.labelHeaderUser_2)
@@ -1944,12 +2030,12 @@ class Ui_MainWindow(object):
         self.labelHeaderUser_3 = QLabel(self.frame_12)
         self.labelHeaderUser_3.setObjectName(u"labelHeaderUser_3")
         self.labelHeaderUser_3.setMaximumSize(QSize(16777215, 25))
-        font10 = QFont()
-        font10.setFamily(u"Segoe UI")
-        font10.setPointSize(9)
-        font10.setBold(True)
-        font10.setWeight(75)
-        self.labelHeaderUser_3.setFont(font10)
+        font11 = QFont()
+        font11.setFamily(u"Segoe UI")
+        font11.setPointSize(9)
+        font11.setBold(True)
+        font11.setWeight(75)
+        self.labelHeaderUser_3.setFont(font11)
         self.labelHeaderUser_3.setStyleSheet(u"")
 
         self.verticalLayout_21.addWidget(self.labelHeaderUser_3)
@@ -1987,7 +2073,7 @@ class Ui_MainWindow(object):
         self.labelHeaderUser_4 = QLabel(self.frame_13)
         self.labelHeaderUser_4.setObjectName(u"labelHeaderUser_4")
         self.labelHeaderUser_4.setMaximumSize(QSize(16777215, 25))
-        self.labelHeaderUser_4.setFont(font10)
+        self.labelHeaderUser_4.setFont(font11)
         self.labelHeaderUser_4.setStyleSheet(u"")
 
         self.verticalLayout_23.addWidget(self.labelHeaderUser_4)
@@ -2043,7 +2129,7 @@ class Ui_MainWindow(object):
         self.disconnectBtn.setObjectName(u"disconnectBtn")
         self.disconnectBtn.setEnabled(True)
         self.disconnectBtn.setMinimumSize(QSize(100, 30))
-        self.disconnectBtn.setFont(font7)
+        self.disconnectBtn.setFont(font8)
         self.disconnectBtn.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
 "	border-radius: 5px;	\n"
@@ -2064,7 +2150,7 @@ class Ui_MainWindow(object):
         self.connectBtn.setObjectName(u"connectBtn")
         self.connectBtn.setEnabled(True)
         self.connectBtn.setMinimumSize(QSize(80, 30))
-        self.connectBtn.setFont(font7)
+        self.connectBtn.setFont(font8)
         self.connectBtn.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
 "	border-radius: 5px;	\n"
@@ -2181,12 +2267,7 @@ class Ui_MainWindow(object):
         self.start_btn = QPushButton(self.frame_interactions_btns)
         self.start_btn.setObjectName(u"start_btn")
         self.start_btn.setMinimumSize(QSize(65, 30))
-        font11 = QFont()
-        font11.setFamily(u"Segoe UI Semibold")
-        font11.setPointSize(10)
-        font11.setBold(True)
-        font11.setWeight(75)
-        self.start_btn.setFont(font11)
+        self.start_btn.setFont(font7)
         self.start_btn.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(50, 50, 51);\n"
 "	border-radius: 5px;	\n"
@@ -2206,7 +2287,7 @@ class Ui_MainWindow(object):
         self.stop_btn = QPushButton(self.frame_interactions_btns)
         self.stop_btn.setObjectName(u"stop_btn")
         self.stop_btn.setMinimumSize(QSize(65, 30))
-        self.stop_btn.setFont(font11)
+        self.stop_btn.setFont(font7)
         self.stop_btn.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(50, 50, 51);\n"
 "	border-radius: 5px;	\n"
@@ -2226,7 +2307,7 @@ class Ui_MainWindow(object):
         self.reset_btn = QPushButton(self.frame_interactions_btns)
         self.reset_btn.setObjectName(u"reset_btn")
         self.reset_btn.setMinimumSize(QSize(65, 30))
-        self.reset_btn.setFont(font11)
+        self.reset_btn.setFont(font7)
         self.reset_btn.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(50, 50, 51);\n"
 "	border-radius: 5px;	\n"
@@ -2246,7 +2327,7 @@ class Ui_MainWindow(object):
         self.save_btn = QPushButton(self.frame_interactions_btns)
         self.save_btn.setObjectName(u"save_btn")
         self.save_btn.setMinimumSize(QSize(65, 30))
-        self.save_btn.setFont(font11)
+        self.save_btn.setFont(font7)
         self.save_btn.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(50, 50, 51);\n"
 "	border-radius: 5px;	\n"
@@ -2398,7 +2479,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         self.stackedWidget.setCurrentIndex(1)
-        self.panel_stacked_widget.setCurrentIndex(0)
+        self.panel_stacked_widget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -2437,6 +2518,9 @@ class Ui_MainWindow(object):
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"M\u00ednima amplitud de onda", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"Distribuci\u00f3n de m\u00ednima amplitud", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"Saltos", None))
+        self.threshold_table_label.setText(QCoreApplication.translate("MainWindow", u"Rotura del umbral", None))
+        self.threshold_label.setText(QCoreApplication.translate("MainWindow", u"Umbral de potencia", None))
+        self.apply_threshold_btn.setText(QCoreApplication.translate("MainWindow", u"Aplicar", None))
         self.labelHeaderUser.setText(QCoreApplication.translate("MainWindow", u"Usuarios", None))
         self.editBtn.setText(QCoreApplication.translate("MainWindow", u"Editar", None))
         self.createBtn.setText(QCoreApplication.translate("MainWindow", u"Crear", None))

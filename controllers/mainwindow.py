@@ -192,6 +192,7 @@ class MainWindow(QMainWindow):
 
             ## ==> START PAGE
             self.ui.stackedWidget.setCurrentWidget(self.ui.page_nodes_centre)
+            self.ui.panel_stacked_widget.setCurrentWidget(self.ui.page_poles)
             # self.dashboardController.tightLayoutCharts()
             ## ==> END ##
 
@@ -356,7 +357,7 @@ class MainWindow(QMainWindow):
 
         # Page Threshold
         if btnWidget.objectName() == "btn_threshold":
-            self.ui.panel_stacked_widget.setCurrentWidget(self.ui.page_2)
+            self.ui.panel_stacked_widget.setCurrentWidget(self.ui.page_threshold)
             self.resetPanelStyle("btn_threshold")
             btnWidget.setStyleSheet(self.selectPanelMenu(btnWidget.styleSheet()))
         

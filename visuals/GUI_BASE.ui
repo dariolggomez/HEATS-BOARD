@@ -2653,7 +2653,7 @@ QHeaderView::section:vertical
                        <item>
                         <widget class="QStackedWidget" name="panel_stacked_widget">
                          <property name="currentIndex">
-                          <number>0</number>
+                          <number>1</number>
                          </property>
                          <widget class="QWidget" name="page_poles">
                           <layout class="QVBoxLayout" name="verticalLayout_37">
@@ -3807,7 +3807,203 @@ QHeaderView::section:vertical
                            </item>
                           </layout>
                          </widget>
-                         <widget class="QWidget" name="page_2"/>
+                         <widget class="QWidget" name="page_threshold">
+                          <layout class="QVBoxLayout" name="verticalLayout_39">
+                           <property name="leftMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="topMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="rightMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="bottomMargin">
+                            <number>0</number>
+                           </property>
+                           <item>
+                            <widget class="QFrame" name="threshold_content">
+                             <property name="frameShape">
+                              <enum>QFrame::NoFrame</enum>
+                             </property>
+                             <property name="frameShadow">
+                              <enum>QFrame::Raised</enum>
+                             </property>
+                             <layout class="QHBoxLayout" name="horizontalLayout_17">
+                              <property name="leftMargin">
+                               <number>0</number>
+                              </property>
+                              <property name="topMargin">
+                               <number>0</number>
+                              </property>
+                              <property name="rightMargin">
+                               <number>0</number>
+                              </property>
+                              <property name="bottomMargin">
+                               <number>0</number>
+                              </property>
+                              <item alignment="Qt::AlignTop">
+                               <widget class="QFrame" name="frame_threshold_table">
+                                <property name="frameShape">
+                                 <enum>QFrame::StyledPanel</enum>
+                                </property>
+                                <property name="frameShadow">
+                                 <enum>QFrame::Raised</enum>
+                                </property>
+                                <layout class="QVBoxLayout" name="threshold_table_layout">
+                                 <property name="spacing">
+                                  <number>20</number>
+                                 </property>
+                                 <property name="leftMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="topMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="rightMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <property name="bottomMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <item alignment="Qt::AlignTop">
+                                  <widget class="QLabel" name="threshold_table_label">
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>16777215</width>
+                                     <height>25</height>
+                                    </size>
+                                   </property>
+                                   <property name="font">
+                                    <font>
+                                     <family>Segoe UI Semibold</family>
+                                     <pointsize>11</pointsize>
+                                     <weight>75</weight>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="text">
+                                    <string>Rotura del umbral</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QFrame" name="frame_threshold_config">
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>250</width>
+                                  <height>0</height>
+                                 </size>
+                                </property>
+                                <property name="maximumSize">
+                                 <size>
+                                  <width>250</width>
+                                  <height>16777215</height>
+                                 </size>
+                                </property>
+                                <property name="frameShape">
+                                 <enum>QFrame::StyledPanel</enum>
+                                </property>
+                                <property name="frameShadow">
+                                 <enum>QFrame::Raised</enum>
+                                </property>
+                                <layout class="QVBoxLayout" name="verticalLayout_40">
+                                 <property name="spacing">
+                                  <number>20</number>
+                                 </property>
+                                 <property name="topMargin">
+                                  <number>0</number>
+                                 </property>
+                                 <item>
+                                  <widget class="QLabel" name="threshold_label">
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>16777215</width>
+                                     <height>25</height>
+                                    </size>
+                                   </property>
+                                   <property name="font">
+                                    <font>
+                                     <family>Segoe UI Semibold</family>
+                                     <pointsize>11</pointsize>
+                                     <weight>75</weight>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="text">
+                                    <string>Umbral de potencia</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QSpinBox" name="spinBox">
+                                   <property name="buttonSymbols">
+                                    <enum>QAbstractSpinBox::UpDownArrows</enum>
+                                   </property>
+                                   <property name="minimum">
+                                    <number>80</number>
+                                   </property>
+                                   <property name="maximum">
+                                    <number>160</number>
+                                   </property>
+                                   <property name="value">
+                                    <number>140</number>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item alignment="Qt::AlignRight|Qt::AlignTop">
+                                  <widget class="QPushButton" name="apply_threshold_btn">
+                                   <property name="minimumSize">
+                                    <size>
+                                     <width>100</width>
+                                     <height>30</height>
+                                    </size>
+                                   </property>
+                                   <property name="maximumSize">
+                                    <size>
+                                     <width>85</width>
+                                     <height>16777215</height>
+                                    </size>
+                                   </property>
+                                   <property name="font">
+                                    <font>
+                                     <family>Segoe UI Semibold</family>
+                                     <pointsize>10</pointsize>
+                                     <weight>75</weight>
+                                     <bold>true</bold>
+                                    </font>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QPushButton {
+	border: 2px solid rgb(50, 50, 51);
+	border-radius: 5px;	
+	background-color: rgb(50, 50, 51);
+}
+QPushButton:hover {
+	background-color: rgb(56, 56, 57);
+	border: 2px solid rgb(56, 56, 57);
+}
+QPushButton:pressed {	
+	background-color: rgb(56, 56, 57);
+	border: 1px solid rgb(0, 122, 204);
+}</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>Aplicar</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                             </layout>
+                            </widget>
+                           </item>
+                          </layout>
+                         </widget>
                         </widget>
                        </item>
                       </layout>
