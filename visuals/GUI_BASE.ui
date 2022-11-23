@@ -1632,7 +1632,7 @@ QPushButton:pressed {
 color: rgb(210, 210, 210);</string>
                   </property>
                   <property name="currentIndex">
-                   <number>1</number>
+                   <number>0</number>
                   </property>
                   <widget class="QWidget" name="page_nodes_centre">
                    <layout class="QVBoxLayout" name="verticalLayout_26">
@@ -1786,6 +1786,9 @@ color: rgb(210, 210, 210);</string>
                                 <enum>QFrame::Raised</enum>
                                </property>
                                <layout class="QVBoxLayout" name="verticalLayout_33">
+                                <property name="spacing">
+                                 <number>4</number>
+                                </property>
                                 <property name="leftMargin">
                                  <number>0</number>
                                 </property>
@@ -1798,6 +1801,30 @@ color: rgb(210, 210, 210);</string>
                                 <property name="bottomMargin">
                                  <number>0</number>
                                 </property>
+                                <item alignment="Qt::AlignHCenter">
+                                 <widget class="QLabel" name="label_7">
+                                  <property name="maximumSize">
+                                   <size>
+                                    <width>16777215</width>
+                                    <height>25</height>
+                                   </size>
+                                  </property>
+                                  <property name="font">
+                                   <font>
+                                    <family>Segoe UI Semibold</family>
+                                    <pointsize>11</pointsize>
+                                    <weight>75</weight>
+                                    <bold>true</bold>
+                                   </font>
+                                  </property>
+                                  <property name="text">
+                                   <string>Nodos NET</string>
+                                  </property>
+                                  <property name="alignment">
+                                   <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+                                  </property>
+                                 </widget>
+                                </item>
                                 <item>
                                  <widget class="QTableWidget" name="netNodeStatusTable">
                                   <property name="enabled">
@@ -2171,6 +2198,9 @@ QHeaderView::section:vertical
                                 <enum>QFrame::Raised</enum>
                                </property>
                                <layout class="QVBoxLayout" name="verticalLayout_36">
+                                <property name="spacing">
+                                 <number>4</number>
+                                </property>
                                 <property name="leftMargin">
                                  <number>0</number>
                                 </property>
@@ -2183,6 +2213,30 @@ QHeaderView::section:vertical
                                 <property name="bottomMargin">
                                  <number>0</number>
                                 </property>
+                                <item alignment="Qt::AlignHCenter">
+                                 <widget class="QLabel" name="label_8">
+                                  <property name="maximumSize">
+                                   <size>
+                                    <width>16777215</width>
+                                    <height>25</height>
+                                   </size>
+                                  </property>
+                                  <property name="font">
+                                   <font>
+                                    <family>Segoe UI Semibold</family>
+                                    <pointsize>11</pointsize>
+                                    <weight>75</weight>
+                                    <bold>true</bold>
+                                   </font>
+                                  </property>
+                                  <property name="text">
+                                   <string>Nodos RT</string>
+                                  </property>
+                                  <property name="alignment">
+                                   <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+                                  </property>
+                                 </widget>
+                                </item>
                                 <item>
                                  <widget class="QTableWidget" name="rtNodeStatusTable">
                                   <property name="enabled">
