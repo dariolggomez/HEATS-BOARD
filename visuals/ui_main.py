@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUI_BASEppVTTa.ui'
+## Form generated from reading UI file 'GUI_BASEwiOaWN.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -1752,20 +1752,20 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_40.addWidget(self.frame_threshold_value)
 
-        self.spinBox = QSpinBox(self.frame_threshold_cof_bg)
-        self.spinBox.setObjectName(u"spinBox")
+        self.threshold_spin_box = QSpinBox(self.frame_threshold_cof_bg)
+        self.threshold_spin_box.setObjectName(u"threshold_spin_box")
         font7 = QFont()
         font7.setFamily(u"Segoe UI Semibold")
         font7.setPointSize(10)
         font7.setBold(True)
         font7.setWeight(75)
-        self.spinBox.setFont(font7)
-        self.spinBox.setButtonSymbols(QAbstractSpinBox.UpDownArrows)
-        self.spinBox.setMinimum(80)
-        self.spinBox.setMaximum(160)
-        self.spinBox.setValue(140)
+        self.threshold_spin_box.setFont(font7)
+        self.threshold_spin_box.setButtonSymbols(QAbstractSpinBox.UpDownArrows)
+        self.threshold_spin_box.setMinimum(80)
+        self.threshold_spin_box.setMaximum(160)
+        self.threshold_spin_box.setValue(140)
 
-        self.verticalLayout_40.addWidget(self.spinBox)
+        self.verticalLayout_40.addWidget(self.threshold_spin_box)
 
         self.apply_threshold_btn = QPushButton(self.frame_threshold_cof_bg)
         self.apply_threshold_btn.setObjectName(u"apply_threshold_btn")

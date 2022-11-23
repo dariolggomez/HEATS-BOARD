@@ -4397,7 +4397,7 @@ border-radius: 5px;</string>
                                      </widget>
                                     </item>
                                     <item>
-                                     <widget class="QSpinBox" name="spinBox">
+                                     <widget class="QSpinBox" name="threshold_spin_box">
                                       <property name="font">
                                        <font>
                                         <family>Segoe UI Semibold</family>

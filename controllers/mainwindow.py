@@ -48,6 +48,7 @@ class MainWindow(QMainWindow):
             self.nodesCentreController = nodesCentre.NodesCentreController(self)
             self.graphicsController = graphics.GraphicsController(self)
             self.currentReceptorId = None
+            self.current_threshold = self.ui.threshold_spin_box.value()
             ########################################################################
             ## START - WINDOW ATTRIBUTES
             ########################################################################
@@ -148,6 +149,7 @@ class MainWindow(QMainWindow):
             self.ui.editBtn.clicked.connect(self.showUpdateUsersDialog)
             self.ui.connectBtn.clicked.connect(self.connectToHost)
             self.ui.disconnectBtn.clicked.connect(self.disconnectServer)
+            self.ui.apply_threshold_btn.clicked.connect(self.current_threshold_changed)
 
             ########################################################################
             #                                                                      #
@@ -780,7 +782,10 @@ class MainWindow(QMainWindow):
     def update_fft(self, values, net_sender_id):
         kpi_thread = Thread(target=self.dashboardController.recognize_data, args=(values,net_sender_id))
         kpi_thread.daemon = True
-        kpi_thread.start() 
+        kpi_thread.start()
+        threshold_thread = Thread(target=self.dashboardController.check_threshold, args=(values, net_sender_id)) 
+        threshold_thread.daemon = True
+        threshold_thread.start()
         if self.currentReceptorId == net_sender_id:
             self.graphicsController.update_fft(values)
 
@@ -789,6 +794,9 @@ class MainWindow(QMainWindow):
         if self.currentReceptorId == net_sender_id:
             self.graphicsController.update_spectrogram_data(values)
 
+    def current_threshold_changed(self):
+        self.current_threshold = self.ui.threshold_spin_box.value()
+        self.showConsoleMessage(f"Valor de umbral actualizado: {self.current_threshold}")
     ########################################################################
     ## END - GUI FUNCTIONS
     ########################################################################

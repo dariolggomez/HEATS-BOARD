@@ -4,6 +4,7 @@ from PySide2 import QtCore
 from PySide2.QtCore import QObject, Signal, Slot
 from PySide2.QtWidgets import QTableWidgetItem
 from threading import Thread
+from datetime import datetime
 import pyqtgraph as pg
 import numpy as np
 
@@ -16,6 +17,8 @@ class DashboardController(QObject):
     loadMaxFreqTableSignal = Signal()
     loadMinAmpTableSignal = Signal()
     loadMinFreqTableSignal = Signal()
+    loadThresholdTableSignal = Signal()
+    saveThresholdDataSignal = Signal()
 
     def __init__(self, parent):
         super().__init__()
@@ -24,6 +27,7 @@ class DashboardController(QObject):
         self.init_tables()
         self.createHistograms()
         self.load_data()
+        self.load_threshold_data()
         self.saverThread = Thread(target=self.saveData)
         self.saverThread.daemon = True
     
@@ -35,6 +39,8 @@ class DashboardController(QObject):
         self.loadMaxFreqTableSignal.connect(self.load_max_freq_table)
         self.loadMinAmpTableSignal.connect(self.load_min_amp_table)
         self.loadMinFreqTableSignal.connect(self.load_min_freq_table)
+        self.loadThresholdTableSignal.connect(self.load_threshold_table)
+        self.saveThresholdDataSignal.connect(self.start_threshold_saver_thread)
         self.__mainWindow.ui.maxAmpDistSpinBox.valueChanged.connect(self.load_max_amp_histogram)
         self.__mainWindow.ui.minAmpDistSpinBox.valueChanged.connect(self.load_min_amp_histogram)
     
@@ -149,6 +155,18 @@ class DashboardController(QObject):
         y, x = np.histogram(ampData, bins=np.linspace(min(ampData), max(ampData), self.__mainWindow.ui.minAmpDistSpinBox.value()+1))
         self.minAmpHistogram.clear()
         self.minAmpHistogram.plot(x, y, stepMode=True, fillLevel=0, brush=(0,0,255,150))
+
+    @Slot()
+    def load_threshold_table(self):
+        rows = []
+        for threshold_list in self.threshold_data:
+            rows.append((threshold_list[0], threshold_list[1], threshold_list[2], threshold_list[3]))
+        self.__mainWindow.ui.threshold_table.setRowCount(len(rows))
+        for row, cols in enumerate(rows):
+            for col, text in enumerate(cols):
+                table_item = QTableWidgetItem(str(text))
+                table_item.setTextAlignment(QtCore.Qt.AlignHCenter)
+                self.__mainWindow.ui.threshold_table.setItem(row, col, table_item)
     
     def load_data(self):
         try:
@@ -163,6 +181,31 @@ class DashboardController(QObject):
             self.showConsoleMessageSignal.emit("No se pudieron cargar los datos del dashboard. Se creará una nueva salva al recibir datos.")
             self.dashData = {}
 
+    def load_threshold_data(self):
+        try:
+            with open('backup/threshold_data.yaml') as f:
+                self.threshold_data = yaml.load(f, Loader=SafeLoader)
+            if self.threshold_data == None:
+                self.threshold_data = []
+            else:
+                self.loadThresholdTableSignal.emit()
+        except Exception as e:
+            print(e)
+            self.showConsoleMessageSignal.emit("No se pudieron cargar los datos de umbral. Se creará una nueva salva al recibir datos.")
+            self.threshold_data = []
+
+    def check_threshold(self, values, net_id):
+        needSave = False
+        for index, amplitude in enumerate(values[1]):
+            if amplitude > self.__mainWindow.current_threshold:
+                frequency = values[0][index]
+                date = datetime.today().strftime('%Y-%m-%d %H:%M:%S')
+                self.threshold_data.append([net_id, amplitude, frequency, date])
+                needSave = True
+        if needSave:
+            self.saveThresholdDataSignal.emit()
+
+    
     def recognize_data(self, values, net_id):
         maxAmplitude = max(values[1])
         minAmplitude = abs(min(values[1]))
@@ -208,3 +251,14 @@ class DashboardController(QObject):
         with open('backup/data.yaml', 'w') as f:
             yaml.dump(self.dashData, f)
         self.loadAllTablesSignal.emit()
+
+    @Slot()
+    def start_threshold_saver_thread(self):
+        threshold_saver_thread = Thread(target=self.save_threshold_data)
+        threshold_saver_thread.daemon = True
+        threshold_saver_thread.start()
+    
+    def save_threshold_data(self):
+        with open('backup/threshold_data.yaml', 'w') as f:
+            yaml.dump(self.threshold_data, f)
+        self.loadThresholdTableSignal.emit()
