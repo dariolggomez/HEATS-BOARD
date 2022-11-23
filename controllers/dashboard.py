@@ -59,6 +59,11 @@ class DashboardController(QObject):
         # self.__mainWindow.ui.minFrequencyTable.setHorizontalHeaderLabels(("Nombre","Frecuencia"))
         # self.__mainWindow.ui.minFrequencyTable.horizontalHeader().setVisible(True)
 
+        #Threshold table
+        self.__mainWindow.ui.threshold_table.setColumnCount(4)
+        self.__mainWindow.ui.threshold_table.setHorizontalHeaderLabels(("Nombre","Amplitud","Frecuencia","Fecha"))
+        self.__mainWindow.ui.threshold_table.horizontalHeader().setVisible(True)
+
     def createHistograms(self):
         #Max amp
         self.maxAmpHistogram = pg.PlotWidget()
