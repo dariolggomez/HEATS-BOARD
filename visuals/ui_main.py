@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUI_BASEwiOaWN.ui'
+## Form generated from reading UI file 'GUI_BASECEmZsr.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -789,8 +789,17 @@ class Ui_MainWindow(object):
         self.frame_net_nodes.setFrameShape(QFrame.NoFrame)
         self.frame_net_nodes.setFrameShadow(QFrame.Raised)
         self.verticalLayout_33 = QVBoxLayout(self.frame_net_nodes)
+        self.verticalLayout_33.setSpacing(4)
         self.verticalLayout_33.setObjectName(u"verticalLayout_33")
         self.verticalLayout_33.setContentsMargins(0, 0, 0, 0)
+        self.label_7 = QLabel(self.frame_net_nodes)
+        self.label_7.setObjectName(u"label_7")
+        self.label_7.setMaximumSize(QSize(16777215, 25))
+        self.label_7.setFont(font5)
+        self.label_7.setAlignment(Qt.AlignBottom|Qt.AlignLeading|Qt.AlignLeft)
+
+        self.verticalLayout_33.addWidget(self.label_7, 0, Qt.AlignHCenter)
+
         self.netNodeStatusTable = QTableWidget(self.frame_net_nodes)
         self.netNodeStatusTable.setObjectName(u"netNodeStatusTable")
         self.netNodeStatusTable.setEnabled(True)
@@ -931,8 +940,17 @@ class Ui_MainWindow(object):
         self.frame_rt_nodes.setFrameShape(QFrame.NoFrame)
         self.frame_rt_nodes.setFrameShadow(QFrame.Raised)
         self.verticalLayout_36 = QVBoxLayout(self.frame_rt_nodes)
+        self.verticalLayout_36.setSpacing(4)
         self.verticalLayout_36.setObjectName(u"verticalLayout_36")
         self.verticalLayout_36.setContentsMargins(0, 0, 0, 0)
+        self.label_8 = QLabel(self.frame_rt_nodes)
+        self.label_8.setObjectName(u"label_8")
+        self.label_8.setMaximumSize(QSize(16777215, 25))
+        self.label_8.setFont(font5)
+        self.label_8.setAlignment(Qt.AlignBottom|Qt.AlignLeading|Qt.AlignLeft)
+
+        self.verticalLayout_36.addWidget(self.label_8, 0, Qt.AlignHCenter)
+
         self.rtNodeStatusTable = QTableWidget(self.frame_rt_nodes)
         self.rtNodeStatusTable.setObjectName(u"rtNodeStatusTable")
         self.rtNodeStatusTable.setEnabled(True)
@@ -2644,7 +2662,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(0)
         self.panel_stacked_widget.setCurrentIndex(1)
 
 
@@ -2678,6 +2696,8 @@ class Ui_MainWindow(object):
         self.label_top_info_2.setText(QCoreApplication.translate("MainWindow", u"| HOME", None))
         self.label_user_icon.setText(QCoreApplication.translate("MainWindow", u"AL", None))
         self.nodes_connected_label.setText(QCoreApplication.translate("MainWindow", u"Nodos conectados", None))
+        self.label_7.setText(QCoreApplication.translate("MainWindow", u"Nodos NET", None))
+        self.label_8.setText(QCoreApplication.translate("MainWindow", u"Nodos RT", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"M\u00e1xima amplitud de onda", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"Distribuci\u00f3n de m\u00e1xima amplitud", None))
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"Saltos", None))
