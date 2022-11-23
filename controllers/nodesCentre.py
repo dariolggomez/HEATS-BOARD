@@ -19,11 +19,17 @@ class NodesCentreController(QtCore.QObject):
         self.createNodesPlot()
         self.startNodesPlot()
         self.initializeNetTable()
+        self.initializeRtTable()
 
     def initializeNetTable(self):
         self.__mainWindow.ui.netNodeStatusTable.setColumnCount(3)
         self.__mainWindow.ui.netNodeStatusTable.setHorizontalHeaderLabels(("Id","Nombre","Ciudad"))
         self.__mainWindow.ui.netNodeStatusTable.horizontalHeader().setVisible(True)
+
+    def initializeRtTable(self):
+        self.__mainWindow.ui.rtNodeStatusTable.setColumnCount(3)
+        self.__mainWindow.ui.rtNodeStatusTable.setHorizontalHeaderLabels(("Id","Nombre","Ciudad"))
+        self.__mainWindow.ui.rtNodeStatusTable.horizontalHeader().setVisible(True)
 
     def createNodesPlot(self):
         self.nodes_plot = pg.PlotWidget(title="Nodos conectados")
