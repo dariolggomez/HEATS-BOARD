@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUI_BASESxIgzZ.ui'
+## Form generated from reading UI file 'GUI_BASEppVTTa.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -1557,21 +1557,150 @@ class Ui_MainWindow(object):
         self.horizontalLayout_17.setContentsMargins(0, 0, 0, 0)
         self.frame_threshold_table = QFrame(self.threshold_content)
         self.frame_threshold_table.setObjectName(u"frame_threshold_table")
-        self.frame_threshold_table.setFrameShape(QFrame.StyledPanel)
+        self.frame_threshold_table.setFrameShape(QFrame.NoFrame)
         self.frame_threshold_table.setFrameShadow(QFrame.Raised)
-        self.threshold_table_layout = QVBoxLayout(self.frame_threshold_table)
-        self.threshold_table_layout.setSpacing(20)
-        self.threshold_table_layout.setObjectName(u"threshold_table_layout")
-        self.threshold_table_layout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_41 = QVBoxLayout(self.frame_threshold_table)
+        self.verticalLayout_41.setObjectName(u"verticalLayout_41")
+        self.verticalLayout_41.setContentsMargins(0, 0, 0, 0)
         self.threshold_table_label = QLabel(self.frame_threshold_table)
         self.threshold_table_label.setObjectName(u"threshold_table_label")
         self.threshold_table_label.setMaximumSize(QSize(16777215, 25))
         self.threshold_table_label.setFont(font5)
 
-        self.threshold_table_layout.addWidget(self.threshold_table_label, 0, Qt.AlignTop)
+        self.verticalLayout_41.addWidget(self.threshold_table_label)
+
+        self.threshold_table = QTableWidget(self.frame_threshold_table)
+        self.threshold_table.setObjectName(u"threshold_table")
+        self.threshold_table.setEnabled(True)
+        sizePolicy4.setHeightForWidth(self.threshold_table.sizePolicy().hasHeightForWidth())
+        self.threshold_table.setSizePolicy(sizePolicy4)
+        self.threshold_table.setMaximumSize(QSize(99999, 1000))
+        palette5 = QPalette()
+        palette5.setBrush(QPalette.Active, QPalette.WindowText, brush6)
+        palette5.setBrush(QPalette.Active, QPalette.Button, brush15)
+        palette5.setBrush(QPalette.Active, QPalette.Text, brush6)
+        palette5.setBrush(QPalette.Active, QPalette.ButtonText, brush6)
+        palette5.setBrush(QPalette.Active, QPalette.Base, brush15)
+        palette5.setBrush(QPalette.Active, QPalette.Window, brush15)
+        brush28 = QBrush(QColor(210, 210, 210, 128))
+        brush28.setStyle(Qt.NoBrush)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette5.setBrush(QPalette.Active, QPalette.PlaceholderText, brush28)
+#endif
+        palette5.setBrush(QPalette.Inactive, QPalette.WindowText, brush6)
+        palette5.setBrush(QPalette.Inactive, QPalette.Button, brush15)
+        palette5.setBrush(QPalette.Inactive, QPalette.Text, brush6)
+        palette5.setBrush(QPalette.Inactive, QPalette.ButtonText, brush6)
+        palette5.setBrush(QPalette.Inactive, QPalette.Base, brush15)
+        palette5.setBrush(QPalette.Inactive, QPalette.Window, brush15)
+        brush29 = QBrush(QColor(210, 210, 210, 128))
+        brush29.setStyle(Qt.NoBrush)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette5.setBrush(QPalette.Inactive, QPalette.PlaceholderText, brush29)
+#endif
+        palette5.setBrush(QPalette.Disabled, QPalette.WindowText, brush6)
+        palette5.setBrush(QPalette.Disabled, QPalette.Button, brush15)
+        palette5.setBrush(QPalette.Disabled, QPalette.Text, brush6)
+        palette5.setBrush(QPalette.Disabled, QPalette.ButtonText, brush6)
+        palette5.setBrush(QPalette.Disabled, QPalette.Base, brush15)
+        palette5.setBrush(QPalette.Disabled, QPalette.Window, brush15)
+        brush30 = QBrush(QColor(210, 210, 210, 128))
+        brush30.setStyle(Qt.NoBrush)
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette5.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush30)
+#endif
+        self.threshold_table.setPalette(palette5)
+        self.threshold_table.setFocusPolicy(Qt.NoFocus)
+        self.threshold_table.setStyleSheet(u"QTableWidget {	\n"
+"	background-color: rgb(30, 30, 30);\n"
+"	padding: 10px;\n"
+"	border-radius: 0px;\n"
+"	gridline-color: rgb(44, 49, 60);\n"
+"	/*border-bottom: 1px solid rgb(44, 49, 60);*/\n"
+"	border-top-left-radius: 0px;\n"
+"	border-top-right-radius: 0px;\n"
+"}\n"
+"QTableWidget::item{\n"
+"	border-color: rgb(44, 49, 60);\n"
+"	padding-left: 5px;\n"
+"	padding-right: 5px;\n"
+"	gridline-color: rgb(44, 49, 60);\n"
+"}\n"
+"QTableWidget::item:selected{\n"
+"	background-color: rgb(50, 50, 51);\n"
+"	color: rgb(219, 219, 219);\n"
+"}\n"
+"QScrollBar:horizontal {\n"
+"    border: none;\n"
+"    background: rgb(52, 59, 72);\n"
+"    height: 14px;\n"
+"    margin: 0px 21px 0 21px;\n"
+"	border-radius: 0px;\n"
+"}\n"
+" QScrollBar:vertical {\n"
+"	border: none;\n"
+"    background: rgb(52, 59, 72);\n"
+"    width: 14px;\n"
+"    margin: 21px 0 21px 0;\n"
+"	border-radius: 0px;\n"
+" }\n"
+"QHeaderView::section{\n"
+"	Background-color: rgb(39, 44, 54);\n"
+"	max-width: 30px;\n"
+"	border: 1px solid rgb(44, 49, 60);\n"
+"	border-style: none;\n"
+""
+                        "    border-bottom: 1px solid rgb(44, 49, 60);\n"
+"    border-right: 1px solid rgb(44, 49, 60);\n"
+"}\n"
+"QTableWidget::horizontalHeader {	\n"
+"	background-color: rgb(81, 255, 0);\n"
+"}\n"
+"QHeaderView::section:horizontal\n"
+"{\n"
+"    border: 1px solid rgb(30,30,30);\n"
+"	background-color: rgb(0, 122, 204);\n"
+"	padding: 3px;\n"
+"	border-top-left-radius: 7px;\n"
+"    border-top-right-radius: 7px;\n"
+"}\n"
+"QHeaderView::section:vertical\n"
+"{\n"
+"    border: 1px solid rgb(0, 122, 204);\n"
+"}\n"
+"")
+        self.threshold_table.setFrameShape(QFrame.NoFrame)
+        self.threshold_table.setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)
+        self.threshold_table.setHorizontalScrollBarPolicy(Qt.ScrollBarAsNeeded)
+        self.threshold_table.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContents)
+        self.threshold_table.setAutoScroll(True)
+        self.threshold_table.setAutoScrollMargin(16)
+        self.threshold_table.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.threshold_table.setAlternatingRowColors(False)
+        self.threshold_table.setSelectionMode(QAbstractItemView.SingleSelection)
+        self.threshold_table.setSelectionBehavior(QAbstractItemView.SelectRows)
+        self.threshold_table.setVerticalScrollMode(QAbstractItemView.ScrollPerPixel)
+        self.threshold_table.setHorizontalScrollMode(QAbstractItemView.ScrollPerPixel)
+        self.threshold_table.setShowGrid(True)
+        self.threshold_table.setGridStyle(Qt.SolidLine)
+        self.threshold_table.setSortingEnabled(False)
+        self.threshold_table.setWordWrap(True)
+        self.threshold_table.setRowCount(0)
+        self.threshold_table.horizontalHeader().setVisible(False)
+        self.threshold_table.horizontalHeader().setCascadingSectionResizes(False)
+        self.threshold_table.horizontalHeader().setDefaultSectionSize(200)
+        self.threshold_table.horizontalHeader().setStretchLastSection(True)
+        self.threshold_table.verticalHeader().setVisible(False)
+        self.threshold_table.verticalHeader().setCascadingSectionResizes(False)
+        self.threshold_table.verticalHeader().setMinimumSectionSize(30)
+        self.threshold_table.verticalHeader().setDefaultSectionSize(30)
+        self.threshold_table.verticalHeader().setHighlightSections(False)
+        self.threshold_table.verticalHeader().setStretchLastSection(False)
+
+        self.verticalLayout_41.addWidget(self.threshold_table)
 
 
-        self.horizontalLayout_17.addWidget(self.frame_threshold_table, 0, Qt.AlignTop)
+        self.horizontalLayout_17.addWidget(self.frame_threshold_table)
 
         self.frame_threshold_config = QFrame(self.threshold_content)
         self.frame_threshold_config.setObjectName(u"frame_threshold_config")
@@ -1579,19 +1708,58 @@ class Ui_MainWindow(object):
         self.frame_threshold_config.setMaximumSize(QSize(250, 16777215))
         self.frame_threshold_config.setFrameShape(QFrame.StyledPanel)
         self.frame_threshold_config.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_40 = QVBoxLayout(self.frame_threshold_config)
-        self.verticalLayout_40.setSpacing(20)
-        self.verticalLayout_40.setObjectName(u"verticalLayout_40")
-        self.verticalLayout_40.setContentsMargins(-1, 0, -1, -1)
+        self.verticalLayout_42 = QVBoxLayout(self.frame_threshold_config)
+        self.verticalLayout_42.setSpacing(7)
+        self.verticalLayout_42.setObjectName(u"verticalLayout_42")
+        self.verticalLayout_42.setContentsMargins(0, 0, 0, 0)
         self.threshold_label = QLabel(self.frame_threshold_config)
         self.threshold_label.setObjectName(u"threshold_label")
         self.threshold_label.setMaximumSize(QSize(16777215, 25))
         self.threshold_label.setFont(font5)
 
-        self.verticalLayout_40.addWidget(self.threshold_label)
+        self.verticalLayout_42.addWidget(self.threshold_label)
 
-        self.spinBox = QSpinBox(self.frame_threshold_config)
+        self.frame_threshold_cof_bg = QFrame(self.frame_threshold_config)
+        self.frame_threshold_cof_bg.setObjectName(u"frame_threshold_cof_bg")
+        self.frame_threshold_cof_bg.setStyleSheet(u"background-color: rgb(29, 29, 29);\n"
+"border-radius: 5px;")
+        self.frame_threshold_cof_bg.setFrameShape(QFrame.StyledPanel)
+        self.frame_threshold_cof_bg.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_40 = QVBoxLayout(self.frame_threshold_cof_bg)
+        self.verticalLayout_40.setObjectName(u"verticalLayout_40")
+        self.verticalLayout_40.setContentsMargins(12, 12, 12, 12)
+        self.frame_threshold_value = QFrame(self.frame_threshold_cof_bg)
+        self.frame_threshold_value.setObjectName(u"frame_threshold_value")
+        self.frame_threshold_value.setFrameShape(QFrame.StyledPanel)
+        self.frame_threshold_value.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_20 = QHBoxLayout(self.frame_threshold_value)
+        self.horizontalLayout_20.setObjectName(u"horizontalLayout_20")
+        self.horizontalLayout_20.setContentsMargins(0, 0, 0, 0)
+        self.label_threshold_ind = QLabel(self.frame_threshold_value)
+        self.label_threshold_ind.setObjectName(u"label_threshold_ind")
+        self.label_threshold_ind.setMaximumSize(QSize(16777215, 30))
+        self.label_threshold_ind.setFont(font5)
+
+        self.horizontalLayout_20.addWidget(self.label_threshold_ind)
+
+        self.threshold_actual_value = QLabel(self.frame_threshold_value)
+        self.threshold_actual_value.setObjectName(u"threshold_actual_value")
+        self.threshold_actual_value.setMaximumSize(QSize(16777215, 30))
+        self.threshold_actual_value.setFont(font5)
+
+        self.horizontalLayout_20.addWidget(self.threshold_actual_value)
+
+
+        self.verticalLayout_40.addWidget(self.frame_threshold_value)
+
+        self.spinBox = QSpinBox(self.frame_threshold_cof_bg)
         self.spinBox.setObjectName(u"spinBox")
+        font7 = QFont()
+        font7.setFamily(u"Segoe UI Semibold")
+        font7.setPointSize(10)
+        font7.setBold(True)
+        font7.setWeight(75)
+        self.spinBox.setFont(font7)
         self.spinBox.setButtonSymbols(QAbstractSpinBox.UpDownArrows)
         self.spinBox.setMinimum(80)
         self.spinBox.setMaximum(160)
@@ -1599,15 +1767,10 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_40.addWidget(self.spinBox)
 
-        self.apply_threshold_btn = QPushButton(self.frame_threshold_config)
+        self.apply_threshold_btn = QPushButton(self.frame_threshold_cof_bg)
         self.apply_threshold_btn.setObjectName(u"apply_threshold_btn")
         self.apply_threshold_btn.setMinimumSize(QSize(100, 30))
         self.apply_threshold_btn.setMaximumSize(QSize(85, 16777215))
-        font7 = QFont()
-        font7.setFamily(u"Segoe UI Semibold")
-        font7.setPointSize(10)
-        font7.setBold(True)
-        font7.setWeight(75)
         self.apply_threshold_btn.setFont(font7)
         self.apply_threshold_btn.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(50, 50, 51);\n"
@@ -1623,7 +1786,10 @@ class Ui_MainWindow(object):
 "	border: 1px solid rgb(0, 122, 204);\n"
 "}")
 
-        self.verticalLayout_40.addWidget(self.apply_threshold_btn, 0, Qt.AlignRight|Qt.AlignTop)
+        self.verticalLayout_40.addWidget(self.apply_threshold_btn, 0, Qt.AlignRight)
+
+
+        self.verticalLayout_42.addWidget(self.frame_threshold_cof_bg, 0, Qt.AlignTop)
 
 
         self.horizontalLayout_17.addWidget(self.frame_threshold_config)
@@ -1673,43 +1839,43 @@ class Ui_MainWindow(object):
         sizePolicy4.setHeightForWidth(self.userTableWidget.sizePolicy().hasHeightForWidth())
         self.userTableWidget.setSizePolicy(sizePolicy4)
         self.userTableWidget.setMaximumSize(QSize(99999, 1000))
-        palette5 = QPalette()
-        palette5.setBrush(QPalette.Active, QPalette.WindowText, brush6)
-        brush28 = QBrush(QColor(39, 44, 54, 255))
-        brush28.setStyle(Qt.SolidPattern)
-        palette5.setBrush(QPalette.Active, QPalette.Button, brush28)
-        palette5.setBrush(QPalette.Active, QPalette.Text, brush6)
-        palette5.setBrush(QPalette.Active, QPalette.ButtonText, brush6)
-        palette5.setBrush(QPalette.Active, QPalette.Base, brush28)
-        palette5.setBrush(QPalette.Active, QPalette.Window, brush28)
-        brush29 = QBrush(QColor(210, 210, 210, 128))
-        brush29.setStyle(Qt.NoBrush)
+        palette6 = QPalette()
+        palette6.setBrush(QPalette.Active, QPalette.WindowText, brush6)
+        brush31 = QBrush(QColor(39, 44, 54, 255))
+        brush31.setStyle(Qt.SolidPattern)
+        palette6.setBrush(QPalette.Active, QPalette.Button, brush31)
+        palette6.setBrush(QPalette.Active, QPalette.Text, brush6)
+        palette6.setBrush(QPalette.Active, QPalette.ButtonText, brush6)
+        palette6.setBrush(QPalette.Active, QPalette.Base, brush31)
+        palette6.setBrush(QPalette.Active, QPalette.Window, brush31)
+        brush32 = QBrush(QColor(210, 210, 210, 128))
+        brush32.setStyle(Qt.NoBrush)
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette5.setBrush(QPalette.Active, QPalette.PlaceholderText, brush29)
+        palette6.setBrush(QPalette.Active, QPalette.PlaceholderText, brush32)
 #endif
-        palette5.setBrush(QPalette.Inactive, QPalette.WindowText, brush6)
-        palette5.setBrush(QPalette.Inactive, QPalette.Button, brush28)
-        palette5.setBrush(QPalette.Inactive, QPalette.Text, brush6)
-        palette5.setBrush(QPalette.Inactive, QPalette.ButtonText, brush6)
-        palette5.setBrush(QPalette.Inactive, QPalette.Base, brush28)
-        palette5.setBrush(QPalette.Inactive, QPalette.Window, brush28)
-        brush30 = QBrush(QColor(210, 210, 210, 128))
-        brush30.setStyle(Qt.NoBrush)
+        palette6.setBrush(QPalette.Inactive, QPalette.WindowText, brush6)
+        palette6.setBrush(QPalette.Inactive, QPalette.Button, brush31)
+        palette6.setBrush(QPalette.Inactive, QPalette.Text, brush6)
+        palette6.setBrush(QPalette.Inactive, QPalette.ButtonText, brush6)
+        palette6.setBrush(QPalette.Inactive, QPalette.Base, brush31)
+        palette6.setBrush(QPalette.Inactive, QPalette.Window, brush31)
+        brush33 = QBrush(QColor(210, 210, 210, 128))
+        brush33.setStyle(Qt.NoBrush)
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette5.setBrush(QPalette.Inactive, QPalette.PlaceholderText, brush30)
+        palette6.setBrush(QPalette.Inactive, QPalette.PlaceholderText, brush33)
 #endif
-        palette5.setBrush(QPalette.Disabled, QPalette.WindowText, brush6)
-        palette5.setBrush(QPalette.Disabled, QPalette.Button, brush28)
-        palette5.setBrush(QPalette.Disabled, QPalette.Text, brush6)
-        palette5.setBrush(QPalette.Disabled, QPalette.ButtonText, brush6)
-        palette5.setBrush(QPalette.Disabled, QPalette.Base, brush28)
-        palette5.setBrush(QPalette.Disabled, QPalette.Window, brush28)
-        brush31 = QBrush(QColor(210, 210, 210, 128))
-        brush31.setStyle(Qt.NoBrush)
+        palette6.setBrush(QPalette.Disabled, QPalette.WindowText, brush6)
+        palette6.setBrush(QPalette.Disabled, QPalette.Button, brush31)
+        palette6.setBrush(QPalette.Disabled, QPalette.Text, brush6)
+        palette6.setBrush(QPalette.Disabled, QPalette.ButtonText, brush6)
+        palette6.setBrush(QPalette.Disabled, QPalette.Base, brush31)
+        palette6.setBrush(QPalette.Disabled, QPalette.Window, brush31)
+        brush34 = QBrush(QColor(210, 210, 210, 128))
+        brush34.setStyle(Qt.NoBrush)
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette5.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush31)
+        palette6.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush34)
 #endif
-        self.userTableWidget.setPalette(palette5)
+        self.userTableWidget.setPalette(palette6)
         self.userTableWidget.setStyleSheet(u"QTableWidget {	\n"
 "	background-color: rgb(39, 44, 54);\n"
 "	padding: 10px;\n"
@@ -2520,6 +2686,8 @@ class Ui_MainWindow(object):
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"Saltos", None))
         self.threshold_table_label.setText(QCoreApplication.translate("MainWindow", u"Rotura del umbral", None))
         self.threshold_label.setText(QCoreApplication.translate("MainWindow", u"Umbral de potencia", None))
+        self.label_threshold_ind.setText(QCoreApplication.translate("MainWindow", u"Valor actual:", None))
+        self.threshold_actual_value.setText(QCoreApplication.translate("MainWindow", u"140", None))
         self.apply_threshold_btn.setText(QCoreApplication.translate("MainWindow", u"Aplicar", None))
         self.labelHeaderUser.setText(QCoreApplication.translate("MainWindow", u"Usuarios", None))
         self.editBtn.setText(QCoreApplication.translate("MainWindow", u"Editar", None))
