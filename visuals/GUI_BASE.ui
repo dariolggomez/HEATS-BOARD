@@ -1632,7 +1632,7 @@ QPushButton:pressed {
 color: rgb(210, 210, 210);</string>
                   </property>
                   <property name="currentIndex">
-                   <number>0</number>
+                   <number>5</number>
                   </property>
                   <widget class="QWidget" name="page_nodes_centre">
                    <layout class="QVBoxLayout" name="verticalLayout_26">
@@ -5970,7 +5970,7 @@ QPushButton:pressed {
 }</string>
                                </property>
                                <property name="text">
-                                <string>Salvar</string>
+                                <string>Exportar</string>
                                </property>
                               </widget>
                              </item>
