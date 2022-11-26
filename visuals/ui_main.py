@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUI_BASECEmZsr.ui'
+## Form generated from reading UI file 'GUI_BASEOPLcqs.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -2662,7 +2662,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(5)
         self.panel_stacked_widget.setCurrentIndex(1)
 
 
@@ -2724,7 +2724,7 @@ class Ui_MainWindow(object):
         self.start_btn.setText(QCoreApplication.translate("MainWindow", u"Iniciar", None))
         self.stop_btn.setText(QCoreApplication.translate("MainWindow", u"Detener", None))
         self.reset_btn.setText(QCoreApplication.translate("MainWindow", u"Restablecer", None))
-        self.save_btn.setText(QCoreApplication.translate("MainWindow", u"Salvar", None))
+        self.save_btn.setText(QCoreApplication.translate("MainWindow", u"Exportar", None))
         self.label_credits.setText("")
         self.label_version.setText(QCoreApplication.translate("MainWindow", u"v1.0.0", None))
     # retranslateUi
