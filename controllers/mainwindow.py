@@ -796,6 +796,7 @@ class MainWindow(QMainWindow):
 
     def current_threshold_changed(self):
         self.current_threshold = self.ui.threshold_spin_box.value()
+        self.ui.threshold_actual_value.setText(str(self.current_threshold))
         self.showConsoleMessage(f"Valor de umbral actualizado: {self.current_threshold}")
     ########################################################################
     ## END - GUI FUNCTIONS
