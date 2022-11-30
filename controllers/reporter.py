@@ -25,7 +25,7 @@ def centerText(c, text, font, points, y):
     drawText(c, text, font, points, x, y)
 
 
-def createDiploma(name, city):
+def createReport(name, city):
 
     dateString = datetime.today().strftime('%Y-%m-%d %H-%M')
 
