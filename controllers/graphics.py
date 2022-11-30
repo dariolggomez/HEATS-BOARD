@@ -161,4 +161,4 @@ class GraphicsController(QObject):
         spectrogramExporter.export('images/spectrogram.png')
 
         nodename, city = self.__mainWindow.getReceptorNetNodenameAndCity()
-        reportPath = rp.createDiploma(nodename, city)
+        reportPath = rp.createReport(nodename, city)
