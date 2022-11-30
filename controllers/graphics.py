@@ -162,4 +162,15 @@ class GraphicsController(QObject):
 
         nodename, city = self.__mainWindow.getReceptorNetNodenameAndCity()
         seconds = len(self.waterfall_data)/12
-        reportPath = rp.createReport(nodename, city, seconds)
+        lastMax = 0.0
+        lastMin = 500.0
+        for array in self.waterfall_data:
+            maxAmp = max(array)
+            minAmp = min(array)
+            if maxAmp > lastMax:
+                lastMax = maxAmp
+            if minAmp < lastMin:
+                lastMin = minAmp
+        lastMax = lastMax * 20
+        lastMin = lastMin * 20
+        reportPath = rp.createReport(nodename, city, seconds, lastMax, lastMin)
