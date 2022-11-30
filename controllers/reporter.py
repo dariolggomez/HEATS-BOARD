@@ -25,7 +25,7 @@ def centerText(c, text, font, points, y):
     drawText(c, text, font, points, x, y)
 
 
-def createReport(name, city, startSeconds):
+def createReport(name, city, startSeconds, maxAmp, minAmp):
 
     dateString = datetime.datetime.today().strftime('%Y-%m-%d %H-%M-%S')
     startTime = (datetime.datetime.today() - datetime.timedelta(seconds=startSeconds)).strftime('%H-%M-%S')
@@ -40,6 +40,8 @@ def createReport(name, city, startSeconds):
     centerText(c, 'Gráficos de Procesamiento {}'.format(dateString[:10]), 'Times-Italic', 24, 16.7*cm)
     drawText(c, f'Hora de inicio: {startTime.replace("-",":")}', 'Times-Italic', 16, 2.5*cm, 15*cm)
     drawText(c, f'Hora final: {dateString[11:].replace("-",":")}', 'Times-Italic', 16, 2.5*cm, 14*cm)
+    drawText(c, 'Máxima amplitud: %.3f' %maxAmp, 'Times-Italic', 16, 10.5*cm, 15*cm)
+    drawText(c, 'Mínima amplitud: %.3f' %minAmp, 'Times-Italic', 16, 10.5*cm, 14*cm)
     #drawText(c, '(10 Hz - 24 kHz, logarithmisch)', 'Times-Italic', 16, 11.5*cm, 4.5*cm)
 
     # c.drawImage('images/fft.png', 2.3*cm, 11.8*cm, 16*cm, 6.8*cm, mask='auto')
