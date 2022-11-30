@@ -161,4 +161,5 @@ class GraphicsController(QObject):
         spectrogramExporter.export('images/spectrogram.png')
 
         nodename, city = self.__mainWindow.getReceptorNetNodenameAndCity()
-        reportPath = rp.createReport(nodename, city)
+        seconds = len(self.waterfall_data)/12
+        reportPath = rp.createReport(nodename, city, seconds)
