@@ -2,9 +2,10 @@ from datetime import datetime
 from reportlab.pdfgen import canvas
 from reportlab.lib.units import inch, cm
 from reportlab.rl_config import defaultPageSize
+from reportlab.lib.pagesizes import landscape
 from reportlab.pdfbase.pdfmetrics import stringWidth
 
-PAGE_WIDTH  = defaultPageSize[0]
+PAGE_WIDTH  = landscape(defaultPageSize)
 
 
 def drawText(c, text, font, points, x, y):
@@ -20,7 +21,7 @@ def drawText(c, text, font, points, x, y):
 def centerText(c, text, font, points, y):
 
     width = stringWidth(text, font, points)
-    x = (PAGE_WIDTH - width) / 2.0
+    x = (PAGE_WIDTH[0] - width) / 2.0
     drawText(c, text, font, points, x, y)
 
 
@@ -29,7 +30,7 @@ def createDiploma(name, city):
     dateString = datetime.today().strftime('%Y-%m-%d %H-%M')
 
     path = 'reports/report_{}_{}.pdf'.format(name, dateString)
-    c = canvas.Canvas(path)
+    c = canvas.Canvas(path, pagesize=landscape(defaultPageSize))
 
     c.drawImage('images/border.png', 0, 0, 21*cm, 29.7*cm)
 
