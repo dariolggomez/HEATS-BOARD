@@ -1,4 +1,5 @@
 import yaml
+from winotify import Notification, audio
 from yaml.loader import SafeLoader
 from PySide2 import QtCore
 from PySide2.QtCore import QObject, Signal, Slot
@@ -19,6 +20,7 @@ class DashboardController(QObject):
     loadMinFreqTableSignal = Signal()
     loadThresholdTableSignal = Signal()
     saveThresholdDataSignal = Signal()
+    sendNotificationSignal = Signal()
 
     def __init__(self, parent):
         super().__init__()
@@ -41,6 +43,7 @@ class DashboardController(QObject):
         self.loadMinFreqTableSignal.connect(self.load_min_freq_table)
         self.loadThresholdTableSignal.connect(self.load_threshold_table)
         self.saveThresholdDataSignal.connect(self.start_threshold_saver_thread)
+        self.sendNotificationSignal.connect(self.send_notification)
         self.__mainWindow.ui.maxAmpDistSpinBox.valueChanged.connect(self.load_max_amp_histogram)
         self.__mainWindow.ui.minAmpDistSpinBox.valueChanged.connect(self.load_min_amp_histogram)
     
@@ -201,11 +204,20 @@ class DashboardController(QObject):
                 frequency = values[0][index]
                 date = datetime.today().strftime('%Y-%m-%d %H:%M:%S')
                 self.threshold_data.append([net_id, amplitude, frequency, date])
+                self.sendNotificationSignal.emit()
                 needSave = True
         if needSave:
             self.saveThresholdDataSignal.emit()
 
-    
+    @Slot()
+    def send_notification(self):
+        notification = Notification(app_id= 'HEATS-Board',
+                                    title= 'Alerta de umbral',
+                                    msg= 'Se ha rebasado el umbral de amplitud.',
+                                    duration= 'short')
+        notification.set_audio(audio.Default, loop=False)
+        notification.show()
+
     def recognize_data(self, values, net_id):
         maxAmplitude = max(values[1])
         minAmplitude = abs(min(values[1]))
