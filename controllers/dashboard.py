@@ -50,7 +50,7 @@ class DashboardController(QObject):
     def init_tables(self):
         #Max amplitude table
         self.__mainWindow.ui.maxAmplitudeTable.setColumnCount(3)
-        self.__mainWindow.ui.maxAmplitudeTable.setHorizontalHeaderLabels(("Nombre","Magnitud", "Frecuencia"))
+        self.__mainWindow.ui.maxAmplitudeTable.setHorizontalHeaderLabels(("Id","Magnitud", "Frecuencia"))
         self.__mainWindow.ui.maxAmplitudeTable.horizontalHeader().setVisible(True)
 
         #Max frequency table
@@ -60,7 +60,7 @@ class DashboardController(QObject):
 
         #Min amplitude table
         self.__mainWindow.ui.minAmplitudeTable.setColumnCount(3)
-        self.__mainWindow.ui.minAmplitudeTable.setHorizontalHeaderLabels(("Nombre","Magnitud","Frecuencia"))
+        self.__mainWindow.ui.minAmplitudeTable.setHorizontalHeaderLabels(("Id","Magnitud","Frecuencia"))
         self.__mainWindow.ui.minAmplitudeTable.horizontalHeader().setVisible(True)
 
         #Min frequency table
@@ -70,7 +70,7 @@ class DashboardController(QObject):
 
         #Threshold table
         self.__mainWindow.ui.threshold_table.setColumnCount(4)
-        self.__mainWindow.ui.threshold_table.setHorizontalHeaderLabels(("Nombre","Amplitud","Frecuencia","Fecha"))
+        self.__mainWindow.ui.threshold_table.setHorizontalHeaderLabels(("Id","Amplitud","Frecuencia","Fecha"))
         self.__mainWindow.ui.threshold_table.horizontalHeader().setVisible(True)
 
     def createHistograms(self):
