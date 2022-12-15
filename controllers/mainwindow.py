@@ -165,7 +165,7 @@ class MainWindow(QMainWindow):
             self.ui.hostPortLineEdit.setMaxLength(5)
             
 
-            self.ui.console.insertPlainText(f"{datetime.today().strftime('%Y-%m-%d %H:%M:%S')} >> HEATS-BOARD Inicializado.\r")
+            self.showConsoleMessage("HEATS-BOARD Inicializado.")
             #LOAD DASHBOARD GRAPHICS
             self.dashboardController = DashboardController(self)
             # self.dashboardController.loadGraphics()
