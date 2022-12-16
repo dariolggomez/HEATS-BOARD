@@ -7,6 +7,7 @@ from pyqtgraph.Qt import QtCore, QtGui, QtWidgets
 from pyqtgraph.exporters import ImageExporter
 from time import perf_counter
 from PySide2.QtCore import Slot, Qt, QObject, Signal
+from PySide2.QtWidgets import QMessageBox
 from controllers import reporter as rp
 
 class GraphicsController(QObject):
@@ -50,6 +51,7 @@ class GraphicsController(QObject):
         self.last_time = perf_counter()
         self.running = False
         self.first_run = True
+        self.spectrogram_update_timer = Timer((self.TIMEOUT+1000)/1000, function=self.update_spectrogram)
 
     def createWaveformPlot(self):
         self.waveform_plot = pg.PlotWidget(title="Forma de Onda")
@@ -64,7 +66,7 @@ class GraphicsController(QObject):
         self.__mainWindow.ui.waveform_layout.addWidget(self.waveform_plot)
 
     def createFftPlot(self):
-        self.fft_plot = pg.PlotWidget(title='Transformada de Fourier')
+        self.fft_plot = pg.PlotWidget(title='Distribución de potencia')
         self.fft_curve = pg.PlotCurveItem(pen=self.default_pen, skipFiniteCheck=True)
         self.fft_plot.addItem(self.fft_curve)
         self.fft_plot.autoRange()
@@ -152,25 +154,33 @@ class GraphicsController(QObject):
     def save(self):
         self.stop_all()
 
-        fftExporter = ImageExporter(self.fft_plot.plotItem)
-        fftExporter.parameters()['width'] = 2000
-        fftExporter.export('images/fft.png')
+        if len(self.waterfall_data) > 0:
 
-        spectrogramExporter = ImageExporter(self.waterfall_plot.plotItem)
-        spectrogramExporter.parameters()['width'] = 2000
-        spectrogramExporter.export('images/spectrogram.png')
+            fftExporter = ImageExporter(self.fft_plot.plotItem)
+            fftExporter.parameters()['width'] = 2000
+            fftExporter.export('images/fft.png')
 
-        nodename, city = self.__mainWindow.getReceptorNetNodenameAndCity()
-        seconds = len(self.waterfall_data)/12
-        lastMax = 0.0
-        lastMin = 500.0
-        for array in self.waterfall_data:
-            maxAmp = max(array)
-            minAmp = min(array)
-            if maxAmp > lastMax:
-                lastMax = maxAmp
-            if minAmp < lastMin:
-                lastMin = minAmp
-        lastMax = lastMax * 20
-        lastMin = lastMin * 20
-        reportPath = rp.createReport(nodename, city, seconds, lastMax, lastMin)
+            spectrogramExporter = ImageExporter(self.waterfall_plot.plotItem)
+            spectrogramExporter.parameters()['width'] = 2000
+            spectrogramExporter.export('images/spectrogram.png')
+
+            nodename, city = self.__mainWindow.getReceptorNetNodenameAndCity()
+            seconds = len(self.waterfall_data)/12
+            lastMax = 0.0
+            lastMin = 500.0
+            for array in self.waterfall_data:
+                maxAmp = max(array)
+                minAmp = min(array)
+                if maxAmp > lastMax:
+                    lastMax = maxAmp
+                if minAmp < lastMin:
+                    lastMin = minAmp
+            lastMax = lastMax * 20
+            lastMin = lastMin * 20
+            reportPath = rp.createReport(nodename, city, seconds, lastMax, lastMin)
+
+        else:
+            errMsgBox = QMessageBox()
+            errMsgBox.setText("No existen datos que exportar.")
+            errMsgBox.setWindowTitle("HEATS-Board")
+            errMsgBox.exec_()
