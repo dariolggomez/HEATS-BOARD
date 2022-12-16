@@ -84,8 +84,8 @@ class MainWindow(QMainWindow):
             ## ==> ADD CUSTOM MENUS
             self.ui.stackedWidget.setMinimumWidth(20)
             self.addNewMenu("Centro de Nodos", "btn_nodes", "url(:/16x16/icons/16x16/cil-layers.png)", True)
-            self.addNewMenu("Dashboard", "btn_dashboard", "url(:/16x16/icons/16x16/cil-chart-line.png)", True)
-            self.addNewMenu("Gráficas", "btn_rt_graphics", "url(:/16x16/icons/16x16/cil-chart.png)", True)
+            self.addNewMenu("Panel de información", "btn_dashboard", "url(:/16x16/icons/16x16/cil-chart-line.png)", True)
+            self.addNewMenu("Captura de señal", "btn_rt_graphics", "url(:/16x16/icons/16x16/cil-chart.png)", True)
             if (authenticatedUser is not None and authenticatedUser.role == 1):
                 self.addNewMenu("Usuarios", "btn_new_user", "url(:/16x16/icons/16x16/cil-user-follow.png)", True)
             self.addNewMenu("Conexión", "btn_network", "url(:/16x16/icons/16x16/cil-rss.png)", True)
