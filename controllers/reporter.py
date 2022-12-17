@@ -37,7 +37,7 @@ def createReport(name, city, startSeconds, maxAmp, minAmp):
 
     centerText(c, 'Reporte de HEATS-Board', 'Times-BoldItalic', 38, 19*cm)
     centerText(c, '{} {}'.format(name, city), 'Times-BoldItalic', 32, 17.7*cm)
-    centerText(c, 'Gráficos de Procesamiento {}'.format(dateString[:10]), 'Times-Italic', 24, 16.7*cm)
+    centerText(c, 'Captura de señal {}'.format(dateString[:10]), 'Times-Italic', 24, 16.7*cm)
     drawText(c, f'Hora de inicio: {startTime.replace("-",":")}', 'Times-Italic', 16, 2.5*cm, 15*cm)
     drawText(c, f'Hora final: {dateString[11:].replace("-",":")}', 'Times-Italic', 16, 2.5*cm, 14*cm)
     drawText(c, 'Máxima amplitud: %.3f' %maxAmp, 'Times-Italic', 16, 10.5*cm, 15*cm)
