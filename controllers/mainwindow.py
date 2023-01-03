@@ -132,6 +132,7 @@ class MainWindow(QMainWindow):
             ## ==> LOAD DEFINITIONS
             ########################################################################
             self.uiDefinitions()
+            self.ui.disconnectBtn.setEnabled(False)
             ## ==> END ##
 
             ## ==> QTableWidget RARAMETERS
@@ -738,7 +739,6 @@ class MainWindow(QMainWindow):
         host = self.ui.hostLineEdit.text()
         hostPortStr = self.ui.hostPortLineEdit.text()
         if(hostPortStr != '' and host != ''):
-            self.ui.connectBtn.setEnabled(False)
             port = int(self.ui.hostPortLineEdit.text())
             connectionThread = Thread(target = self.serverController.start_server, args= (host,port))
             connectionThread.daemon = True
@@ -752,6 +752,7 @@ class MainWindow(QMainWindow):
     def disconnectServer(self):
         self.serverController.stop_server()
         self.ui.connectBtn.setEnabled(True)
+        self.ui.disconnectBtn.setEnabled(False)
 
     def backupTemporaryFile(self):
         contentReaded = False
@@ -773,6 +774,12 @@ class MainWindow(QMainWindow):
                     print(str(e))
                     print(f"Ocurrió un error al intentar hacer la salva de la información")
                     self.ui.console.insertPlainText(f"{datetime.today().strftime('%Y-%m-%d %H:%M:%S')} >> Ocurrió un error al intentar hacer la salva de la información.")
+    
+    @Slot()
+    def disableConnectButton(self):
+        self.ui.connectBtn.setEnabled(False)
+        self.ui.disconnectBtn.setEnabled(True)
+    
     @Slot()        
     def update_waveform(self, valuesList, net_sender_id):
         if self.currentReceptorId == net_sender_id:
