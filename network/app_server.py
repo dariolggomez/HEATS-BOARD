@@ -12,10 +12,12 @@ import network.libserver as libserver
 
 class ServerController(QtCore.QObject):
     consoleMessageSignal = QtCore.Signal(str)
+    disableConnectButtonSignal = QtCore.Signal()
     def __init__(self, mainWindow):
         super().__init__()
         self.mainWindow_controller = mainWindow
         self.consoleMessageSignal.connect(self.mainWindow_controller.showConsoleMessage)
+        self.disableConnectButtonSignal.connect(self.mainWindow_controller.disableConnectButton)
         self.create_ssl_context()
 
 
@@ -42,7 +44,12 @@ class ServerController(QtCore.QObject):
         self.lsock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         # Avoid bind() exception: OSError: [Errno 48] Address already in use
         self.lsock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-        self.lsock.bind((host, port))
+        try:
+            self.lsock.bind((host, port))
+        except:
+            self.consoleMessageSignal.emit("Dirección del servidor no válida.")
+            return
+        self.disableConnectButtonSignal.emit()
         self.lsock.listen(5)
         print(f"Listening on {(host, port)}")
         self.consoleMessageSignal.emit(f"Servidor iniciado >> {host} : {port}")
