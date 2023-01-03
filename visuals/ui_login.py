@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'ui_loginWoMhsS.ui'
+## Form generated from reading UI file 'ui_loginTDbmiW.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -375,7 +375,7 @@ class Ui_Login(object):
     # setupUi
 
     def retranslateUi(self, Login):
-        Login.setWindowTitle(QCoreApplication.translate("Login", u"Form", None))
+        Login.setWindowTitle(QCoreApplication.translate("Login", u"HEATS-BOARD", None))
         self.label_user.setText(QCoreApplication.translate("Login", u"Usuario", None))
         self.label_password.setText(QCoreApplication.translate("Login", u"Contrase\u00f1a", None))
         self.accept_button.setText(QCoreApplication.translate("Login", u"Aceptar", None))
