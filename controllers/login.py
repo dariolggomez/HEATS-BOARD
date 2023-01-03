@@ -13,7 +13,6 @@ class Login(SingletonClass,QWidget):
                 super().__init__(parent)
                 self.ui = Ui_Login()
                 self.ui.setupUi(self)
-                self.ui.cancel_button.clicked.connect(self.close)
                 self.ui.accept_button.clicked.connect(self.authenticate)
                 self.__instanciated = True
         except Exception as e:

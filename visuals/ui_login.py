@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'ui_loginTDbmiW.ui'
+## Form generated from reading UI file 'ui_loginBpKiMa.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -17,16 +17,16 @@ class Ui_Login(object):
     def setupUi(self, Login):
         if not Login.objectName():
             Login.setObjectName(u"Login")
-        Login.resize(350, 300)
+        Login.resize(500, 350)
         Login.setMinimumSize(QSize(350, 300))
-        Login.setMaximumSize(QSize(400, 350))
-        Login.setStyleSheet(u"background-color: rgb(44, 49, 60);")
+        Login.setMaximumSize(QSize(500, 350))
+        Login.setStyleSheet(u"background-color: rgb(24, 26, 33);")
         self.verticalLayout = QVBoxLayout(Login)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.bg = QFrame(Login)
         self.bg.setObjectName(u"bg")
         self.bg.setStyleSheet(u"/* LINE EDIT */\n"
-"background-color: rgb(44, 49, 60);\n"
+"background-color: rgb(24, 26, 33);\n"
 "color: rgb(85, 170, 255);\n"
 "QLineEdit {\n"
 "	background-color: rgb(27, 29, 35);\n"
@@ -251,21 +251,31 @@ class Ui_Login(object):
         self.label_user = QLabel(self.inputs_frame)
         self.label_user.setObjectName(u"label_user")
         font = QFont()
-        font.setPointSize(9)
+        font.setFamily(u"Segoe UI Semibold")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
         self.label_user.setFont(font)
 
         self.verticalLayout_2.addWidget(self.label_user)
 
         self.user_lineEdit = QLineEdit(self.inputs_frame)
         self.user_lineEdit.setObjectName(u"user_lineEdit")
-        self.user_lineEdit.setMinimumSize(QSize(0, 25))
-        self.user_lineEdit.setMaximumSize(QSize(16777215, 25))
-        self.user_lineEdit.setFont(font)
+        self.user_lineEdit.setMinimumSize(QSize(0, 40))
+        self.user_lineEdit.setMaximumSize(QSize(16777215, 40))
+        font1 = QFont()
+        font1.setFamily(u"Segoe UI Semibold")
+        font1.setPointSize(10)
+        font1.setBold(True)
+        font1.setItalic(False)
+        font1.setWeight(75)
+        self.user_lineEdit.setFont(font1)
         self.user_lineEdit.setStyleSheet(u"QLineEdit {\n"
-"	background-color: rgb(27, 29, 35);\n"
+"	background-color: rgb(50, 53, 60);\n"
 "	border-radius: 5px;\n"
 "	border: 2px solid rgb(27, 29, 35);\n"
 "	padding-left: 10px;\n"
+"	color: rgb(235, 235, 235);\n"
 "}\n"
 "QLineEdit:hover {\n"
 "	border: 2px solid rgb(64, 71, 88);\n"
@@ -284,14 +294,17 @@ class Ui_Login(object):
 
         self.password_lineEdit = QLineEdit(self.inputs_frame)
         self.password_lineEdit.setObjectName(u"password_lineEdit")
-        self.password_lineEdit.setMinimumSize(QSize(0, 25))
-        self.password_lineEdit.setMaximumSize(QSize(16777215, 25))
-        self.password_lineEdit.setFont(font)
+        self.password_lineEdit.setMinimumSize(QSize(0, 40))
+        self.password_lineEdit.setMaximumSize(QSize(16777215, 40))
+        font2 = QFont()
+        font2.setPointSize(10)
+        self.password_lineEdit.setFont(font2)
         self.password_lineEdit.setStyleSheet(u"QLineEdit {\n"
-"	background-color: rgb(27, 29, 35);\n"
+"	background-color: rgb(50, 53, 60);\n"
 "	border-radius: 5px;\n"
 "	border: 2px solid rgb(27, 29, 35);\n"
 "	padding-left: 10px;\n"
+"	color: rgb(235, 235, 235);\n"
 "}\n"
 "QLineEdit:hover {\n"
 "	border: 2px solid rgb(64, 71, 88);\n"
@@ -306,61 +319,39 @@ class Ui_Login(object):
 
         self.verticalLayout_3.addWidget(self.inputs_frame)
 
-        self.verticalSpacer = QSpacerItem(20, 33, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.verticalLayout_3.addItem(self.verticalSpacer)
-
         self.buttons_frame = QFrame(self.bg)
         self.buttons_frame.setObjectName(u"buttons_frame")
         self.buttons_frame.setFrameShape(QFrame.StyledPanel)
         self.buttons_frame.setFrameShadow(QFrame.Raised)
         self.horizontalLayout = QHBoxLayout(self.buttons_frame)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.horizontalSpacer = QSpacerItem(77, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout.addItem(self.horizontalSpacer)
-
         self.accept_button = QPushButton(self.buttons_frame)
         self.accept_button.setObjectName(u"accept_button")
-        self.accept_button.setMinimumSize(QSize(80, 30))
-        self.accept_button.setMaximumSize(QSize(80, 30))
-        self.accept_button.setFont(font)
+        self.accept_button.setMinimumSize(QSize(180, 50))
+        self.accept_button.setMaximumSize(QSize(180, 50))
+        font3 = QFont()
+        font3.setFamily(u"Segoe UI Semibold")
+        font3.setPointSize(12)
+        font3.setBold(True)
+        font3.setWeight(75)
+        self.accept_button.setFont(font3)
+        self.accept_button.setFocusPolicy(Qt.NoFocus)
         self.accept_button.setStyleSheet(u"QPushButton {\n"
-"	border: 2px solid rgb(52, 59, 72);\n"
+"	border: 2px solid rgb(23, 145, 239);\n"
 "	border-radius: 5px;	\n"
-"	background-color: rgb(52, 59, 72);\n"
+"	background-color: rgb(23, 145, 239);\n"
+"	color: rgb(245, 245, 245);\n"
 "}\n"
 "QPushButton:hover {\n"
-"	background-color: rgb(57, 65, 80);\n"
-"	border: 2px solid rgb(61, 70, 86);\n"
+"	background-color: rgb(33, 155, 249);\n"
+"	border: 2px solid rgb(23, 145, 239);\n"
 "}\n"
 "QPushButton:pressed {	\n"
-"	background-color: rgb(35, 40, 49);\n"
-"	border: 2px solid rgb(43, 50, 61);\n"
+"	background-color: rgb(38, 159, 254);\n"
+"	border: 2px solid rgb(38, 159, 254);\n"
 "}")
 
-        self.horizontalLayout.addWidget(self.accept_button)
-
-        self.cancel_button = QPushButton(self.buttons_frame)
-        self.cancel_button.setObjectName(u"cancel_button")
-        self.cancel_button.setMinimumSize(QSize(80, 30))
-        self.cancel_button.setMaximumSize(QSize(80, 30))
-        self.cancel_button.setFont(font)
-        self.cancel_button.setStyleSheet(u"QPushButton {\n"
-"	border: 2px solid rgb(52, 59, 72);\n"
-"	border-radius: 5px;	\n"
-"	background-color: rgb(52, 59, 72);\n"
-"}\n"
-"QPushButton:hover {\n"
-"	background-color: rgb(57, 65, 80);\n"
-"	border: 2px solid rgb(61, 70, 86);\n"
-"}\n"
-"QPushButton:pressed {	\n"
-"	background-color: rgb(35, 40, 49);\n"
-"	border: 2px solid rgb(43, 50, 61);\n"
-"}")
-
-        self.horizontalLayout.addWidget(self.cancel_button)
+        self.horizontalLayout.addWidget(self.accept_button, 0, Qt.AlignHCenter)
 
 
         self.verticalLayout_3.addWidget(self.buttons_frame)
@@ -378,7 +369,9 @@ class Ui_Login(object):
         Login.setWindowTitle(QCoreApplication.translate("Login", u"HEATS-BOARD", None))
         self.label_user.setText(QCoreApplication.translate("Login", u"Usuario", None))
         self.label_password.setText(QCoreApplication.translate("Login", u"Contrase\u00f1a", None))
-        self.accept_button.setText(QCoreApplication.translate("Login", u"Aceptar", None))
-        self.cancel_button.setText(QCoreApplication.translate("Login", u"Cancelar", None))
+        self.accept_button.setText(QCoreApplication.translate("Login", u"Iniciar sesi\u00f3n", None))
+#if QT_CONFIG(shortcut)
+        self.accept_button.setShortcut(QCoreApplication.translate("Login", u"Return", None))
+#endif // QT_CONFIG(shortcut)
     # retranslateUi
 
