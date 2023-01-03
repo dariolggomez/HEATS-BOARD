@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'ui_loginBpKiMa.ui'
+## Form generated from reading UI file 'ui_loginerKppN.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -18,7 +18,7 @@ class Ui_Login(object):
         if not Login.objectName():
             Login.setObjectName(u"Login")
         Login.resize(500, 350)
-        Login.setMinimumSize(QSize(350, 300))
+        Login.setMinimumSize(QSize(350, 325))
         Login.setMaximumSize(QSize(500, 350))
         Login.setStyleSheet(u"background-color: rgb(24, 26, 33);")
         self.verticalLayout = QVBoxLayout(Login)
