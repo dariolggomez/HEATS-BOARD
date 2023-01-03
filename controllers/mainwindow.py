@@ -147,7 +147,7 @@ class MainWindow(QMainWindow):
             self.ui.eliminateBtn.clicked.connect(self.eliminateCurrentRow)
             self.ui.createBtn.clicked.connect(self.showCreateUsersDialog)
             self.ui.editBtn.clicked.connect(self.showUpdateUsersDialog)
-            self.ui.connectBtn.clicked.connect(self.connectToHost)
+            self.ui.connectBtn.clicked.connect(self.startServer)
             self.ui.disconnectBtn.clicked.connect(self.disconnectServer)
             self.ui.apply_threshold_btn.clicked.connect(self.current_threshold_changed)
 
@@ -734,7 +734,7 @@ class MainWindow(QMainWindow):
             msgBox.setText("Debe seleccionar un usuario.")
             msgBox.exec_()
 
-    def connectToHost(self):
+    def startServer(self):
         host = self.ui.hostLineEdit.text()
         hostPortStr = self.ui.hostPortLineEdit.text()
         if(hostPortStr != '' and host != ''):
