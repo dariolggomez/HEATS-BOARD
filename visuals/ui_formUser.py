@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'formUserzqecxu.ui'
+## Form generated from reading UI file 'formUserABuZtg.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -488,8 +488,8 @@ class Ui_Dialog(object):
         Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Dialog", None))
         self.label_4.setText(QCoreApplication.translate("Dialog", u"Crear Usuario", None))
         self.label_3.setText(QCoreApplication.translate("Dialog", u"Rol", None))
-        self.comboBox.setItemText(0, QCoreApplication.translate("Dialog", u"Usuario", None))
-        self.comboBox.setItemText(1, QCoreApplication.translate("Dialog", u"Operador", None))
+        self.comboBox.setItemText(0, QCoreApplication.translate("Dialog", u"Operador", None))
+        self.comboBox.setItemText(1, QCoreApplication.translate("Dialog", u"Administrador", None))
 
         self.label.setText(QCoreApplication.translate("Dialog", u"Nombre de Usuario", None))
         self.label_2.setText(QCoreApplication.translate("Dialog", u"Email", None))
