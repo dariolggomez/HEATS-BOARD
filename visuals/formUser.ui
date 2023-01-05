@@ -322,12 +322,12 @@ QComboBox QAbstractItemView {
               </property>
               <item>
                <property name="text">
-                <string>Usuario</string>
+                <string>Operador</string>
                </property>
               </item>
               <item>
                <property name="text">
-                <string>Operador</string>
+                <string>Administrador</string>
                </property>
               </item>
              </widget>
