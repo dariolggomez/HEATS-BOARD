@@ -1632,7 +1632,7 @@ QPushButton:pressed {
 color: rgb(210, 210, 210);</string>
                   </property>
                   <property name="currentIndex">
-                   <number>5</number>
+                   <number>4</number>
                   </property>
                   <widget class="QWidget" name="page_nodes_centre">
                    <layout class="QVBoxLayout" name="verticalLayout_26">
@@ -5370,7 +5370,7 @@ border-radius: 5px;</string>
                              <string notr="true"/>
                             </property>
                             <property name="text">
-                             <string>Configuración del Cliente</string>
+                             <string>Configuración del servidor</string>
                             </property>
                            </widget>
                           </item>
