@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUI_BASEvSSSWA.ui'
+## Form generated from reading UI file 'GUI_BASEXyhTjp.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -2646,7 +2646,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(5)
+        self.stackedWidget.setCurrentIndex(4)
         self.panel_stacked_widget.setCurrentIndex(1)
 
 
@@ -2700,7 +2700,7 @@ class Ui_MainWindow(object):
         self.labelBoxHeaderSettings.setText(QCoreApplication.translate("MainWindow", u"Configuraci\u00f3n", None))
         self.btn_settings_fullscreen.setText(QCoreApplication.translate("MainWindow", u"Pantalla Completa    F11", None))
         self.backupCheckBox.setText(QCoreApplication.translate("MainWindow", u"Salvas Peri\u00f3dicas", None))
-        self.labelHeaderUser_2.setText(QCoreApplication.translate("MainWindow", u"Configuraci\u00f3n del Cliente", None))
+        self.labelHeaderUser_2.setText(QCoreApplication.translate("MainWindow", u"Configuraci\u00f3n del servidor", None))
         self.labelHeaderUser_3.setText(QCoreApplication.translate("MainWindow", u"Direcci\u00f3n del Servidor", None))
         self.labelHeaderUser_4.setText(QCoreApplication.translate("MainWindow", u"Puerto del Servidor", None))
         self.disconnectBtn.setText(QCoreApplication.translate("MainWindow", u"Desconectar", None))
