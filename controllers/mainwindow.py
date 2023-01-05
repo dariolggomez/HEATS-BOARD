@@ -409,9 +409,9 @@ class MainWindow(QMainWindow):
             for col, text in enumerate(cols):
                 if(col == 1):
                     if(text == 0):
-                        text = "Usuario"
-                    else:
                         text = "Operador"
+                    else:
+                        text = "Administrador"
                 table_item = QTableWidgetItem(str(text))
                 table_item.setData(QtCore.Qt.UserRole+1, user_service.read_byID(rows[row][0]))
                 self.ui.userTableWidget.setItem(row, col, table_item)
