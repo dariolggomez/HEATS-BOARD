@@ -179,12 +179,12 @@ class MainWindow(QMainWindow):
             #     print(str(e))
             
             # BACKUP THREAD
-            try:
-                backupExecutionTimer = Timer(30.0, self.checkIfBackupOn)
-                backupExecutionTimer.daemon = True
-                backupExecutionTimer.start()
-            except Exception as e:
-                print(str(e))
+            # try:
+            #     backupExecutionTimer = Timer(30.0, self.checkIfBackupOn)
+            #     backupExecutionTimer.daemon = True
+            #     backupExecutionTimer.start()
+            # except Exception as e:
+            #     print(str(e))
 
             # Static Chart
             # layout = QtWidgets.QGridLayout(self.ui.page_home)
