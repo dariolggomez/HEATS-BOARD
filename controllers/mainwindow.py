@@ -302,7 +302,7 @@ class MainWindow(QMainWindow):
             # if(self.graphicsLoaded == False):
                 # self.dashboardController.loadGraphics()
             self.resetStyle("btn_dashboard")
-            self.labelPage("Dashboard")
+            self.labelPage("Panel de información")
             btnWidget.setStyleSheet(self.selectMenu(btnWidget.styleSheet()))
             # self.dashboardController.tightLayoutCharts()
         
@@ -310,7 +310,7 @@ class MainWindow(QMainWindow):
         if btnWidget.objectName() == "btn_rt_graphics":
             self.ui.stackedWidget.setCurrentWidget(self.ui.page_rt_graphics)
             self.resetStyle("btn_rt_graphics")
-            self.labelPage("Gráficas")
+            self.labelPage("Captura de señal")
             btnWidget.setStyleSheet(self.selectMenu(btnWidget.styleSheet()))
 
         # PAGE USER
